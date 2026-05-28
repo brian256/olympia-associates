@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olympia & Associates — Strategic Consulting, Edmonton</title>
+  <meta name="description" content="Career consulting, professional development, business strategy, and settlement navigation. Four practice areas. One practice. Edmonton, Alberta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — OLYMPIA & ASSOCIATES
+    ============================================================ */
+    :root {
+      --gold:       #90660C;
+      --gold-light: #B8842E;
+      --near-black: #1A1A1A;
+      --body-text:  #3C3C3C;
+      --muted:      #7A7060;
+      --border:     #DDD1B6;
+      --bg-warm:    #F7F4ED;
+      --bg-cool:    #EFECE4;
+      --white:      #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Source Sans 3', system-ui, sans-serif;
+      --max-w:  1180px;
+      --gutter: 24px;
+      --radius: 2px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+    section { padding: 72px 0; }
+    section.compact { padding: 44px 0; }
+
+    h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 5.5vw, 4.2rem); font-weight: 600; line-height: 1.1; color: var(--near-black); letter-spacing: -0.01em; }
+    h2 { font-family: var(--font-display); font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 600; line-height: 1.2; color: var(--near-black); }
+    h3 { font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 600; line-height: 1.3; color: var(--near-black); }
+    h4 { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+    p { font-size: 1.0625rem; line-height: 1.75; color: var(--body-text); }
+
+    .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .section-label span { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; border-radius: var(--radius); cursor: pointer; transition: all 0.18s ease; min-height: 48px; border: 2px solid transparent; }
+    .btn-primary { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-primary:hover { background: var(--near-black); border-color: var(--near-black); }
+    .btn-ghost { background: transparent; color: var(--near-black); border-color: var(--near-black); }
+    .btn-ghost:hover { background: var(--near-black); color: var(--white); }
+    .btn-ghost-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.4); }
+    .btn-ghost-white:hover { background: var(--white); color: var(--near-black); }
+    .btn-link { background: none; border: none; padding: 0; color: var(--gold); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.18s ease; }
+    .btn-link:hover { gap: 10px; }
+    .btn-link::after { content: '→'; }
+
+    /* ── NAVIGATION ── */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.2s ease; }
+    .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .wordmark { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--near-black); letter-spacing: 0.01em; flex-shrink: 0; }
+    .wordmark em { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 0; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 8px 16px; font-size: 0.9375rem; font-weight: 500; color: var(--body-text); transition: color 0.15s; white-space: nowrap; }
+    .nav-links > li > a:hover { color: var(--gold); }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .dropdown { list-style: none; display: none; position: absolute; top: calc(100% + 1px); left: 0; min-width: 240px; background: var(--white); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 8px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .dropdown li a { display: block; padding: 10px 20px; font-size: 0.85rem; color: var(--body-text); transition: background 0.12s, color 0.12s; }
+    .dropdown li a:hover { background: var(--bg-warm); color: var(--gold); }
+    .nav-cta { margin-left: 20px; padding: 10px 22px; font-size: 0.85rem; min-height: 40px; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; width: 40px; height: 40px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--near-black); transition: all 0.2s ease; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-drawer { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--white); padding: 32px var(--gutter); overflow-y: auto; border-top: 1px solid var(--border); flex-direction: column; gap: 4px; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--near-black); border-bottom: 1px solid var(--border); }
+    .nav-drawer a:last-of-type { border-bottom: none; }
+    .drawer-cta { margin-top: 24px; }
+
+    /* ── §1 HERO ── */
+    .hero { padding: 120px 0 80px; background: var(--white); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 45%; height: 100%; background: var(--bg-warm); clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%); z-index: 0; }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: center; }
+    .hero-text { max-width: 560px; }
+    .hero-tag { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; border-radius: var(--radius); margin-bottom: 28px; }
+    .hero h1 { margin-bottom: 24px; }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: 1.1rem; line-height: 1.65; color: var(--muted); margin-bottom: 40px; max-width: 480px; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+    .hero-scroll { font-size: 0.875rem; color: var(--muted); font-weight: 500; display: inline-flex; align-items: center; gap: 6px; transition: color 0.15s; }
+    .hero-scroll:hover { color: var(--gold); }
+    .portrait-frame { width: 100%; aspect-ratio: 4/5; background: var(--bg-cool); border: 1px solid var(--border); overflow: hidden; position: relative; }
+    .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .portrait-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.85rem; }
+
+    /* ── §2 THE PRACTICE ── */
+    .practice-section { background: var(--near-black); padding: 72px 0; }
+    .practice-section .section-label::before { background: var(--gold); }
+    .practice-section .section-label span { color: var(--gold-light); }
+    .practice-section h2 { color: var(--white); font-size: clamp(1.6rem, 2.8vw, 2.2rem); margin-bottom: 20px; }
+    .practice-section p { color: rgba(255,255,255,0.72); margin-bottom: 14px; }
+    .practice-section p:last-of-type { margin-bottom: 0; }
+    .practice-creds { display: flex; flex-wrap: wrap; gap: 0; margin-top: 36px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; }
+    .practice-cred { padding: 0 40px 0 0; }
+    .practice-cred:first-child { padding-left: 0; }
+    .practice-cred .cred-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); display: block; margin-bottom: 5px; }
+    .practice-cred .cred-value { font-family: var(--font-display); font-size: 1.0rem; font-weight: 600; color: rgba(255,255,255,0.85); }
+
+    /* ── §3 STREAM CARDS ── */
+    .streams-section { background: var(--white); }
+    .streams-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--border); margin-top: 32px; }
+    .stream-card { padding: 36px 28px; border-right: 1px solid var(--border); transition: background 0.2s ease; display: flex; flex-direction: column; }
+    .stream-card:last-child { border-right: none; }
+    .stream-card:hover { background: var(--bg-warm); }
+    .stream-card:hover .stream-icon { background: var(--gold); }
+    .stream-card:hover .stream-icon svg { color: var(--white); }
+    .stream-icon { width: 44px; height: 44px; background: var(--bg-warm); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; flex-shrink: 0; transition: background 0.2s; }
+    .stream-icon svg { width: 22px; height: 22px; color: var(--gold); transition: color 0.2s; }
+    .stream-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: block; }
+    .stream-card h3 { font-size: 1.0rem; margin-bottom: 14px; line-height: 1.3; }
+    .stream-card p { font-size: 0.875rem; line-height: 1.65; color: var(--muted); flex: 1; }
+    .stream-more { display: inline-flex; align-items: center; gap: 5px; margin-top: 20px; font-size: 0.8rem; font-weight: 600; color: var(--gold); letter-spacing: 0.04em; transition: gap 0.15s; }
+    .stream-card:hover .stream-more { gap: 9px; }
+    .stream-more::after { content: '→'; }
+
+    /* ── §4 FREE ENTRY POINT ── */
+    .entry-point { background: var(--gold); padding: 60px 0; }
+    .entry-inner { display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+    .entry-point h2 { color: var(--white); font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 16px; }
+    .entry-point p { color: rgba(255,255,255,0.85); font-size: 1.05rem; max-width: 520px; }
+    .entry-cta .btn { background: var(--white); color: var(--gold); border-color: var(--white); white-space: nowrap; font-size: 1rem; padding: 16px 32px; }
+    .entry-cta .btn:hover { background: var(--near-black); border-color: var(--near-black); color: var(--white); }
+
+    /* ── §5 CASE STUDIES ── */
+    .casestudies-section { background: var(--bg-warm); }
+    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 32px; border: 1px solid var(--border); background: var(--border); }
+    .case-card { background: var(--white); padding: 32px 28px; display: flex; flex-direction: column; transition: background 0.2s; }
+    .case-card:hover { background: var(--bg-warm); }
+    .case-stream { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .case-card h3 { font-size: 1.25rem; margin-bottom: 6px; }
+    .case-headline { font-family: var(--font-display); font-size: 0.95rem; font-style: italic; color: var(--muted); margin-bottom: 18px; }
+    .case-card p { font-size: 0.875rem; line-height: 1.65; color: var(--body-text); flex: 1; margin-bottom: 24px; }
+    .case-stat { display: block; font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .case-stat-label { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em; display: block; margin-bottom: 20px; }
+
+    /* ── §6 TESTIMONIALS ── */
+    .testimonials-section { background: var(--near-black); padding: 72px 0; }
+    .testimonials-section .section-label::before { background: var(--gold); }
+    .testimonials-section .section-label span { color: var(--gold-light); }
+    .testimonials-section h2 { color: var(--white); margin-bottom: 32px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .testi-card { background: rgba(255,255,255,0.05); padding: 28px 28px 24px; border: 1px solid rgba(255,255,255,0.07); display: flex; flex-direction: column; }
+    .testi-quote { font-family: var(--font-display); font-size: 2.4rem; line-height: 1; color: var(--gold); margin-bottom: 10px; }
+    .testi-card p { font-family: var(--font-body); font-size: 1.05rem; font-style: normal; line-height: 1.7; color: rgba(255,255,255,0.85); flex: 1; margin-bottom: 20px; }
+    .testi-author { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px; }
+    .testi-name { font-size: 0.85rem; font-weight: 600; color: var(--white); display: block; }
+    .testi-role { font-size: 0.75rem; color: rgba(255,255,255,0.4); display: block; margin-top: 2px; }
+    .testi-badge { display: inline-block; background: rgba(144,102,12,0.25); color: var(--gold-light); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 7px; margin-top: 8px; }
+
+    /* ── §7 FOOTER CTA ── */
+    .footer-cta { background: var(--bg-warm); border-top: 2px solid var(--gold); padding: 72px 0; text-align: center; }
+    .footer-cta h2 { margin-bottom: 10px; }
+    .footer-cta p { font-size: 1.0rem; color: var(--muted); margin-bottom: 24px; }
+
+    /* ── FOOTER ── */
+    .site-footer { background: var(--near-black); padding: 52px 0 0; }
+    .footer-cols { display: grid; grid-template-columns: 280px 1fr 0.7fr 200px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-brand .wordmark { font-size: 1.25rem; color: var(--white); }
+    .footer-brand .wordmark em { color: var(--gold); }
+    .footer-tagline { margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.45); font-style: italic; font-family: var(--font-display); line-height: 1.8; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; display: block; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-contact p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 8px; }
+    .footer-contact a { color: var(--gold-light); transition: opacity 0.15s; }
+    .footer-contact a:hover { opacity: 0.8; }
+    .footer-fine { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 32px; }
+    .fine-print { font-size: 0.73rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+    .footer-legal-links { display: flex; gap: 20px; flex-shrink: 0; }
+    .footer-legal-links a { font-size: 0.8rem; color: var(--gold-light); transition: color 0.15s; font-weight: 600; }
+    .footer-legal-links a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr 300px; gap: 48px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 64px 0; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .hero { padding: 100px 0 64px; }
+      .hero::before { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+      .hero-portrait { order: -1; }
+      .portrait-frame { aspect-ratio: 16/9; max-height: 260px; }
+      .practice-creds { gap: 24px; }
+      .practice-cred { padding-right: 0; }
+      .streams-grid { grid-template-columns: 1fr 1fr; }
+      .stream-card:nth-child(2) { border-right: none; }
+      .stream-card:nth-child(3) { border-top: 1px solid var(--border); }
+      .stream-card:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+      .entry-inner { grid-template-columns: 1fr; gap: 28px; }
+      .case-grid { grid-template-columns: 1fr; gap: 1px; }
+      .testi-grid { grid-template-columns: 1fr; gap: 2px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .footer-fine { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 2.1rem; }
+      .streams-grid { grid-template-columns: 1fr; }
+      .stream-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .stream-card:last-child { border-bottom: none; }
+      .stream-card:nth-child(n) { border-top: none; }
+      .footer-cols { grid-template-columns: 1fr; }
+    }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-text { animation: fadeUp 0.6s ease both; }
+    .hero-portrait { animation: fadeUp 0.6s 0.15s ease both; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="wordmark">Olympia <em>&</em> Associates</a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="/about.html" aria-haspopup="true" aria-expanded="false">About Us</a>
+          <ul class="dropdown">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" aria-haspopup="true" aria-expanded="false">What We Offer</a>
+          <ul class="dropdown">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact.html">Reach Us</a></li>
+      </ul>
+      <a href="[CALENDLY_URL]" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book a free 30-min call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+      <a href="/about.html">About Us — Our Story</a>
+      <a href="/services/career-consulting.html">Career Consulting — High School</a>
+      <a href="/services/professional-development.html">Professional Development</a>
+      <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
+      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
+      <a href="/work.html">Case Studies</a>
+      <a href="/contact.html">Reach Us</a>
+      <div class="drawer-cta">
+        <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book a free 30-min call</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- §1 HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <span class="hero-tag">Edmonton, Alberta · est. 2024</span>
+            <h1 id="hero-heading">You're navigating<br><em>real systems.</em><br>We help you build<br>a plan that works.</h1>
+            <p class="hero-sub">Career consulting. Professional development. Business strategy. Settlement navigation. Four practice areas. One house.</p>
+            <div class="hero-actions">
+              <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener">Book a free 30-min call</a>
+              <a href="#streams" class="hero-scroll">See our work ↓</a>
+            </div>
+          </div>
+          <div class="hero-portrait" aria-hidden="true">
+            <div class="portrait-frame">
+              <img src="assets/images/portrait.jpg" alt="Brian Ssennoga — Founder, Olympia &amp; Associates"
+                onerror="this.parentElement.innerHTML='<div class=\'portrait-placeholder\'>portrait.jpg</div>'">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §2 THE PRACTICE -->
+    <section class="practice-section" aria-labelledby="practice-heading">
+      <div class="container">
+        <div class="section-label"><span>The practice</span></div>
+        <h2 id="practice-heading">Twenty years of work across three continents.</h2>
+        <p>Olympia &amp; Associates was built on twenty years of work across three continents — managing technology deployments at national scale, coaching first-time leaders in East Africa, and navigating the systems that shape how people build careers, businesses, and lives.</p>
+        <p>Brian Ssennoga is the founder. He is a founding member of the ICT Association of Uganda, the builder of a community health system serving 780,000+ refugees, a practitioner at the Alberta Machine Intelligence Institute, and a management coach with eight years of facilitation history at the Kampala Leadership Hub. He has been doing this work since before it had a name.</p>
+        <p>Olympia &amp; Associates is his Edmonton practice — bringing that history to bear on the problems in front of you.</p>
+        <div class="practice-creds">
+          <div class="practice-cred">
+            <span class="cred-label">Experience</span>
+            <span class="cred-value">20+ years · 3 continents</span>
+          </div>
+          <div class="practice-cred">
+            <span class="cred-label">Credentials</span>
+            <span class="cred-value">PMP® · CGEIT · MBA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §3 STREAM CARDS -->
+    <section class="streams-section" id="streams" aria-labelledby="streams-heading">
+      <div class="container">
+        <div class="section-label"><span>Four practice areas</span></div>
+        <h2 id="streams-heading">Find yourself in the work.</h2>
+        <div class="streams-grid">
+
+          <article class="stream-card">
+            <div class="stream-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <span class="stream-tag">For parents of students in Grades 9–12</span>
+            <h3>Career Consulting — High School</h3>
+            <p>Your child is smart. The question is whether the plan matches the opportunity — before the windows close.</p>
+            <a href="/services/career-consulting.html" class="stream-more">Learn more</a>
+          </article>
+
+          <article class="stream-card">
+            <div class="stream-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <span class="stream-tag">For landed professionals in transition</span>
+            <h3>Professional Development</h3>
+            <p>Your experience is real. The question is whether your résumé and LinkedIn say what they need to say to the right employers.</p>
+            <a href="/services/professional-development.html" class="stream-more">Learn more</a>
+          </article>
+
+          <article class="stream-card">
+            <div class="stream-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <span class="stream-tag">For founders, executives, and team leaders</span>
+            <h3>Leadership &amp; Business Consulting</h3>
+            <p>You have the vision. The question is whether the structure beneath it will hold — and whether someone has pressure-tested the plan honestly.</p>
+            <a href="/services/leadership-consulting.html" class="stream-more">Learn more</a>
+          </article>
+
+          <article class="stream-card">
+            <div class="stream-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            </div>
+            <span class="stream-tag">For individuals and families settling in Alberta</span>
+            <h3>Newcomer &amp; Immigration</h3>
+            <p>You've arrived. The question is whether you know what to do first — before the windows that can't be recovered close quietly behind you.</p>
+            <a href="/services/newcomer-pathways.html" class="stream-more">Learn more</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- §6 TESTIMONIALS -->
+    <section class="testimonials-section" aria-labelledby="testi-heading">
+      <div class="container">
+        <div class="section-label"><span>What clients say</span></div>
+        <h2 id="testi-heading">In their words.</h2>
+        <div class="testi-grid">
+
+          <article class="testi-card">
+            <div class="testi-quote" aria-hidden="true">"</div>
+            <p>I had built fifteen years of real HR experience — I just needed a way to present it so Canadian employers could immediately see my value. Brian rebuilt my professional presence from the ground up: the LinkedIn headlines, the bios, the application strategy, even the follow-up after interviews. Within a short period, I secured a role that aligned with my experience and career goals. Follow Brian's guidance and trust his process — success doesn't happen by accident. It happens because the groundwork was laid properly.</p>
+            <div class="testi-author">
+              <span class="testi-name">Maureen Mutesasira</span>
+              <span class="testi-role">Professional Development</span>
+            </div>
+          </article>
+
+          <article class="testi-card">
+            <div class="testi-quote" aria-hidden="true">"</div>
+            <p>By the time I walked into that interview I wasn't nervous. I was ready. I had the role within weeks.</p>
+            <div class="testi-author">
+              <span class="testi-name">Fiona Kyomukama</span>
+              <span class="testi-role">Community Support Worker, Edmonton · Professional Development</span>
+            </div>
+          </article>
+
+          <article class="testi-card">
+            <div class="testi-quote" aria-hidden="true">"</div>
+            <p>I didn't know there was a scholarship gated behind our immigration status. I didn't know the Edmonton option could save us $80,000. What I got was a list of things to do, in order, with deadlines.</p>
+            <div class="testi-author">
+              <span class="testi-name">Parent of a Grade 10 student</span>
+              <span class="testi-role">Edmonton · Career Consulting — High School</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- §7 FOOTER CTA -->
+    <section class="footer-cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <h2 id="cta-heading">Ready to start a conversation?</h2>
+        <p>30 minutes. Free. No commitment.</p>
+        <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener">Book a scoping call →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+
+        <div class="footer-brand">
+          <a href="/" class="wordmark">Olympia <em>&</em> Associates</a>
+          <p class="footer-tagline">Strategic Consulting<br>Tailored Accompaniment<br>Systems Navigation<br>Executable Plans</p>
+        </div>
+
+        <div>
+          <span class="footer-col-head">What We Offer</span>
+          <ul class="footer-links">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="footer-col-head">Site</span>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+            <li><a href="/contact.html">Reach Us</a></li>
+          
+            <li><a href="/how-we-work.html">How We Work</a></li></ul>
+        </div>
+
+        <div class="footer-contact">
+          <span class="footer-col-head">Get in touch</span>
+          <p><a href="[CALENDLY_URL]" target="_blank" rel="noopener">Book a free 30-min call →</a></p>
+          <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-fine">
+        <p class="fine-print">Olympia &amp; Associates · Alberta trade name TN27173962 · Brian Ssennoga · GST: 757324769RC001</p>
+        <div class="footer-legal-links">
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      navDrawer.setAttribute('aria-hidden', !open);
+      navDrawer.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    document.addEventListener('click', (e) => {
+      if (navDrawer.classList.contains('open') && !navDrawer.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        navDrawer.setAttribute('aria-hidden', 'true');
+        navDrawer.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navDrawer.classList.contains('open')) {
+        hamburger.classList.remove('open');
+        navDrawer.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

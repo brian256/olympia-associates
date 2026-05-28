@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transformative Communication | Insights | Olympia & Associates</title>
+  <meta name="description" content="When leaders were asked what percentage of their organisational problems stem from poor communication, the lowest answer was sixty percent. If communication is responsible for the majority of what goes wrong, improving it is the highest-leverage intervention available.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="article-styles.css">
+  <style>
+    :root {
+      --gold: #90660C; --gold-light: #B8842E;
+      --near-black: #1A1A1A; --body-text: #3C3C3C;
+      --muted: #7A7060; --border: #DDD1B6;
+      --bg-warm: #F7F4ED; --bg-cool: #EFECE4;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --max-w: 1180px; --gutter: 24px; --radius: 2px;
+      --prose-max: 720px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.2s; }
+    .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .wordmark { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--near-black); }
+    .wordmark em { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; align-items: center; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 8px 16px; font-size: 0.9375rem; font-weight: 500; color: var(--body-text); transition: color 0.15s; white-space: nowrap; }
+    .nav-links > li > a:hover, .nav-links > li > a.active { color: var(--gold); }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .dropdown { list-style: none; display: none; position: absolute; top: calc(100% + 1px); left: 0; min-width: 240px; background: var(--white); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 8px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .dropdown li a { display: block; padding: 10px 20px; font-size: 0.85rem; color: var(--body-text); transition: background 0.12s, color 0.12s; }
+    .dropdown li a:hover { background: var(--bg-warm); color: var(--gold); }
+    .nav-cta { margin-left: 20px; padding: 10px 22px; font-size: 0.85rem; min-height: 40px; border: 2px solid var(--gold); background: var(--gold); color: var(--white); font-family: var(--font-body); font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: all 0.18s; display: inline-flex; align-items: center; border-radius: var(--radius); }
+    .nav-cta:hover { background: var(--near-black); border-color: var(--near-black); }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; width: 40px; height: 40px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--near-black); transition: all 0.2s; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-drawer { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--white); padding: 32px var(--gutter); overflow-y: auto; border-top: 1px solid var(--border); flex-direction: column; gap: 4px; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--near-black); border-bottom: 1px solid var(--border); }
+    .nav-drawer a:last-of-type { border-bottom: none; }
+    .drawer-cta { margin-top: 24px; }
+    .article-header { padding: 120px 0 64px; background: var(--near-black); }
+    .article-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; }
+    .article-breadcrumb a { font-size: 0.8rem; color: rgba(255,255,255,0.4); transition: color 0.15s; }
+    .article-breadcrumb a:hover { color: var(--gold-light); }
+    .article-breadcrumb span { font-size: 0.8rem; color: rgba(255,255,255,0.2); }
+    .article-stream-tag { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 16px; }
+    .article-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; line-height: 1.1; color: var(--white); margin-bottom: 20px; }
+    .article-subhead { font-family: var(--font-display); font-size: 1.2rem; font-style: italic; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 32px; }
+    .article-meta { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .article-meta-item { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+    .article-meta-item strong { color: rgba(255,255,255,0.6); font-weight: 600; }
+    .article-body { padding: 72px 0; background: var(--white); }
+    .article-body .container { display: grid; grid-template-columns: var(--prose-max) 1fr; gap: 64px; align-items: start; }
+    .prose h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 600; color: var(--near-black); margin-top: 48px; margin-bottom: 16px; line-height: 1.25; }
+    .prose h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--near-black); margin-top: 36px; margin-bottom: 12px; }
+    .prose p { font-size: 1.0625rem; line-height: 1.82; color: var(--body-text); margin-bottom: 20px; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose blockquote { border-left: 3px solid var(--gold); padding: 16px 24px; margin: 32px 0; background: var(--bg-warm); }
+    .prose blockquote p { font-family: var(--font-display); font-size: 1.1rem; font-style: italic; color: var(--near-black); margin-bottom: 0; line-height: 1.65; }
+    .prose hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    .prose strong { font-weight: 600; color: var(--near-black); }
+    .prose a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+    .prose .footnote { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .article-sidebar { position: sticky; top: 96px; }
+    .sidebar-card { background: var(--bg-warm); border: 1px solid var(--border); padding: 28px 24px; margin-bottom: 20px; }
+    .sidebar-card h4 { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; font-family: var(--font-body); }
+    .sidebar-card p { font-size: 0.85rem; line-height: 1.65; color: var(--muted); margin-bottom: 14px; }
+    .sidebar-card p:last-child { margin-bottom: 0; }
+    .sidebar-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 600; color: var(--gold); transition: gap 0.15s; }
+    .sidebar-cta:hover { gap: 10px; }
+    .sidebar-cta::after { content: '→'; }
+    .article-back { padding: 40px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.875rem; font-weight: 600; color: var(--near-black); transition: color 0.15s; }
+    .back-link:hover { color: var(--gold); }
+    .back-link::before { content: '←'; }
+    .site-footer { background: var(--near-black); padding: 52px 0 0; }
+    .footer-cols { display: grid; grid-template-columns: 280px 1fr 0.7fr 200px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-brand .wordmark { font-size: 1.25rem; color: var(--white); }
+    .footer-brand .wordmark em { color: var(--gold); }
+    .footer-tagline { margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.45); font-style: italic; font-family: var(--font-display); line-height: 1.8; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; display: block; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-contact p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 8px; }
+    .footer-contact a { color: var(--gold-light); }
+    .footer-fine { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 32px; }
+    .fine-print { font-size: 0.73rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+    .footer-legal-links { display: flex; gap: 20px; }
+    .footer-legal-links a { font-size: 0.8rem; color: var(--gold-light); transition: color 0.15s; font-weight: 600; }
+    .footer-legal-links a:hover { color: var(--white); }
+    @media (max-width: 1024px) { .article-body .container { grid-template-columns: 1fr; } .article-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; } .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; } }
+    @media (max-width: 768px) { .nav-links, .nav-cta { display: none; } .hamburger { display: flex; } .article-header { padding: 100px 0 48px; } .article-sidebar { grid-template-columns: 1fr; } .footer-cols { grid-template-columns: 1fr 1fr; } .footer-fine { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 480px) { .footer-cols { grid-template-columns: 1fr; } .fine-print { font-size: 0.65rem; } }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-inner">
+      <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+      <ul class="nav-links">
+        <li class="has-dropdown"><a href="/about.html" aria-haspopup="true">About Us</a>
+          <ul class="dropdown">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown"><a href="#" aria-haspopup="true">What We Offer</a>
+          <ul class="dropdown">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact.html">Reach Us</a></li>
+      </ul>
+      <a href="[CALENDLY_URL]" class="nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+    <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
+      <a href="/about.html">About Us — Our Story</a><a href="/how-we-work.html">How We Work</a><a href="/work.html">See Our Work</a>
+      <a href="/services/career-consulting.html">Career Consulting — High School</a>
+      <a href="/services/professional-development.html">Professional Development</a>
+      <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
+      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
+      <a href="/insights.html">Evidence</a><a href="/contact.html">Reach Us</a>
+      <div class="drawer-cta"><a href="[CALENDLY_URL]" class="nav-cta" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a></div>
+    </nav>
+  </header>
+
+  <main>
+    <header class="article-header">
+      <div class="container">
+        <nav class="article-breadcrumb"><a href="/insights.html">Evidence</a><span>›</span><span>Transformative Communication</span></nav>
+        <span class="article-stream-tag">Leadership &amp; Business Consulting</span>
+        <h1>Transformative Communication: Why Most Teams Talk Past Each Other</h1>
+        <p class="article-subhead">When I ask leadership teams what percentage of their organisational problems stem from poor communication, the lowest answer I've ever received was sixty percent. The highest was ninety-five.</p>
+        <div class="article-meta">
+          <span class="article-meta-item"><strong>Brian Ssennoga</strong> · Olympia &amp; Associates</span>
+          <span class="article-meta-item">Originally published <strong>April 2025</strong></span>
+          <span class="article-meta-item">Expanded for Insights <strong>May 2026</strong></span>
+        </div>
+      </div>
+    </header>
+
+    <section class="article-body">
+      <div class="container">
+        <article class="prose">
+
+          <p>Ninety-five percent of organisational problems stem from poor communication — according to one leader I've worked with. The number that follows from that is obvious and rarely named: if communication is responsible for the majority of what goes wrong, then improving it is the highest-leverage intervention available to a leadership team. Not the strategy. Not the technology. Not the structure. The communication.</p>
+
+          <p>Yet most organisations treat communication as a soft skill — a vague aspiration that gets a slot in the annual appraisal cycle and a training module nobody remembers. The gap between how leaders believe they communicate and how their teams experience them is consistently wider than any of them expect.</p>
+
+          <hr>
+
+          <h2>The Outside-In Problem</h2>
+
+          <p>Simon Sinek's Golden Circle identifies one of the most consistent patterns in leadership communication failure: most leaders communicate from the outside in. They start with <em>what</em> — the deliverable, the initiative, the system — then explain <em>how</em> it works, and either skip <em>why</em> entirely or add it as a perfunctory afterword.</p>
+
+          <p>The effect on teams is compliance rather than commitment. People will execute what they understand. They will own what they believe in. Consider two versions of the same communication:</p>
+
+          <blockquote>
+            <p><em>Version A:</em> "We're implementing a new CRM system using an agile approach."<br><br>
+            <em>Version B:</em> "We believe in creating deeper connections with the people we serve. To do this, we need better insight into their needs — which is why we're implementing this new CRM system, and why we're doing it iteratively so we can learn as we go."</p>
+          </blockquote>
+
+          <p>Same decision. Same system. Entirely different invitation. Version A asks people to comply. Version B asks them to join something they already believe in. Teams that receive Version B show up differently — they ask better questions, flag problems earlier, and take ownership of outcomes rather than tasks.</p>
+
+          <hr>
+
+          <h2>Psychological Safety and the Information Problem</h2>
+
+          <p>Amy Edmondson's research on psychological safety reveals a counterintuitive finding: high-performing teams admit to <em>more</em> mistakes than low-performing teams, not fewer. Not because they make more mistakes — because they operate in environments where speaking up isn't career suicide.</p>
+
+          <p>In psychologically safe environments, team members ask questions without fear of looking incompetent. Mistakes are treated as learning opportunities. Different viewpoints are actively sought. Feedback flows in all directions, including upward.</p>
+
+          <p>The organisational consequence of low psychological safety is an information problem. The people closest to the work go quiet. Not because they stop observing. Because they stop sharing. By the time a leader in a low-safety organisation hears about a problem, it has usually been visible to their team for weeks. The gap between the moment the team knew and the moment the leader heard is the safety gap. It is measurable, and it is expensive.</p>
+
+          <hr>
+
+          <h2>Three Kinds of Teams — Only One That Works</h2>
+
+          <h3>The Conflict Avoiders</h3>
+          <p>These teams maintain a surface veneer of harmony. Everyone agrees, or appears to. The culture has quietly established that raising a difficult question is uncomfortable for everyone — so the difficult things go unsaid. The result is not harmony. It is a specific kind of organisational rot. Problems that could be addressed early fester. Resentments accumulate beneath the pleasant surface. The real conversation happens in the corridor after the meeting, or not at all.</p>
+
+          <h3>The Conflict Exploders</h3>
+          <p>These teams engage in unfiltered conflict that becomes personal and destructive. They mistake brutality for honesty. They believe that saying what they actually think, without calibration, is the antidote to the avoidance problem — and in a narrow sense they're right that it's the opposite, but it's not the solution. Conflict that attacks people rather than ideas does not produce better decisions. It produces winners and losers, damaged relationships, and a different kind of silence.</p>
+
+          <h3>The Constructive Engagers</h3>
+          <p>These rare teams practice passionate disagreement about ideas while maintaining genuine respect for people. They can hold "I think you're completely wrong about this" and "I deeply respect you as a colleague" simultaneously, without the first threatening the second. The argument is about the work. The relationship survives it.</p>
+
+          <blockquote>
+            <p>Grace and salt together. Kindness and clarity together. Neither alone is sufficient. Grace without salt produces the Avoiders. Salt without grace produces the Exploders. The discipline of holding both simultaneously is the work of leadership communication.</p>
+          </blockquote>
+
+          <hr>
+
+          <h2>Three Patterns That Distinguish Constructive Communication</h2>
+
+          <p><strong>The question before the statement.</strong> Leaders who communicate well ask genuine questions before offering their position on a problem. Not rhetorical questions that set up their conclusion, but actual questions — followed by genuine listening. This is more difficult than it sounds, particularly for leaders who have strong positions and fast minds.</p>
+
+          <p><strong>The acknowledgement before the redirect.</strong> When a team member raises something the leader disagrees with, the default in many organisations is an immediate "Yes, but..." — which functionally dismisses what was said. Constructive communicators acknowledge before they redirect. Not agreement — acknowledgement. "I hear what you're pointing at. The reason I want to go in a different direction is..." This is a small linguistic shift with a large effect on whether people feel heard, and whether they'll speak up next time.</p>
+
+          <p><strong>The explicit invitation to push back.</strong> Leaders who want honest feedback cannot simply wait for it. They have to actively create the conditions for it — and then demonstrate, when pushback arrives, that it is actually welcome rather than merely tolerated. Teams learn from what happens to the first person who pushes back, not from what leaders say about their openness to feedback.</p>
+
+          <hr>
+
+          <h2>The Cost of Not Addressing This</h2>
+
+          <p>The sixty-to-ninety-five percent figure is not just a coaching room observation. It has a financial expression. Communication failures show up in delayed projects, duplicated effort, decisions made without adequate information, conflict that consumes management attention, and the quiet attrition of team members who stop engaging because speaking up has never been worth it in this organisation.</p>
+
+          <p>The question is not whether your organisation can afford to invest in communication. The real question is what the communication failures are currently costing — in money, in morale, in the ideas that never got raised, in the problems that went unaddressed until they were expensive.</p>
+
+          <p>The work is not complicated. It is not easy. It requires leaders who are willing to go first — to model vulnerability, to demonstrate that honest feedback is actually welcome, to practice the balance of grace and salt consistently enough that their teams begin to believe it is safe to do the same. When that happens, something changes in a team. The meetings get harder and faster simultaneously. The problems get surfaced earlier. The decisions get better. The trust becomes real rather than assumed.</p>
+
+          <p>That is what transformative communication produces. And it starts with the leader.</p>
+
+          <p class="footnote"><em>References: Lencioni, P. (2002). The Five Dysfunctions of a Team. Jossey-Bass. · Sinek, S. (2009). Start With Why. Portfolio/Penguin. · Edmondson, A. (1999). Psychological safety and learning behavior in work teams. Administrative Science Quarterly, 44(2), 350–383.</em></p>
+
+        </article>
+
+        <aside class="article-sidebar">
+          <div class="sidebar-card">
+            <h4>About the author</h4>
+            <p>Brian Ssennoga is the founder of Olympia &amp; Associates. The team communication and facilitation work at Olympia &amp; Associates draws from eight years of management coaching practice across East Africa and Canada.</p>
+            <a href="/about.html" class="sidebar-cta">Our Story</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>This article described something live?</h4>
+            <p>If the gap between how your team communicates and how it needs to communicate is a real problem in your organisation, a scoping call is a good place to start.</p>
+            <a href="[CALENDLY_URL]" class="sidebar-cta" target="_blank" rel="noopener">Book a free 30-min call</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>Related reading</h4>
+            <p><a href="/insights/values-driven-leadership.html" style="color:var(--gold);">Values-Driven Leadership: Why Ethical Leaders Win</a><br><br>
+            <a href="/insights/burnout-is-a-leadership-signal.html" style="color:var(--gold);">Burnout Is Not a Personal Problem. It's a Leadership Signal.</a></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="article-back">
+      <div class="container"><a href="/insights.html" class="back-link">Back to Insights</a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div class="footer-brand"><a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a><p class="footer-tagline">Strategic Consulting<br>Tailored Accompaniment<br>Systems Navigation<br>Executable Plans</p></div>
+        <div><span class="footer-col-head">What We Offer</span><ul class="footer-links"><li><a href="/services/career-consulting.html">Career Consulting — High School</a></li><li><a href="/services/professional-development.html">Professional Development</a></li><li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li><li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li></ul></div>
+        <div><span class="footer-col-head">Site</span><ul class="footer-links"><li><a href="/about.html">About Us</a></li><li><a href="/how-we-work.html">How We Work</a></li><li><a href="/work.html">Case Studies</a></li><li><a href="/contact.html">Reach Us</a></li></ul></div>
+        <div class="footer-contact"><span class="footer-col-head">Get in touch</span><p><a href="[CALENDLY_URL]" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p><p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p></div>
+      </div>
+      <div class="footer-fine"><p class="fine-print">Olympia &amp; Associates · Alberta trade name TN27173962 · Brian Ssennoga · GST: 757324769RC001</p><div class="footer-legal-links"><a href="/terms.html">Terms of Service</a><a href="/privacy.html">Privacy Policy</a></div></div>
+    </div>
+  </footer>
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => { const open = hamburger.classList.toggle('open'); hamburger.setAttribute('aria-expanded', open); navDrawer.setAttribute('aria-hidden', !open); navDrawer.classList.toggle('open', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    document.addEventListener('click', (e) => { if (navDrawer.classList.contains('open') && !navDrawer.contains(e.target) && !hamburger.contains(e.target)) { hamburger.classList.remove('open'); navDrawer.classList.remove('open'); navDrawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; } });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && navDrawer.classList.contains('open')) { hamburger.classList.remove('open'); navDrawer.classList.remove('open'); document.body.style.overflow = ''; } });
+  </script>
+</body>
+</html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Consulting — High School | Olympia & Associates</title>
+  <meta name="description" content="Pathway planning for students in Grades 9–12. NOC/TEER analysis, scholarship calendars, academic roadmaps. Edmonton, Alberta. From $750 + GST.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #90660C; --gold-light: #B8842E;
+      --near-black: #1A1A1A; --body-text: #3C3C3C;
+      --muted: #7A7060; --border: #DDD1B6;
+      --bg-warm: #F7F4ED; --bg-cool: #EFECE4;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --max-w: 1180px; --gutter: 24px; --radius: 2px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+    h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 600; line-height: 1.1; color: var(--near-black); }
+    h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 600; line-height: 1.2; color: var(--near-black); }
+    h3 { font-family: var(--font-display); font-size: clamp(1.1rem, 1.8vw, 1.35rem); font-weight: 600; line-height: 1.3; color: var(--near-black); }
+    h4 { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); }
+    p { font-size: 1.0625rem; line-height: 1.75; color: var(--body-text); }
+    p + p { margin-top: 14px; }
+
+    .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .section-label span { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; border-radius: var(--radius); cursor: pointer; transition: all 0.18s ease; min-height: 48px; border: 2px solid transparent; }
+    .btn-primary { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-primary:hover { background: var(--near-black); border-color: var(--near-black); }
+    .btn-ghost { background: transparent; color: var(--near-black); border-color: var(--near-black); }
+    .btn-ghost:hover { background: var(--near-black); color: var(--white); }
+    .btn-white { background: var(--white); color: var(--gold); border-color: var(--white); }
+    .btn-white:hover { background: var(--near-black); color: var(--white); border-color: var(--near-black); }
+    .btn-link { color: var(--gold); font-size: 0.875rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.15s; }
+    .btn-link:hover { gap: 10px; }
+    .btn-link::after { content: '→'; }
+
+    /* NAV */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.2s; }
+    .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .wordmark { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--near-black); }
+    .wordmark em { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; align-items: center; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 8px 16px; font-size: 0.9375rem; font-weight: 500; color: var(--body-text); transition: color 0.15s; white-space: nowrap; }
+    .nav-links > li > a:hover, .nav-links > li > a.active { color: var(--gold); }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .dropdown { list-style: none; display: none; position: absolute; top: calc(100% + 1px); left: 0; min-width: 240px; background: var(--white); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 8px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .dropdown li a { display: block; padding: 10px 20px; font-size: 0.85rem; color: var(--body-text); transition: background 0.12s, color 0.12s; }
+    .dropdown li a:hover, .dropdown li a.active { background: var(--bg-warm); color: var(--gold); }
+    .nav-cta { margin-left: 20px; padding: 10px 22px; font-size: 0.85rem; min-height: 40px; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; width: 40px; height: 40px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--near-black); transition: all 0.2s; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-drawer { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--white); padding: 32px var(--gutter); overflow-y: auto; border-top: 1px solid var(--border); flex-direction: column; gap: 4px; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--near-black); border-bottom: 1px solid var(--border); }
+    .nav-drawer a:last-of-type { border-bottom: none; }
+    .drawer-cta { margin-top: 24px; }
+
+    /* PAGE HERO */
+    .page-hero { padding: 120px 0 64px; background: var(--near-black); }
+    .hero-tag { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; margin-bottom: 20px; }
+    .page-hero h1 { color: var(--white); max-width: 760px; margin-bottom: 20px; }
+    .page-hero h1 em { font-style: italic; color: var(--gold); }
+    .page-hero .lead { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; color: rgba(255,255,255,0.6); max-width: 620px; line-height: 1.65; }
+    .hero-cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 32px; }
+    .hero-scroll { font-size: 0.875rem; color: rgba(255,255,255,0.4); font-weight: 500; display: inline-flex; align-items: center; gap: 6px; transition: color 0.15s; }
+    .hero-scroll:hover { color: var(--gold-light); }
+
+    /* WHO THIS IS FOR */
+    .who-section { padding: 72px 0; background: var(--white); }
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 32px; }
+    .who-col p { margin-bottom: 14px; }
+    .who-col p:last-child { margin-bottom: 0; }
+    .windows-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+    .windows-list li { padding: 16px 18px; background: var(--bg-warm); border-left: 3px solid var(--gold); }
+    .win-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 5px; }
+    .windows-list li p { font-size: 0.875rem; line-height: 1.6; color: var(--body-text); margin: 0; }
+
+    /* IS THIS FOR YOU */
+    .qualify-section { padding: 72px 0; background: var(--near-black); }
+    .qualify-section .section-label::before { background: var(--gold); }
+    .qualify-section .section-label span { color: var(--gold-light); }
+    .qualify-section h2 { color: var(--white); margin-bottom: 10px; }
+    .qualify-intro { color: rgba(255,255,255,0.6); font-size: 1.0rem; max-width: 580px; margin-bottom: 36px; }
+    .qualify-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); }
+    .qualify-item { background: var(--near-black); padding: 20px 24px; display: flex; align-items: flex-start; gap: 14px; border: 1px solid rgba(255,255,255,0.06); transition: background 0.15s; cursor: default; }
+    .qualify-item:hover { background: rgba(255,255,255,0.04); }
+    .qualify-check { width: 22px; height: 22px; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 3px; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+    .qualify-item:hover .qualify-check { border-color: var(--gold); background: rgba(144,102,12,0.15); }
+    .qualify-item p { font-size: 0.9375rem; line-height: 1.55; color: rgba(255,255,255,0.72); margin: 0; }
+    .qualify-urgency { margin-top: 28px; padding: 24px 28px; background: rgba(144,102,12,0.15); border: 1px solid rgba(144,102,12,0.3); border-left: 3px solid var(--gold); max-width: 680px; }
+    .qualify-urgency p { font-size: 0.9375rem; line-height: 1.65; color: rgba(255,255,255,0.85); margin: 0; }
+    .qualify-urgency strong { color: var(--gold-light); }
+
+    /* PROCESS */
+    .process-section { padding: 72px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .process-step { background: var(--white); padding: 28px 24px; }
+    .step-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--border); line-height: 1; margin-bottom: 12px; }
+    .process-step h3 { font-size: 1.0rem; margin-bottom: 10px; }
+    .process-step p { font-size: 0.875rem; line-height: 1.65; color: var(--muted); }
+
+    /* CASE STUDIES */
+    .case-section { padding: 72px 0; background: var(--white); }
+    .case-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .case-card { background: var(--white); padding: 36px 32px; display: flex; flex-direction: column; }
+    .case-stream-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .case-card h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .case-headline { font-family: var(--font-display); font-size: 0.95rem; font-style: italic; color: var(--muted); margin-bottom: 16px; }
+    .case-card p { font-size: 0.9rem; line-height: 1.7; color: var(--body-text); flex: 1; margin-bottom: 20px; }
+    .case-stat-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 20px; }
+    .case-stat { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; }
+    .case-stat-label { font-size: 0.8rem; color: var(--muted); }
+    .case-quote { background: var(--bg-warm); border-left: 3px solid var(--gold); padding: 16px 20px; margin-bottom: 16px; }
+    .case-quote p { font-family: var(--font-display); font-size: 1.0rem; font-style: italic; color: var(--body-text); line-height: 1.65; margin: 0; }
+    .case-quote cite { display: block; margin-top: 8px; font-size: 0.78rem; color: var(--muted); font-style: normal; }
+    .case-pkg { font-size: 0.82rem; color: var(--muted); }
+
+    /* PACKAGES */
+    .packages-section { padding: 72px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .packages-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .package-card { background: var(--white); padding: 36px 28px; display: flex; flex-direction: column; }
+    .package-card.featured { background: var(--near-black); }
+    .package-badge { display: inline-block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; margin-bottom: 16px; background: var(--bg-cool); color: var(--gold); }
+    .package-card.featured .package-badge { background: var(--gold); color: var(--white); }
+    .package-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .package-card.featured h3 { color: var(--white); }
+    .package-grade { font-size: 0.82rem; color: var(--muted); margin-bottom: 20px; line-height: 1.5; }
+    .package-card.featured .package-grade { color: rgba(255,255,255,0.45); }
+    .package-price { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--near-black); line-height: 1; margin-bottom: 4px; }
+    .package-card.featured .package-price { color: var(--white); }
+    .package-gst { font-size: 0.78rem; color: var(--muted); margin-bottom: 20px; }
+    .package-card.featured .package-gst { color: rgba(255,255,255,0.35); }
+    .package-divider { height: 1px; background: var(--border); margin-bottom: 20px; }
+    .package-card.featured .package-divider { background: rgba(255,255,255,0.1); }
+    .package-includes { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; margin-bottom: 24px; }
+    .package-includes li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.875rem; line-height: 1.5; color: var(--body-text); }
+    .package-card.featured .package-includes li { color: rgba(255,255,255,0.72); }
+    .package-includes li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .package-card.featured .package-includes li::before { color: var(--gold-light); }
+    .package-note { font-size: 0.78rem; color: var(--muted); line-height: 1.6; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
+    .package-card.featured .package-note { color: rgba(255,255,255,0.32); border-top-color: rgba(255,255,255,0.08); }
+
+    /* LIMITED AVAILABILITY */
+    .availability-section { padding: 72px 0; background: var(--gold); }
+    .avail-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .avail-left h2 { color: var(--white); margin-bottom: 16px; }
+    .avail-left p { color: rgba(255,255,255,0.85); margin-bottom: 14px; font-size: 1.0rem; }
+    .avail-left p:last-child { margin-bottom: 0; }
+    .avail-stat { font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 8px; }
+    .avail-stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+    .avail-right { background: var(--white); padding: 36px 32px; }
+    .avail-right h3 { font-size: 1.2rem; color: var(--near-black); margin-bottom: 8px; }
+    .avail-right p { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; line-height: 1.65; }
+    .waitlist-form { display: flex; flex-direction: column; gap: 12px; }
+    .waitlist-form input { padding: 13px 16px; font-family: var(--font-body); font-size: 0.9rem; border: 1.5px solid var(--border); background: var(--bg-warm); color: var(--near-black); border-radius: var(--radius); transition: border-color 0.15s; outline: none; }
+    .waitlist-form input:focus { border-color: var(--gold); background: var(--white); }
+    .waitlist-form input::placeholder { color: var(--muted); }
+    .waitlist-form .btn-submit { background: var(--gold); color: var(--white); border: none; padding: 14px 24px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.18s; border-radius: var(--radius); }
+    .waitlist-form .btn-submit:hover { background: var(--near-black); }
+    .waitlist-benefits { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .waitlist-benefits li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .waitlist-benefits li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+    /* PRIVACY NOTE */
+    .privacy-note { padding: 40px 0; background: var(--white); border-top: 1px solid var(--border); }
+    .privacy-inner { display: flex; align-items: flex-start; gap: 20px; max-width: 760px; }
+    .privacy-icon { width: 36px; height: 36px; background: var(--bg-warm); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .privacy-icon svg { width: 16px; height: 16px; color: var(--gold); }
+    .privacy-inner p { font-size: 0.875rem; line-height: 1.65; color: var(--muted); }
+    .privacy-inner a { color: var(--gold); font-weight: 600; }
+
+    /* FOOTER CTA */
+    .footer-cta { background: var(--bg-warm); border-top: 2px solid var(--gold); padding: 72px 0; text-align: center; }
+    .footer-cta h2 { margin-bottom: 10px; }
+    .footer-cta p { font-size: 1rem; color: var(--muted); margin-bottom: 24px; }
+
+    /* FOOTER */
+    .site-footer { background: var(--near-black); padding: 52px 0 0; }
+    .footer-cols { display: grid; grid-template-columns: 280px 1fr 0.7fr 200px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-brand .wordmark { font-size: 1.25rem; color: var(--white); }
+    .footer-brand .wordmark em { color: var(--gold); }
+    .footer-tagline { margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.45); font-style: italic; font-family: var(--font-display); line-height: 1.8; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; display: block; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-contact p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 8px; }
+    .footer-contact a { color: var(--gold-light); }
+    .footer-fine { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 32px; }
+    .fine-print { font-size: 0.73rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+    .footer-legal-links { display: flex; gap: 20px; }
+    .footer-legal-links a { font-size: 0.8rem; color: var(--gold-light); transition: color 0.15s; font-weight: 600; }
+    .footer-legal-links a:hover { color: var(--white); }
+
+    @media (max-width: 1024px) {
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .avail-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .page-hero { padding: 100px 0 48px; }
+      .who-grid { grid-template-columns: 1fr; gap: 40px; }
+      .qualify-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .case-inner { grid-template-columns: 1fr; }
+      .avail-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+      .footer-fine { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) { .footer-cols { grid-template-columns: 1fr; } .fine-print { font-size: 0.65rem; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-inner">
+      <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="/about.html" aria-haspopup="true">About Us</a>
+          <ul class="dropdown">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="active" aria-haspopup="true">What We Offer</a>
+          <ul class="dropdown">
+            <li><a href="/services/career-consulting.html" class="active">Career Consulting — High School</a></li>
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact.html">Reach Us</a></li>
+      </ul>
+      <a href="[CALENDLY_URL]" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book a free 30-min call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
+      <a href="/about.html">About Us — Our Story</a>
+      <a href="/services/career-consulting.html">Career Consulting — High School</a>
+      <a href="/services/professional-development.html">Professional Development</a>
+      <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
+      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
+      <a href="/work.html">Case Studies</a>
+      <a href="/contact.html">Reach Us</a>
+      <div class="drawer-cta">
+        <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book a free 30-min call</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- §1 HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="hero-tag">Career Consulting — High School</span>
+        <h1>Planning a future takes more than<br><em>good advice.</em> It takes a system.</h1>
+        <p class="lead" style="margin-top:16px;">High school goes by faster than anyone expects. The scholarship windows open and close on fixed timelines. The French chain either starts at Grade 10 or it doesn't start at all. Most families don't engage a career consultant because something is wrong — they engage because they don't want to miss something that can't be recovered later.</p>
+        <div class="hero-cta-row">
+          <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener">Book a free 30-min scoping call</a>
+          <a href="#qualify" class="hero-scroll">Is this for your family? ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- §2 WHO THIS IS FOR -->
+    <section class="who-section">
+      <div class="container">
+        <div class="section-label"><span>Who this is for</span></div>
+        <h2>For parents who want a plan — not just possibilities.</h2>
+        <div class="who-grid">
+          <div class="who-col">
+            <p>The parent typically reaches out first. The student is the one who does the work. Both are part of the process.</p>
+            <p>At Olympia &amp; Associates, the student is the primary client — the person whose future is being planned. The parent is a partner in that planning — the person who carries the financial and logistical responsibility for making it happen. Both perspectives matter. Neither is ignored.</p>
+            <p>The parent signs the agreement and makes the payment. The student attends the sessions. The pathway report and all deliverables belong to the family. Geographic scope is national — grounded in Alberta but the post-secondary analysis covers institutions across Canada.</p>
+          </div>
+          <div class="who-col">
+            <h4 style="margin-bottom:16px;">Irreversible windows most families miss</h4>
+            <ul class="windows-list">
+              <li>
+                <span class="win-label">The French language chain</span>
+                <p>For bilingual careers, federal roles, or specific programmes, French 30 is a requirement. That chain takes three years and must begin at Grade 10. It cannot be accelerated, deferred, or recovered after the fact.</p>
+              </li>
+              <li>
+                <span class="win-label">Scholarship timelines</span>
+                <p>Most major scholarship windows open in Grade 12 — but eligibility is built on Grades 9, 10, and 11. The Loran Award, Explore programme, and most provincial awards reward a record built over time, not a resumé assembled at the last minute.</p>
+              </li>
+              <li>
+                <span class="win-label">Immigration status dependencies</span>
+                <p>For newcomer families, government education grants — including the CESG attached to most RESPs — are gated behind immigration milestones. A SIN, an RCIC consultation, and registered beneficiary status can unlock grants already waiting to be claimed.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §3 IS THIS FOR YOU -->
+    <section class="qualify-section" id="qualify">
+      <div class="container">
+        <div class="section-label"><span>Self-assessment</span></div>
+        <h2>Is this service for your family?</h2>
+        <p class="qualify-intro">Read through the statements below. Be honest with yourself. Each one represents something that is easy to miss — and hard to recover.</p>
+        <div class="qualify-grid">
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>My child is in Grades 9–12 and we haven't done any formal career or pathway planning yet.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>Course selection for next year is coming up and I'm not confident we're choosing the right ones.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>My child has more than one interest and we don't know which one to pursue — or whether they have to choose at all.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I've heard about scholarships but I don't know which ones apply to my child, what the deadlines are, or what it takes to be eligible.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>We're a newcomer family and I'm not sure how our immigration status affects our education options, government grants, or RESP contributions.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>My child has a direction they're excited about, but nobody has mapped out what it actually takes — the courses, the credentials, the timeline, the cost.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I'm not confident that our current plan accounts for everything that can't be changed or recovered later.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I want to understand whether studying locally in Edmonton is a smarter financial decision than going out of province — with actual numbers, not assumptions.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>My child's extracurricular and community involvement doesn't feel strategic — it's scattered, not intentional.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I want a written plan — not general advice — that my family can actually follow, step by step, with deadlines.</p>
+          </div>
+        </div>
+        <div class="qualify-urgency" style="max-width:none;">
+          <p><strong>If you said yes to six or more of these — we need to talk.</strong> Not because something is wrong, but because something is time-sensitive. The windows described on this page are real, they are specific, and some of them close before the end of this school year. A 30-minute scoping call costs nothing. The cost of waiting is harder to calculate.</p>
+        </div>
+        <div style="margin-top:24px; text-align:center;">
+          <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener">Book my free 30-min scoping call →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- §4 PROCESS -->
+    <section class="process-section" id="process">
+      <div class="container">
+        <div class="section-label"><span>The engagement</span></div>
+        <h2>What working together looks like.</h2>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-num">01</div>
+            <h3>Scoping call — free, 30 min</h3>
+            <p>Parent and/or student. We discuss where the student is, what their early interests are, what the family's priorities are, and what the right level of engagement would be. Honest recommendation at the end — including if there isn't a fit.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">02</div>
+            <h3>Discovery session — 1.5 hrs</h3>
+            <p>The first paid session. Student and parent both attend if possible. We explore interests, academic record, and early career thinking in depth. This session uncovers the irreversible constraints and shapes everything that follows.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">03</div>
+            <h3>NOC/TEER mapping &amp; research</h3>
+            <p>Student interests mapped against National Occupational Classification codes and TEER levels — identifying credential pathways, institution options, cost comparisons, and the financial aid landscape specific to this student's situation and family context.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">04</div>
+            <h3>Pathway report &amp; coaching</h3>
+            <p>A written plan delivered to the family: academic roadmap, scholarship targets with deadlines, community arc, and a prioritised action list. Pathways package includes two coaching calls with the student and a parent briefing session.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §5 INVESTMENT -->
+    <section class="packages-section" id="packages">
+      <div class="container">
+        <div class="section-label"><span>Your Investment</span></div>
+        <h2>Two packages. One add-on. All prices CAD + GST.</h2>
+        <div class="packages-grid">
+
+          <div class="package-card">
+            <span class="package-badge">Foundations</span>
+            <h3>Foundations</h3>
+            <p class="package-grade">Best for Grade 9–10 · Maximum runway, widest scholarship windows</p>
+            <div class="package-price">$750</div>
+            <div class="package-gst">+ GST · approx. 5 hours</div>
+            <div class="package-divider"></div>
+            <ul class="package-includes">
+              <li>Discovery session (1.5 hrs)</li>
+              <li>NOC/TEER pathway mapping</li>
+              <li>Written pathway report</li>
+              <li>Follow-up call (1 hr)</li>
+            </ul>
+            <p class="package-note">The earlier the engagement, the more we can build. Grade 9–10 families have the most course selection flexibility and the widest scholarship windows still open.</p>
+          </div>
+
+          <div class="package-card featured">
+            <span class="package-badge">Primary offering</span>
+            <h3>Pathways</h3>
+            <p class="package-grade">Best for Grade 11–12 · Post-secondary decisions imminent</p>
+            <div class="package-price">$1,500</div>
+            <div class="package-gst">+ GST · approx. 10 hours</div>
+            <div class="package-divider"></div>
+            <ul class="package-includes">
+              <li>Discovery session (1.5 hrs)</li>
+              <li>Deep NOC/TEER analysis</li>
+              <li>Written pathway report + institution shortlist</li>
+              <li>Two coaching calls (2 hrs)</li>
+              <li>Parent briefing session (1 hr)</li>
+            </ul>
+            <p class="package-note">The primary offering for families where post-secondary applications are imminent and decisions are real. Specific, urgent, and worth every dollar.</p>
+          </div>
+
+          <div class="package-card">
+            <span class="package-badge">Add-on</span>
+            <h3>Family Navigation</h3>
+            <p class="package-grade">Applies to either package · For families who want full alignment</p>
+            <div class="package-price">$300</div>
+            <div class="package-gst">+ GST · approx. 2 hours</div>
+            <div class="package-divider"></div>
+            <ul class="package-includes">
+              <li>Parent briefing session</li>
+              <li>Written family summary</li>
+              <li>Q&amp;A call</li>
+              <li>Add a sibling — $150 + GST</li>
+            </ul>
+            <p class="package-note">For families where parents want a dedicated session on financial planning, timelines, and how to actively support the student's direction — not just receive the report.</p>
+          </div>
+
+        </div>
+        <p style="margin-top:16px; font-size:0.82rem; color:var(--muted);">All prices CAD. GST (757324769RC001) applies to all billable work. Payment: 30% on signing, balance on delivery (under $800) or 30/40/30 (over $800). No work begins without initial payment received.</p>
+      </div>
+    </section>
+
+    <!-- §6 WORK IN PRACTICE -->
+    <section class="case-section" id="work">
+      <div class="container">
+        <div class="section-label"><span>The work in practice</span></div>
+        <h2>A real student. A real plan.</h2>
+        <div class="case-inner">
+
+          <article class="case-card">
+            <div class="case-stream-tag">Grade 10 · Foundations + Family Navigation</div>
+            <h3>Student A</h3>
+            <p class="case-headline">Two careers held open. One plan built before the windows closed.</p>
+            <p>A Grade 10 student with interests in both AI engineering and global communications. A newcomer family with an RESP open but no SIN obtained — meaning government grants weren't flowing. The engagement built a 127-credit graduation plan, locked in the French language chain before the window closed, mapped five target scholarships to immigration milestones, and identified an $82,000 cost gap between studying locally and out of province.</p>
+            <div class="case-stat-row">
+              <span class="case-stat">$82K</span>
+              <span class="case-stat-label">cost gap discovered and documented vs. out-of-province options</span>
+            </div>
+            <div class="case-quote">
+              <p>"I didn't know there was a scholarship gated behind our immigration status. I didn't know the Edmonton option could save us $80,000. What I got was a list of things to do, in order, with deadlines."</p>
+              <cite>— Parent of a Grade 10 student, Edmonton</cite>
+            </div>
+            <span class="case-pkg">$1,050 + GST · Foundations + Family Navigation add-on</span>
+          </article>
+
+        </div>
+        <div style="margin-top:20px; text-align:right;">
+          <a href="/work.html" class="btn-link">See all case studies including Student B</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- §7 LIMITED AVAILABILITY + WAITLIST -->
+    <section class="availability-section" id="waitlist">
+      <div class="container">
+        <div class="avail-inner">
+          <div class="avail-left">
+            <div class="avail-stat">3</div>
+            <p class="avail-stat-label">new client spots per month</p>
+            <h2 style="color:var(--white); margin-top:24px; margin-bottom:16px;">This service is intentionally limited.</h2>
+            <p>Every family that engages Olympia &amp; Associates for high school career consulting works directly with Brian Ssennoga. There is no associate, no junior consultant, no template handed off. That level of attention requires a limit — and the limit is three new families per month.</p>
+            <p>When those spots are full, new families join the waitlist. The waitlist is not a holding pen — it is the beginning of the relationship. While you wait, you receive practical resources, early access to workshops, and direct communication from the practice.</p>
+            <p>Families who come through the waitlist arrive at their engagement already informed. That makes the work better for everyone.</p>
+          </div>
+          <div class="avail-right">
+            <h3>Join the waitlist</h3>
+            <p>Leave your details below. You'll hear back within 48 hours with your estimated wait time and your first free resource.</p>
+            <form class="waitlist-form" action="mailto:ssennogab24@gmail.com" method="get" enctype="text/plain">
+              <input type="text" name="name" placeholder="Parent name" required>
+              <input type="email" name="email" placeholder="Email address" required>
+              <input type="text" name="grade" placeholder="Student's current grade (e.g. Grade 10)">
+              <button type="submit" class="btn-submit">Join the waitlist →</button>
+            </form>
+            <ul class="waitlist-benefits">
+              <li>Free practical resource on your student's grade stage — delivered immediately</li>
+              <li>Early access to workshops and group sessions as they open</li>
+              <li>Direct updates when a spot becomes available</li>
+              <li>No obligation — leave the waitlist at any time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §8 REFER A FAMILY -->
+    <section style="padding:64px 0; background:var(--bg-warm); border-top:1px solid var(--border);">
+      <div class="container">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
+          <div>
+            <div class="section-label"><span>Refer a family</span></div>
+            <h2>Know a family who needs this?</h2>
+            <p style="color:var(--muted); margin-top:16px; margin-bottom:0;">If you refer a family who goes on to book a paid engagement, we'll send you a gift card as a thank you. No forms, no programs — just a direct message to let us know, and we'll take it from there.</p>
+          </div>
+          <div style="background:var(--white); border:1px solid var(--border); border-top:3px solid var(--gold); padding:36px 32px;">
+            <h3 style="margin-bottom:12px;">Send a referral</h3>
+            <p style="font-size:0.9rem; color:var(--muted); margin-bottom:20px;">Drop us a message with the family's name and how they can reach us. When they book, we'll reach out to you directly with a gift card.</p>
+            <a href="mailto:ssennogab24@gmail.com?subject=Referral&body=I'd%20like%20to%20refer%20a%20family%20to%20Olympia%20%26%20Associates." class="btn btn-primary">Send a referral →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §9 PRIVACY NOTE -->
+    <section class="privacy-note">
+      <div class="container">
+        <div class="privacy-inner" >
+          <div class="privacy-icon" >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <p>Your student is a minor. Their academic record, interests, and any personal information shared during the engagement are handled with heightened care — used only to perform the agreed services, never submitted to an AI tool, and not shared with third parties. We are governed by PIPEDA (federal) and Alberta's PIPA. Full details in our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Service</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- §10 FOOTER CTA -->
+    <section class="footer-cta">
+      <div class="container">
+        <h2>Start with a conversation.</h2>
+        <p>30 minutes. Free. No commitment. We'll tell you honestly whether there's a fit.</p>
+        <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener">Book my free 30-min scoping call →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+          <p class="footer-tagline">Strategic Consulting<br>Tailored Accompaniment<br>Systems Navigation<br>Executable Plans</p>
+        </div>
+        <div>
+          <span class="footer-col-head">What We Offer</span>
+          <ul class="footer-links">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-col-head">Site</span>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/contact.html">Reach Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-col-head">Get in touch</span>
+          <p><a href="[CALENDLY_URL]" target="_blank" rel="noopener">Book a free 30-min call →</a></p>
+          <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="footer-fine">
+        <p class="fine-print">Olympia &amp; Associates · Alberta trade name TN27173962 · Brian Ssennoga · GST: 757324769RC001</p>
+        <div class="footer-legal-links">
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      navDrawer.setAttribute('aria-hidden', !open);
+      navDrawer.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    document.addEventListener('click', (e) => {
+      if (navDrawer.classList.contains('open') && !navDrawer.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open');
+        navDrawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navDrawer.classList.contains('open')) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open'); document.body.style.overflow = '';
+      }
+    });
+
+    // Qualify checkboxes — visual toggle on click
+    document.querySelectorAll('.qualify-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const check = item.querySelector('.qualify-check');
+        const active = check.classList.toggle('checked');
+        check.innerHTML = active
+          ? '<svg viewBox="0 0 24 24" fill="none" stroke="#90660C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="20 6 9 17 4 12"/></svg>'
+          : '';
+        if (active) {
+          check.style.background = 'rgba(144,102,12,0.2)';
+          check.style.borderColor = '#90660C';
+          item.querySelector('p').style.color = 'rgba(255,255,255,0.95)';
+        } else {
+          check.style.background = '';
+          check.style.borderColor = '';
+          item.querySelector('p').style.color = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

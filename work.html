@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work & Case Studies | Olympia & Associates</title>
+  <meta name="description" content="Case studies across Career Consulting, Professional Development, and Leadership & Business Consulting. Real engagements. Real outcomes. Edmonton, Alberta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #90660C; --gold-light: #B8842E;
+      --near-black: #1A1A1A; --body-text: #3C3C3C;
+      --muted: #7A7060; --border: #DDD1B6;
+      --bg-warm: #F7F4ED; --bg-cool: #EFECE4;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --max-w: 1180px; --gutter: 24px; --radius: 2px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+    h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 600; line-height: 1.1; color: var(--near-black); }
+    h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 600; line-height: 1.2; color: var(--near-black); }
+    h3 { font-family: var(--font-display); font-size: clamp(1.1rem, 1.8vw, 1.35rem); font-weight: 600; line-height: 1.3; color: var(--near-black); }
+    h4 { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); }
+    p { font-size: 1.0625rem; line-height: 1.75; color: var(--body-text); }
+    p + p { margin-top: 14px; }
+
+    .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .section-label span { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; border-radius: var(--radius); cursor: pointer; transition: all 0.18s ease; min-height: 48px; border: 2px solid transparent; }
+    .btn-primary { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-primary:hover { background: var(--near-black); border-color: var(--near-black); }
+    .btn-link { color: var(--gold); font-size: 0.875rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.15s; }
+    .btn-link:hover { gap: 10px; }
+    .btn-link::after { content: '→'; }
+
+    /* NAV */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.2s; }
+    .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .wordmark { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--near-black); }
+    .wordmark em { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; align-items: center; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 8px 16px; font-size: 0.9375rem; font-weight: 500; color: var(--body-text); transition: color 0.15s; white-space: nowrap; }
+    .nav-links > li > a:hover, .nav-links > li > a.active { color: var(--gold); }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .dropdown { list-style: none; display: none; position: absolute; top: calc(100% + 1px); left: 0; min-width: 240px; background: var(--white); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 8px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .dropdown li a { display: block; padding: 10px 20px; font-size: 0.85rem; color: var(--body-text); transition: background 0.12s, color 0.12s; }
+    .dropdown li a:hover { background: var(--bg-warm); color: var(--gold); }
+    .nav-cta { margin-left: 20px; padding: 10px 22px; font-size: 0.85rem; min-height: 40px; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; width: 40px; height: 40px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--near-black); transition: all 0.2s; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-drawer { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--white); padding: 32px var(--gutter); overflow-y: auto; border-top: 1px solid var(--border); flex-direction: column; gap: 4px; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--near-black); border-bottom: 1px solid var(--border); }
+    .nav-drawer a:last-of-type { border-bottom: none; }
+    .drawer-cta { margin-top: 24px; }
+
+    /* HERO */
+    .page-hero { padding: 120px 0 64px; background: var(--near-black); }
+    .hero-tag { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; margin-bottom: 20px; }
+    .page-hero h1 { color: var(--white); max-width: 700px; margin-bottom: 20px; }
+    .page-hero h1 em { font-style: italic; color: var(--gold); }
+    .page-hero .lead { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; color: rgba(255,255,255,0.6); max-width: 580px; line-height: 1.65; }
+    .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 40px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .hero-stat-item .stat-num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--white); line-height: 1; display: block; }
+    .hero-stat-item .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; display: block; }
+
+    /* STREAM SECTION */
+    .stream-section { padding: 72px 0; }
+    .stream-section.bg-warm { background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .stream-section.bg-white { background: var(--white); border-top: 1px solid var(--border); }
+    .stream-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
+    .stream-header-text h2 { margin-top: 6px; }
+    .stream-link { font-size: 0.85rem; font-weight: 600; color: var(--gold); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; transition: gap 0.15s; flex-shrink: 0; }
+    .stream-link:hover { gap: 10px; }
+    .stream-link::after { content: '→'; }
+
+    /* CASE CARDS */
+    .cards-grid { display: grid; gap: 2px; background: var(--border); border: 1px solid var(--border); }
+    .cards-grid.col-2 { grid-template-columns: 1fr 1fr; }
+    .cards-grid.col-3 { grid-template-columns: repeat(3, 1fr); }
+    .cards-grid.col-4 { grid-template-columns: repeat(4, 1fr); }
+
+    .case-card { background: var(--white); padding: 32px 28px; display: flex; flex-direction: column; position: relative; transition: background 0.2s; }
+    .stream-section.bg-warm .case-card { background: var(--white); }
+    .stream-section.bg-warm .case-card:hover { background: var(--bg-cool); }
+    .stream-section.bg-white .case-card:hover { background: var(--bg-warm); }
+
+    .card-stream { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+    .card-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--near-black); margin-bottom: 4px; line-height: 1.3; }
+    .card-headline { font-family: var(--font-display); font-size: 0.9rem; font-style: italic; color: var(--muted); margin-bottom: 14px; line-height: 1.4; }
+    .card-body { font-size: 0.875rem; line-height: 1.7; color: var(--body-text); flex: 1; margin-bottom: 16px; }
+    .card-outcome { margin-bottom: 14px; }
+    .card-stat { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--gold); line-height: 1; display: block; }
+    .card-stat-label { font-size: 0.72rem; color: var(--muted); display: block; margin-top: 2px; }
+    .card-dates { font-family: var(--font-display); font-size: 1.0rem; font-weight: 600; color: var(--gold); display: block; }
+    .card-dates-label { font-size: 0.72rem; color: var(--muted); display: block; margin-top: 2px; }
+    .card-quote { background: var(--bg-warm); border-left: 3px solid var(--gold); padding: 12px 16px; margin-bottom: 14px; }
+    .card-quote p { font-family: var(--font-display); font-size: 0.9rem; font-style: italic; line-height: 1.6; color: var(--body-text); margin: 0; }
+    .card-quote cite { display: block; font-size: 0.72rem; color: var(--muted); font-style: normal; margin-top: 5px; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border); }
+    .card-pkg { font-size: 0.75rem; color: var(--muted); }
+    .card-badge { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 7px; background: rgba(144,102,12,0.1); color: var(--gold); white-space: nowrap; }
+    .card-badge.honest { background: rgba(122,112,96,0.1); color: var(--muted); }
+
+    /* KLH ANCHOR — dark card */
+    .anchor-card { background: var(--near-black); padding: 36px 32px; border: 1px solid rgba(255,255,255,0.06); }
+    .anchor-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 12px; display: block; }
+    .anchor-card h3 { font-size: 1.15rem; color: var(--white); margin-bottom: 10px; }
+    .anchor-card p { font-size: 0.875rem; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+    .anchor-year { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: rgba(255,255,255,0.15); line-height: 1; margin-bottom: 10px; }
+    .anchor-stats { display: flex; gap: 28px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+    .anchor-stat .num { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--gold-light); }
+    .anchor-stat .lbl { font-size: 0.7rem; color: rgba(255,255,255,0.35); display: block; margin-top: 1px; }
+
+    /* FOOTER CTA */
+    .footer-cta { background: var(--gold); padding: 72px 0; text-align: center; }
+    .footer-cta h2 { color: var(--white); margin-bottom: 10px; }
+    .footer-cta p { color: rgba(255,255,255,0.85); margin-bottom: 24px; }
+    .footer-cta .btn { background: var(--white); color: var(--gold); border-color: var(--white); }
+    .footer-cta .btn:hover { background: var(--near-black); color: var(--white); border-color: var(--near-black); }
+
+    /* FOOTER */
+    .site-footer { background: var(--near-black); padding: 52px 0 0; }
+    .footer-cols { display: grid; grid-template-columns: 280px 1fr 0.7fr 200px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-brand .wordmark { font-size: 1.25rem; color: var(--white); }
+    .footer-brand .wordmark em { color: var(--gold); }
+    .footer-tagline { margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.45); font-style: italic; font-family: var(--font-display); line-height: 1.8; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; display: block; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-contact p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 8px; }
+    .footer-contact a { color: var(--gold-light); }
+    .footer-fine { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 32px; }
+    .fine-print { font-size: 0.73rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+    .footer-legal-links { display: flex; gap: 20px; }
+    .footer-legal-links a { font-size: 0.8rem; color: var(--gold-light); transition: color 0.15s; font-weight: 600; }
+    .footer-legal-links a:hover { color: var(--white); }
+
+    @media (max-width: 1024px) {
+      .cards-grid.col-3 { grid-template-columns: 1fr 1fr; }
+      .cards-grid.col-4 { grid-template-columns: 1fr 1fr; }
+      .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .page-hero { padding: 100px 0 48px; }
+      .hero-stats { gap: 24px; }
+      .cards-grid.col-2,
+      .cards-grid.col-3,
+      .cards-grid.col-4 { grid-template-columns: 1fr; }
+      .stream-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+      .footer-fine { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) { .footer-cols { grid-template-columns: 1fr; } .fine-print { font-size: 0.65rem; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-inner">
+      <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="/about.html" aria-haspopup="true">About Us</a>
+          <ul class="dropdown">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" aria-haspopup="true">What We Offer</a>
+          <ul class="dropdown">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact.html">Reach Us</a></li>
+      </ul>
+      <a href="[CALENDLY_URL]" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
+      <a href="/about.html">About Us — Our Story</a>
+      <a href="/services/career-consulting.html">Career Consulting — High School</a>
+      <a href="/services/professional-development.html">Professional Development</a>
+      <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
+      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
+      <a href="/work.html">Case Studies</a>
+      <a href="/contact.html">Reach Us</a>
+      <div class="drawer-cta">
+        <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="hero-tag">The Work</span>
+        <h1>Real engagements.<br><em>Real outcomes.</em><br>Being built in public.</h1>
+        <p class="lead" style="margin-top:16px;">Olympia &amp; Associates is an early-stage Edmonton practice with a deep track record. This page is an honest account of the work done — what was built, for whom, and what resulted. Where testimonials are pending confirmation, that is noted plainly.</p>
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <span class="stat-num">11</span>
+            <span class="stat-label">Engagements documented</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="stat-num">3 of 4</span>
+            <span class="stat-label">Pro Dev clients hired within 6 months</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="stat-num">$980K</span>
+            <span class="stat-label">Haven Icecream · documented Year 3 projection</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="stat-num">780K+</span>
+            <span class="stat-label">Refugees served by technology we built</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STREAM 1: PROFESSIONAL DEVELOPMENT -->
+    <section class="stream-section bg-warm" id="professional-development">
+      <div class="container">
+        <div class="stream-header">
+          <div class="stream-header-text">
+            <div class="section-label"><span>Stream</span></div>
+            <h2>Professional Development</h2>
+          </div>
+          <a href="/services/professional-development.html" class="stream-link">See the service</a>
+        </div>
+
+        <div class="cards-grid col-2" style="margin-bottom:2px;">
+
+          <!-- Barbara -->
+          <article class="case-card" id="barbara-namuli">
+            <span class="card-stream">Operations &amp; Project Management</span>
+            <span class="card-name">Barbara Esther Namuli</span>
+            <span class="card-headline">Eight years of experience. Translated for Edmonton.</span>
+            <p class="card-body">Eight years of program and operations management — multi-million dollar portfolios, cross-country coordination, executive reporting. Three master resume versions (PM, Operations, EA), 10+ employer-specific applications, and a systematic campaign targeting City of Edmonton, GoA, AHS, RBC, NAIT, MacEwan, and Lunatech. The experience was always sufficient. The translation hadn't happened yet.</p>
+            <div class="card-outcome">
+              <span class="card-dates">Started August · Hired December</span>
+              <span class="card-dates-label">NAIT, Edmonton</span>
+            </div>
+            <div class="card-quote">
+              <p>"He helped me understand how my experience read here, what needed to change, and then built a whole campaign around it. I'm at NAIT now. That process got me here."</p>
+              <cite>— Barbara Esther Namuli, NAIT Edmonton</cite>
+            </div>
+            <div class="card-footer">
+              <span class="card-pkg">Career Launch Bundle · $950 + GST</span>
+              <span class="card-badge">Testimonial pending confirmation</span>
+            </div>
+          </article>
+
+          <!-- Maureen -->
+          <article class="case-card" id="maureen-mutesasira">
+            <span class="card-stream">Human Resources</span>
+            <span class="card-name">Maureen Mutesasira</span>
+            <span class="card-headline">Fifteen years of HR leadership. Rebuilt for the Canadian market.</span>
+            <p class="card-body">Fifteen years across talent acquisition, OD, compensation design, labour relations, and HRIS in East Africa. The challenge wasn't qualifications — it was professional presence. LinkedIn rebuilt from scratch with eight headline options and three bio versions. GoA and post-secondary sector as primary targets. Employer-level contact mapping before any application went out. Post-interview follow-up templates for every panel member.</p>
+            <div class="card-outcome">
+              <span class="card-dates">Started December · Hired May</span>
+              <span class="card-dates-label">Edmonton</span>
+            </div>
+            <div class="card-quote">
+              <p>"I had built fifteen years of real HR experience — I just needed a way to present it so Canadian employers could immediately see my value. Brian rebuilt my professional presence from the ground up. Success doesn't happen by accident. It happens because the groundwork was laid properly."</p>
+              <cite>— Maureen Mutesasira, Edmonton</cite>
+            </div>
+            <div class="card-footer">
+              <span class="card-pkg">Career Launch Bundle · $950 + GST</span>
+              <span class="card-badge">Testimonial pending confirmation</span>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="cards-grid col-2">
+
+          <!-- Fiona -->
+          <article class="case-card" id="fiona-kyomukama">
+            <span class="card-stream">Social Services</span>
+            <span class="card-name">Fiona Kyomukama</span>
+            <span class="card-headline">Nineteen years of service. Prepared to speak to every bit of it.</span>
+            <p class="card-body">Nineteen years at Watoto Child Care Ministries — 200+ children supported, trauma-informed care, crisis intervention, team management across four countries. The interview was the gap. Full interview preparation across ten competency areas, with STAR-format responses built from her actual history. Faith-based community support roles require candidates who can speak fluently about their philosophy of care — the preparation made sure the interview reflected her depth.</p>
+            <div class="card-outcome">
+              <span class="card-dates">Started May · Hired August</span>
+              <span class="card-dates-label">Community Support Worker, Edmonton</span>
+            </div>
+            <div class="card-quote">
+              <p>"By the time I walked into that interview I wasn't nervous. I was ready. I had the role within weeks."</p>
+              <cite>— Fiona Kyomukama, Community Support Worker, Edmonton</cite>
+            </div>
+            <div class="card-footer">
+              <span class="card-pkg">Career Launch Bundle · $950 + GST</span>
+              <span class="card-badge">Testimonial pending confirmation</span>
+            </div>
+          </article>
+
+          <!-- Lynn -->
+          <article class="case-card" id="lynn-nansikombi">
+            <span class="card-stream">Technology Services · Career Pivot</span>
+            <span class="card-name">Lynn Nansikombi</span>
+            <span class="card-headline">Twelve years in social services. Pivoting to technology — deliberately.</span>
+            <p class="card-body">Toronto-based professional targeting IT Project Management and IT Security. No LinkedIn presence worth naming, no résumé built for a technology audience, no Edmonton relocation plan. Engagement built LinkedIn from scratch, structured a master résumé spanning both her social services background and technology trajectory, mapped three target role types, three Edmonton sector networks, and flagged the Upperbound AI conference as a technology network entry point ahead of her move.</p>
+            <div class="card-outcome">
+              <span class="card-stat">Active</span>
+              <span class="card-stat-label">campaign in motion — deliberately, not desperately</span>
+            </div>
+            <div class="card-quote">
+              <p>"I finally feel like I'm running a real job search instead of just hoping something happens."</p>
+              <cite>— Lynn Nansikombi, Toronto (relocating to Edmonton)</cite>
+            </div>
+            <div class="card-footer">
+              <span class="card-pkg">Résumé Build + LinkedIn Optimization · $750 + GST</span>
+              <span class="card-badge">Testimonial pending confirmation</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- KLH CREDIBILITY ANCHOR -->
+    <!-- STREAM 2: CAREER CONSULTING -->
+    <section class="stream-section bg-white" id="career-consulting">
+      <div class="container">
+        <div class="stream-header">
+          <div class="stream-header-text">
+            <div class="section-label"><span>Stream</span></div>
+            <h2>Career Consulting — High School</h2>
+          </div>
+          <a href="/services/career-consulting.html" class="stream-link">See the service</a>
+        </div>
+
+        <div class="cards-grid col-2">
+
+          <!-- Student A -->
+          <article class="case-card" id="student-a">
+            <span class="card-stream">Grade 10 · Foundations + Family Navigation</span>
+            <span class="card-name">Student A</span>
+            <span class="card-headline">Two careers held open. One plan built before the windows closed.</span>
+            <p class="card-body">Grade 10 student with interests in AI engineering and global communications. Newcomer family with an RESP open but no SIN — meaning government grants weren't flowing. Engagement built a 127-credit graduation plan with a 27-credit buffer, locked in the French language chain before the window closed, mapped five target scholarships to immigration milestones, and identified an $82,000 cost gap between studying locally and out-of-province. Immediate action list: SIN, RESP registration, RCIC consultation.</p>
+            <div class="card-outcome">
+              <span class="card-stat">$82K</span>
+              <span class="card-stat-label">cost gap discovered and documented · studying locally vs. out-of-province alternatives</span>
+            </div>
+            <div class="card-quote">
+              <p>"I didn't know there was a scholarship gated behind our immigration status. I didn't know the Edmonton option could save us $80,000. What I got was a list of things to do, in order, with deadlines."</p>
+              <cite>— Parent of a Grade 10 student, Edmonton</cite>
+            </div>
+            <div class="card-footer">
+              <span class="card-pkg">Foundations + Family Navigation · $1,050 + GST</span>
+            </div>
+          </article>
+
+          <!-- Student B -->
+          <article class="case-card" id="student-b">
+            <span class="card-stream">Grade 11 · Pathways + Family Navigation</span>
+            <span class="card-name">Student B</span>
+            <span class="card-headline">Already doing the work. Now she knows where it's going.</span>
+            <p class="card-body">Grade 11 student working as a line cook in her school's culinary programme, building a social media presence with intention, and in early development of a food brand she intends to lead. The engagement didn't hand her a direction — it named the one she was already walking. Credential sequence for culinary arts and food entrepreneurship, portfolio framing of her line cook role and East Africa hospitality experience, trades scholarship map, and a direct connection between her Grade 12 year and the business she is building.</p>
+            <div class="card-outcome">
+              <span class="card-stat">Grade 12</span>
+              <span class="card-stat-label">entering with a plan, a portfolio, and a destination</span>
+            </div>
+            <div class="card-quote">
+              <p>"What she didn't have was the confidence that came from someone saying: this is professional experience. This is a credential. That shift — from 'I like cooking' to 'I am building something' — happened in one engagement."</p>
+              <cite>— Parent of a Grade 11 student, Edmonton</cite>
+            </div>
+            <div class="card-footer">
+              <span class="card-pkg">Pathways + Family Navigation · $1,800 + GST</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STREAM 3: LEADERSHIP & BUSINESS CONSULTING -->
+    <section class="stream-section bg-white" id="leadership-consulting">
+      <div class="container">
+        <div class="stream-header">
+          <div class="stream-header-text">
+            <div class="section-label"><span>Stream</span></div>
+            <h2>Leadership &amp; Business Consulting</h2>
+          </div>
+          <a href="/services/leadership-consulting.html" class="stream-link">See the service</a>
+        </div>
+
+        <div class="cards-grid col-2" style="margin-bottom:2px;">
+
+          <!-- JFC -->
+          <article class="case-card" id="janzen-family-care">
+            <span class="card-stream">Project Engagement · Digital Presence &amp; Positioning</span>
+            <span class="card-name">Janzen Family Care</span>
+            <span class="card-headline">From solo practice to positioned service.</span>
+            <p class="card-body">Candice Janzen had a family navigation service that worked and a digital presence that didn't reflect how distinctive it was. Four-phase engagement: competitive analysis across three comparators, positioning gap matrix and page blueprints, full multi-page HTML website build, and an AI Implementation Brief. Every decision was explained as it was made — the rationale, not just the output.</p>
+            <div class="card-outcome">
+              <span class="card-stat">4</span>
+              <span class="card-stat-label">phases · competitive research through launched practice</span>
+            </div>
+            <div class="card-quote">
+              <p>"The site finally looks and reads like what I've actually built."</p>
+              <cite>— Candice Janzen, Founder, Janzen Family Care, Edmonton</cite>
+            </div>
+            <div class="card-footer">
+              <span class="card-pkg">Project Engagement · from $1,200 + GST</span>
+              <span class="card-badge">Testimonial pending confirmation</span>
+            </div>
+          </article>
+
+          <!-- Haven Icecream -->
+          <article class="case-card" id="haven-icecream">
+            <span class="card-stream">Project Engagement · Business Plan &amp; Financial Model</span>
+            <span class="card-name">Haven Icecream</span>
+            <span class="card-headline">From vision to fundable.</span>
+            <p class="card-body">Artisanal ice cream startup targeting Southwest Edmonton's underserved communities. Engagement produced a 31-page investor-grade business plan for a CSBFP application — competitive benchmark analysis, two-location hub-and-spoke operational design, full financial model, 10-year loan amortisation schedule, and a risk register with seven assessed risks. Year 3 revenue projection: $980,000. Debt service coverage: 3.7x.</p>
+            <div class="card-outcome">
+              <span class="card-stat">$980K</span>
+              <span class="card-stat-label">Year 3 revenue — documented in the CSBFP-ready business plan · 3.7x debt service coverage</span>
+            </div>
+            <div class="card-quote">
+              <p>"The process forced us to think through every part of the business before we committed to anything. We went from a concept to a CSBFP application with a plan we actually understand and believe in."</p>
+              <cite>— Founding team, Haven Icecream</cite>
+            </div>
+            <div class="card-footer">
+              <span class="card-pkg">Project Engagement · from $1,200 + GST</span>
+              <span class="card-badge">Testimonial pending confirmation</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Edmonton Talks + Empowering Nations — second row -->
+        <div class="cards-grid col-2">
+
+          <!-- Edmonton Talks -->
+          <article class="case-card" id="edmonton-talks">
+            <span class="card-stream">Facilitation · Faith Community &amp; Leadership</span>
+            <span class="card-name">Edmonton Talks — Daughters of Zion &amp; Rhema Chapel</span>
+            <span class="card-headline">Two organisations. Four sessions. Edmonton, March 2026.</span>
+            <p class="card-body">Two faith community organisations brokered through Diamond Consulting Inc. Four facilitated sessions delivering leadership and personal development content for real audiences — navigating leadership inside families, workplaces, and community spaces simultaneously. Applied sessions grounded in eight years of facilitation practice, not theoretical frameworks.</p>
+            <div class="card-outcome">
+              <span class="card-stat">4</span>
+              <span class="card-stat-label">paid sessions delivered · Edmonton Q1 2026</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-pkg">Facilitation · from $750 + GST per session</span>
+            </div>
+          </article>
+
+          <!-- Empowering Nations -->
+          <article class="case-card" id="empowering-nations">
+            <span class="card-stream">Strategic Discovery · Nonprofit Sector</span>
+            <span class="card-name">Empowering Nations</span>
+            <span class="card-headline">A generational strategic move. Discovery-phase accompaniment.</span>
+            <p class="card-body">Faith-based nonprofit with a decade of community development across Uganda, Rwanda, Kenya, and Tanzania. The Legacy Project: acquiring a distressed school campus in Kampala to build East Africa's most integrated vocational and spiritual formation campus. Discovery engagement produced a 9-section draft strategic proposal — three-goal framing, financial turnaround model (1,000→1,400+ students, Year 3 donor independence), 100-day operational plan, due diligence framework.</p>
+            <div class="card-outcome">
+              <span class="card-stat">9</span>
+              <span class="card-stat-label">section strategic proposal · donor-presentation ready</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-pkg">Discovery phase · engagement did not proceed to contract</span>
+              <span class="card-badge honest">Included for transparency — see note below</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Empowering Nations honesty note -->
+        <div style="margin-top:2px; padding:20px 24px; background:var(--white); border:1px solid var(--border); border-left:3px solid var(--muted);">
+          <p style="font-size:0.85rem; color:var(--muted); line-height:1.7; margin:0;"><strong style="color:var(--body-text);">On the Empowering Nations engagement:</strong> the discovery-phase work above was produced before a formal engagement agreement was in place. The proposal was professional-grade consulting work — and no contract was signed, no payment was received. This is included here because it is part of the honest record of the practice, and because it illustrates the boundary that has since been formalised: the scoping call is free, the proposal document is free, and everything produced after that requires a signed contract and initial payment. The quality of the thinking does not change based on whether a contract exists. The process does.</p>
+        </div>
+
+      </div>
+    </section>
+
+        <!-- STREAM 4: NEWCOMER & IMMIGRATION PATHWAYS -->
+    <section class="stream-section bg-warm" id="newcomer-pathways">
+      <div class="container">
+        <div class="stream-header">
+          <div class="stream-header-text">
+            <div class="section-label"><span>Stream</span></div>
+            <h2>Newcomer &amp; Immigration Pathways</h2>
+          </div>
+          <a href="/services/newcomer-pathways.html" class="stream-link">See the service</a>
+        </div>
+        <div class="cards-grid col-2">
+
+          <article class="case-card" id="newcomer-individual">
+            <span class="card-stream">Alberta Navigation · Individual</span>
+            <span class="card-name">A Professional Arriving Alone</span>
+            <span class="card-headline">Twelve years of experience. No Canadian professional footprint. Nowhere to start.</span>
+            <p class="card-body">A professional arriving in Edmonton with substantial international experience but no Canadian credit history, no local professional network, and no clear picture of how her qualifications translated to the Alberta market. The engagement mapped her credential recognition pathway, sequenced the first-priority steps, connected her to the ERIEC mentorship programme, and built a six-month transition plan.</p>
+            <div class="card-footer">
+              <span class="card-pkg">Alberta Navigation · $600 + GST</span>
+              <span class="card-badge honest">Composite scenario</span>
+            </div>
+          </article>
+
+          <article class="case-card" id="newcomer-family">
+            <span class="card-stream">Family Navigation · Couple with Children</span>
+            <span class="card-name">A Family Navigating Everything at Once</span>
+            <span class="card-headline">Two adults. Three children. Four systems to navigate simultaneously.</span>
+            <p class="card-body">A couple arriving in Edmonton with three school-age children — different ages, different school programme needs, a family financial situation to rebuild. Both adults needed credential pathway mapping. One child needed ELL support. The RESP had never been set up. The engagement produced a family-level plan covering all six systems, with a clear sequence and specific deadlines for each.</p>
+            <div class="card-footer">
+              <span class="card-pkg">Family Navigation · $900 + GST</span>
+              <span class="card-badge honest">Composite scenario</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+<section class="stream-section bg-white" id="klh">
+      <div class="container">
+        <div class="stream-header">
+          <div class="stream-header-text">
+            <div class="section-label"><span>Credibility anchor</span></div>
+            <h2>Before Olympia &amp; Associates — the Kampala Leadership Hub.</h2>
+          </div>
+        </div>
+        <div class="cards-grid col-3">
+          <div class="anchor-card">
+            <div class="anchor-year">2016</div>
+            <span class="anchor-label">New York City · Global Health Corps</span>
+            <h3>Alumni Program Management</h3>
+            <p>Global Health Corps Fellowship alumnus. Programme management spanning 5 countries with 300+ alumni in 35 countries globally. Leadership development programming designed and delivered across cohorts. The organisational, cross-cultural, and systems-level work from this period is the foundation of the accompaniment model at Olympia &amp; Associates.</p>
+            <p>The discipline of building programmes that develop people across highly varied national contexts — not just transferring knowledge, but building capacity — runs through every engagement today.</p>
+            <div class="anchor-stats">
+              <div class="anchor-stat">
+                <span class="num">5</span>
+                <span class="lbl">program countries</span>
+              </div>
+              <div class="anchor-stat">
+                <span class="num">300+</span>
+                <span class="lbl">alumni in 35 countries</span>
+              </div>
+            </div>
+          </div>
+          <div class="anchor-card">
+            <div class="anchor-year">2018</div>
+            <span class="anchor-label">Kampala, Uganda · Management Coaching &amp; Facilitation</span>
+            <h3>Kampala Leadership Hub</h3>
+            <p>Founded in 2018 as a direct response to a pattern observed across organisations in East Africa: people being promoted into leadership roles without frameworks for the work. KLH delivered career coaching, a 10-chapter management course tested across multiple cohorts, and facilitation across community, faith, nonprofit, and small business contexts.</p>
+            <p>The coaching and facilitation practice at Olympia &amp; Associates is built on eight years of work here. The management course curriculum — tested across real cohorts, refined across multiple delivery cycles — is in active development as a published book.</p>
+            <div class="anchor-stats">
+              <div class="anchor-stat">
+                <span class="num">8+</span>
+                <span class="lbl">years of practice</span>
+              </div>
+              <div class="anchor-stat">
+                <span class="num">10</span>
+                <span class="lbl">chapter management curriculum</span>
+              </div>
+            </div>
+          </div>
+          <div class="anchor-card">
+            <div class="anchor-year">~2020</div>
+            <span class="anchor-label">Uganda &amp; East Africa · Technology at Scale</span>
+            <h3>Guild Digital Uganda</h3>
+            <p>Registered nonprofit tech company. The flagship product — rCHMIS, a refugee Community Health Management Information System — served 780,000+ refugees with 83% health worker adoption. Integrated with Uganda's Ministry of Health. Rwanda MoU. $50K+ in grants secured. $30K+ in contracts delivered.</p>
+            <p>This is the proof-of-capability that underpins every technology-adjacent engagement at Olympia &amp; Associates. The scale, the sector, and the government integration are the evidence base. Wound down — the work lives on in the record.</p>
+            <div class="anchor-stats">
+              <div class="anchor-stat">
+                <span class="num">780K+</span>
+                <span class="lbl">refugees served</span>
+              </div>
+              <div class="anchor-stat">
+                <span class="num">83%</span>
+                <span class="lbl">health worker adoption</span>
+              </div>
+            </div>
+          </div>
+        </div>/div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+          <p class="footer-tagline">Strategic Consulting<br>Tailored Accompaniment<br>Systems Navigation<br>Executable Plans</p>
+        </div>
+        <div>
+          <span class="footer-col-head">What We Offer</span>
+          <ul class="footer-links">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-col-head">Site</span>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/contact.html">Reach Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-col-head">Get in touch</span>
+          <p><a href="[CALENDLY_URL]" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p>
+          <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="footer-fine">
+        <p class="fine-print">Olympia &amp; Associates · Alberta trade name TN27173962 · Brian Ssennoga · GST: 757324769RC001</p>
+        <div class="footer-legal-links">
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      navDrawer.setAttribute('aria-hidden', !open);
+      navDrawer.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    document.addEventListener('click', (e) => {
+      if (navDrawer.classList.contains('open') && !navDrawer.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open');
+        navDrawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navDrawer.classList.contains('open')) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open'); document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

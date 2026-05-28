@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Who Answers for This Decision? | Insights | Olympia & Associates</title>
+  <meta name="description" content="Dan Davies calls it an accountability sink — a structure built so that consequences get absorbed before they can travel back to the people who caused them. This is not incompetence. It is architecture.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #90660C; --gold-light: #B8842E;
+      --near-black: #1A1A1A; --body-text: #3C3C3C;
+      --muted: #7A7060; --border: #DDD1B6;
+      --bg-warm: #F7F4ED; --bg-cool: #EFECE4;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --max-w: 1180px; --gutter: 24px; --radius: 2px;
+      --prose-max: 720px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+
+    /* NAV */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.2s; }
+    .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .wordmark { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--near-black); }
+    .wordmark em { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; align-items: center; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 8px 16px; font-size: 0.9375rem; font-weight: 500; color: var(--body-text); transition: color 0.15s; white-space: nowrap; }
+    .nav-links > li > a:hover, .nav-links > li > a.active { color: var(--gold); }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .dropdown { list-style: none; display: none; position: absolute; top: calc(100% + 1px); left: 0; min-width: 240px; background: var(--white); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 8px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .dropdown li a { display: block; padding: 10px 20px; font-size: 0.85rem; color: var(--body-text); transition: background 0.12s, color 0.12s; }
+    .dropdown li a:hover { background: var(--bg-warm); color: var(--gold); }
+    .nav-cta { margin-left: 20px; padding: 10px 22px; font-size: 0.85rem; min-height: 40px; border: 2px solid var(--gold); background: var(--gold); color: var(--white); font-family: var(--font-body); font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: all 0.18s; display: inline-flex; align-items: center; border-radius: var(--radius); }
+    .nav-cta:hover { background: var(--near-black); border-color: var(--near-black); }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; width: 40px; height: 40px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--near-black); transition: all 0.2s; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-drawer { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--white); padding: 32px var(--gutter); overflow-y: auto; border-top: 1px solid var(--border); flex-direction: column; gap: 4px; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--near-black); border-bottom: 1px solid var(--border); }
+    .nav-drawer a:last-of-type { border-bottom: none; }
+    .drawer-cta { margin-top: 24px; }
+
+    /* ARTICLE HEADER */
+    .article-header { padding: 120px 0 64px; background: var(--near-black); }
+    .article-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; }
+    .article-breadcrumb a { font-size: 0.8rem; color: rgba(255,255,255,0.4); transition: color 0.15s; }
+    .article-breadcrumb a:hover { color: var(--gold-light); }
+    .article-breadcrumb span { font-size: 0.8rem; color: rgba(255,255,255,0.2); }
+    .article-stream-tag { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 16px; }
+    .article-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; line-height: 1.1; color: var(--white); margin-bottom: 20px; }
+    .article-subhead { font-family: var(--font-display); font-size: 1.2rem; font-style: italic; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 32px; }
+    .article-meta { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .article-meta-item { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+    .article-meta-item strong { color: rgba(255,255,255,0.6); font-weight: 600; }
+
+    /* ARTICLE BODY */
+    .article-body { padding: 72px 0; background: var(--white); }
+    .article-body .container { display: grid; grid-template-columns: var(--prose-max) 1fr; gap: 64px; align-items: start; }
+    .prose { max-width: var(--prose-max); }
+    .prose h2 { font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 600; color: var(--near-black); margin-top: 48px; margin-bottom: 16px; line-height: 1.25; }
+    .prose h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--near-black); margin-top: 36px; margin-bottom: 12px; }
+    .prose p { font-size: 1.0625rem; line-height: 1.82; color: var(--body-text); margin-bottom: 20px; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose blockquote { border-left: 3px solid var(--gold); padding: 16px 24px; margin: 32px 0; background: var(--bg-warm); }
+    .prose blockquote p { font-family: var(--font-display); font-size: 1.1rem; font-style: italic; color: var(--near-black); margin-bottom: 0; line-height: 1.65; }
+    .prose hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    .prose strong { font-weight: 600; color: var(--near-black); }
+    .prose a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+    .prose .footnote { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+
+    /* SIDEBAR */
+    .article-sidebar { position: sticky; top: 96px; }
+    .sidebar-card { background: var(--bg-warm); border: 1px solid var(--border); padding: 28px 24px; margin-bottom: 20px; }
+    .sidebar-card h4 { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .sidebar-card p { font-size: 0.85rem; line-height: 1.65; color: var(--muted); margin-bottom: 14px; }
+    .sidebar-card p:last-child { margin-bottom: 0; }
+    .sidebar-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 600; color: var(--gold); transition: gap 0.15s; }
+    .sidebar-cta:hover { gap: 10px; }
+    .sidebar-cta::after { content: '→'; }
+    .sidebar-refs { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+    .sidebar-refs p { margin-bottom: 8px; }
+
+    /* BACK LINK */
+    .article-back { padding: 40px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.875rem; font-weight: 600; color: var(--near-black); transition: color 0.15s; }
+    .back-link:hover { color: var(--gold); }
+    .back-link::before { content: '←'; }
+
+    /* FOOTER */
+    .site-footer { background: var(--near-black); padding: 52px 0 0; }
+    .footer-cols { display: grid; grid-template-columns: 280px 1fr 0.7fr 200px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-brand .wordmark { font-size: 1.25rem; color: var(--white); }
+    .footer-brand .wordmark em { color: var(--gold); }
+    .footer-tagline { margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.45); font-style: italic; font-family: var(--font-display); line-height: 1.8; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; display: block; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-contact p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 8px; }
+    .footer-contact a { color: var(--gold-light); }
+    .footer-fine { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 32px; }
+    .fine-print { font-size: 0.73rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+    .footer-legal-links { display: flex; gap: 20px; }
+    .footer-legal-links a { font-size: 0.8rem; color: var(--gold-light); transition: color 0.15s; font-weight: 600; }
+    .footer-legal-links a:hover { color: var(--white); }
+
+    @media (max-width: 1024px) {
+      .article-body .container { grid-template-columns: 1fr; }
+      .article-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .article-header { padding: 100px 0 48px; }
+      .article-sidebar { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+      .footer-fine { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) { .footer-cols { grid-template-columns: 1fr; } .fine-print { font-size: 0.65rem; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-inner">
+      <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="/about.html" aria-haspopup="true">About Us</a>
+          <ul class="dropdown">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" aria-haspopup="true">What We Offer</a>
+          <ul class="dropdown">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact.html">Reach Us</a></li>
+      </ul>
+      <a href="[CALENDLY_URL]" class="nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
+      <a href="/about.html">About Us — Our Story</a>
+      <a href="/work.html">Case Studies</a>
+      <a href="/services/career-consulting.html">Career Consulting — High School</a>
+      <a href="/services/professional-development.html">Professional Development</a>
+      <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
+      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
+      <a href="/contact.html">Reach Us</a>
+      <div class="drawer-cta">
+        <a href="[CALENDLY_URL]" class="nav-cta" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <header class="article-header">
+      <div class="container">
+        <nav class="article-breadcrumb" aria-label="Breadcrumb">
+          <span>›</span>
+          <span>Who Answers for This Decision?</span>
+        </nav>
+        <span class="article-stream-tag">AI Policy &amp; Governance · Leadership &amp; Business Consulting</span>
+        <h1>Who Answers for This Decision?</h1>
+        <p class="article-subhead">Dan Davies calls it an accountability sink — a structure built so that consequences get absorbed before they can travel back to the people who caused them. This is not incompetence. It is architecture. Someone designed it.</p>
+        <div class="article-meta">
+          <span class="article-meta-item"><strong>Brian Ssennoga</strong> · Olympia &amp; Associates</span>
+          <span class="article-meta-item">Originally published <strong>February 25, 2026</strong></span>
+          <span class="article-meta-item">Adapted for Insights <strong>May 2026</strong></span>
+        </div>
+      </div>
+    </header>
+
+    <section class="article-body">
+      <div class="container">
+
+        <article class="prose">
+
+          <p>Think of the last decision that changed your life. Not a choice you made. A decision someone else made — about your loan application, your visa status, your election, your neighbourhood's emergency room. Now ask the follow-up question: who made it? Who do you call? Who answers?</p>
+
+          <p>If you're sitting with a long pause right now, that pause has a name. Dan Davies, in <em>The Unaccountability Machine</em> (2024), calls it an accountability sink — a structure built so that consequences get absorbed before they can travel back to the people who caused them.</p>
+
+          <p>This is not incompetence. It is not bad luck. It is architecture. Someone designed it.</p>
+
+          <hr>
+
+          <h2>The Algorithm That Learned to Wash Itself Clean</h2>
+
+          <p>Machine learning researchers Aïvodji et al. (2019) found the same accountability sink pattern inside AI systems. They called it <em>fairwashing</em>.</p>
+
+          <p>In 2019, a team of researchers built a tool they named LaundryML. It takes a biased AI model and generates a clean-looking explanation for it. The model still discriminates — against women in income predictions, against Black defendants in recidivism scoring. The explanation says it doesn't. Auditors see clean hands. The people being harmed get the same outcome as before.</p>
+
+          <p>The researchers published this as a warning. Many organisations read it as a blueprint.</p>
+
+          <p>This works because explainability regulations tell companies to produce an explanation — not to be fair. The explanation becomes the product. The audit becomes the performance. There is no mechanism to send the consequences of a biased decision back to the person who built the system. The feedback loop is severed by design.</p>
+
+          <blockquote>
+            <p>The extent to which you can change a decision is exactly the extent to which you are accountable for it. No more, no less. Fairwashing doesn't just obscure bias. It severs accountability at the source.</p>
+          </blockquote>
+
+          <hr>
+
+          <h2>Three Places the Loop Broke</h2>
+
+          <h3>Uganda, January 2026</h3>
+
+          <p>Ugandans went to vote. Some were beaten. Others shot. Then the internet went dark. The military raided the home of opposition leader Robert Kyagulanyi. President Museveni was declared winner with 71.65% of the vote, with no tally published to verify the count.</p>
+
+          <p>On February 12, the EU Parliament condemned the elections by 514 votes to 3, citing abuses, widespread intimidation, fraud, violence, and a nationwide internet blackout. Uganda's UN envoy called the EU Parliament "irrelevant" and declined to attend the subsequent delegation meeting.</p>
+
+          <p>Now ask — today — who is accountable. Every institution points at another. The Electoral Commission chair acknowledged receiving pressure from unnamed senior government figures not to declare certain candidates as winners. He named no one. No one has been named. The feedback loop between those who bore the consequences and those who made the decisions is not slow. It is severed, intentionally.</p>
+
+          <h3>Alberta, Canada, 2025–2026</h3>
+
+          <p>The pressure on Alberta's emergency rooms, schools, and social services is real. It is felt. I live here. I see it.</p>
+
+          <p>Premier Danielle Smith put it directly: rapid international student caps that tripled then halved over three years — set by federal policy. Housing zoning — set by municipalities. Health infrastructure investment — a provincial responsibility underfunded across fifteen years of governments. Immigration targets — set by Ottawa. The federal government's own 2025 annual immigration report acknowledged that temporary residents grew from 3.3% of the population in 2018 to 7.5% by 2024 — an unprecedented rate of growth.</p>
+
+          <p>Six governments. Fifteen years. Decisions spread so thin that no single minister or department can be held to account. The consequences land on newcomers, on nurses, on teachers — and on a referendum ballot, where the frustration is real and the accountability is diffuse.</p>
+
+          <h3>Puerto Vallarta, Mexico, February 2026</h3>
+
+          <p>The Mexican army, acting on US intelligence, killed Nemesio "El Mencho" Oseguera Cervantes — head of the Jalisco New Generation Cartel. Within hours, the cartel retaliated across 20 Mexican states. Cars burned in a Costco parking lot. Roadblocks went up on major highways. Gunmen followed tourists through the streets of Puerto Vallarta. Flights were cancelled. Canadians sheltered in place.</p>
+
+          <p>The operation was declared a success. Ask which government compensates the Costco employee whose vehicle is now a burnt shell. Ask which minister answers for the Canadian tourist whose non-refundable flight was cancelled. Ask which official takes the call from the small business owner whose shop burned because a government — not the business owner — made a security decision.</p>
+
+          <p>Three different countries. Three different systems. Same architecture: the decision-makers stay insulated. The consequences travel downward until they land on someone with no power to push them back.</p>
+
+          <hr>
+
+          <h2>The Two Objections — and Why They Don't Hold</h2>
+
+          <p><strong>"Complex systems produce diffuse outcomes. You can't pin accountability on one person."</strong></p>
+
+          <p>True. And this is precisely how accountability sinks defend themselves. Complexity is real. The question is whether it is being managed or weaponized. There is a difference between a system too complex to fully predict and a system deliberately structured so that consequences cannot travel back to their source.</p>
+
+          <p>The Alberta housing crisis did not produce itself. A series of human beings — ministers, policy advisors, electoral committees — made specific choices across specific years. Complexity does not erase those choices. It hides them. Leaders who use complexity as a shield are making a choice. That choice has a cost. Someone else pays it.</p>
+
+          <p><strong>"Governance frameworks and international bodies exist to handle exactly this."</strong></p>
+
+          <p>The EU Parliament passed a resolution 514 to 3 on Uganda. Uganda called it irrelevant. A governance framework that cannot compel consequence is a documentation exercise. The test is not whether a resolution was passed or a framework was published. The test is whether the person who made the original decision <em>felt</em> it. Most frameworks fail that test by design, not by accident.</p>
+
+          <hr>
+
+          <h2>What Staying in the Room Actually Looks Like</h2>
+
+          <p>I work across international development and responsible AI. The questions that slow our meetings down are the accountability questions. Not the technical ones.</p>
+
+          <p>Who defines success for this AI model — and whose experience is excluded from that definition? When this system produces a harmful recommendation, which human being has both the information and the authority to intervene? Does that person know they hold that role? What happens when they use it?</p>
+
+          <p>These questions create friction. Stakeholders who want to ship fast do not love them. The implicit message is: we'll handle edge cases post-launch. Except post-launch is when the accountability sink opens.</p>
+
+          <p>Simon Sinek, in <em>Leaders Eat Last</em>, argues that the fundamental job of a leader is to absorb uncertainty on behalf of those they serve. The accountability sink inverts this completely. The people with the least power absorb the most consequence. Responsible AI — practiced seriously, not performed — is an attempt to restore the original direction of that flow.</p>
+
+          <p>It means staying in the room when the model causes harm. Not delegating it to a compliance officer three levels removed from the deployment decision. It means keeping the feedback loop intact <em>before</em> deployment, because retrofitting it after harm is exponentially harder and significantly more expensive — in cost, in trust, and in lives. This is not idealism. It is engineering.</p>
+
+          <hr>
+
+          <h2>The Actual Problem</h2>
+
+          <p>Accountability sinks are not new. Organisations have been building them for as long as organisations have existed. What AI provides is not a new mechanism — it is an escalated and expanded version of something we already knew how to do.</p>
+
+          <p>Which means the solution is not a better algorithm. It is not a stronger resolution. It is not a more sophisticated governance framework that sits in a drawer. It is leaders — in technology, in government, in business, in community — who are willing to remain connected to the consequences of their decisions. Who accept that their power over a decision and their accountability for it are the same thing, not separate considerations.</p>
+
+          <p>We don't just need better accountability frameworks. We need leaders willing to stay in the room when the consequences arrive — whether those consequences come from algorithms we built, roads we didn't build, internet we shut down, or rhetoric we accommodated when we knew better.</p>
+
+          <p class="footnote"><em>References: Davies, D. (2024). The Unaccountability Machine. Profile Books. · Aïvodji, U. et al. (2019). Fairwashing: the risk of rationalization. ICML. · Sinek, S. (2014). Leaders Eat Last. Portfolio/Penguin.</em></p>
+
+        </article>
+
+        <aside class="article-sidebar">
+          <div class="sidebar-card">
+            <h4>About the author</h4>
+            <p>Brian Ssennoga is the founder of Olympia &amp; Associates, a technology and business consulting practice based in Edmonton, Alberta. He works across AI policy and governance, leadership and business consulting, and professional development.</p>
+            <a href="/about.html" class="sidebar-cta">Our Story</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>This article raised questions?</h4>
+            <p>If this piece describes something live in your organisation — an AI governance gap, a leadership accountability problem, a team that has stopped raising hard questions — a scoping call is a good place to start.</p>
+            <a href="[CALENDLY_URL]" class="sidebar-cta" target="_blank" rel="noopener">Book a free 30-min call</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>Related reading</h4>
+            <p class="sidebar-refs">
+              <a href="/insights/values-driven-leadership.html" style="color:var(--gold);">Values-Driven Leadership: Why Ethical Leaders Win</a><br><br>
+              <a href="/insights/transformative-communication.html" style="color:var(--gold);">Transformative Communication: Why Most Teams Talk Past Each Other</a>
+            </p>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <section class="article-back">
+      <div class="container">
+        <a href="/insights.html" class="back-link">Back to Insights</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+          <p class="footer-tagline">Strategic Consulting<br>Tailored Accompaniment<br>Systems Navigation<br>Executable Plans</p>
+        </div>
+        <div>
+          <span class="footer-col-head">What We Offer</span>
+          <ul class="footer-links">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-col-head">Site</span>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+            <li><a href="/contact.html">Reach Us</a></li>
+          
+            <li><a href="/how-we-work.html">How We Work</a></li></ul>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-col-head">Get in touch</span>
+          <p><a href="[CALENDLY_URL]" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p>
+          <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="footer-fine">
+        <p class="fine-print">Olympia &amp; Associates · Alberta trade name TN27173962 · Brian Ssennoga · GST: 757324769RC001</p>
+        <div class="footer-legal-links">
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      navDrawer.setAttribute('aria-hidden', !open);
+      navDrawer.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    document.addEventListener('click', (e) => {
+      if (navDrawer.classList.contains('open') && !navDrawer.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open');
+        navDrawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navDrawer.classList.contains('open')) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open'); document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Development | Olympia & Associates</title>
+  <meta name="description" content="Résumé builds, LinkedIn optimization, and career campaigns for professionals in transition. Done For You and Done With You. Edmonton, Alberta. From $450 + GST.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #90660C; --gold-light: #B8842E;
+      --near-black: #1A1A1A; --body-text: #3C3C3C;
+      --muted: #7A7060; --border: #DDD1B6;
+      --bg-warm: #F7F4ED; --bg-cool: #EFECE4;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --max-w: 1180px; --gutter: 24px; --radius: 2px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+    h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 600; line-height: 1.1; color: var(--near-black); }
+    h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 600; line-height: 1.2; color: var(--near-black); }
+    h3 { font-family: var(--font-display); font-size: clamp(1.1rem, 1.8vw, 1.35rem); font-weight: 600; line-height: 1.3; color: var(--near-black); }
+    h4 { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); }
+    p { font-size: 1.0625rem; line-height: 1.75; color: var(--body-text); }
+    p + p { margin-top: 14px; }
+
+    .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .section-label span { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; border-radius: var(--radius); cursor: pointer; transition: all 0.18s ease; min-height: 48px; border: 2px solid transparent; }
+    .btn-primary { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-primary:hover { background: var(--near-black); border-color: var(--near-black); }
+    .btn-white { background: var(--white); color: var(--gold); border-color: var(--white); }
+    .btn-white:hover { background: var(--near-black); color: var(--white); border-color: var(--near-black); }
+    .btn-link { color: var(--gold); font-size: 0.875rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.15s; }
+    .btn-link:hover { gap: 10px; }
+    .btn-link::after { content: '→'; }
+
+    /* NAV */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.2s; }
+    .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .wordmark { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--near-black); }
+    .wordmark em { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; align-items: center; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 8px 16px; font-size: 0.9375rem; font-weight: 500; color: var(--body-text); transition: color 0.15s; white-space: nowrap; }
+    .nav-links > li > a:hover, .nav-links > li > a.active { color: var(--gold); }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .dropdown { list-style: none; display: none; position: absolute; top: calc(100% + 1px); left: 0; min-width: 240px; background: var(--white); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 8px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .dropdown li a { display: block; padding: 10px 20px; font-size: 0.85rem; color: var(--body-text); transition: background 0.12s, color 0.12s; }
+    .dropdown li a:hover, .dropdown li a.active { background: var(--bg-warm); color: var(--gold); }
+    .nav-cta { margin-left: 20px; padding: 10px 22px; font-size: 0.85rem; min-height: 40px; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; width: 40px; height: 40px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--near-black); transition: all 0.2s; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-drawer { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--white); padding: 32px var(--gutter); overflow-y: auto; border-top: 1px solid var(--border); flex-direction: column; gap: 4px; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--near-black); border-bottom: 1px solid var(--border); }
+    .nav-drawer a:last-of-type { border-bottom: none; }
+    .drawer-cta { margin-top: 24px; }
+
+    /* §1 HERO */
+    .page-hero { padding: 120px 0 64px; background: var(--near-black); }
+    .hero-tag { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; margin-bottom: 20px; }
+    .page-hero h1 { color: var(--white); max-width: 760px; margin-bottom: 20px; }
+    .page-hero h1 em { font-style: italic; color: var(--gold); }
+    .page-hero .lead { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; color: rgba(255,255,255,0.6); max-width: 620px; line-height: 1.65; }
+    .hero-cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 32px; }
+    .hero-scroll { font-size: 0.875rem; color: rgba(255,255,255,0.4); font-weight: 500; display: inline-flex; align-items: center; gap: 6px; transition: color 0.15s; }
+    .hero-scroll:hover { color: var(--gold-light); }
+
+    /* §2 IS THIS FOR YOU */
+    .qualify-section { padding: 72px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .qualify-section h2 { color: var(--near-black); margin-bottom: 10px; }
+    .qualify-intro { color: var(--muted); font-size: 1.0rem; max-width: 580px; margin-bottom: 36px; }
+    .qualify-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); }
+    .qualify-item { background: var(--white); padding: 20px 24px; display: flex; align-items: flex-start; gap: 14px; cursor: pointer; transition: background 0.15s; }
+    .qualify-item:hover { background: var(--bg-warm); }
+    .qualify-check { width: 22px; height: 22px; border: 1.5px solid var(--border); border-radius: 3px; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+    .qualify-item p { font-size: 0.9375rem; line-height: 1.55; color: var(--body-text); margin: 0; }
+    /* Full-width urgency block */
+    .qualify-urgency { margin-top: 2px; padding: 32px 36px; background: var(--near-black); border-left: 3px solid var(--gold); display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .qualify-urgency p { font-size: 0.9375rem; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0; flex: 1; min-width: 280px; }
+    .qualify-urgency strong { color: var(--gold-light); }
+    .qualify-urgency .btn-white { flex-shrink: 0; white-space: nowrap; }
+
+    /* §3 HOW THE ENGAGEMENT IS STRUCTURED */
+    .zones-section { padding: 72px 0; background: var(--near-black); }
+    .zones-section .section-label::before { background: var(--gold); }
+    .zones-section .section-label span { color: var(--gold-light); }
+    .zones-section h2 { color: var(--white); margin-bottom: 10px; }
+    .zones-intro { color: rgba(255,255,255,0.6); font-size: 1.0rem; max-width: 600px; margin-bottom: 36px; line-height: 1.7; }
+    .zones-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07); }
+    .zone-card { padding: 36px 32px; }
+    .zone-card.active-zone { background: var(--near-black); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--gold); }
+    .zone-card.community-zone { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid rgba(255,255,255,0.2); }
+    .zone-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; display: block; }
+    .zone-card.active-zone .zone-label { color: var(--gold-light); }
+    .zone-card.community-zone .zone-label { color: rgba(255,255,255,0.4); }
+    .zone-card h3 { font-size: 1.2rem; color: var(--white); margin-bottom: 14px; }
+    .zone-card p { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.65); margin-bottom: 12px; }
+    .zone-card p:last-of-type { margin-bottom: 0; }
+    .zone-details { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .zone-details li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.5; }
+    .zone-details li::before { content: '—'; color: var(--gold-light); flex-shrink: 0; }
+    .zone-card.community-zone .zone-details li::before { color: rgba(255,255,255,0.3); }
+    .zones-transition { margin-top: 24px; padding: 20px 24px; background: rgba(144,102,12,0.12); border: 1px solid rgba(144,102,12,0.25); border-left: 3px solid var(--gold); }
+    .zones-transition p { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.65; margin: 0; }
+    .zones-transition strong { color: var(--gold-light); }
+
+    /* §4 TWO MODELS + PROCESS */
+    .models-section { padding: 72px 0; background: var(--white); }
+    .models-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .model-card { background: var(--white); padding: 36px 32px; display: flex; flex-direction: column; }
+    .model-card.featured { background: var(--bg-warm); border-top: 3px solid var(--gold); }
+    .model-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: block; }
+    .model-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+    .model-desc { font-size: 0.9375rem; line-height: 1.7; color: var(--body-text); margin-bottom: 20px; }
+    .model-divider { height: 1px; background: var(--border); margin: 20px 0; }
+    .model-steps { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .model-steps li { display: flex; gap: 12px; align-items: flex-start; }
+    .step-dot { width: 22px; height: 22px; background: var(--bg-cool); border: 1.5px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.68rem; font-weight: 700; color: var(--gold); margin-top: 2px; }
+    .model-card.featured .step-dot { background: var(--white); }
+    .step-content h4 { font-size: 0.82rem; font-weight: 600; color: var(--near-black); text-transform: none; letter-spacing: 0; margin-bottom: 2px; }
+    .step-content p { font-size: 0.84rem; line-height: 1.55; color: var(--muted); margin: 0; }
+    .model-best { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--muted); font-style: italic; line-height: 1.5; }
+
+    /* §5 WORK IN PRACTICE */
+    .case-section { padding: 72px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .case-card { background: var(--white); padding: 32px 28px; display: flex; flex-direction: column; }
+    .case-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .case-card h3 { font-size: 1.15rem; margin-bottom: 5px; }
+    .case-headline { font-family: var(--font-display); font-size: 0.95rem; font-style: italic; color: var(--muted); margin-bottom: 14px; }
+    .case-card p { font-size: 0.875rem; line-height: 1.7; color: var(--body-text); flex: 1; margin-bottom: 16px; }
+    .case-dates { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--gold); display: block; margin-bottom: 2px; }
+    .case-dates-label { font-size: 0.75rem; color: var(--muted); display: block; margin-bottom: 16px; }
+    .case-quote { background: var(--bg-warm); border-left: 3px solid var(--gold); padding: 14px 18px; margin-bottom: 12px; }
+    .case-quote p { font-family: var(--font-display); font-size: 0.95rem; font-style: italic; color: var(--body-text); line-height: 1.6; margin: 0; }
+    .case-quote cite { display: block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-style: normal; }
+    .case-pkg { font-size: 0.78rem; color: var(--muted); }
+
+    /* §6 YOUR INVESTMENT */
+    .packages-section { padding: 72px 0; background: var(--white); }
+    .packages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .pkg-card { background: var(--white); padding: 28px 22px; display: flex; flex-direction: column; }
+    .pkg-card.featured { background: var(--near-black); }
+    .pkg-badge { display: inline-block; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; margin-bottom: 14px; background: var(--bg-cool); color: var(--gold); }
+    .pkg-card.featured .pkg-badge { background: var(--gold); color: var(--white); }
+    .pkg-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+    .pkg-card.featured h3 { color: var(--white); }
+    .pkg-model { font-size: 0.75rem; color: var(--muted); margin-bottom: 16px; line-height: 1.4; }
+    .pkg-card.featured .pkg-model { color: rgba(255,255,255,0.4); }
+    .pkg-price { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--near-black); line-height: 1; margin-bottom: 3px; }
+    .pkg-card.featured .pkg-price { color: var(--white); }
+    .pkg-gst { font-size: 0.72rem; color: var(--muted); margin-bottom: 16px; }
+    .pkg-card.featured .pkg-gst { color: rgba(255,255,255,0.3); }
+    .pkg-divider { height: 1px; background: var(--border); margin-bottom: 16px; }
+    .pkg-card.featured .pkg-divider { background: rgba(255,255,255,0.1); }
+    .pkg-includes { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .pkg-includes li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; line-height: 1.5; color: var(--body-text); }
+    .pkg-card.featured .pkg-includes li { color: rgba(255,255,255,0.72); }
+    .pkg-includes li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+    .pkg-card.featured .pkg-includes li::before { color: var(--gold-light); }
+
+    /* §7 AVAILABILITY + WAITLIST */
+    .availability-section { padding: 72px 0; background: var(--gold); }
+    .avail-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .avail-stat { font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 6px; }
+    .avail-stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+    .avail-left h2 { color: var(--white); margin-top: 24px; margin-bottom: 16px; }
+    .avail-left p { color: rgba(255,255,255,0.85); margin-bottom: 14px; font-size: 1.0rem; }
+    .avail-right { background: var(--white); padding: 36px 32px; }
+    .avail-right h3 { font-size: 1.2rem; color: var(--near-black); margin-bottom: 8px; }
+    .avail-right > p { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; line-height: 1.65; }
+    .waitlist-form { display: flex; flex-direction: column; gap: 12px; }
+    .waitlist-form input, .waitlist-form select { padding: 13px 16px; font-family: var(--font-body); font-size: 0.9rem; border: 1.5px solid var(--border); background: var(--bg-warm); color: var(--near-black); border-radius: var(--radius); outline: none; transition: border-color 0.15s; }
+    .waitlist-form input:focus, .waitlist-form select:focus { border-color: var(--gold); background: var(--white); }
+    .waitlist-form input::placeholder { color: var(--muted); }
+    .waitlist-form select { color: var(--muted); }
+    .waitlist-form select option { color: var(--near-black); }
+    .btn-submit { background: var(--gold); color: var(--white); border: none; padding: 14px 24px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.18s; border-radius: var(--radius); }
+    .btn-submit:hover { background: var(--near-black); }
+    .waitlist-benefits { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .waitlist-benefits li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .waitlist-benefits li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+    /* PRIVACY — full width */
+    .privacy-note { padding: 40px 0; background: var(--white); border-top: 1px solid var(--border); }
+    .privacy-inner { display: flex; align-items: flex-start; gap: 20px; }
+    .privacy-icon { width: 36px; height: 36px; background: var(--bg-warm); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .privacy-icon svg { width: 16px; height: 16px; color: var(--gold); }
+    .privacy-inner p { font-size: 0.875rem; line-height: 1.75; color: var(--muted); }
+    .privacy-inner a { color: var(--gold); font-weight: 600; }
+
+    /* FOOTER CTA */
+    .footer-cta { background: var(--bg-warm); border-top: 2px solid var(--gold); padding: 72px 0; text-align: center; }
+    .footer-cta h2 { margin-bottom: 10px; }
+    .footer-cta p { color: var(--muted); margin-bottom: 24px; }
+
+    /* FOOTER */
+    .site-footer { background: var(--near-black); padding: 52px 0 0; }
+    .footer-cols { display: grid; grid-template-columns: 280px 1fr 0.7fr 200px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-brand .wordmark { font-size: 1.25rem; color: var(--white); }
+    .footer-brand .wordmark em { color: var(--gold); }
+    .footer-tagline { margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.45); font-style: italic; font-family: var(--font-display); line-height: 1.8; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; display: block; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-contact p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 8px; }
+    .footer-contact a { color: var(--gold-light); }
+    .footer-fine { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 32px; }
+    .fine-print { font-size: 0.73rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+    .footer-legal-links { display: flex; gap: 20px; }
+    .footer-legal-links a { font-size: 0.8rem; color: var(--gold-light); transition: color 0.15s; font-weight: 600; }
+    .footer-legal-links a:hover { color: var(--white); }
+
+    @media (max-width: 1024px) {
+      .packages-grid { grid-template-columns: 1fr 1fr; }
+      .avail-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .page-hero { padding: 100px 0 48px; }
+      .qualify-grid { grid-template-columns: 1fr; }
+      .qualify-urgency { flex-direction: column; gap: 20px; }
+      .zones-grid { grid-template-columns: 1fr; }
+      .models-grid { grid-template-columns: 1fr; }
+      .case-grid { grid-template-columns: 1fr; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+      .footer-fine { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) { .footer-cols { grid-template-columns: 1fr; } .fine-print { font-size: 0.65rem; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-inner">
+      <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="/about.html" aria-haspopup="true">About Us</a>
+          <ul class="dropdown">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="active" aria-haspopup="true">What We Offer</a>
+          <ul class="dropdown">
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/professional-development.html" class="active">Professional Development</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact.html">Reach Us</a></li>
+      </ul>
+      <a href="[CALENDLY_URL]" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
+      <a href="/about.html">About Us — Our Story</a>
+      <a href="/services/career-consulting.html">Career Consulting — High School</a>
+      <a href="/services/professional-development.html">Professional Development</a>
+      <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
+      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
+      <a href="/work.html">Case Studies</a>
+      <a href="/contact.html">Reach Us</a>
+      <div class="drawer-cta">
+        <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- §1 HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="hero-tag">Professional Development</span>
+        <h1>Your experience is real.<br><em>The question is whether it reads that way</em><br>to the right employers.</h1>
+        <p class="lead" style="margin-top:16px;">Years of work don't automatically translate. The Canadian job market has its own language, its own expectations, and its own gatekeeping. We build the tools that make your professional history legible — and run the campaign that gets it in front of the right people.</p>
+        <div class="hero-cta-row">
+          <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+          <a href="#qualify" class="hero-scroll">Is this for you? ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- §2 IS THIS FOR YOU -->
+    <section class="qualify-section" id="qualify">
+      <div class="container">
+        <div class="section-label"><span>Self-assessment</span></div>
+        <h2>Is this service for you?</h2>
+        <p class="qualify-intro">Read through these statements honestly. Each one describes a situation that is easy to overlook and expensive to discover late.</p>
+        <div class="qualify-grid">
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I've been sending applications and not hearing back — or getting interviews but not converting them to offers.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>My résumé was built for a different market — it reads like it was written for employers in my home country, not in Canada.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>My LinkedIn profile hasn't been updated in over a year and doesn't reflect where I'm going — only where I've been.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I have strong international credentials, but I feel like Canadian employers are discounting them without really seeing what I've done.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I'm changing industries or roles and I don't know how to position my existing experience for a target I haven't held before.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I've been told my experience is strong — but nobody has helped me translate it into language the right employers will immediately recognise.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I don't have a targeted employer list — I'm applying broadly and hoping something lands, rather than running a real campaign.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I'm a newcomer professional who has been in Canada less than two years and I'm still learning how this job market works.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I've had the same job search routine for months — and the results haven't changed.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I want to invest in a structured, professional approach — not keep doing what isn't working and expecting a different result.</p>
+          </div>
+        </div>
+        <!-- Full-width urgency block -->
+        <div class="qualify-urgency">
+          <p><strong>If you said yes to six or more — your job search needs a professional rebuild, not more applications.</strong> Every month spent with the wrong tools is a month of opportunities that went to someone whose résumé told the story better than yours. A scoping call is free. Rebuilding your approach after another six months of silence is not.</p>
+          <a href="[CALENDLY_URL]" class="btn btn-white" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- §3 HOW THE ENGAGEMENT IS STRUCTURED -->
+    <section class="zones-section" id="structure">
+      <div class="container">
+        <div class="section-label"><span>How the engagement is structured</span></div>
+        <h2>There are two zones. You start in one and transition to the other.</h2>
+        <p class="zones-intro">Job searches don't always resolve on a schedule. But a consulting engagement cannot run indefinitely — for your sake as much as ours. This is how we handle that honestly, without abandoning clients who haven't landed yet.</p>
+        <div class="zones-grid">
+          <div class="zone-card active-zone">
+            <span class="zone-label">Zone 1 — Active Engagement</span>
+            <h3>The contracted work. Defined scope. Full attention.</h3>
+            <p>This is the paid engagement — the résumé, the LinkedIn profile, the campaign, the coaching. It runs for the defined scope and timeline in your contract. During this phase, you have direct access to Brian Ssennoga, active campaign support, and real-time adaptation as the search develops.</p>
+            <p>The active engagement ends when the scope is complete — not when the job is found. Most clients land during or shortly after this phase. Some do not — and that is handled honestly.</p>
+            <ul class="zone-details">
+              <li>Full professional asset build</li>
+              <li>Active employer targeting and application tailoring</li>
+              <li>Direct consultant access throughout</li>
+              <li>Coaching calls and interview preparation included</li>
+            </ul>
+          </div>
+          <div class="zone-card community-zone">
+            <span class="zone-label">Zone 2 — Olympia Community</span>
+            <h3>Post-engagement support. Light-touch. Ongoing.</h3>
+            <p>When the active engagement concludes, clients who haven't yet landed transition into the Olympia Community — a WhatsApp-based professional group where job opportunities, resources, and market intelligence are shared on an ongoing basis.</p>
+            <p>This is not a paid service. It is a community of professionals who have gone through the same process. Job leads get shared. Referrals happen. The relationship continues — just in a different mode.</p>
+            <ul class="zone-details">
+              <li>WhatsApp-based — low friction, high relevance</li>
+              <li>Curated job opportunities shared as they surface</li>
+              <li>Peer connections with professionals in similar transitions</li>
+              <li>Occasional group resources and workshops</li>
+              <li>No time limit — stay as long as it's useful</li>
+            </ul>
+          </div>
+        </div>
+        <div class="zones-transition">
+          <p><strong>Why this structure exists:</strong> rather than extending the engagement indefinitely at full consulting rate — which creates a bad dynamic for both parties — the Community Zone keeps the relationship alive and useful without misrepresenting what a consulting engagement can promise. We cannot guarantee a job. We can guarantee the tools, the campaign, and continued connection to opportunities after the contracted work is done.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- §4 OUR MODEL -->
+    <section class="models-section">
+      <div class="container">
+        <div class="section-label"><span>Our model</span></div>
+        <h2>One model. Built for the complexity of a real job search.</h2>
+        <div class="models-grid" style="grid-template-columns: 1fr;">
+
+          <div class="model-card featured">
+            <span class="model-label">Done With You</span>
+            <h3>We build the strategy together and run the campaign collaboratively.</h3>
+            <p class="model-desc">We map your career preferences first — sector, org size, location, salary floor, role type. Then we build the assets together, target the employers, tailor each application, and adapt in real time. You're in it, not waiting on it. This model works across every client situation: a new market, a career change, internationally trained credentials, or a straightforward pivot. The accompaniment model means the thinking happens with you — not for you.</p>
+            <div class="model-divider"></div>
+            <ul class="model-steps">
+              <li>
+                <div class="step-dot">1</div>
+                <div class="step-content">
+                  <h4>Scoping call — free, 30 min</h4>
+                  <p>We discuss your situation, your target, and what a campaign for you would look like. Honest recommendation at the end.</p>
+                </div>
+              </li>
+              <li>
+                <div class="step-dot">2</div>
+                <div class="step-content">
+                  <h4>Intake session — 1 hr</h4>
+                  <p>Full work history, career preferences, target roles, and key achievements. Everything gathered in one focused session. This shapes every decision that follows.</p>
+                </div>
+              </li>
+              <li>
+                <div class="step-dot">3</div>
+                <div class="step-content">
+                  <h4>Build phase</h4>
+                  <p>Master résumé and LinkedIn built together, with rationale at each step. Multiple versions for different role types if needed. One revision round included.</p>
+                </div>
+              </li>
+              <li>
+                <div class="step-dot">4</div>
+                <div class="step-content">
+                  <h4>Active campaign</h4>
+                  <p>Target employer identification, application tailoring, post-interview follow-up. Run with you — not handed to you.</p>
+                </div>
+              </li>
+              <li>
+                <div class="step-dot">5</div>
+                <div class="step-content">
+                  <h4>Handoff or transition</h4>
+                  <p>If the role hasn't landed by engagement end, you move into the Olympia Community — an ongoing resource network for professionals still in search.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- §5 SUCCESS STORIES -->
+    <section class="case-section" id="work">
+      <div class="container">
+        <div class="section-label"><span>Success stories</span></div>
+        <h2>Real clients. Real outcomes.</h2>
+        <div class="case-grid">
+
+          <article class="case-card">
+            <div class="case-tag">Career Launch Bundle</div>
+            <h3>Maureen Mutesasira</h3>
+            <p class="case-headline">Fifteen years of HR leadership. Rebuilt for the Canadian market.</p>
+            <p>Fifteen years of HR across talent acquisition, OD, compensation design, and labour relations. The challenge wasn't qualifications — it was professional presence. LinkedIn rebuilt from scratch with eight headline options and three bio versions. Government of Alberta and post-secondary sector as primary targets, employer-level contact mapping, and post-interview follow-up templates.</p>
+            <span class="case-dates">Started December · Hired May</span>
+            <span class="case-dates-label">Edmonton</span>
+            <div class="case-quote">
+              <p>"I had built fifteen years of real HR experience — I just needed a way to present it so Canadian employers could immediately see my value. Brian rebuilt my professional presence from the ground up: the LinkedIn headlines, the bios, the application strategy, even the follow-up after interviews. Within a short period, I secured a role that aligned with my experience and career goals. My advice to anyone going through this process: follow Brian's guidance and trust his process — success doesn't happen by accident. It happens because the groundwork was laid properly."</p>
+              <cite>— Maureen Mutesasira, Edmonton</cite>
+            </div>
+            <span class="case-pkg">Career Launch Bundle · $950 + GST</span>
+          </article>
+
+          <article class="case-card">
+            <div class="case-tag">Career Launch Bundle</div>
+            <h3>Fiona Kyomukama</h3>
+            <p class="case-headline">Nineteen years of service. Prepared to speak to every bit of it.</p>
+            <p>Nineteen years at Watoto Child Care Ministries — 200+ children supported, trauma-informed care, crisis intervention, team management across four countries. The interview was the gap. Full interview preparation across ten competency areas, with STAR-format responses built from her actual history. Faith-based community support roles require candidates who can speak fluently about their philosophy of care — the preparation made sure the interview reflected her depth.</p>
+            <span class="case-dates">Started May · Hired August</span>
+            <span class="case-dates-label">Community Support Worker, Edmonton</span>
+            <div class="case-quote">
+              <p>"By the time I walked into that interview I wasn't nervous. I was ready. I had the role within weeks."</p>
+              <cite>— Fiona Kyomukama, Community Support Worker, Edmonton</cite>
+            </div>
+            <span class="case-pkg">Career Launch Bundle · $950 + GST</span>
+          </article>
+
+        </div>
+        <div style="margin-top:20px; text-align:right;">
+          <a href="/work.html" class="btn-link">Read all case studies — including Barbara and Lynn</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- §6 YOUR INVESTMENT -->
+    <section class="packages-section" id="packages">
+      <div class="container">
+        <div class="section-label"><span>Your Investment</span></div>
+        <h2>Four packages. All prices CAD + GST.</h2>
+        <div class="packages-grid">
+
+          <div class="pkg-card">
+            <span class="pkg-badge">Entry</span>
+            <h3>Résumé Build</h3>
+            <p class="pkg-model">Intake session + master résumé</p>
+            <div class="pkg-price">$450</div>
+            <div class="pkg-gst">+ GST · approx. 3 hours</div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-includes">
+              <li>Intake call (1 hr)</li>
+              <li>Final résumé and bio</li>
+              <li>LinkedIn optimization</li>
+              <li>One revision round</li>
+            </ul>
+          </div>
+
+          <div class="pkg-card featured">
+            <span class="pkg-badge">Primary offering</span>
+            <h3>Career Launch Bundle</h3>
+            <p class="pkg-model">Full campaign · saves $100 vs. individual</p>
+            <div class="pkg-price">$950</div>
+            <div class="pkg-gst">+ GST · approx. 7 hours</div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-includes">
+              <li>Résumé Build</li>
+              <li>LinkedIn review and rebuild</li>
+              <li>2 job prep coaching calls</li>
+              <li>Application strategy session</li>
+            </ul>
+          </div>
+
+          <div class="pkg-card">
+            <span class="pkg-badge">Hourly</span>
+            <h3>Coaching</h3>
+            <p class="pkg-model">Career strategy and search coaching</p>
+            <div class="pkg-price">$150</div>
+            <div class="pkg-gst">+ GST / hr · 1 hr minimum</div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-includes">
+              <li>Career strategy</li>
+              <li>Job search coaching</li>
+              <li>LinkedIn review</li>
+            </ul>
+          </div>
+
+          <div class="pkg-card">
+            <span class="pkg-badge">Add-on</span>
+            <h3>Interview Prep</h3>
+            <p class="pkg-model">For clients preparing for specific interviews</p>
+            <div class="pkg-price">$300</div>
+            <div class="pkg-gst">+ GST · approx. 3 hours</div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-includes">
+              <li>Interview prep guide</li>
+              <li>2 mock interview sessions</li>
+              <li>Post-interview debrief and follow-up prep</li>
+            </ul>
+          </div>
+
+        </div>
+        <p style="margin-top:16px; font-size:0.82rem; color:var(--muted);">All prices CAD. GST (757324769RC001) applies. Payment: 30% on signing, balance on delivery (under $800) or 30/40/30 (over $800). No work begins without initial payment received.</p>
+      </div>
+    </section>
+
+    <!-- §7 AVAILABILITY + WAITLIST -->
+    <section class="availability-section" id="waitlist">
+      <div class="container">
+        <div class="avail-inner">
+          <div class="avail-left">
+            <div class="avail-stat">3</div>
+            <p class="avail-stat-label">new active clients per month</p>
+            <h2>The limit is there because the work demands it.</h2>
+            <p>Every Professional Development client works directly with Brian Ssennoga. The Done With You model in particular requires active, ongoing engagement — reviewing applications, adapting messaging, preparing for interviews. That level of attention has a natural ceiling.</p>
+            <p>Three new active clients per month is that ceiling. When spots are full, new clients join the waitlist — and start receiving resources immediately while they wait.</p>
+          </div>
+          <div class="avail-right">
+            <h3>Join the waitlist</h3>
+            <p>Leave your details and we'll be in touch within 48 hours with your estimated wait time and a first resource matched to your situation.</p>
+            <form class="waitlist-form" action="mailto:ssennogab24@gmail.com" method="get" enctype="text/plain">
+              <input type="text" name="name" placeholder="Your name" required>
+              <input type="email" name="email" placeholder="Email address" required>
+              <select name="model">
+                <option value="" disabled selected>Which model fits your situation?</option>
+                <option value="dfy">Done For You — I know my target, I need the assets</option>
+                <option value="dwy">Done With You — my situation is complex, I need a campaign</option>
+                <option value="unsure">Not sure yet — I need help figuring that out</option>
+              </select>
+              <input type="text" name="context" placeholder="One sentence: what's your situation? (optional)">
+              <button type="submit" class="btn-submit">Join the waitlist →</button>
+            </form>
+            <ul class="waitlist-benefits">
+              <li>Immediate resource matched to your stage of job search</li>
+              <li>Access to the Olympia Community while you wait</li>
+              <li>Direct notification when an active spot opens</li>
+              <li>No obligation — leave at any time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY — full width -->
+    <section class="privacy-note">
+      <div class="container">
+        <div class="privacy-inner" >
+          <div class="privacy-icon" >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <p>Professional development engagements involve your personal information at depth — full work history, salary expectations, career goals, and personal circumstances. This information is used only to perform the agreed services, is never submitted to an AI tool, and is not shared with third parties. We are governed by PIPEDA (federal) and Alberta's PIPA. Full details in our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Service</a> — both written in plain language and available before you sign anything.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section class="footer-cta">
+      <div class="container">
+        <h2>Start with a conversation.</h2>
+        <p>30 minutes. Free. No commitment. We'll tell you honestly which model fits and whether there's a spot available.</p>
+        <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener">Book my free 30-min scoping call →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+          <p class="footer-tagline">Strategic Consulting<br>Tailored Accompaniment<br>Systems Navigation<br>Executable Plans</p>
+        </div>
+        <div>
+          <span class="footer-col-head">What We Offer</span>
+          <ul class="footer-links">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-col-head">Site</span>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/contact.html">Reach Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-col-head">Get in touch</span>
+          <p><a href="[CALENDLY_URL]" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p>
+          <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="footer-fine">
+        <p class="fine-print">Olympia &amp; Associates · Alberta trade name TN27173962 · Brian Ssennoga · GST: 757324769RC001</p>
+        <div class="footer-legal-links">
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      navDrawer.setAttribute('aria-hidden', !open);
+      navDrawer.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    document.addEventListener('click', (e) => {
+      if (navDrawer.classList.contains('open') && !navDrawer.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open');
+        navDrawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navDrawer.classList.contains('open')) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open'); document.body.style.overflow = '';
+      }
+    });
+    document.querySelectorAll('.qualify-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const check = item.querySelector('.qualify-check');
+        const active = check.classList.toggle('checked');
+        check.innerHTML = active ? '<svg viewBox="0 0 24 24" fill="none" stroke="#90660C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="20 6 9 17 4 12"/></svg>' : '';
+        check.style.background = active ? 'rgba(144,102,12,0.1)' : '';
+        check.style.borderColor = active ? '#90660C' : '';
+        item.querySelector('p').style.color = active ? 'var(--near-black)' : '';
+        item.style.background = active ? 'var(--bg-warm)' : '';
+      });
+    });
+  </script>
+</body>
+</html>

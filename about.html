@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Olympia & Associates</title>
+  <meta name="description" content="Brian Ssennoga is the founder of Olympia & Associates. Twenty years of work across Uganda, East Africa, and Edmonton — building technology, coaching leaders, and navigating systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #90660C; --gold-light: #B8842E;
+      --near-black: #1A1A1A; --body-text: #3C3C3C;
+      --muted: #7A7060; --border: #DDD1B6;
+      --bg-warm: #F7F4ED; --bg-cool: #EFECE4;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --max-w: 1180px; --gutter: 24px; --radius: 2px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+
+    h1 { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 600; line-height: 1.1; color: var(--near-black); }
+    h2 { font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 600; line-height: 1.2; color: var(--near-black); }
+    h3 { font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 600; line-height: 1.3; color: var(--near-black); }
+    h4 { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); }
+    p { font-size: 1.0625rem; line-height: 1.75; color: var(--body-text); }
+    p + p { margin-top: 16px; }
+
+    .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .section-label span { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; border-radius: var(--radius); cursor: pointer; transition: all 0.18s ease; min-height: 48px; border: 2px solid transparent; }
+    .btn-primary { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-primary:hover { background: var(--near-black); border-color: var(--near-black); }
+    .btn-ghost { background: transparent; color: var(--near-black); border-color: var(--near-black); }
+    .btn-ghost:hover { background: var(--near-black); color: var(--white); }
+
+    /* NAV */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.2s; }
+    .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .wordmark { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--near-black); }
+    .wordmark em { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; align-items: center; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 8px 16px; font-size: 0.9375rem; font-weight: 500; color: var(--body-text); transition: color 0.15s; white-space: nowrap; }
+    .nav-links > li > a:hover, .nav-links > li > a.active { color: var(--gold); }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .dropdown { list-style: none; display: none; position: absolute; top: calc(100% + 1px); left: 0; min-width: 240px; background: var(--white); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 8px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .dropdown li a { display: block; padding: 10px 20px; font-size: 0.85rem; color: var(--body-text); transition: background 0.12s, color 0.12s; }
+    .dropdown li a:hover { background: var(--bg-warm); color: var(--gold); }
+    .nav-cta { margin-left: 20px; padding: 10px 22px; font-size: 0.85rem; min-height: 40px; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; width: 40px; height: 40px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--near-black); transition: all 0.2s; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-drawer { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--white); padding: 32px var(--gutter); overflow-y: auto; border-top: 1px solid var(--border); flex-direction: column; gap: 4px; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--near-black); border-bottom: 1px solid var(--border); }
+    .nav-drawer a:last-of-type { border-bottom: none; }
+    .drawer-cta { margin-top: 24px; }
+
+    /* PAGE HERO */
+    .page-hero { padding: 120px 0 64px; background: var(--near-black); }
+    .page-hero-tag { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; margin-bottom: 20px; }
+    .page-hero h1 { color: var(--white); max-width: 760px; margin-bottom: 20px; }
+    .page-hero .lead { font-size: 1.175rem; line-height: 1.65; color: rgba(255,255,255,0.6); font-family: var(--font-display); font-style: italic; max-width: 640px; }
+
+    /* STORY + BRIDGE — two column */
+    .story-section { padding: 72px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .story-col h2 { margin-bottom: 20px; }
+    .story-col p { margin-bottom: 14px; color: var(--muted); }
+    .story-col p:last-child { margin-bottom: 0; }
+    .bridge-col h2 { margin-bottom: 20px; }
+    .bridge-col p { margin-bottom: 14px; color: var(--muted); }
+    .bridge-col p:last-of-type { margin-bottom: 24px; }
+    .bridge-cta { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: var(--near-black); color: var(--white); font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; border: 2px solid var(--near-black); transition: all 0.18s ease; }
+    .bridge-cta:hover { background: var(--gold); border-color: var(--gold); }
+
+    /* PRACTICE NOTE */
+    .practice-note { padding: 64px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .practice-note-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .practice-note h2 { margin-bottom: 20px; }
+    .practice-note p { color: var(--muted); margin-bottom: 14px; }
+    .practice-note p:last-of-type { margin-bottom: 0; }
+    .note-aside { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--gold); padding: 32px 28px; }
+    .note-aside h4 { margin-bottom: 16px; }
+    .cred-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .cred-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: var(--body-text); line-height: 1.5; }
+    .cred-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+
+    /* FOOTER CTA */
+    .footer-cta { background: var(--bg-warm); border-top: 2px solid var(--gold); padding: 72px 0; text-align: center; }
+    .footer-cta h2 { margin-bottom: 10px; }
+    .footer-cta p { font-size: 1rem; color: var(--muted); margin-bottom: 24px; }
+
+    /* FOOTER */
+    .site-footer { background: var(--near-black); padding: 52px 0 0; }
+    .footer-cols { display: grid; grid-template-columns: 280px 1fr 0.7fr 200px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-brand .wordmark { font-size: 1.25rem; color: var(--white); }
+    .footer-brand .wordmark em { color: var(--gold); }
+    .footer-tagline { margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.45); font-style: italic; font-family: var(--font-display); line-height: 1.8; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; display: block; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-contact p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 8px; }
+    .footer-contact a { color: var(--gold-light); }
+    .footer-fine { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 32px; }
+    .fine-print { font-size: 0.73rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+    .footer-legal-links { display: flex; gap: 20px; flex-shrink: 0; }
+    .footer-legal-links a { font-size: 0.8rem; color: var(--gold-light); transition: color 0.15s; font-weight: 600; }
+    .footer-legal-links a:hover { color: var(--white); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .page-hero-inner { grid-template-columns: 1fr 280px; gap: 48px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .page-hero { padding: 100px 0 48px; }
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .practice-note-inner { grid-template-columns: 1fr; gap: 36px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+      .footer-fine { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .footer-cols { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-inner">
+      <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="/about.html" class="active" aria-haspopup="true">About Us</a>
+          <ul class="dropdown">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" aria-haspopup="true">What We Offer</a>
+          <ul class="dropdown">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact.html">Reach Us</a></li>
+      </ul>
+      <a href="[CALENDLY_URL]" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book a free 30-min call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
+      <a href="/about.html">About Us — Our Story</a>
+      <a href="/services/career-consulting.html">Career Consulting — High School</a>
+      <a href="/services/professional-development.html">Professional Development</a>
+      <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
+      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
+      <a href="/work.html">Case Studies</a>
+      <a href="/contact.html">Reach Us</a>
+      <div class="drawer-cta">
+        <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book a free 30-min call</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero-tag">Our Story</span>
+        <h1>I've been doing this work for twenty years. Olympia &amp; Associates is where it landed.</h1>
+        <p class="lead" style="margin-top:20px;">My name is Brian Ssennoga. I'm the founder of Olympia &amp; Associates — a consulting practice based in Edmonton, Alberta. Before Edmonton, there was Kampala. Before Kampala, there was a career built across technology, leadership, and the systems that shape how people build lives and organisations.</p>
+      </div>
+    </section>
+
+    <!-- STORY + BRIDGE — two columns -->
+    <section class="story-section">
+      <div class="container">
+        <div class="story-grid">
+
+          <div class="story-col">
+            <div class="section-label"><span>The beginning</span></div>
+            <h2>Three chapters. One through-line.</h2>
+            <p>The practice didn't start with a business plan. It started with a pattern I kept observing — in organisations, in teams, in the people I worked alongside: the gap between what someone is capable of and what the systems around them make visible.</p>
+            <p>A first-time manager promoted without a framework. A nonprofit with a mission and no structure to make it scalable. A family arriving in a new country with credentials that don't translate. A business owner with a vision and a plan that hasn't been pressure-tested. A student with genuine ability and a course selection that quietly closes the doors she hasn't noticed yet.</p>
+            <p>In every case, the problem isn't the person. It's the gap between what they're building and the structure that would make it real. That's the gap Olympia &amp; Associates works in.</p>
+          </div>
+
+          <div class="bridge-col">
+            <div class="section-label"><span>The evidence</span></div>
+            <h2>The work speaks for itself.</h2>
+            <p>The track record behind this practice spans three chapters — a management coaching practice in Kampala, a technology company that served 780,000+ refugees, and an early Edmonton chapter with engagements across four practice areas.</p>
+            <p>The full account — case studies, outcomes, credibility anchors — is documented on a single page. It is an honest record. Where testimonials are pending confirmation, that is noted. Where engagements didn't proceed to contract, that is noted too.</p>
+            <a href="/work.html" class="bridge-cta">See our work →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRACTICE NOTE -->
+    <section class="practice-note">
+      <div class="container">
+        <div class="practice-note-inner">
+          <div>
+            <div class="section-label"><span>On the practice</span></div>
+            <h2>This is early-stage. Deliberately.</h2>
+            <p>Olympia &amp; Associates is a registered Alberta trade name. No investors. No partners. One consultant — doing the work, building the track record, and being transparent about where the practice is in its growth.</p>
+            <p>The depth behind the work is real. The Edmonton client roster is early. The social proof infrastructure — testimonials, published case studies, a visible track record — is being built now, not retrospectively.</p>
+            <p>If you engage Olympia &amp; Associates today, you're working directly with Brian Ssennoga. That's a deliberate design, not a limitation.</p>
+          </div>
+          <div class="note-aside">
+            <h4>Credentials &amp; registration</h4>
+            <ul class="cred-list">
+              <li>Olympia &amp; Associates — Alberta registered trade name (TN27173962)</li>
+              <li>Operated by Brian Ssennoga · sole proprietor</li>
+              <li>GST registered · 757324769RC001</li>
+              <li>PMP® · Project Management Professional</li>
+              <li>CGEIT · Certified in Governance of Enterprise IT</li>
+              <li>MBA, International Business</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+          <p class="footer-tagline">Strategic Consulting<br>Tailored Accompaniment<br>Systems Navigation<br>Executable Plans</p>
+        </div>
+        <div>
+          <span class="footer-col-head">What We Offer</span>
+          <ul class="footer-links">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-col-head">Site</span>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/contact.html">Reach Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-col-head">Get in touch</span>
+          <p><a href="[CALENDLY_URL]" target="_blank" rel="noopener">Book a free 30-min call →</a></p>
+          <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="footer-fine">
+        <p class="fine-print">Olympia &amp; Associates · Alberta trade name TN27173962 · Brian Ssennoga · GST: 757324769RC001</p>
+        <div class="footer-legal-links">
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      navDrawer.setAttribute('aria-hidden', !open);
+      navDrawer.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    document.addEventListener('click', (e) => {
+      if (navDrawer.classList.contains('open') && !navDrawer.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open');
+        navDrawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navDrawer.classList.contains('open')) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open'); document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

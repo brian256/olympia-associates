@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service | Olympia & Associates</title>
+  <meta name="description" content="Terms of Service for Olympia & Associates — governing all consulting engagements. Last updated May 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #90660C; --gold-light: #B8842E;
+      --near-black: #1A1A1A; --body-text: #3C3C3C;
+      --muted: #7A7060; --border: #DDD1B6;
+      --bg-warm: #F7F4ED; --bg-cool: #EFECE4;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --max-w: 820px; --gutter: 24px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 var(--gutter); }
+    .doc-container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+
+    /* NAV */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.2s; }
+    .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+    .nav-inner { max-width: 1180px; margin: 0 auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .wordmark { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--near-black); }
+    .wordmark em { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; align-items: center; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 8px 16px; font-size: 0.9375rem; font-weight: 500; color: var(--body-text); transition: color 0.15s; white-space: nowrap; }
+    .nav-links > li > a:hover { color: var(--gold); }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .dropdown { list-style: none; display: none; position: absolute; top: calc(100% + 1px); left: 0; min-width: 240px; background: var(--white); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 8px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .dropdown li a { display: block; padding: 10px 20px; font-size: 0.85rem; color: var(--body-text); transition: background 0.12s, color 0.12s; }
+    .dropdown li a:hover { background: var(--bg-warm); color: var(--gold); }
+    .nav-cta { margin-left: 20px; padding: 10px 22px; font-size: 0.85rem; min-height: 40px; background: var(--gold); color: var(--white); border: 2px solid var(--gold); font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: all 0.18s; }
+    .nav-cta:hover { background: var(--near-black); border-color: var(--near-black); text-decoration: none; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; width: 40px; height: 40px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--near-black); transition: all 0.2s; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-drawer { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--white); padding: 32px var(--gutter); overflow-y: auto; border-top: 1px solid var(--border); flex-direction: column; gap: 4px; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--near-black); border-bottom: 1px solid var(--border); text-decoration: none; }
+    .nav-drawer a:last-of-type { border-bottom: none; }
+    .drawer-cta { margin-top: 24px; }
+
+    /* HERO */
+    .page-hero { padding: 120px 0 48px; background: var(--near-black); }
+    .hero-tag { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; margin-bottom: 16px; }
+    .page-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; line-height: 1.15; color: var(--white); margin-bottom: 12px; }
+    .hero-meta { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-top: 8px; }
+    .hero-meta a { color: var(--gold-light); }
+
+    /* LEGAL NOTE BANNER */
+    .legal-banner { background: rgba(144,102,12,0.12); border-bottom: 1px solid rgba(144,102,12,0.25); padding: 14px 0; }
+    .legal-banner p { font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.5; margin: 0; }
+    .legal-banner strong { color: var(--gold-light); }
+
+    /* DOCUMENT BODY */
+    .doc-body { padding: 64px 0 96px; background: var(--white); }
+    .doc-toc { background: var(--bg-warm); border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 28px 32px; margin-bottom: 56px; }
+    .doc-toc h4 { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .doc-toc ol { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+    .doc-toc li { font-size: 0.875rem; color: var(--body-text); }
+    .doc-toc a { color: var(--gold); font-weight: 500; }
+
+    .doc-section { margin-bottom: 56px; }
+    .doc-section:last-child { margin-bottom: 0; }
+    .section-num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 700; color: var(--border); line-height: 1; display: block; margin-bottom: 4px; }
+    .doc-section h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 2.5vw, 1.9rem); font-weight: 600; color: var(--near-black); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 24px; line-height: 1.2; }
+    .doc-section h3 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--near-black); letter-spacing: 0.01em; margin-top: 24px; margin-bottom: 10px; }
+    .doc-section p { font-size: 0.9375rem; line-height: 1.8; color: var(--body-text); margin-bottom: 14px; }
+    .doc-section p:last-child { margin-bottom: 0; }
+    .doc-section ul, .doc-section ol { padding-left: 22px; margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px; }
+    .doc-section li { font-size: 0.9375rem; line-height: 1.7; color: var(--body-text); }
+    .doc-section strong { color: var(--near-black); font-weight: 600; }
+    .highlight-box { background: var(--bg-warm); border-left: 3px solid var(--gold); padding: 16px 20px; margin: 20px 0; }
+    .highlight-box p { font-size: 0.9rem; margin: 0; color: var(--body-text); }
+
+    /* FOOTER */
+    .site-footer { background: var(--near-black); padding: 52px 0 0; }
+    .footer-cols { display: grid; grid-template-columns: 280px 1fr 0.7fr 200px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-brand .wordmark { font-size: 1.25rem; color: var(--white); }
+    .footer-brand .wordmark em { color: var(--gold); }
+    .footer-tagline { margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.45); font-style: italic; font-family: var(--font-display); line-height: 1.8; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; display: block; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-contact p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 8px; }
+    .footer-contact a { color: var(--gold-light); }
+    .footer-fine { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 32px; }
+    .fine-print { font-size: 0.73rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+    .footer-legal-links { display: flex; gap: 20px; }
+    .footer-legal-links a { font-size: 0.8rem; color: var(--gold-light); transition: color 0.15s; font-weight: 600; }
+    .footer-legal-links a:hover { color: var(--white); }
+
+    @media (max-width: 1024px) { .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; } }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .page-hero { padding: 100px 0 40px; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+      .footer-fine { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) { .footer-cols { grid-template-columns: 1fr; } .fine-print { font-size: 0.65rem; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-inner">
+      <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="/about.html" aria-haspopup="true">About Us</a>
+          <ul class="dropdown">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" aria-haspopup="true">What We Offer</a>
+          <ul class="dropdown">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact.html">Reach Us</a></li>
+      </ul>
+      <a href="[CALENDLY_URL]" class="nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
+      <a href="/about.html">About Us — Our Story</a>
+      <a href="/work.html">Case Studies</a>
+      <a href="/services/career-consulting.html">Career Consulting — High School</a>
+      <a href="/services/professional-development.html">Professional Development</a>
+      <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
+      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
+      <a href="/contact.html">Reach Us</a>
+      <div class="drawer-cta">
+        <a href="[CALENDLY_URL]" class="nav-cta" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:8px;">Book my free 30-min scoping call</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="doc-container">
+        <span class="hero-tag">Legal</span>
+        <h1>Terms of Service</h1>
+        <p class="hero-meta">Olympia &amp; Associates · Last Updated: May 2026</p>
+        <p class="hero-meta" style="margin-top:6px;">Plain-language version: <a href="/how-we-work.html">How We Work →</a> · Privacy commitments: <a href="/privacy.html">Privacy Policy →</a></p>
+      </div>
+      <div class="legal-banner" style="margin-top:32px;">
+        <div class="doc-container">
+          <p><strong>Note:</strong> These Terms are pending formal legal review by a qualified Alberta lawyer before use in live client engagements. The review notes are flagged in Section 17 of this document. For any engagements entered into before that review is complete, the applicable proposal or service agreement governs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="doc-body">
+      <div class="doc-container">
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="doc-toc">
+          <h4>Contents</h4>
+          <ol>
+            <li><a href="#s1">Introduction</a></li>
+            <li><a href="#s2">About Olympia &amp; Associates</a></li>
+            <li><a href="#s3">Services and Scope</a></li>
+            <li><a href="#s4">Use of AI Tools</a></li>
+            <li><a href="#s5">Fees and Payment</a></li>
+            <li><a href="#s6">Client Responsibilities</a></li>
+            <li><a href="#s7">Intellectual Property</a></li>
+            <li><a href="#s8">Privacy and Personal Information</a></li>
+            <li><a href="#s9">Confidentiality</a></li>
+            <li><a href="#s10">Term and Termination</a></li>
+            <li><a href="#s11">Disclaimer of Warranties</a></li>
+            <li><a href="#s12">Limitation of Liability</a></li>
+            <li><a href="#s13">Indemnification</a></li>
+            <li><a href="#s14">Governing Law</a></li>
+            <li><a href="#s15">General Provisions</a></li>
+            <li><a href="#s16">Changes to These Terms</a></li>
+            <li><a href="#s17">Contact and Legal Review Notes</a></li>
+          </ol>
+        </div>
+
+        <!-- 1 -->
+        <div class="doc-section" id="s1">
+          <span class="section-num">1</span>
+          <h2>Introduction</h2>
+          <p>These Terms of Service ("Terms") govern your engagement with Olympia &amp; Associates for consulting and advisory services. These Terms constitute a legally binding agreement between you (the "Client") and Olympia &amp; Associates.</p>
+          <p>By signing a proposal, contract, or service agreement, or by making any payment toward our services, you agree to be bound by these Terms.</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="doc-section" id="s2">
+          <span class="section-num">2</span>
+          <h2>About Olympia &amp; Associates</h2>
+          <p>Olympia &amp; Associates is a registered trade name (Registration Number TN27173962) operated by Brian Ssennoga, a sole proprietor registered in Alberta, Canada.</p>
+          <p><strong>GST Registration Number:</strong> 757324769RC001<br>
+          <strong>Business address:</strong> 1250 Podersky Wynd SW, Edmonton, Alberta T6W5L5</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="doc-section" id="s3">
+          <span class="section-num">3</span>
+          <h2>Services and Scope</h2>
+          <h3>3.1 Scope of Services</h3>
+          <p>Olympia &amp; Associates provides consulting, advisory, coaching, and facilitation services as described in the applicable proposal or service agreement. The specific scope, deliverables, timeline, and fees for each engagement are set out in the applicable proposal or contract, which forms part of these Terms.</p>
+
+          <h3>3.2 Practice Areas</h3>
+          <p><strong>Career Consulting — High School:</strong> Pathway analysis, NOC/TEER mapping, post-secondary planning, scholarship and financial aid research, institution shortlisting, coaching sessions, and family briefings for students in Grades 9 through 12.</p>
+          <p><strong>Professional Development:</strong> Master resume builds, LinkedIn profile optimization, job search coaching, career transition support, career preferences mapping, and application campaign support. Delivered under Done For You and Done With You engagement models as specified in the applicable proposal.</p>
+          <p><strong>Leadership &amp; Business Consulting:</strong> Organizational strategy, startup positioning, management facilitation, business plan development, competitive research and positioning, workshop and conference facilitation, and executive coaching.</p>
+          <p><strong>Newcomer &amp; Immigration Pathways:</strong> Navigation support, personalized Alberta settlement planning, orientation sessions, resource mapping, and follow-up coaching for individuals and families settling in Alberta, Canada.</p>
+
+          <h3>3.3 Scope Limitations</h3>
+          <div class="highlight-box">
+            <p><strong>Newcomer &amp; Immigration Pathways:</strong> Services under this practice area are navigation and preparation support — not legal immigration advice. Clients requiring legal advice on immigration status, permits, applications, claims, or any matter governed by immigration law must consult a licensed immigration lawyer or Regulated Canadian Immigration Consultant (RCIC).</p>
+          </div>
+          <p><strong>Career Consulting — High School:</strong> Services are pathway planning and consulting support. They do not constitute educational placement services, academic advising as defined by institutional accreditation bodies, or legal immigration advice.</p>
+          <p><strong>All practice areas:</strong> Services are advisory and consulting in nature. Olympia &amp; Associates does not take operational control of any client organization, function, or process. Implementation of recommendations is the responsibility of the Client.</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="doc-section" id="s4">
+          <span class="section-num">4</span>
+          <h2>Use of AI Tools</h2>
+          <h3>4.1 How We Use AI</h3>
+          <p>Olympia &amp; Associates uses professional-grade AI tools to support service delivery — including research synthesis, document drafting, strategic analysis, and content structuring. Our use of AI is intentional, transparent, and subject to the principles set out here.</p>
+
+          <h3>4.2 Client Personal Data Is Never Submitted to AI Tools</h3>
+          <div class="highlight-box">
+            <p>Client personal data — including names, contact details, biographical information, financial information, immigration status, academic records, and any identifying information — is not submitted to, stored in, or processed by AI tools. This is a firm operational policy maintained across all practice areas without exception.</p>
+          </div>
+
+          <h3>4.3 Ethical Principles</h3>
+          <ul>
+            <li>We use only professional-grade or enterprise-licensed AI tools with documented privacy standards.</li>
+            <li>We do not use AI tools whose terms permit training on user content without consent.</li>
+            <li>AI outputs are treated as inputs to human reasoning — not as conclusions.</li>
+            <li>All AI-generated content is verified for accuracy, relevance, and appropriateness before incorporation into any deliverable.</li>
+          </ul>
+
+          <h3>4.4 Human Decision-Making</h3>
+          <p>All final decisions, recommendations, assessments, and advice are made by human consultants. Clients may ask how AI was used in preparing any deliverable and will receive a direct, plain-language answer.</p>
+        </div>
+
+        <!-- 5 -->
+        <div class="doc-section" id="s5">
+          <span class="section-num">5</span>
+          <h2>Fees and Payment</h2>
+          <h3>5.1 Fees</h3>
+          <p>Fees are set out in the applicable proposal or service agreement. All fees are in Canadian dollars (CAD) and are exclusive of applicable taxes. GST at the applicable rate will be added to all invoices. We reserve the right to change or update our fee pricing at any time. Changes to pricing apply to new engagements only — fees agreed and confirmed in a signed proposal are honoured for the duration of that engagement.</p>
+
+          <h3>5.2 Payment Structure</h3>
+          <p><strong>Short engagements (under $800 + GST):</strong> 30% on signing; 70% on delivery.</p>
+          <p><strong>Medium engagements ($800–$1,500 + GST):</strong> 30% on signing; 40% at midpoint; 30% on delivery.</p>
+          <p><strong>Long engagements and retainers (over $1,500 + GST):</strong> 30% on signing; balance in bi-weekly installments as set out in the applicable agreement.</p>
+
+          <h3>5.3 No Work Without Initial Payment</h3>
+          <div class="highlight-box">
+            <p>Work does not begin until the initial payment has been received. This applies without exception to all practice areas, engagement types, and client relationships.</p>
+          </div>
+
+          <h3>5.4 Late Payment</h3>
+          <p>Invoices are due within 14 days of the invoice date. Overdue amounts may attract interest at 1.5% per month (18% per annum). We reserve the right to suspend or terminate services for overdue accounts.</p>
+
+          <h3>5.5 Refunds</h3>
+          <p>Fees for work completed or in progress are non-refundable. Fees for work not yet commenced may be refunded at our discretion, less costs already incurred. All refunds are issued via the same payment channel through which the original payment was received. Refunds will not be issued by an alternative method under any circumstances.</p>
+        </div>
+
+        <!-- 6 -->
+        <div class="doc-section" id="s6">
+          <span class="section-num">6</span>
+          <h2>Client Responsibilities</h2>
+          <p><strong>Accurate information:</strong> You agree to provide accurate, complete, and timely information necessary for us to perform the agreed services. We are not liable for outcomes resulting from inaccurate or incomplete information provided by the Client.</p>
+          <p><strong>Cooperation:</strong> You agree to cooperate in good faith with reasonable requests for information and decisions. Client-caused delays may affect timelines and may result in scope or fee adjustments by mutual agreement.</p>
+          <p><strong>Authorized representative:</strong> If engaging us on behalf of an organization, you represent that you are authorized to bind that organization to these Terms.</p>
+          <p><strong>Minors:</strong> Engagements under the Career Consulting — High School practice area involve services to minors. The parent or legal guardian is the contracting party, is responsible for all payments, and consents on behalf of the minor to the use of their information for engagement purposes.</p>
+        </div>
+
+        <!-- 7 -->
+        <div class="doc-section" id="s7">
+          <span class="section-num">7</span>
+          <h2>Intellectual Property</h2>
+          <h3>7.1 Deliverables Transfer to You</h3>
+          <p>Upon receipt of full payment, Olympia &amp; Associates assigns ownership of the final deliverables specifically created for the Client under that engagement — including pathway reports, strategic documents, business plans, policy documents, governance frameworks, resume and LinkedIn content, navigation plans, facilitation materials, and other written outputs explicitly described as deliverables in the applicable proposal.</p>
+
+          <h3>7.2 Methodologies and Frameworks Remain With Us</h3>
+          <p>Olympia &amp; Associates retains all right, title, and interest in its methodologies, frameworks, tools, templates, and processes — both pre-existing and developed or refined in the course of any engagement ("Background IP" and "Developed IP").</p>
+          <p>Each engagement may produce refinements to existing frameworks or new tools that have application beyond the specific client. Those refinements accrue to Olympia &amp; Associates, regardless of which client engagement produced them. The Client receives the deliverable output of those frameworks applied to their situation. The frameworks themselves remain the exclusive property of Olympia &amp; Associates.</p>
+
+          <h3>7.3 Your Content</h3>
+          <p>You retain ownership of all information and materials you provide. By providing them, you grant us a limited license to use them solely to perform the agreed services.</p>
+
+          <h3>7.4 Portfolio Use</h3>
+          <p>We may reference the general nature, scope, and outcomes of an engagement in our portfolio or case studies without identifying the Client by name, unless written consent to be named has been provided. We will not reproduce client-specific confidential information in any public-facing content.</p>
+        </div>
+
+        <!-- 8 -->
+        <div class="doc-section" id="s8">
+          <span class="section-num">8</span>
+          <h2>Privacy and Personal Information</h2>
+          <p>Olympia &amp; Associates handles personal information in compliance with PIPEDA (federal), Alberta's PIPA, and — for EU-based clients — applicable GDPR provisions. Full details are set out in our <a href="/privacy.html">Privacy Policy</a>, which forms part of these Terms.</p>
+          <p>In plain language: we collect only what is needed to serve you, use it only for that purpose, do not submit it to AI tools, and do not share it with third parties without your consent. Your information is retained only as required by law or legitimate business record-keeping.</p>
+        </div>
+
+        <!-- 9 -->
+        <div class="doc-section" id="s9">
+          <span class="section-num">9</span>
+          <h2>Confidentiality</h2>
+          <p>Both parties agree to maintain the confidentiality of non-public information disclosed in connection with the engagement, to use it only for engagement purposes, and to protect it with at least the same degree of care used to protect their own confidential information — but no less than reasonable care.</p>
+          <p>Confidentiality obligations do not apply to information that becomes publicly available through no fault of the receiving party; was already known prior to disclosure; was independently developed without reference to the confidential information; or must be disclosed by law or court order.</p>
+        </div>
+
+        <!-- 10 -->
+        <div class="doc-section" id="s10">
+          <span class="section-num">10</span>
+          <h2>Term and Termination</h2>
+          <p><strong>Termination by Client:</strong> The Client may terminate by written notice. Fees for work completed or in progress are non-refundable.</p>
+          <p><strong>Termination by Us:</strong> Olympia &amp; Associates may terminate with written notice for non-payment, material breach not remedied within 7 days of notice, or circumstances that make continuation impracticable. Outstanding fees become immediately due upon termination for non-payment or breach.</p>
+          <p><strong>Survival:</strong> Sections 7 (IP), 8 (Privacy), 9 (Confidentiality), 11 (Disclaimer), 12 (Liability), 13 (Indemnification), and 14 (Governing Law) survive termination.</p>
+        </div>
+
+        <!-- 11 -->
+        <div class="doc-section" id="s11">
+          <span class="section-num">11</span>
+          <h2>Disclaimer of Warranties</h2>
+          <p>Services are provided on a professional best-efforts basis. To the maximum extent permitted by applicable law, Olympia &amp; Associates makes no warranties, express or implied, regarding the outcomes of any engagement. Consulting advice is professional opinion — not a guarantee of any specific result, placement, approval, or outcome.</p>
+        </div>
+
+        <!-- 12 -->
+        <div class="doc-section" id="s12">
+          <span class="section-num">12</span>
+          <h2>Limitation of Liability</h2>
+          <p>To the maximum extent permitted by applicable law, Olympia &amp; Associates shall not be liable for any indirect, punitive, incidental, special, or consequential damages — including loss of revenue, loss of opportunity, or loss of data.</p>
+          <p>Our total liability for any claims arising out of an engagement shall not exceed the total fees paid by the Client for that specific engagement.</p>
+        </div>
+
+        <!-- 13 -->
+        <div class="doc-section" id="s13">
+          <span class="section-num">13</span>
+          <h2>Indemnification</h2>
+          <p>You agree to indemnify, defend, and hold harmless Olympia &amp; Associates and Brian Ssennoga from and against any claims, liabilities, damages, and expenses (including reasonable legal fees) arising from: your breach of these Terms; inaccurate or incomplete information you provided; your use of deliverables inconsistent with these Terms; or your violation of applicable law or third-party rights.</p>
+        </div>
+
+        <!-- 14 -->
+        <div class="doc-section" id="s14">
+          <span class="section-num">14</span>
+          <h2>Governing Law</h2>
+          <p>These Terms are governed by the laws of the Province of Alberta and the applicable federal laws of Canada. Disputes shall first be addressed through good-faith negotiation. If unresolved within 30 days of written notice, disputes shall be submitted to the courts of Edmonton, Alberta, which shall have exclusive jurisdiction.</p>
+        </div>
+
+        <!-- 15 -->
+        <div class="doc-section" id="s15">
+          <span class="section-num">15</span>
+          <h2>General Provisions</h2>
+          <p><strong>Entire agreement:</strong> These Terms, together with the applicable proposal and our Privacy Policy, constitute the entire agreement between the parties and supersede all prior agreements.</p>
+          <p><strong>Severability:</strong> If any provision is found unenforceable, it will be modified to the minimum extent necessary. Remaining provisions continue in full force.</p>
+          <p><strong>Independent contractor:</strong> Olympia &amp; Associates is an independent contractor. Nothing in these Terms creates a partnership, joint venture, agency, employment, or fiduciary relationship.</p>
+          <p><strong>Force majeure:</strong> Olympia &amp; Associates is not liable for delays resulting from circumstances beyond reasonable control. We will notify the Client promptly and resume services as soon as practicable.</p>
+        </div>
+
+        <!-- 16 -->
+        <div class="doc-section" id="s16">
+          <span class="section-num">16</span>
+          <h2>Changes to These Terms</h2>
+          <p>We may update these Terms from time to time. Material changes will be communicated by posting updated Terms at <a href="/terms.html">olympia-associates.ca/terms</a>. Continued engagement after notice of updated Terms constitutes acceptance.</p>
+        </div>
+
+        <!-- 17 -->
+        <div class="doc-section" id="s17">
+          <span class="section-num">17</span>
+          <h2>Contact &amp; Legal Review Notes</h2>
+          <p><strong>Olympia &amp; Associates</strong><br>
+          1250 Podersky Wynd SW, Edmonton, Alberta T6W5L5<br>
+          Email: <a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a><br>
+          Website: olympia-associates.ca</p>
+
+          <div class="highlight-box" style="margin-top:24px;">
+            <p><strong>Pending legal review before live client use:</strong> (1) Section 3.3 scope limitations — confirm language limits liability adequately. (2) Section 7.2 Developed IP — confirm framework-accrual language is enforceable under Alberta law. (3) Section 8 — confirm PIPEDA/PIPA compliance and GDPR specificity for EU clients. (4) Section 12 — confirm liability cap enforceability for a sole proprietorship. (5) Section 6.4 — confirm parental consent language for minor clients. (6) Health-sector engagements — confirm additional privacy provisions if applicable.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="/index.html" class="wordmark" style="text-decoration:none;">Olympia <em>&</em> Associates</a>
+          <p class="footer-tagline">Strategic Consulting<br>Tailored Accompaniment<br>Systems Navigation<br>Executable Plans</p>
+        </div>
+        <div>
+          <span class="footer-col-head">What We Offer</span>
+          <ul class="footer-links">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-col-head">Site</span>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+            <li><a href="/contact.html">Reach Us</a></li>
+          
+            <li><a href="/how-we-work.html">How We Work</a></li></ul>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-col-head">Get in touch</span>
+          <p><a href="[CALENDLY_URL]" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p>
+          <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="footer-fine">
+        <p class="fine-print">Olympia &amp; Associates · Alberta trade name TN27173962 · Brian Ssennoga · GST: 757324769RC001</p>
+        <div class="footer-legal-links">
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      navDrawer.setAttribute('aria-hidden', !open);
+      navDrawer.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    document.addEventListener('click', (e) => {
+      if (navDrawer.classList.contains('open') && !navDrawer.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open');
+        navDrawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navDrawer.classList.contains('open')) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open'); document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>
