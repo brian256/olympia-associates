@@ -203,11 +203,14 @@
     .footer-legal-links a:hover { color: var(--white); }
 
     @media (max-width: 1024px) {
+      .page-hero-inner { grid-template-columns: 1fr 240px; gap: 40px; }
       .covers-grid { grid-template-columns: 1fr 1fr; }
       .packages-grid { grid-template-columns: 1fr; }
       .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
     }
     @media (max-width: 768px) {
+      .page-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .page-hero-artwork { display: none; }
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
       .page-hero { padding: 100px 0 0; }
@@ -224,7 +227,16 @@
       .process-steps { grid-template-columns: 1fr; }
       .footer-cols { grid-template-columns: 1fr; }
     }
-  </style>
+  
+    /* ── PAGE HERO ARTWORK ── */
+    .page-hero-inner { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
+    .page-hero-text { min-width: 0; }
+    .page-hero-artwork { position: relative; }
+    .artwork-frame { width: 100%; aspect-ratio: 3/4; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
+    .artwork-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
+    .artwork-frame:hover img { transform: scale(1.03); }
+    .artwork-credit { margin-top: 10px; font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
+</style>
 </head>
 <body>
 
@@ -250,8 +262,9 @@
           </ul>
         </li>
         <li><a href="/contact.html">Reach Us</a></li>
+        <li><a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a></li>
       </ul>
-      <a href="[CALENDLY_URL]" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+      <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
       <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -264,8 +277,9 @@
       <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
       <a href="/work.html">Case Studies</a>
       <a href="/contact.html">Reach Us</a>
+      <a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a>
       <div class="drawer-cta">
-        <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a>
+        <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a>
       </div>
     </nav>
   </header>
@@ -275,11 +289,13 @@
     <!-- §1 HERO -->
     <section class="page-hero">
       <div class="container">
-        <span class="hero-tag">Newcomer &amp; Immigration Pathways</span>
+        <div class="page-hero-inner">
+          <div class="page-hero-text">
+<span class="hero-tag">Newcomer &amp; Immigration Pathways</span>
         <h1>You've arrived.<br><em>The question is whether you know<br>what to do first.</em></h1>
         <p class="lead" style="margin-top:16px;">This is accompaniment — walking alongside you through the systems that shape life in Alberta, so that you do not have to figure it out alone. Alberta's employment, education, healthcare, housing, and financial systems exist and are accessible. What Olympia &amp; Associates brings is something different: the experience of having navigated them, the frameworks that have worked for individuals, couples, and families before you, and the cultural awareness to know that a map drawn for someone else is not always a map that works for you.</p>
         <div class="hero-cta-row">
-          <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+          <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
           <a href="#qualify" class="hero-scroll">Is this for you? ↓</a>
         </div>
       </div>
@@ -290,9 +306,15 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           </div>
           <p><strong>An important note on scope:</strong> This service is an accompaniment — navigation and preparation support for clients who are settling in Alberta. Olympia &amp; Associates does not provide legal advice on immigration status, work permits, permanent residency applications, refugee claims, sponsorship, or any matter governed by immigration law. For those questions, you must consult a licensed immigration lawyer or <a href="https://college-ic.ca" target="_blank" rel="noopener">Regulated Canadian Immigration Consultant (RCIC)</a>. We will tell you clearly when that line applies — and we will refer you rather than proceed past it.</p>
+        </div>          </div>
+        <div class="page-hero-artwork" aria-hidden="true">
+          <div class="artwork-frame">
+            <img src="../assets/images/newcomer.JPG" alt="Original artwork by Keanna Suubi" loading="lazy">
+          </div>
+          <p class="artwork-credit">Artwork: Keanna Suubi</p>
+        </div>
         </div>
       </div>
-    </section>
 
     <!-- §2 IS THIS FOR YOU -->
     <section class="qualify-section" id="qualify">
@@ -344,7 +366,7 @@
         </div>
         <div class="qualify-urgency">
           <p><strong>If you said yes to five or more — a scoping call is the right next step.</strong> The first months in a new system are the ones that shape everything that follows. Some windows — government grants, credential recognition timelines, school registration deadlines — are time-sensitive in ways that aren't obvious until it's too late to act on them. A 30-minute call costs nothing. Missing a window costs much more.</p>
-          <a href="[CALENDLY_URL]" class="btn btn-white" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+          <a href="https://calendly.com/ssennogab24/30min" class="btn btn-white" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
         </div>
       </div>
     </section>
@@ -566,7 +588,7 @@
       <div class="container">
         <h2>Start with a conversation.</h2>
         <p>30 minutes. Free. No commitment. We'll be direct about what you need and whether we're the right fit.</p>
-        <a href="[CALENDLY_URL]" class="btn" target="_blank" rel="noopener">Book my free 30-min scoping call →</a>
+        <a href="https://calendly.com/ssennogab24/30min" class="btn" target="_blank" rel="noopener">Book my free 30-min scoping call →</a>
       </div>
     </section>
 
@@ -595,12 +617,14 @@
             <li><a href="/work.html">Case Studies</a></li>
             <li><a href="/how-we-work.html">How We Work</a></li>
             <li><a href="/contact.html">Reach Us</a></li>
+        <li><a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a></li>
           </ul>
         </div>
         <div class="footer-contact">
           <span class="footer-col-head">Get in touch</span>
-          <p><a href="[CALENDLY_URL]" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p>
+          <p><a href="https://calendly.com/ssennogab24/30min" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p>
           <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+          <p style="margin-top:14px; font-size:0.75rem; color:rgba(255,255,255,0.28); line-height:1.5;">Website Artwork by<br>Keanna Suubi</p>
         </div>
       </div>
       <div class="footer-fine">
