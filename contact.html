@@ -124,11 +124,14 @@
     .footer-legal-links a:hover { color: var(--white); }
 
     @media (max-width: 1024px) {
+      .page-hero-inner { grid-template-columns: 1fr 240px; gap: 40px; }
       .hero-inner { grid-template-columns: 1fr; }
       .expect-grid { grid-template-columns: 1fr 1fr; }
       .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
     }
     @media (max-width: 768px) {
+      .page-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .page-hero-artwork { display: none; }
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
       .page-hero { padding: 100px 0 0; }
@@ -139,7 +142,16 @@
       .footer-fine { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 480px) { .footer-cols { grid-template-columns: 1fr; } .fine-print { font-size: 0.65rem; } }
-  </style>
+  
+    /* ── PAGE HERO ARTWORK ── */
+    .page-hero-inner { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
+    .page-hero-text { min-width: 0; }
+    .page-hero-artwork { position: relative; }
+    .artwork-frame { width: 100%; aspect-ratio: 3/4; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
+    .artwork-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
+    .artwork-frame:hover img { transform: scale(1.03); }
+    .artwork-credit { margin-top: 10px; font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
+</style>
 </head>
 <body>
 
@@ -166,7 +178,7 @@
         </li>
         <li><a href="/contact.html" class="active">Reach Us</a></li>
       </ul>
-      <a href="[CALENDLY_URL]" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+      <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
       <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -179,8 +191,9 @@
       <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
       <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
       <a href="/contact.html">Reach Us</a>
+      <a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a>
       <div class="drawer-cta">
-        <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a>
+        <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a>
       </div>
     </nav>
   </header>
@@ -190,7 +203,9 @@
     <!-- HERO -->
     <section class="page-hero">
       <div class="container">
-        <span class="hero-tag">Contact</span>
+        <div class="page-hero-inner">
+          <div class="page-hero-text">
+<span class="hero-tag">Contact</span>
         <h1>Let's start<br><em>with a conversation.</em></h1>
         <p class="lead" style="margin-top:16px;">30 minutes. No cost. No commitment. The scoping call is where we figure out whether there's a fit — and where we're direct if there isn't.</p>
 
@@ -200,7 +215,7 @@
             <h2>Book your free 30-minute scoping call.</h2>
             <p>Every engagement at Olympia &amp; Associates begins the same way — a conversation. We'll talk through your situation, confirm whether there's a fit, and give you an honest read on what the right next step looks like.</p>
             <p>No sales pitch. No pressure. Just a real conversation about whether and how we can help.</p>
-            <a href="[CALENDLY_URL]" class="cta-btn" target="_blank" rel="noopener">Book my free 30-min scoping call →</a>
+            <a href="https://calendly.com/ssennogab24/30min" class="cta-btn" target="_blank" rel="noopener">Book my free 30-min scoping call →</a>
             <p class="cta-note">You'll receive a confirmation and a short preparation note by email. The call is conducted via video or phone — your preference.</p>
           </div>
 
@@ -219,9 +234,15 @@
             </div>
           </div>
 
+        </div>          </div>
+        <div class="page-hero-artwork" aria-hidden="true">
+          <div class="artwork-frame">
+            <img src="assets/images/contact.JPG" alt="Original artwork by Keanna Suubi" loading="lazy">
+          </div>
+          <p class="artwork-credit">Artwork: Keanna Suubi</p>
+        </div>
         </div>
       </div>
-    </section>
 
     <!-- WHAT TO EXPECT -->
     <section class="expect-section">
@@ -324,8 +345,9 @@
         </div>
         <div class="footer-contact">
           <span class="footer-col-head">Get in touch</span>
-          <p><a href="[CALENDLY_URL]" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p>
+          <p><a href="https://calendly.com/ssennogab24/30min" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p>
           <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+          <p style="margin-top:14px; font-size:0.75rem; color:rgba(255,255,255,0.28); line-height:1.5;">Website Artwork by<br>Keanna Suubi</p>
         </div>
       </div>
       <div class="footer-fine">

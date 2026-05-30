@@ -122,12 +122,16 @@
     .footer-legal-links a { font-size: 0.8rem; color: var(--gold-light); transition: color 0.15s; font-weight: 600; }
     .footer-legal-links a:hover { color: var(--white); }
 
+    .page-hero-inner { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
+    .page-hero-text { min-width: 0; }
     /* RESPONSIVE */
     @media (max-width: 1024px) {
+      .page-hero-inner { grid-template-columns: 1fr 240px; gap: 40px; }
       .page-hero-inner { grid-template-columns: 1fr 280px; gap: 48px; }
       .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
     }
     @media (max-width: 768px) {
+      .page-hero-artwork { display: none; }
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
       .page-hero { padding: 100px 0 48px; }
@@ -139,7 +143,14 @@
     @media (max-width: 480px) {
       .footer-cols { grid-template-columns: 1fr; }
     }
-  </style>
+  
+    /* ── PAGE HERO ARTWORK ── */
+    .page-hero-artwork { position: relative; }
+    .artwork-frame { width: 100%; aspect-ratio: 3/4; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
+    .artwork-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
+    .artwork-frame:hover img { transform: scale(1.03); }
+    .artwork-credit { margin-top: 10px; font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
+</style>
 </head>
 <body>
 
@@ -165,8 +176,9 @@
           </ul>
         </li>
         <li><a href="/contact.html">Reach Us</a></li>
+        <li><a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a></li>
       </ul>
-      <a href="[CALENDLY_URL]" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book a free 30-min call</a>
+      <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book a free 30-min call</a>
       <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -179,8 +191,9 @@
       <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
       <a href="/work.html">Case Studies</a>
       <a href="/contact.html">Reach Us</a>
+      <a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a>
       <div class="drawer-cta">
-        <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book a free 30-min call</a>
+        <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book a free 30-min call</a>
       </div>
     </nav>
   </header>
@@ -190,11 +203,19 @@
     <!-- PAGE HERO -->
     <section class="page-hero">
       <div class="container">
-        <span class="page-hero-tag">Our Story</span>
+        <div class="page-hero-inner">
+          <div class="page-hero-text">
+<span class="page-hero-tag">Our Story</span>
         <h1>I've been doing this work for twenty years. Olympia &amp; Associates is where it landed.</h1>
-        <p class="lead" style="margin-top:20px;">My name is Brian Ssennoga. I'm the founder of Olympia &amp; Associates — a consulting practice based in Edmonton, Alberta. Before Edmonton, there was Kampala. Before Kampala, there was a career built across technology, leadership, and the systems that shape how people build lives and organisations.</p>
+        <p class="lead" style="margin-top:20px;">My name is Brian Ssennoga. I'm the founder of Olympia &amp; Associates — a consulting practice based in Edmonton, Alberta. Before Edmonton, there was Kampala. Before Kampala, there was a career built across technology, leadership, and the systems that shape how people build lives and organisations.</p>          </div>
+        <div class="page-hero-artwork" aria-hidden="true">
+          <div class="artwork-frame">
+            <img src="assets/images/about.JPG" alt="Original artwork by Keanna Suubi" loading="lazy">
+          </div>
+          <p class="artwork-credit">Artwork: Keanna Suubi</p>
+        </div>
+        </div>
       </div>
-    </section>
 
     <!-- STORY + BRIDGE — two columns -->
     <section class="story-section">
@@ -272,12 +293,14 @@
             <li><a href="/work.html">Case Studies</a></li>
             <li><a href="/how-we-work.html">How We Work</a></li>
             <li><a href="/contact.html">Reach Us</a></li>
+        <li><a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a></li>
           </ul>
         </div>
         <div class="footer-contact">
           <span class="footer-col-head">Get in touch</span>
-          <p><a href="[CALENDLY_URL]" target="_blank" rel="noopener">Book a free 30-min call →</a></p>
+          <p><a href="https://calendly.com/ssennogab24/30min" target="_blank" rel="noopener">Book a free 30-min call →</a></p>
           <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+          <p style="margin-top:14px; font-size:0.75rem; color:rgba(255,255,255,0.28); line-height:1.5;">Website Artwork by<br>Keanna Suubi</p>
         </div>
       </div>
       <div class="footer-fine">

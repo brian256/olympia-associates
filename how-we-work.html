@@ -78,6 +78,10 @@
     .step-num { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--border); line-height: 1; margin-bottom: 16px; }
     .process-step h3 { font-size: 1.1rem; margin-bottom: 10px; }
     .process-step p { font-size: 0.9rem; line-height: 1.65; color: var(--muted); }
+    .caution-note { background: #FDF8EC; border: 1px solid #D4A832; border-left: 4px solid var(--gold); padding: 28px 28px; }
+    .caution-note h3 { font-size: 1.0rem; margin-bottom: 10px; color: var(--gold); letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.78rem; font-weight: 700; }
+    .caution-note p { font-size: 0.9rem; line-height: 1.65; color: #6B5A2A; }
+    .caution-label { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); background: rgba(144,102,12,0.1); padding: 3px 8px; border-radius: 2px; margin-bottom: 12px; }
 
     /* FREE / NOT FREE */
     .boundary-section { padding: 72px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
@@ -141,6 +145,8 @@
 
     @media (max-width: 1024px) { .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; } }
     @media (max-width: 768px) {
+      .page-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .page-hero-artwork { display: none; }
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
       .page-hero { padding: 100px 0 48px; }
@@ -155,7 +161,16 @@
       .principles-grid { grid-template-columns: 1fr; }
       .footer-cols { grid-template-columns: 1fr; }
     }
-  </style>
+  
+    /* ── PAGE HERO ARTWORK ── */
+    .page-hero-inner { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
+    .page-hero-text { min-width: 0; }
+    .page-hero-artwork { position: relative; }
+    .artwork-frame { width: 100%; aspect-ratio: 3/4; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
+    .artwork-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
+    .artwork-frame:hover img { transform: scale(1.03); }
+    .artwork-credit { margin-top: 10px; font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
+</style>
 </head>
 <body>
 
@@ -181,8 +196,9 @@
           </ul>
         </li>
         <li><a href="/contact.html">Reach Us</a></li>
+        <li><a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a></li>
       </ul>
-      <a href="[CALENDLY_URL]" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book a free 30-min call</a>
+      <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book a free 30-min call</a>
       <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -195,8 +211,9 @@
       <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
       <a href="/work.html">Case Studies</a>
       <a href="/contact.html">Reach Us</a>
+      <a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a>
       <div class="drawer-cta">
-        <a href="[CALENDLY_URL]" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book a free 30-min call</a>
+        <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book a free 30-min call</a>
       </div>
     </nav>
   </header>
@@ -206,11 +223,19 @@
     <!-- PAGE HERO -->
     <section class="page-hero">
       <div class="container">
-        <span class="page-hero-tag">How We Work</span>
+        <div class="page-hero-inner">
+          <div class="page-hero-text">
+<span class="page-hero-tag">How We Work</span>
         <h1>Accompaniment, not authority.</h1>
-        <p class="lead" style="margin-top:20px;">The most useful thing a consultant can do is not tell you what to do. It is to help you think clearly about what you already know — and then build the structure that makes that thinking actionable.</p>
+        <p class="lead" style="margin-top:20px;">The most useful thing a consultant can do is not tell you what to do. It is to help you think clearly about what you already know — and then build the structure that makes that thinking actionable.</p>          </div>
+        <div class="page-hero-artwork" aria-hidden="true">
+          <div class="artwork-frame">
+            <img src="assets/images/how-we-work.JPG" alt="Original artwork by Keanna Suubi" loading="lazy">
+          </div>
+          <p class="artwork-credit">Artwork: Keanna Suubi</p>
+        </div>
+        </div>
       </div>
-    </section>
 
     <!-- PROCESS STEPS -->
     <section class="process-section">
@@ -243,8 +268,8 @@
             <h3>Handoff</h3>
             <p>Every engagement closes with a clear picture of what was produced, what it means, and what the next step is. You own the deliverables. You leave with documents you understand, not ones you have to decode.</p>
           </div>
-          <div class="process-step">
-            <div class="step-num">06</div>
+          <div class="caution-note">
+            <span class="caution-label">Note</span>
             <h3>What this is not</h3>
             <p>Not fractional executive work. Not open-ended advisory. Not documents nobody reads. Every engagement is scoped, time-bounded, and sized to what the situation actually requires — not to demonstrate how much work was done.</p>
           </div>
@@ -371,7 +396,7 @@
       <div class="container">
         <h2>Ready when you are.</h2>
         <p>30 minutes. Free. No commitment.</p>
-        <a href="[CALENDLY_URL]" class="btn" target="_blank" rel="noopener">Book a free scoping call →</a>
+        <a href="https://calendly.com/ssennogab24/30min" class="btn" target="_blank" rel="noopener">Book a free scoping call →</a>
       </div>
     </section>
 
@@ -400,12 +425,14 @@
             <li><a href="/work.html">Case Studies</a></li>
             <li><a href="/how-we-work.html">How We Work</a></li>
             <li><a href="/contact.html">Reach Us</a></li>
+        <li><a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a></li>
           </ul>
         </div>
         <div class="footer-contact">
           <span class="footer-col-head">Get in touch</span>
-          <p><a href="[CALENDLY_URL]" target="_blank" rel="noopener">Book a free 30-min call →</a></p>
+          <p><a href="https://calendly.com/ssennogab24/30min" target="_blank" rel="noopener">Book a free 30-min call →</a></p>
           <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+          <p style="margin-top:14px; font-size:0.75rem; color:rgba(255,255,255,0.28); line-height:1.5;">Website Artwork by<br>Keanna Suubi</p>
         </div>
       </div>
       <div class="footer-fine">

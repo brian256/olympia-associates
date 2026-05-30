@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal — Olympia & Associates</title>
+  <meta name="description" content="Existing client access — book a session, share documents, submit feedback, and access your engagement resources.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:       #90660C;
+      --gold-light: #B8842E;
+      --near-black: #1A1A1A;
+      --body-text:  #3C3C3C;
+      --muted:      #7A7060;
+      --border:     #DDD1B6;
+      --bg-warm:    #F7F4ED;
+      --bg-cool:    #EFECE4;
+      --white:      #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Source Sans 3', system-ui, sans-serif;
+      --max-w:  1180px;
+      --gutter: 24px;
+      --radius: 2px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+    section { padding: 72px 0; }
+
+    h1 { font-family: var(--font-display); font-size: clamp(2.4rem, 4.5vw, 3.6rem); font-weight: 600; line-height: 1.1; color: var(--near-black); }
+    h2 { font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 600; line-height: 1.2; color: var(--near-black); }
+    h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--near-black); }
+    p { font-size: 1.0625rem; line-height: 1.75; color: var(--body-text); }
+
+    .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .section-label span { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; border-radius: var(--radius); cursor: pointer; transition: all 0.18s ease; min-height: 48px; border: 2px solid transparent; }
+    .btn-primary { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-primary:hover { background: var(--near-black); border-color: var(--near-black); }
+    .btn-ghost { background: transparent; color: var(--near-black); border-color: var(--near-black); }
+    .btn-ghost:hover { background: var(--near-black); color: var(--white); }
+
+    /* NAV */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.2s ease; }
+    .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .wordmark { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--near-black); letter-spacing: 0.01em; flex-shrink: 0; }
+    .wordmark em { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 0; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 8px 16px; font-size: 0.9375rem; font-weight: 500; color: var(--body-text); transition: color 0.15s; white-space: nowrap; }
+    .nav-links > li > a:hover { color: var(--gold); }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .dropdown { list-style: none; display: none; position: absolute; top: calc(100% + 1px); left: 0; min-width: 240px; background: var(--white); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 8px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .dropdown li a { display: block; padding: 10px 20px; font-size: 0.85rem; color: var(--body-text); transition: background 0.12s, color 0.12s; }
+    .dropdown li a:hover { background: var(--bg-warm); color: var(--gold); }
+    .nav-cta { margin-left: 20px; padding: 10px 22px; font-size: 0.85rem; min-height: 40px; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; width: 40px; height: 40px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--near-black); transition: all 0.2s ease; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-drawer { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--white); padding: 32px var(--gutter); overflow-y: auto; border-top: 1px solid var(--border); flex-direction: column; gap: 4px; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--near-black); border-bottom: 1px solid var(--border); }
+    .drawer-cta { margin-top: 24px; }
+
+    /* PAGE HERO */
+    .page-hero { background: var(--near-black); padding: 120px 0 60px; }
+    .page-hero-tag { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; margin-bottom: 20px; }
+    .page-hero h1 { color: var(--white); max-width: 680px; margin-bottom: 16px; }
+    .page-hero .lead { font-size: 1.05rem; color: rgba(255,255,255,0.6); max-width: 560px; line-height: 1.7; }
+
+    /* SIGN-IN BOX */
+    .signin-section { padding: 72px 0; background: var(--bg-warm); border-bottom: 1px solid var(--border); }
+    .signin-inner { max-width: 520px; }
+    .signin-box { background: var(--white); border: 1px solid var(--border); padding: 40px 36px; margin-top: 32px; }
+    .signin-box h3 { margin-bottom: 6px; }
+    .signin-box .sub { font-size: 0.9rem; color: var(--muted); margin-bottom: 28px; }
+    .form-field { margin-bottom: 20px; }
+    .form-field label { display: block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .form-field input { width: 100%; padding: 12px 14px; border: 1px solid var(--border); font-family: var(--font-body); font-size: 0.95rem; color: var(--body-text); background: var(--white); border-radius: var(--radius); transition: border-color 0.15s; outline: none; }
+    .form-field input:focus { border-color: var(--gold); }
+    .form-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+    .signin-note { margin-top: 20px; font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+    .signin-note a { color: var(--gold); font-weight: 500; }
+
+    /* ACTIONS GRID */
+    .actions-section { padding: 72px 0; background: var(--white); }
+    .actions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .action-card { background: var(--white); padding: 32px 28px; display: flex; flex-direction: column; gap: 12px; transition: background 0.18s; }
+    .action-card:hover { background: var(--bg-warm); }
+    .action-icon { width: 40px; height: 40px; background: var(--bg-warm); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; border-radius: var(--radius); }
+    .action-card h3 { font-size: 1.05rem; margin: 0; }
+    .action-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; flex: 1; }
+    .action-card a.action-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.825rem; font-weight: 600; color: var(--gold); letter-spacing: 0.04em; margin-top: auto; transition: gap 0.15s; }
+    .action-card a.action-link:hover { gap: 10px; }
+    .action-card a.action-link::after { content: '→'; }
+
+    /* SUPPORT STRIP */
+    .support-strip { background: var(--near-black); padding: 48px 0; }
+    .support-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .support-text h2 { color: var(--white); font-size: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: 8px; }
+    .support-text p { color: rgba(255,255,255,0.6); font-size: 0.95rem; max-width: 480px; }
+    .support-actions { display: flex; gap: 16px; flex-wrap: wrap; flex-shrink: 0; }
+    .btn-ghost-white { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.35); border-radius: var(--radius); padding: 12px 24px; font-size: 0.875rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: all 0.18s; }
+    .btn-ghost-white:hover { background: var(--white); color: var(--near-black); }
+
+    /* FOOTER */
+    .site-footer { background: var(--near-black); padding: 52px 0 0; }
+    .footer-cols { display: grid; grid-template-columns: 280px 1fr 0.7fr 200px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-col-head { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); display: block; margin-bottom: 14px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { font-size: 0.875rem; color: rgba(255,255,255,0.6); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.7; margin-top: 10px; }
+    .footer-contact p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 8px; }
+    .footer-contact a { color: var(--gold-light); transition: color 0.15s; }
+    .footer-contact a:hover { color: var(--white); }
+    .footer-fine { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 32px; }
+    .fine-print { font-size: 0.73rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+    .footer-legal-links { display: flex; gap: 20px; flex-shrink: 0; }
+    .footer-legal-links a { font-size: 0.8rem; color: var(--gold-light); transition: color 0.15s; font-weight: 600; }
+    .footer-legal-links a:hover { color: var(--white); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .footer-cols { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .actions-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      section { padding: 56px 0; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .page-hero { padding: 100px 0 48px; }
+      .actions-grid { grid-template-columns: 1fr; }
+      .support-inner { flex-direction: column; align-items: flex-start; }
+      .footer-cols { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-fine { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .footer-cols { grid-template-columns: 1fr; }
+      .form-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="wordmark">Olympia <em>&</em> Associates</a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="/about.html" aria-haspopup="true" aria-expanded="false">About Us</a>
+          <ul class="dropdown">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" aria-haspopup="true" aria-expanded="false">What We Offer</a>
+          <ul class="dropdown">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact.html">Reach Us</a></li>
+        <li><a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a></li>
+      </ul>
+      <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book a free 30-min call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+      <a href="/about.html">About Us — Our Story</a>
+      <a href="/services/career-consulting.html">Career Consulting — High School</a>
+      <a href="/services/professional-development.html">Professional Development</a>
+      <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
+      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
+      <a href="/work.html">Case Studies</a>
+      <a href="/contact.html">Reach Us</a>
+      <a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a>
+      <div class="drawer-cta">
+        <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book a free 30-min call</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" aria-labelledby="portal-heading">
+      <div class="container">
+        <span class="page-hero-tag">Existing Clients</span>
+        <h1 id="portal-heading">Your client portal.</h1>
+        <p class="lead">Book sessions, share documents, access resources, and leave feedback — all in one place.</p>
+      </div>
+    </section>
+
+    <!-- SIGN-IN -->
+    <section class="signin-section" aria-labelledby="signin-heading">
+      <div class="container">
+        <div class="signin-inner">
+          <div class="section-label"><span>Access</span></div>
+          <h2 id="signin-heading">Sign in to your account.</h2>
+          <div class="signin-box">
+            <h3>Client sign-in</h3>
+            <p class="sub">Enter the email address you used when your engagement started. We'll send you a one-time link — no password needed.</p>
+            <form id="signinForm" onsubmit="handleSignin(event)">
+              <div class="form-field">
+                <label for="email">Your email address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Send me a sign-in link</button>
+              </div>
+            </form>
+            <p class="signin-note" id="signinMsg" style="display:none;"></p>
+            <p class="signin-note">Not a current client? <a href="/contact.html">Get in touch to start an engagement.</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT ACTIONS -->
+    <section class="actions-section" aria-labelledby="actions-heading">
+      <div class="container">
+        <div class="section-label"><span>What you can do here</span></div>
+        <h2 id="actions-heading">Everything your engagement needs.</h2>
+        <div class="actions-grid">
+
+          <div class="action-card">
+            <div class="action-icon">📅</div>
+            <h3>Book a session</h3>
+            <p>Schedule your next coaching call, follow-up session, or parent briefing. Slots are synced with Brian's calendar in real time.</p>
+            <a href="https://calendly.com/ssennogab24/30min" target="_blank" rel="noopener" class="action-link">Open booking calendar</a>
+          </div>
+
+          <div class="action-card">
+            <div class="action-icon">📄</div>
+            <h3>Share documents</h3>
+            <p>Submit your current résumé, LinkedIn export, transcript, or any reference material. Secure upload — only Brian can access what you send.</p>
+            <a href="mailto:ssennogab24@gmail.com?subject=Document%20Upload%20—%20[Your%20Name]" class="action-link">Send via email</a>
+          </div>
+
+          <div class="action-card">
+            <div class="action-icon">📬</div>
+            <h3>Request a check-in</h3>
+            <p>Between scheduled sessions, you can request a quick written check-in. Useful for time-sensitive questions or to flag something that came up.</p>
+            <a href="mailto:ssennogab24@gmail.com?subject=Check-in%20Request%20—%20[Your%20Name]" class="action-link">Send a check-in request</a>
+          </div>
+
+          <div class="action-card">
+            <div class="action-icon">💬</div>
+            <h3>Leave feedback</h3>
+            <p>Your experience matters — both during and after the engagement. Feedback is read by Brian directly and shapes how the work is done.</p>
+            <a href="mailto:ssennogab24@gmail.com?subject=Feedback%20—%20[Your%20Name]" class="action-link">Share feedback</a>
+          </div>
+
+          <div class="action-card">
+            <div class="action-icon">📝</div>
+            <h3>Review your proposal or contract</h3>
+            <p>Need a copy of your signed agreement or original proposal? Request it and we'll send it within one business day.</p>
+            <a href="mailto:ssennogab24@gmail.com?subject=Document%20Request%20—%20[Your%20Name]" class="action-link">Request a copy</a>
+          </div>
+
+          <div class="action-card">
+            <div class="action-icon">✍️</div>
+            <h3>Write a testimonial</h3>
+            <p>If your engagement is complete and you'd like to share your experience, a short paragraph is all we ask. No forms, no friction.</p>
+            <a href="mailto:ssennogab24@gmail.com?subject=Testimonial%20—%20[Your%20Name]" class="action-link">Submit a testimonial</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT STRIP -->
+    <section class="support-strip" aria-label="Support">
+      <div class="container">
+        <div class="support-inner">
+          <div class="support-text">
+            <h2>Need something that isn't here?</h2>
+            <p>Email Brian directly. Response time is within one business day during active engagements.</p>
+          </div>
+          <div class="support-actions">
+            <a href="mailto:ssennogab24@gmail.com" class="btn-ghost-white">Email Brian</a>
+            <a href="https://calendly.com/ssennogab24/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a session</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div>
+          <a href="/" class="wordmark">Olympia <em>&</em> Associates</a>
+          <p class="footer-tagline">Strategic Consulting<br>Tailored Accompaniment<br>Systems Navigation<br>Executable Plans</p>
+        </div>
+        <div>
+          <span class="footer-col-head">What We Offer</span>
+          <ul class="footer-links">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-col-head">Site</span>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/contact.html">Reach Us</a></li>
+            <li><a href="/clients.html">Client Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-col-head">Get in touch</span>
+          <p><a href="https://calendly.com/ssennogab24/30min" target="_blank" rel="noopener">Book a free 30-min call →</a></p>
+          <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+          <p style="margin-top:14px; font-size:0.75rem; color:rgba(255,255,255,0.28); line-height:1.5;">Website Artwork by<br>Keanna Suubi</p>
+        </div>
+      </div>
+      <div class="footer-fine">
+        <p class="fine-print">Olympia &amp; Associates · Alberta trade name TN27173962 · Brian Ssennoga · GST: 757324769RC001</p>
+        <div class="footer-legal-links">
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      navDrawer.setAttribute('aria-hidden', !open);
+      navDrawer.classList.toggle('open', open);
+    });
+
+    function handleSignin(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const msg = document.getElementById('signinMsg');
+      msg.style.display = 'block';
+      msg.style.color = 'var(--gold)';
+      msg.style.fontWeight = '500';
+      msg.textContent = 'Thanks — if ' + email + ' is registered, you\'ll receive a sign-in link within a few minutes. Check your spam folder if it doesn\'t arrive.';
+      document.getElementById('signinForm').reset();
+    }
+  </script>
+
+</body>
+</html>
