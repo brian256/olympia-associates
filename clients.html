@@ -177,7 +177,7 @@
           </ul>
         </li>
         <li><a href="/contact.html">Reach Us</a></li>
-        <li><a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a></li>
+        
       </ul>
       <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book a free 30-min call</a>
       <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
@@ -192,7 +192,7 @@
       <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
       <a href="/work.html">Case Studies</a>
       <a href="/contact.html">Reach Us</a>
-      <a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a>
+
       <div class="drawer-cta">
         <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book a free 30-min call</a>
       </div>
@@ -216,27 +216,42 @@
         <div class="signin-inner">
           <div class="section-label"><span>Access</span></div>
           <h2 id="signin-heading">Sign in to your account.</h2>
-          <div class="signin-box">
+          <!-- Step 1: email -->
+          <div class="signin-box" id="emailStep">
             <h3>Client sign-in</h3>
-            <p class="sub">Enter the email address you used when your engagement started. We'll send you a one-time link — no password needed.</p>
-            <form id="signinForm" onsubmit="handleSignin(event)">
+            <p class="sub">Enter the email address you used when your engagement started. We'll send you a one-time code — no password needed.</p>
+            <form id="emailForm" onsubmit="submitEmail(event)">
               <div class="form-field">
-                <label for="email">Your email address</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+                <label for="clientEmail">Your email address</label>
+                <input type="email" id="clientEmail" name="email" placeholder="you@example.com" required autocomplete="email">
               </div>
               <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Send me a sign-in link</button>
+                <button type="submit" class="btn btn-primary">Send me a code</button>
               </div>
             </form>
-            <p class="signin-note" id="signinMsg" style="display:none;"></p>
             <p class="signin-note">Not a current client? <a href="/contact.html">Get in touch to start an engagement.</a></p>
+          </div>
+          <!-- Step 2: OTP -->
+          <div class="signin-box" id="otpStep" style="display:none;">
+            <h3>Check your email</h3>
+            <p class="sub">A 6-digit code was sent to <strong id="emailDisplay"></strong>. Enter it below to access your portal.</p>
+            <form id="otpForm" onsubmit="submitOTP(event)">
+              <div class="form-field">
+                <label for="otpInput">Your one-time code</label>
+                <input type="text" id="otpInput" name="otp" placeholder="123456" maxlength="6" inputmode="numeric" pattern="[0-9]{6}" required style="letter-spacing:0.3em; font-size:1.3rem; text-align:center;">
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Verify &amp; access portal</button>
+              </div>
+            </form>
+            <p class="signin-note"><a href="#" onclick="document.getElementById('emailStep').style.display='';document.getElementById('otpStep').style.display='none';return false;">← Use a different email</a></p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CLIENT ACTIONS -->
-    <section class="actions-section" aria-labelledby="actions-heading">
+    <!-- CLIENT ACTIONS — hidden until OTP verified -->
+    <section class="actions-section" id="portalContent" aria-labelledby="actions-heading" style="display:none;">
       <div class="container">
         <div class="section-label"><span>What you can do here</span></div>
         <h2 id="actions-heading">Everything your engagement needs.</h2>
@@ -330,7 +345,8 @@
             <li><a href="/work.html">Case Studies</a></li>
             <li><a href="/how-we-work.html">How We Work</a></li>
             <li><a href="/contact.html">Reach Us</a></li>
-            <li><a href="/clients.html">Client Portal</a></li>
+            <li>
+</li>
           </ul>
         </div>
         <div class="footer-contact">
@@ -361,18 +377,39 @@
       navDrawer.setAttribute('aria-hidden', !open);
       navDrawer.classList.toggle('open', open);
     });
-
-    function handleSignin(e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const msg = document.getElementById('signinMsg');
-      msg.style.display = 'block';
-      msg.style.color = 'var(--gold)';
-      msg.style.fontWeight = '500';
-      msg.textContent = 'Thanks — if ' + email + ' is registered, you\'ll receive a sign-in link within a few minutes. Check your spam folder if it doesn\'t arrive.';
-      document.getElementById('signinForm').reset();
-    }
   </script>
 
+
+  <script>
+    // OTP gate logic
+    // In production, replace with real email dispatch + server-side verification.
+    // For now: any 6-digit code unlocks the portal (demo mode).
+    let _sentCode = '';
+
+    function submitEmail(e) {
+      e.preventDefault();
+      const email = document.getElementById('clientEmail').value.trim();
+      document.getElementById('emailDisplay').textContent = email;
+      // Simulate sending a code (demo: store a random 6-digit code)
+      _sentCode = String(Math.floor(100000 + Math.random() * 900000));
+      console.log('[demo] OTP code:', _sentCode); // visible in browser console only
+      document.getElementById('emailStep').style.display = 'none';
+      document.getElementById('otpStep').style.display = '';
+    }
+
+    function submitOTP(e) {
+      e.preventDefault();
+      const entered = document.getElementById('otpInput').value.trim();
+      if (entered === _sentCode) {
+        document.getElementById('otpStep').style.display = 'none';
+        document.getElementById('portalContent').style.display = '';
+        window.scrollTo({ top: document.getElementById('portalContent').offsetTop - 80, behavior: 'smooth' });
+      } else {
+        document.getElementById('otpInput').style.borderColor = '#c0392b';
+        document.getElementById('otpInput').value = '';
+        document.getElementById('otpInput').placeholder = 'Incorrect code — try again';
+      }
+    }
+  </script>
 </body>
 </html>

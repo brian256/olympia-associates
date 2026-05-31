@@ -232,7 +232,7 @@
     .page-hero-inner { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
     .page-hero-text { min-width: 0; }
     .page-hero-artwork { position: relative; }
-    .artwork-frame { width: 100%; aspect-ratio: 3/4; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
+    .artwork-frame { width: 100%; aspect-ratio: 4/3; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
     .artwork-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
     .artwork-frame:hover img { transform: scale(1.03); }
     .artwork-credit { margin-top: 10px; font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
@@ -262,7 +262,7 @@
           </ul>
         </li>
         <li><a href="/contact.html">Reach Us</a></li>
-        <li><a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a></li>
+        
       </ul>
       <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
       <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
@@ -277,7 +277,6 @@
       <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
       <a href="/work.html">Case Studies</a>
       <a href="/contact.html">Reach Us</a>
-      <a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a>
       <div class="drawer-cta">
         <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a>
       </div>
@@ -299,22 +298,24 @@
           <a href="#qualify" class="hero-scroll">Is this for you? ↓</a>
         </div>
       </div>
-      <!-- Legal disclaimer — full width, bottom of hero -->
-      <div class="hero-disclaimer">
-        <div class="container">
-          <div class="disclaimer-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          </div>
-          <p><strong>An important note on scope:</strong> This service is an accompaniment — navigation and preparation support for clients who are settling in Alberta. Olympia &amp; Associates does not provide legal advice on immigration status, work permits, permanent residency applications, refugee claims, sponsorship, or any matter governed by immigration law. For those questions, you must consult a licensed immigration lawyer or <a href="https://college-ic.ca" target="_blank" rel="noopener">Regulated Canadian Immigration Consultant (RCIC)</a>. We will tell you clearly when that line applies — and we will refer you rather than proceed past it.</p>
-        </div>          </div>
         <div class="page-hero-artwork" aria-hidden="true">
           <div class="artwork-frame">
             <img src="../assets/images/newcomer.JPG" alt="Original artwork by Keanna Suubi" loading="lazy">
           </div>
           <p class="artwork-credit">Artwork: Keanna Suubi</p>
         </div>
+        </div><!-- end page-hero-inner -->
+      </div><!-- end container -->
+      <!-- Legal disclaimer — full width strip below hero grid -->
+      <div class="hero-disclaimer">
+        <div class="container">
+          <div class="disclaimer-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <p><strong>An important note on scope:</strong> This service is an accompaniment — navigation and preparation support for clients who are settling in Alberta. Olympia &amp; Associates does not provide legal advice on immigration status, work permits, permanent residency applications, refugee claims, sponsorship, or any matter governed by immigration law. For those questions, you must consult a licensed immigration lawyer or <a href="https://college-ic.ca" target="_blank" rel="noopener">Regulated Canadian Immigration Consultant (RCIC)</a>. We will tell you clearly when that line applies — and we will refer you rather than proceed past it.</p>
         </div>
       </div>
+    </section>
 
     <!-- §2 IS THIS FOR YOU -->
     <section class="qualify-section" id="qualify">
@@ -617,7 +618,7 @@
             <li><a href="/work.html">Case Studies</a></li>
             <li><a href="/how-we-work.html">How We Work</a></li>
             <li><a href="/contact.html">Reach Us</a></li>
-        <li><a href="/clients.html" style="color:var(--gold); font-weight:600;">Client Portal</a></li>
+        
           </ul>
         </div>
         <div class="footer-contact">
