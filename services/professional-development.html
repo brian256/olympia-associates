@@ -71,7 +71,7 @@
     .drawer-cta { margin-top: 24px; }
 
     /* §1 HERO */
-    .page-hero { padding: 120px 0 64px; background: var(--near-black); }
+    .page-hero { padding: 120px 0 100px; background: var(--near-black); }
     .hero-tag { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; margin-bottom: 20px; }
     .page-hero h1 { color: var(--white); max-width: 760px; margin-bottom: 20px; }
     .page-hero h1 em { font-style: italic; color: var(--gold); }
@@ -234,6 +234,7 @@
       .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
     }
     @media (max-width: 768px) {
+      .page-hero-artwork { display: none; }
       .page-hero-inner { grid-template-columns: 1fr; gap: 32px; }
       .page-hero-artwork { display: none; }
       .nav-links, .nav-cta { display: none; }
@@ -248,10 +249,17 @@
       .footer-cols { grid-template-columns: 1fr 1fr; }
       .footer-fine { flex-direction: column; align-items: flex-start; }
     }
-    @media (max-width: 480px) { .footer-cols { grid-template-columns: 1fr; } .fine-print { font-size: 0.65rem; } }
+    @media (max-width: 480px) {
+      .page-hero h1 { max-width: 100%; }
+      .lead { max-width: 100%; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 0; }
+      .page-hero { padding: 100px 0 56px; }
+      .footer-cols { grid-template-columns: 1fr; }
+      .fine-print { font-size: 0.65rem; }
+    }
   
     /* ── PAGE HERO ARTWORK ── */
-    .page-hero-inner { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
+    .page-hero-inner { display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: start; }
     .page-hero-text { min-width: 0; }
     .page-hero-artwork { position: relative; }
     .artwork-frame { width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
@@ -284,8 +292,7 @@
           </ul>
         </li>
         <li><a href="/contact.html">Reach Us</a></li>
-            <li><a href="/clients.html">Client Portal</a></li>
-        
+            
       </ul>
       <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
       <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
@@ -314,7 +321,7 @@
         <div class="page-hero-inner">
           <div class="page-hero-text">
 <span class="hero-tag">Professional Development</span>
-        <h1>Your experience is real.<br><em>The question is whether it reads that way</em><br>to the right employers.</h1>
+        <h1>Your experience is real.<br><em>The question is whether it</em><br><em>reads that way</em><br>to the right employers.</h1>
         <p class="lead" style="margin-top:16px;">Years of work don't automatically translate. The Canadian job market has its own language, its own expectations, and its own gatekeeping. We build the tools that make your professional history legible — and run the campaign that gets it in front of the right people.</p>
         <div class="hero-cta-row">
           <a href="https://calendly.com/ssennogab24/intake-conversation-professional" class="btn btn-primary" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
@@ -507,8 +514,8 @@
             <p>Nineteen years at Watoto Child Care Ministries — 200+ children supported, trauma-informed care, crisis intervention, team management across four countries. The interview was the gap. Full interview preparation across ten competency areas, with STAR-format responses built from her actual history. Faith-based community support roles require candidates who can speak fluently about their philosophy of care — the preparation made sure the interview reflected her depth.</p>
             <span class="case-dates">Started May · Hired August</span>
             <span class="case-dates-label">Community Support Worker, Edmonton</span>
-            <div class="case-quote">
-              <p>"By the time I walked into that interview I wasn't nervous. I was ready. I had the role within weeks."</p>
+            <div class="case-quote" style="margin-top: auto;">
+              <p>"I did not just target the job. I volunteered with my team, in multiple sites. By the time I walked into that interview I wasn't nervous. I was ready. I had the role within weeks."</p>
               <cite>— Fiona Kyomukama, Community Support Worker, Edmonton</cite>
             </div>
             <span class="case-pkg">Career Launch Bundle · $950 + GST</span>
@@ -673,9 +680,7 @@
             <li><a href="/about.html">About Us</a></li>
             <li><a href="/work.html">Case Studies</a></li>
             <li><a href="/how-we-work.html">How We Work</a></li>
-            <li><a href="/contact.html">Reach Us</a></li>
             <li><a href="/clients.html">Client Portal</a></li>
-        
           </ul>
         </div>
         <div class="footer-contact">
@@ -686,7 +691,7 @@
         </div>
       </div>
       <div class="footer-fine">
-        <p class="fine-print">Olympia &amp; Associates · Alberta trade name TN27173962 · Brian Ssennoga · GST: 757324769RC001</p>
+        <p class="fine-print" style="color:#ffffff;">Olympia &amp; Associates · Alberta trade name TN27173962 · GST: 757324769RC001</p>
         <div class="footer-legal-links">
           <a href="/terms.html">Terms of Service</a>
           <a href="/privacy.html">Privacy Policy</a>
