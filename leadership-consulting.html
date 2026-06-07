@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leadership & Business Consulting | Olympia & Associates</title>
+  <meta name="description" content="Strategy sessions, business plans, facilitation, and executive coaching for founders, leaders, and organisations. Edmonton, Alberta. From $600 + GST.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #90660C; --gold-light: #B8842E;
+      --near-black: #1A1A1A; --body-text: #3C3C3C;
+      --muted: #7A7060; --border: #DDD1B6;
+      --bg-warm: #F7F4ED; --bg-cool: #EFECE4;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --max-w: 1180px; --gutter: 24px; --radius: 2px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+    h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 600; line-height: 1.1; color: var(--near-black); }
+    h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 600; line-height: 1.2; color: var(--near-black); }
+    h3 { font-family: var(--font-display); font-size: clamp(1.1rem, 1.8vw, 1.35rem); font-weight: 600; line-height: 1.3; color: var(--near-black); }
+    h4 { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); }
+    p { font-size: 1.0625rem; line-height: 1.75; color: var(--body-text); }
+    p + p { margin-top: 14px; }
+
+    .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .section-label span { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; border-radius: var(--radius); cursor: pointer; transition: all 0.18s ease; min-height: 48px; border: 2px solid transparent; }
+    .btn-primary { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-primary:hover { background: var(--near-black); border-color: var(--near-black); }
+    .btn-white { background: var(--white); color: var(--gold); border-color: var(--white); }
+    .btn-white:hover { background: var(--near-black); color: var(--white); border-color: var(--near-black); }
+    .btn-link { color: var(--gold); font-size: 0.875rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.15s; }
+    .btn-link:hover { gap: 10px; }
+    .btn-link::after { content: '→'; }
+
+    /* NAV */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.2s; }
+    .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .wordmark { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--near-black); }
+    .wordmark em { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; align-items: center; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 8px 16px; font-size: 0.9375rem; font-weight: 500; color: var(--body-text); transition: color 0.15s; white-space: nowrap; }
+    .nav-links > li > a:hover, .nav-links > li > a.active { color: var(--gold); }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .dropdown { list-style: none; display: none; position: absolute; top: calc(100% + 1px); left: 0; min-width: 240px; background: var(--white); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 8px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .dropdown li a { display: block; padding: 10px 20px; font-size: 0.85rem; color: var(--body-text); transition: background 0.12s, color 0.12s; }
+    .dropdown li a:hover, .dropdown li a.active { background: var(--bg-warm); color: var(--gold); }
+    .nav-cta { margin-left: 20px; padding: 10px 22px; font-size: 0.85rem; min-height: 40px; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; width: 40px; height: 40px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--near-black); transition: all 0.2s; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-drawer { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--white); padding: 32px var(--gutter); overflow-y: auto; border-top: 1px solid var(--border); flex-direction: column; gap: 4px; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--near-black); border-bottom: 1px solid var(--border); }
+    .nav-drawer a:last-of-type { border-bottom: none; }
+    .drawer-cta { margin-top: 24px; }
+
+    /* §1 HERO */
+    .page-hero { padding: 120px 0 100px; background: var(--near-black); }
+    .hero-tag { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; margin-bottom: 20px; }
+    .page-hero h1 { color: var(--white); max-width: 760px; margin-bottom: 20px; }
+    .page-hero h1 em { font-style: italic; color: var(--gold); }
+    .page-hero .lead { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; color: rgba(255,255,255,0.6); max-width: 620px; line-height: 1.65; }
+    .hero-cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 32px; }
+    .hero-scroll { font-size: 0.875rem; color: rgba(255,255,255,0.4); font-weight: 500; display: inline-flex; align-items: center; gap: 6px; transition: color 0.15s; }
+    .hero-scroll:hover { color: var(--gold-light); }
+
+    /* §2 IS THIS FOR YOU */
+    .qualify-section { padding: 72px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .qualify-section h2 { color: var(--near-black); margin-bottom: 10px; }
+    .qualify-intro { color: var(--muted); font-size: 1.0rem; max-width: 580px; margin-bottom: 36px; }
+    .qualify-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); }
+    .qualify-item { background: var(--white); padding: 20px 24px; display: flex; align-items: flex-start; gap: 14px; cursor: pointer; transition: background 0.15s; }
+    .qualify-item:hover { background: var(--bg-warm); }
+    .qualify-check { width: 22px; height: 22px; border: 1.5px solid var(--border); border-radius: 3px; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+    .qualify-item p { font-size: 0.9375rem; line-height: 1.55; color: var(--body-text); margin: 0; }
+    .qualify-urgency { margin-top: 2px; padding: 32px 36px; background: var(--near-black); border-left: 3px solid var(--gold); display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .qualify-urgency p { font-size: 0.9375rem; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0; flex: 1; min-width: 280px; }
+    .qualify-urgency strong { color: var(--gold-light); }
+    .qualify-urgency .btn-white { flex-shrink: 0; white-space: nowrap; }
+
+    /* §3 PROCESS */
+    .process-section { padding: 72px 0; background: var(--near-black); }
+    .process-section .section-label::before { background: var(--gold); }
+    .process-section .section-label span { color: var(--gold-light); }
+    .process-section h2 { color: var(--white); margin-bottom: 10px; }
+    .process-intro { color: rgba(255,255,255,0.6); max-width: 580px; margin-bottom: 36px; font-size: 1.0rem; line-height: 1.7; }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07); margin-top: 0; }
+    .process-step { background: var(--near-black); padding: 28px 24px; border: 1px solid rgba(255,255,255,0.06); }
+    .step-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: rgba(255,255,255,0.12); line-height: 1; margin-bottom: 14px; }
+    .process-step h3 { font-size: 0.95rem; color: var(--white); margin-bottom: 8px; }
+    .process-step p { font-size: 0.85rem; line-height: 1.65; color: rgba(255,255,255,0.55); }
+    .process-note { margin-top: 24px; padding: 20px 24px; background: rgba(144,102,12,0.12); border: 1px solid rgba(144,102,12,0.25); border-left: 3px solid var(--gold); }
+    .process-note p { font-size: 0.875rem; color: rgba(255,255,255,0.75); line-height: 1.65; margin: 0; }
+    .process-note strong { color: var(--gold-light); }
+
+    /* §4 ENGAGEMENT TYPES */
+    .types-section { padding: 72px 0; background: var(--white); }
+    .types-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .type-card { background: var(--white); padding: 36px 32px; border-top: 3px solid transparent; transition: border-color 0.2s, background 0.2s; }
+    .type-card:hover { background: var(--bg-warm); border-top-color: var(--gold); }
+    .type-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+    .type-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .type-card p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); margin-bottom: 16px; }
+    .type-card p:last-of-type { margin-bottom: 0; }
+    .type-price { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; color: var(--near-black); }
+    .type-price span { font-family: var(--font-body); font-size: 0.78rem; font-weight: 400; color: var(--muted); }
+    .type-good-for { margin-top: 14px; font-size: 0.82rem; color: var(--muted); font-style: italic; }
+
+    /* §5 WORK IN PRACTICE */
+    .case-section { padding: 72px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .case-card { background: var(--white); padding: 32px 28px; display: flex; flex-direction: column; }
+    .case-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .case-card h3 { font-size: 1.15rem; margin-bottom: 5px; }
+    .case-headline { font-family: var(--font-display); font-size: 0.95rem; font-style: italic; color: var(--muted); margin-bottom: 14px; }
+    .case-card p { font-size: 0.875rem; line-height: 1.7; color: var(--body-text); flex: 1; margin-bottom: 16px; }
+    .case-stat { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; color: var(--gold); line-height: 1; display: block; margin-bottom: 2px; }
+    .case-stat-label { font-size: 0.75rem; color: var(--muted); display: block; margin-bottom: 16px; }
+    .case-quote { background: var(--bg-warm); border-left: 3px solid var(--gold); padding: 14px 18px; margin-bottom: 12px; }
+    .case-quote p { font-family: var(--font-display); font-size: 0.95rem; font-style: italic; color: var(--body-text); line-height: 1.6; margin: 0; }
+    .case-quote cite { display: block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-style: normal; }
+    .case-pkg { font-size: 0.78rem; color: var(--muted); }
+
+    /* §6 YOUR INVESTMENT */
+    .packages-section { padding: 72px 0; background: var(--white); }
+    .packages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .pkg-card { background: var(--white); padding: 28px 22px; display: flex; flex-direction: column; }
+    .pkg-card.featured { background: var(--near-black); }
+    .pkg-badge { display: inline-block; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; margin-bottom: 14px; background: var(--bg-cool); color: var(--gold); }
+    .pkg-card.featured .pkg-badge { background: var(--gold); color: var(--white); }
+    .pkg-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+    .pkg-card.featured h3 { color: var(--white); }
+    .pkg-sub { font-size: 0.78rem; color: var(--muted); margin-bottom: 16px; line-height: 1.4; }
+    .pkg-card.featured .pkg-sub { color: rgba(255,255,255,0.4); }
+    .pkg-price { font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--near-black); line-height: 1; margin-bottom: 3px; }
+    .pkg-card.featured .pkg-price { color: var(--white); }
+    .pkg-gst { font-size: 0.72rem; color: var(--muted); margin-bottom: 16px; }
+    .pkg-card.featured .pkg-gst { color: rgba(255,255,255,0.3); }
+    .pkg-divider { height: 1px; background: var(--border); margin-bottom: 16px; }
+    .pkg-card.featured .pkg-divider { background: rgba(255,255,255,0.1); }
+    .pkg-includes { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .pkg-includes li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; line-height: 1.5; color: var(--body-text); }
+    .pkg-card.featured .pkg-includes li { color: rgba(255,255,255,0.72); }
+    .pkg-includes li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+    .pkg-card.featured .pkg-includes li::before { color: var(--gold-light); }
+
+    /* PRIVACY — full width */
+    .privacy-note { padding: 40px 0; background: var(--white); border-top: 1px solid var(--border); }
+    .privacy-inner { display: flex; align-items: flex-start; gap: 20px; }
+    .privacy-icon { width: 36px; height: 36px; background: var(--bg-warm); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .privacy-icon svg { width: 16px; height: 16px; color: var(--gold); }
+    .privacy-inner p { font-size: 0.875rem; line-height: 1.75; color: var(--muted); }
+    .privacy-inner a { color: var(--gold); font-weight: 600; }
+
+    /* FOOTER CTA */
+    .footer-cta { background: var(--gold); padding: 72px 0; text-align: center; }
+    .footer-cta h2 { color: var(--white); margin-bottom: 10px; }
+    .footer-cta p { color: rgba(255,255,255,0.85); margin-bottom: 24px; }
+    .footer-cta .btn { background: var(--white); color: var(--gold); border-color: var(--white); }
+    .footer-cta .btn:hover { background: var(--near-black); color: var(--white); border-color: var(--near-black); }
+
+    /* FOOTER */
+    .site-footer { background: var(--near-black); padding: 52px 0 0; }
+    .footer-cols { display: grid; grid-template-columns: 280px 1fr 0.7fr 200px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-brand .wordmark { font-size: 1.25rem; color: var(--white); }
+    .footer-brand .wordmark em { color: var(--gold); }
+    .footer-tagline { margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.45); font-style: italic; font-family: var(--font-display); line-height: 1.8; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; display: block; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-contact p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 8px; }
+    .footer-contact a { color: var(--gold-light); }
+    .footer-fine { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 32px; }
+    .fine-print { font-size: 0.73rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+    .footer-legal-links { display: flex; gap: 20px; }
+    .footer-legal-links a { font-size: 0.8rem; color: var(--gold-light); transition: color 0.15s; font-weight: 600; }
+    .footer-legal-links a:hover { color: var(--white); }
+
+    @media (max-width: 1024px) {
+      .page-hero-inner { grid-template-columns: 1fr 240px; gap: 40px; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .packages-grid { grid-template-columns: 1fr 1fr; }
+      .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      .page-hero-artwork { display: none; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .page-hero-artwork { display: none; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .page-hero { padding: 100px 0 48px; }
+      .qualify-grid { grid-template-columns: 1fr; }
+      .qualify-urgency { flex-direction: column; gap: 20px; }
+      .process-steps { grid-template-columns: 1fr; }
+      .types-grid { grid-template-columns: 1fr; }
+      .case-grid { grid-template-columns: 1fr; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+      .footer-fine { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .page-hero h1 { max-width: 100%; }
+      .lead { max-width: 100%; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 0; }
+      .page-hero { padding: 100px 0 56px; }
+      .footer-cols { grid-template-columns: 1fr; }
+      .fine-print { font-size: 0.65rem; }
+    }
+  
+    /* ── PAGE HERO ARTWORK ── */
+    .page-hero-inner { display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: start; padding-top: 16px; }
+    .page-hero-text { min-width: 0; }
+    .page-hero-artwork { position: relative; }
+    .artwork-frame { width: 100%; aspect-ratio: 3/4; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
+    .artwork-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
+    .artwork-frame:hover img { transform: scale(1.03); }
+    .artwork-credit { margin-top: 10px; font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
+</style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-inner">
+      <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="/about.html" aria-haspopup="true">About Us</a>
+          <ul class="dropdown">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="active" aria-haspopup="true">What We Offer</a>
+          <ul class="dropdown">
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/leadership-consulting.html" class="active">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact.html">Reach Us</a></li>
+            
+      </ul>
+      <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
+      <a href="/about.html">About Us — Our Story</a>
+      <a href="/services/career-consulting.html">Career Consulting — High School</a>
+      <a href="/services/professional-development.html">Professional Development</a>
+      <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
+      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
+      <a href="/work.html">Case Studies</a>
+      <a href="/contact.html">Reach Us</a>
+      <div class="drawer-cta">
+        <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- §1 HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-inner">
+          <div class="page-hero-text">
+<span class="hero-tag">Leadership &amp; Business Consulting</span>
+        <h1>You have the vision.<br><em>The question is whether the structure<br>beneath it will hold.</em></h1>
+        <p class="lead" style="margin-top:16px;">Founders, executives, and team leaders come to Olympia &amp; Associates at a specific moment — when a major decision needs a thought partner, a plan needs pressure-testing, a team needs facilitation, or a business needs a strategy that can actually be executed. The accompaniment model is built for exactly those moments.</p>
+        <div class="hero-cta-row">
+          <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+          <a href="#qualify" class="hero-scroll">Is this for you? ↓</a>
+        </div>          </div>
+        <div class="page-hero-artwork" aria-hidden="true">
+          <div class="artwork-frame">
+            <img src="../assets/images/lbc.JPG" alt="Original artwork by Keanna Suubi" loading="lazy">
+          </div>
+          <p class="artwork-credit">Artwork: Keanna Suubi</p>
+        </div>
+        </div>
+      </div>
+
+    <!-- §2 IS THIS FOR YOU -->
+    <section class="qualify-section" id="qualify">
+      <div class="container">
+        <div class="section-label"><span>Self-assessment</span></div>
+        <h2>Is this service for your organisation or team?</h2>
+        <p class="qualify-intro">These statements describe the situations that typically bring leaders to a scoping call. Read them honestly — the more you recognise, the more urgent the conversation.</p>
+        <div class="qualify-grid">
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I have a strong idea or direction, but nobody has pressure-tested the plan — and I'm not confident it will hold up when the stakes are real.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I'm preparing a business plan for a bank, an investor, or a funding programme — and it needs to answer every question before they ask it.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>My organisation is at a strategic inflection point — a pivot, an expansion, a restructure — and I need structured thinking before we commit.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>My team is not performing at the level it should. I'm not sure whether the problem is structure, communication, culture, or leadership — but I know something is off.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I need a facilitator for a planning retreat, a leadership workshop, or a community session — someone who can hold a room and move people toward real decisions.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I'm a first-time leader or manager and I'm navigating situations for which nobody gave me a framework — and I'm figuring it out alone.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>My organisation's positioning doesn't reflect what we actually do or who we actually serve — and the gap is costing us clients, partners, or credibility.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I've been approached to speak or present at an event and I want the content to be substantive, structured, and genuinely useful — not generic motivation.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I'm running a startup or early-stage business and I need someone to help me think through the model — not tell me what to do, but help me think clearly.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I want to work with someone who has actually delivered at scale — not someone who has only advised from the outside.</p>
+          </div>
+        </div>
+        <div class="qualify-urgency">
+          <p><strong>If six or more of these landed — the scoping call is the right next step.</strong> Strategy problems compound quietly. Every month a plan goes untested, a positioning gap goes unaddressed, or a team dynamic goes unresolved, the cost grows. A 30-minute scoping call is free. Commissioning a strategy retreat after a year of drift is not.</p>
+          <a href="https://calendly.com/ssennogab24/30min" class="btn btn-white" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- §3 HOW THE ENGAGEMENT IS STRUCTURED -->
+    <section class="process-section" id="process">
+      <div class="container">
+        <div class="section-label"><span>How the engagement is structured</span></div>
+        <h2>What working together looks like.</h2>
+        <p class="process-intro">Every engagement — regardless of type — follows the same structure. The scoping call is always free. The work begins when a contract is signed and an initial payment is received. There are no exceptions.</p>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-num">01</div>
+            <h3>Scoping call — free, 30 min</h3>
+            <p>We discuss your situation, what you're trying to achieve, and what kind of engagement makes sense. At the end, we'll recommend a format if there's a fit — or be direct if there isn't.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">02</div>
+            <h3>Proposal</h3>
+            <p>A short document confirming what the engagement covers, how it's structured, what you'll have at the end, and what it costs. Specific to your situation — not a template.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">03</div>
+            <h3>Contract and initial payment</h3>
+            <p>Work begins when the contract is signed and the initial payment is received. This protects the quality of the work and the integrity of the engagement for both parties.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">04</div>
+            <h3>The work — and the handoff</h3>
+            <p>Structured, thorough, and built with you. Deliverables are explained as they're produced — you understand the thinking, not just the output. Every engagement closes with a clear picture of what was built and what comes next.</p>
+          </div>
+        </div>
+        <div class="process-note">
+          <p><strong>What this is not:</strong> fractional executive work, open-ended advisory, or consulting that produces documents nobody reads. Every engagement is scoped, time-bounded, and sized to what the situation actually requires — not to demonstrate how much work was done.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- §4 ENGAGEMENT TYPES -->
+    <section class="types-section" id="types">
+      <div class="container">
+        <div class="section-label"><span>What we do</span></div>
+        <h2>Four ways to engage. All scoped to the moment.</h2>
+        <div class="types-grid">
+
+          <div class="type-card">
+            <span class="type-tag">Strategy Session</span>
+            <h3>A focused half-day on a specific problem or opportunity.</h3>
+            <p>Preparation, a structured session, and a written output. Best for leaders who have a specific decision to make, a challenge to reframe, or a direction to pressure-test — and who need a structured conversation with someone who has done this before, not a sounding board.</p>
+            <p>The session is not a presentation. It is a working session — with frameworks applied to your actual situation, real-time analysis, and a written output that captures the thinking and the next steps.</p>
+            <div class="type-price">from $600 <span>+ GST · half-day (~4 hrs)</span></div>
+            <p class="type-good-for">Good for: a specific strategic decision, a challenge that needs reframing, or a plan that needs testing before commitment.</p>
+          </div>
+
+          <div class="type-card">
+            <span class="type-tag">Project Engagement</span>
+            <h3>A scoped engagement with defined deliverables and a clear end point.</h3>
+            <p>For situations that require more than a half-day — a competitive analysis, a positioning framework, a full business plan, a digital presence build, a governance document. The engagement is scoped after the scoping call, structured around specific deliverables, and delivered with the rationale explained at every step.</p>
+            <p>This is the format used for the Janzen Family Care and Haven Icecream engagements. It is what the accompaniment model was built for.</p>
+            <div class="type-price">from $1,200 <span>+ GST · minimum 8 hrs · scoped per project</span></div>
+            <p class="type-good-for">Good for: business plans, competitive research, positioning, digital presence strategy, governance frameworks, strategic documents.</p>
+          </div>
+
+          <div class="type-card">
+            <span class="type-tag">Facilitation &amp; Talks</span>
+            <h3>Content-rich sessions for teams, communities, and conference audiences.</h3>
+            <p>Eight-plus years of facilitation practice across Uganda and Canada — management workshops, leadership talks, team dynamics sessions, parenting and family leadership, PreMarital preparation, and professional clarity. The facilitation catalogue is broad. The standard is the same across every context: substantive content, practical framing, and a room that leaves with something real.</p>
+            <p>Facilitation is not a keynote that delivers content to an audience. It is a session that uses content to move an audience — from a problem to a framing, from a framing to a decision, from a decision to a next step.</p>
+            <div class="type-price">from $750 <span>+ GST · half-day; full day from $1,500; keynote quoted per event</span></div>
+            <p class="type-good-for">Good for: planning retreats, leadership workshops, faith community sessions, team development, conference talks, and professional association events.</p>
+          </div>
+
+          <div class="type-card">
+            <span class="type-tag">Leadership Coaching</span>
+            <h3>Structured coaching for leaders at a specific moment in their development.</h3>
+            <p>First-time managers navigating people dynamics for the first time. Experienced executives facing an organisational challenge that defies their existing frameworks. Business owners who have grown past the point where instinct alone is sufficient. The coaching model is simple: sit with the thinking, surface the frameworks, help the person move.</p>
+            <p>Coaching engagements are structured — not open-ended conversations. They begin with a diagnostic, follow a structured arc, and end with a clear picture of what changed and what comes next.</p>
+            <div class="type-price">from $150 <span>+ GST / hr · typically structured as 4–8 session series</span></div>
+            <p class="type-good-for">Good for: first-time leaders, executives navigating complex decisions, business owners who need a structured thinking partner.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- §5 YOUR INVESTMENT -->
+    <section class="packages-section" id="packages">
+      <div class="container">
+        <div class="section-label"><span>Your Investment</span></div>
+        <h2>Four engagement types. All prices CAD + GST.</h2>
+        <div class="packages-grid">
+
+          <div class="pkg-card">
+            <span class="pkg-badge">Half-day</span>
+            <h3>Strategy Session</h3>
+            <p class="pkg-sub">Focused problem or opportunity · prep + session + written output</p>
+            <div class="pkg-price">$600</div>
+            <div class="pkg-gst">+ GST · ~4 hours</div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-includes">
+              <li>Pre-session preparation and briefing</li>
+              <li>Half-day structured session</li>
+              <li>Written output with decisions and next steps</li>
+            </ul>
+          </div>
+
+          <div class="pkg-card">
+            <span class="pkg-badge">Full day</span>
+            <h3>Day Rate</h3>
+            <p class="pkg-sub">On-site or virtual · facilitation, workshops, planning</p>
+            <div class="pkg-price">$1,200</div>
+            <div class="pkg-gst">+ GST · ~8 hours</div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-includes">
+              <li>Preparation and agenda design</li>
+              <li>Full-day delivery</li>
+              <li>Session summary and follow-up notes</li>
+            </ul>
+          </div>
+
+          <div class="pkg-card featured">
+            <span class="pkg-badge">Primary offering</span>
+            <h3>Project Engagement</h3>
+            <p class="pkg-sub">Scoped per project · minimum 8 hrs</p>
+            <div class="pkg-price">from $1,200</div>
+            <div class="pkg-gst">+ GST · scoped and quoted after scoping call</div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-includes">
+              <li>Research, analysis, and framework development</li>
+              <li>Strategy documents, plans, and briefs</li>
+              <li>Business plans and financial models</li>
+              <li>Digital presence strategy and builds</li>
+              <li>Governance documents and implementation briefs</li>
+            </ul>
+          </div>
+
+          <div class="pkg-card">
+            <span class="pkg-badge">Facilitation</span>
+            <h3>Talk or Facilitation</h3>
+            <p class="pkg-sub">Community, corporate, or conference</p>
+            <div class="pkg-price">from $750</div>
+            <div class="pkg-gst">+ GST · half-day; full day from $1,500</div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-includes">
+              <li>Topic brief and preparation</li>
+              <li>Session design and delivery</li>
+              <li>Keynote: quoted per event</li>
+            </ul>
+          </div>
+
+        </div>
+        <p style="margin-top:16px; font-size:0.82rem; color:var(--muted);">All prices CAD. GST (757324769RC001) applies. Project Engagements: 30/40/30 payment split. Strategy Sessions and shorter engagements: 30% on signing, balance on delivery. No work begins without initial payment received.</p>
+      </div>
+    </section>
+
+    <!-- §6 WORK IN PRACTICE -->
+    <section class="case-section" id="work">
+      <div class="container">
+        <div class="section-label"><span>The work in practice</span></div>
+        <h2>Two engagements. Two very different situations.</h2>
+        <div class="case-grid">
+
+          <article class="case-card">
+            <div class="case-tag">Project Engagement · Digital Presence &amp; Positioning</div>
+            <h3>Janzen Family Care</h3>
+            <p class="case-headline">From solo practice to positioned service.</p>
+            <p>Candice Janzen had a family navigation service that worked — and a digital presence that didn't reflect how distinctive it actually was. The engagement ran four phases: competitive analysis across three comparator organisations, positioning gap matrix and page blueprints, a full multi-page HTML website build, and an AI Implementation Brief governing AI use within the practice. Every decision was explained in plain language as it was made.</p>
+            <span class="case-stat">4</span>
+            <span class="case-stat-label">phases from blank canvas to launched practice</span>
+            <div class="case-quote">
+              <p>"The site finally looks and reads like what I've actually built."</p>
+              <cite>— Candice Janzen, Founder, Janzen Family Care, Edmonton <span style="font-size:0.7rem;">(confirmation pending)</span></cite>
+            </div>
+            <span class="case-pkg">Project Engagement · from $1,200 + GST</span>
+          </article>
+
+          <article class="case-card">
+            <div class="case-tag">Facilitation · Faith Community &amp; Leadership</div>
+            <h3>Edmonton Talks — Daughters of Zion &amp; Rhema Chapel</h3>
+            <p class="case-headline">Two organisations. Four sessions. Applied leadership facilitation in Edmonton.</p>
+            <p>Two faith community organisations brokered through Diamond Consulting Inc. Four facilitated sessions delivering leadership and personal development content for real audiences — navigating leadership inside families, workplaces, and community spaces simultaneously. Applied sessions grounded in eight years of facilitation practice, not theoretical frameworks. Delivered in Edmonton, March 2026.</p>
+            <span class="case-stat">4</span>
+            <span class="case-stat-label">paid sessions delivered · Edmonton Q1 2026</span>
+            <div class="case-quote">
+              <p>"The content was substantive and immediately applicable — not the kind of session you forget before you leave the room."</p>
+              <cite>— Session participant, Edmonton, March 2026</cite>
+            </div>
+            <span class="case-pkg">Facilitation · from $750 + GST per session</span>
+          </article>
+
+        </div>
+        <div style="margin-top:20px; text-align:right;">
+          <a href="/work.html" class="btn-link">See all case studies</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY — full width, icon sized to text, center-justified -->
+    <section class="privacy-note">
+      <div class="container">
+        <div class="privacy-inner" >
+          <div class="privacy-icon" >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <p>Leadership and business consulting engagements involve sensitive organisational information — strategy, personnel context, financial circumstances, and operational detail. This information is handled under strict confidentiality, used only to perform the agreed services, never submitted to an AI tool, and not shared with third parties. We are governed by PIPEDA (federal) and Alberta's PIPA. For organisational clients, we welcome legal review of our <a href="/terms.html">Terms of Service</a> before signing. Full privacy commitments are set out in our <a href="/privacy.html">Privacy Policy</a> — both documents are written in plain language and available before you sign anything.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section class="footer-cta">
+      <div class="container">
+        <h2>Start with a conversation.</h2>
+        <p>30 minutes. Free. No commitment. We'll be direct about whether there's a fit.</p>
+        <a href="https://calendly.com/ssennogab24/30min" class="btn" target="_blank" rel="noopener">Book my free 30-min scoping call →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+          <p class="footer-tagline">Strategic Consulting<br>Tailored Accompaniment<br>Systems Navigation<br>Executable Plans</p>
+        </div>
+        <div>
+          <span class="footer-col-head">What We Offer</span>
+          <ul class="footer-links">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-col-head">Site</span>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/clients.html">Client Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-col-head">Get in touch</span>
+          <p><a href="https://calendly.com/ssennogab24/30min" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p>
+          <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+          <p style="margin-top:14px; font-size:0.75rem; color:rgba(255,255,255,0.28); line-height:1.5;">Website Artwork by<br>Keanna Suubi</p>
+        </div>
+      </div>
+      <div class="footer-fine">
+        <p class="fine-print" style="color:#ffffff;">Olympia &amp; Associates · Alberta trade name TN27173962 · GST: 757324769RC001</p>
+        <div class="footer-legal-links">
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      navDrawer.setAttribute('aria-hidden', !open);
+      navDrawer.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    document.addEventListener('click', (e) => {
+      if (navDrawer.classList.contains('open') && !navDrawer.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open');
+        navDrawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navDrawer.classList.contains('open')) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open'); document.body.style.overflow = '';
+      }
+    });
+    document.querySelectorAll('.qualify-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const check = item.querySelector('.qualify-check');
+        const active = check.classList.toggle('checked');
+        check.innerHTML = active ? '<svg viewBox="0 0 24 24" fill="none" stroke="#90660C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="20 6 9 17 4 12"/></svg>' : '';
+        check.style.background = active ? 'rgba(144,102,12,0.1)' : '';
+        check.style.borderColor = active ? '#90660C' : '';
+        item.querySelector('p').style.color = active ? 'var(--near-black)' : '';
+        item.style.background = active ? 'var(--bg-warm)' : '';
+      });
+    });
+  </script>
+</body>
+</html>

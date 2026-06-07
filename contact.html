@@ -66,7 +66,7 @@
     .drawer-cta { margin-top: 24px; }
 
     /* HERO — split layout */
-    .page-hero { padding: 120px 0 0; background: var(--near-black); }
+    .page-hero { padding: 120px 0 80px; background: var(--near-black); }
     .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); margin-top: 40px; }
     .hero-text { padding: 0 0 48px; }
     .hero-tag { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; margin-bottom: 20px; }
@@ -130,24 +130,32 @@
       .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
     }
     @media (max-width: 768px) {
+      .page-hero-artwork { display: none; }
       .page-hero-inner { grid-template-columns: 1fr; gap: 32px; }
       .page-hero-artwork { display: none; }
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
-      .page-hero { padding: 100px 0 0; }
+      .page-hero { padding: 100px 0 48px; }
       .hero-inner { grid-template-columns: 1fr; }
       .expect-grid { grid-template-columns: 1fr; }
       .routing-grid { grid-template-columns: 1fr; }
       .footer-cols { grid-template-columns: 1fr 1fr; }
       .footer-fine { flex-direction: column; align-items: flex-start; }
     }
-    @media (max-width: 480px) { .footer-cols { grid-template-columns: 1fr; } .fine-print { font-size: 0.65rem; } }
+    @media (max-width: 480px) {
+      .page-hero h1 { max-width: 100%; }
+      .lead { max-width: 100%; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 0; }
+      .page-hero { padding: 100px 0 56px; }
+      .footer-cols { grid-template-columns: 1fr; }
+      .fine-print { font-size: 0.65rem; }
+    }
   
     /* ── PAGE HERO ARTWORK ── */
-    .page-hero-inner { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
+    .page-hero-inner { display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start; }
     .page-hero-text { min-width: 0; }
     .page-hero-artwork { position: relative; }
-    .artwork-frame { width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
+    .artwork-frame { width: 100%; aspect-ratio: 3/4; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
     .artwork-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
     .artwork-frame:hover img { transform: scale(1.03); }
     .artwork-credit { margin-top: 10px; font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
@@ -312,8 +320,10 @@
     <!-- PRACTICE NOTE -->
     <section class="practice-note-section">
       <div class="container">
-        <div class="practice-note-inner">
+        <div class="practice-note-inner" style="text-align:center;">
           <p>When you reach out, you are reaching Brian Ssennoga directly — not a front desk, not an assistant. Olympia &amp; Associates is a registered Alberta trade name (TN27173962) operated by Brian Ssennoga, GST registered (757324769RC001). We are an Alberta-based, Black-owned consulting practice serving clients across Canada.</p>
+          , you are reaching Brian Ssennoga directly — not a front desk, not an assistant. Olympia &amp; Associates is a registered Alberta trade name (TN27173962) operated by Brian Ssennoga, GST registered (757324769RC001). We are an Alberta-based, Black-owned consulting practice serving clients across Canada.</p>
+          <p style="margin-top:16px; font-size:0.9rem; color:var(--muted);">For website feedback or anything else you'd like to share with us, reach us at <a href="mailto:hello@olympia-associates.ca">hello@olympia-associates.ca</a>.</p>
         </div>
       </div>
     </section>
@@ -341,9 +351,9 @@
           <ul class="footer-links">
             <li><a href="/about.html">About Us</a></li>
             <li><a href="/work.html">Case Studies</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-          
-            <li><a href="/how-we-work.html">How We Work</a></li></ul>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/clients.html">Client Portal</a></li>
+          </ul>
         </div>
         <div class="footer-contact">
           <span class="footer-col-head">Get in touch</span>
@@ -353,7 +363,7 @@
         </div>
       </div>
       <div class="footer-fine">
-        <p class="fine-print">Olympia &amp; Associates · Alberta trade name TN27173962 · Brian Ssennoga · GST: 757324769RC001</p>
+        <p class="fine-print" style="color:#ffffff;">Olympia &amp; Associates · Alberta trade name TN27173962 · GST: 757324769RC001</p>
         <div class="footer-legal-links">
           <a href="/terms.html">Terms of Service</a>
           <a href="/privacy.html">Privacy Policy</a>

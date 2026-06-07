@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newcomer & Immigration Pathways | Olympia & Associates</title>
+  <meta name="description" content="Personalised Alberta settlement navigation for individuals and families. Not legal immigration advice — navigation and preparation support. From $225 + GST.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #90660C; --gold-light: #B8842E;
+      --near-black: #1A1A1A; --body-text: #3C3C3C;
+      --muted: #7A7060; --border: #DDD1B6;
+      --bg-warm: #F7F4ED; --bg-cool: #EFECE4;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Source Sans 3', system-ui, sans-serif;
+      --max-w: 1180px; --gutter: 24px; --radius: 2px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--body-text); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+    h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 600; line-height: 1.1; color: var(--near-black); }
+    h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 600; line-height: 1.2; color: var(--near-black); }
+    h3 { font-family: var(--font-display); font-size: clamp(1.1rem, 1.8vw, 1.35rem); font-weight: 600; line-height: 1.3; color: var(--near-black); }
+    h4 { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); }
+    p { font-size: 1.0625rem; line-height: 1.75; color: var(--body-text); }
+    p + p { margin-top: 14px; }
+
+    .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .section-label span { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; border-radius: var(--radius); cursor: pointer; transition: all 0.18s ease; min-height: 48px; border: 2px solid transparent; }
+    .btn-primary { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .btn-primary:hover { background: var(--near-black); border-color: var(--near-black); }
+    .btn-white { background: var(--white); color: var(--gold); border-color: var(--white); }
+    .btn-white:hover { background: var(--near-black); color: var(--white); border-color: var(--near-black); }
+    .btn-link { color: var(--gold); font-size: 0.875rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.15s; }
+    .btn-link:hover { gap: 10px; }
+    .btn-link::after { content: '→'; }
+
+    /* NAV */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.2s; }
+    .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.07); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .wordmark { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--near-black); }
+    .wordmark em { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; align-items: center; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 8px 16px; font-size: 0.9375rem; font-weight: 500; color: var(--body-text); transition: color 0.15s; white-space: nowrap; }
+    .nav-links > li > a:hover, .nav-links > li > a.active { color: var(--gold); }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .dropdown { list-style: none; display: none; position: absolute; top: calc(100% + 1px); left: 0; min-width: 240px; background: var(--white); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 8px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .dropdown li a { display: block; padding: 10px 20px; font-size: 0.85rem; color: var(--body-text); transition: background 0.12s, color 0.12s; }
+    .dropdown li a:hover, .dropdown li a.active { background: var(--bg-warm); color: var(--gold); }
+    .nav-cta { margin-left: 20px; padding: 10px 22px; font-size: 0.85rem; min-height: 40px; }
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; width: 40px; height: 40px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--near-black); transition: all 0.2s; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-drawer { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--white); padding: 32px var(--gutter); overflow-y: auto; border-top: 1px solid var(--border); flex-direction: column; gap: 4px; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { display: block; padding: 14px 0; font-size: 1.05rem; font-weight: 500; color: var(--near-black); border-bottom: 1px solid var(--border); }
+    .nav-drawer a:last-of-type { border-bottom: none; }
+    .drawer-cta { margin-top: 24px; }
+
+    /* §1 HERO */
+    .page-hero { padding: 120px 0 0; background: var(--near-black); }
+    .hero-tag { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 12px; margin-bottom: 20px; }
+    .page-hero h1 { color: var(--white); max-width: 760px; margin-bottom: 20px; }
+    .page-hero h1 em { font-style: italic; color: var(--gold); }
+    .page-hero .lead { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; color: rgba(255,255,255,0.6); max-width: 620px; line-height: 1.65; }
+    .hero-cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 32px; padding-bottom: 48px; }
+    .hero-scroll { font-size: 0.875rem; color: rgba(255,255,255,0.4); font-weight: 500; display: inline-flex; align-items: center; gap: 6px; transition: color 0.15s; }
+    .hero-scroll:hover { color: var(--gold-light); }
+    /* Legal disclaimer — full width strip at bottom of hero */
+    .hero-disclaimer { background: rgba(144,102,12,0.15); border-top: 1px solid rgba(144,102,12,0.3); border-bottom: none; padding: 18px 0; }
+    .hero-disclaimer .container { display: flex; align-items: flex-start; gap: 14px; }
+    .disclaimer-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+    .disclaimer-icon svg { width: 20px; height: 20px; color: var(--gold-light); }
+    .hero-disclaimer p { font-size: 0.875rem; line-height: 1.6; color: rgba(255,255,255,0.7); margin: 0; }
+    .hero-disclaimer strong { color: var(--gold-light); }
+    .hero-disclaimer a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 2px; }
+
+    /* §2 IS THIS FOR YOU */
+    .qualify-section { padding: 72px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .qualify-section h2 { color: var(--near-black); margin-bottom: 10px; }
+    .qualify-intro { color: var(--muted); font-size: 1.0rem; max-width: 580px; margin-bottom: 36px; }
+    .qualify-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); }
+    .qualify-item { background: var(--white); padding: 20px 24px; display: flex; align-items: flex-start; gap: 14px; cursor: pointer; transition: background 0.15s; }
+    .qualify-item:hover { background: var(--bg-warm); }
+    .qualify-check { width: 22px; height: 22px; border: 1.5px solid var(--border); border-radius: 3px; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+    .qualify-item p { font-size: 0.9375rem; line-height: 1.55; color: var(--body-text); margin: 0; }
+    .qualify-urgency { margin-top: 2px; padding: 32px 36px; background: var(--near-black); border-left: 3px solid var(--gold); display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .qualify-urgency p { font-size: 0.9375rem; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0; flex: 1; min-width: 280px; }
+    .qualify-urgency strong { color: var(--gold-light); }
+    .qualify-urgency .btn-white { flex-shrink: 0; white-space: nowrap; }
+
+    /* §3 PROCESS */
+    .process-section { padding: 72px 0; background: var(--near-black); }
+    .process-section .section-label::before { background: var(--gold); }
+    .process-section .section-label span { color: var(--gold-light); }
+    .process-section h2 { color: var(--white); margin-bottom: 10px; }
+    .process-intro { color: rgba(255,255,255,0.6); margin-bottom: 36px; font-size: 1.0rem; line-height: 1.7; }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07); }
+    .process-step { background: var(--near-black); padding: 28px 24px; border: 1px solid rgba(255,255,255,0.06); }
+    .step-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: rgba(255,255,255,0.12); line-height: 1; margin-bottom: 14px; }
+    .process-step h3 { font-size: 0.95rem; color: var(--white); margin-bottom: 8px; }
+    .process-step p { font-size: 0.85rem; line-height: 1.65; color: rgba(255,255,255,0.55); }
+
+    /* What we cover */
+    .covers-section { padding: 72px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .covers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .cover-card { background: var(--white); padding: 28px 24px; border-top: 3px solid transparent; transition: border-color 0.2s, background 0.2s; }
+    .cover-card:hover { background: var(--bg-warm); border-top-color: var(--gold); }
+    .cover-icon { width: 36px; height: 36px; background: var(--bg-warm); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .cover-icon svg { width: 18px; height: 18px; color: var(--gold); }
+    .cover-card h3 { font-size: 1.0rem; margin-bottom: 8px; }
+    .cover-card p { font-size: 0.875rem; line-height: 1.65; color: var(--muted); }
+
+    /* §5 WORK IN PRACTICE */
+    .case-section { padding: 72px 0; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .case-card { background: var(--white); padding: 32px 28px; display: flex; flex-direction: column; }
+    .case-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .case-card h3 { font-size: 1.15rem; margin-bottom: 5px; }
+    .case-headline { font-family: var(--font-display); font-size: 0.95rem; font-style: italic; color: var(--muted); margin-bottom: 14px; }
+    .case-card p { font-size: 0.875rem; line-height: 1.7; color: var(--body-text); flex: 1; margin-bottom: 16px; }
+    .case-outcomes { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .case-outcomes li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.875rem; color: var(--body-text); line-height: 1.5; }
+    .case-outcomes li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+    .case-pkg { font-size: 0.78rem; color: var(--muted); margin-top: auto; }
+    .case-note { font-size: 0.78rem; color: var(--muted); font-style: italic; margin-top: 8px; }
+
+    /* §6 YOUR INVESTMENT */
+    .packages-section { padding: 72px 0; background: var(--white); }
+    .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .pkg-card { background: var(--white); padding: 32px 28px; display: flex; flex-direction: column; }
+    .pkg-card.featured { background: var(--near-black); }
+    .pkg-badge { display: inline-block; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; margin-bottom: 14px; background: var(--bg-cool); color: var(--gold); }
+    .pkg-card.featured .pkg-badge { background: var(--gold); color: var(--white); }
+    .pkg-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .pkg-card.featured h3 { color: var(--white); }
+    .pkg-for { font-size: 0.78rem; color: var(--muted); margin-bottom: 16px; line-height: 1.4; }
+    .pkg-card.featured .pkg-for { color: rgba(255,255,255,0.4); }
+    .pkg-price { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; color: var(--near-black); line-height: 1; margin-bottom: 3px; }
+    .pkg-card.featured .pkg-price { color: var(--white); }
+    .pkg-gst { font-size: 0.72rem; color: var(--muted); margin-bottom: 20px; }
+    .pkg-card.featured .pkg-gst { color: rgba(255,255,255,0.3); }
+    .pkg-divider { height: 1px; background: var(--border); margin-bottom: 20px; }
+    .pkg-card.featured .pkg-divider { background: rgba(255,255,255,0.1); }
+    .pkg-includes { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .pkg-includes li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.875rem; line-height: 1.5; color: var(--body-text); }
+    .pkg-card.featured .pkg-includes li { color: rgba(255,255,255,0.72); }
+    .pkg-includes li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+    .pkg-card.featured .pkg-includes li::before { color: var(--gold-light); }
+
+    /* FREE SERVICES NOTE */
+    .free-note { padding: 40px 0; background: var(--bg-warm); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .free-note-inner { display: flex; align-items: flex-start; gap: 20px; }
+    .free-note-icon { width: 36px; height: 36px; background: var(--white); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .free-note-icon svg { width: 16px; height: 16px; color: var(--gold); }
+    .free-note-inner p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
+    .free-note-inner strong { color: var(--body-text); }
+
+    /* PRIVACY — full width */
+    .privacy-note { padding: 40px 0; background: var(--white); border-top: 1px solid var(--border); }
+    .privacy-inner { display: flex; align-items: flex-start; gap: 20px; }
+    .privacy-icon { width: 36px; height: 36px; background: var(--bg-warm); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .privacy-icon svg { width: 16px; height: 16px; color: var(--gold); }
+    .privacy-inner p { font-size: 0.875rem; line-height: 1.75; color: var(--muted); }
+    .privacy-inner a { color: var(--gold); font-weight: 600; }
+
+    /* FOOTER CTA */
+    .footer-cta { background: var(--gold); padding: 72px 0; text-align: center; }
+    .footer-cta h2 { color: var(--white); margin-bottom: 10px; }
+    .footer-cta p { color: rgba(255,255,255,0.85); margin-bottom: 24px; }
+    .footer-cta .btn { background: var(--white); color: var(--gold); border-color: var(--white); }
+    .footer-cta .btn:hover { background: var(--near-black); color: var(--white); border-color: var(--near-black); }
+
+    /* FOOTER */
+    .site-footer { background: var(--near-black); padding: 52px 0 0; }
+    .footer-cols { display: grid; grid-template-columns: 280px 1fr 0.7fr 200px; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 24px; }
+    .footer-brand .wordmark { font-size: 1.25rem; color: var(--white); }
+    .footer-brand .wordmark em { color: var(--gold); }
+    .footer-tagline { margin-top: 10px; font-size: 0.95rem; color: rgba(255,255,255,0.45); font-style: italic; font-family: var(--font-display); line-height: 1.8; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; display: block; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-contact p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 8px; }
+    .footer-contact a { color: var(--gold-light); }
+    .footer-fine { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-bottom: 32px; }
+    .fine-print { font-size: 0.73rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+    .footer-legal-links { display: flex; gap: 20px; }
+    .footer-legal-links a { font-size: 0.8rem; color: var(--gold-light); transition: color 0.15s; font-weight: 600; }
+    .footer-legal-links a:hover { color: var(--white); }
+
+    @media (max-width: 1024px) {
+      .page-hero-inner { grid-template-columns: 1fr 240px; gap: 40px; }
+      .covers-grid { grid-template-columns: 1fr 1fr; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      .page-hero-artwork { display: none; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .page-hero-artwork { display: none; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .page-hero { padding: 100px 0 0; }
+      .qualify-grid { grid-template-columns: 1fr; }
+      .qualify-urgency { flex-direction: column; gap: 20px; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .covers-grid { grid-template-columns: 1fr; }
+      .case-grid { grid-template-columns: 1fr; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+      .footer-fine { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .page-hero h1 { max-width: 100%; }
+      .lead { max-width: 100%; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 0; }
+      .page-hero { padding: 100px 0 56px; }
+      .process-steps { grid-template-columns: 1fr; }
+      .footer-cols { grid-template-columns: 1fr; }
+    }
+  
+    /* ── PAGE HERO ARTWORK ── */
+    .page-hero-inner { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
+    .page-hero-text { min-width: 0; }
+    .page-hero-artwork { position: relative; }
+    .artwork-frame { width: 100%; aspect-ratio: 3/4; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); }
+    .artwork-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
+    .artwork-frame:hover img { transform: scale(1.03); }
+    .artwork-credit { margin-top: 10px; font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
+</style>
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-inner">
+      <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="/about.html" aria-haspopup="true">About Us</a>
+          <ul class="dropdown">
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="active" aria-haspopup="true">What We Offer</a>
+          <ul class="dropdown">
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html" class="active">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact.html">Reach Us</a></li>
+            
+      </ul>
+      <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
+      <a href="/about.html">About Us — Our Story</a>
+      <a href="/services/career-consulting.html">Career Consulting — High School</a>
+      <a href="/services/professional-development.html">Professional Development</a>
+      <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
+      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
+      <a href="/work.html">Case Studies</a>
+      <a href="/contact.html">Reach Us</a>
+      <div class="drawer-cta">
+        <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- §1 HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-inner">
+          <div class="page-hero-text">
+<span class="hero-tag">Newcomer &amp; Immigration Pathways</span>
+        <h1>You've arrived.<br><em>The question is whether you know<br>what to do first.</em></h1>
+        <p class="lead" style="margin-top:16px;">This is accompaniment — walking alongside you through the systems that shape life in Alberta, so that you do not have to figure it out alone. Alberta's employment, education, healthcare, housing, and financial systems exist and are accessible. What Olympia &amp; Associates brings is something different: the experience of having navigated them, the frameworks that have worked for individuals, couples, and families before you, and the cultural awareness to know that a map drawn for someone else is not always a map that works for you.</p>
+        <div class="hero-cta-row">
+          <a href="https://calendly.com/ssennogab24/30min" class="btn btn-primary" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+          <a href="#qualify" class="hero-scroll">Is this for you? ↓</a>
+        </div>
+      </div>
+        <div class="page-hero-artwork" aria-hidden="true">
+          <div class="artwork-frame">
+            <img src="../assets/images/newcomer.JPG" alt="Original artwork by Keanna Suubi" loading="lazy">
+          </div>
+          <p class="artwork-credit">Artwork: Keanna Suubi</p>
+        </div>
+        </div><!-- end page-hero-inner -->
+      </div><!-- end container -->
+      <!-- Legal disclaimer — full width strip below hero grid -->
+      <div class="hero-disclaimer">
+        <div class="container">
+          <div class="disclaimer-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <p><strong>An important note on scope:</strong> This service is an accompaniment — navigation and preparation support for clients who are settling in Alberta. Olympia &amp; Associates does not provide legal advice on immigration status, work permits, permanent residency applications, refugee claims, sponsorship, or any matter governed by immigration law. For those questions, you must consult a licensed immigration lawyer or <a href="https://college-ic.ca" target="_blank" rel="noopener">Regulated Canadian Immigration Consultant (RCIC)</a>. We will tell you clearly when that line applies — and we will refer you rather than proceed past it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- §2 IS THIS FOR YOU -->
+    <section class="qualify-section" id="qualify">
+      <div class="container">
+        <div class="section-label"><span>Self-assessment</span></div>
+        <h2>Is this service for you or your family?</h2>
+        <p class="qualify-intro">These statements describe the situations we hear most often in scoping calls. If several of them describe where you are right now, a conversation is the right next step.</p>
+        <div class="qualify-grid">
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I've arrived in Alberta and I'm not sure what to do first — or in what order the first steps need to happen.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I have credentials from another country and I don't know how they're recognised here — or whether I need to requalify.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I know I need to start building Canadian credit but I don't know how the system works or where to begin.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I have children and I need to understand how Alberta's school system works — which board, which programme, what documents are needed, and what support is available.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I've been accessing free settlement services, but they're generic, oversubscribed, and slow — and I need something more personalised and faster.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I'm navigating the Alberta job market as a newcomer and I don't fully understand how hiring works here, or how to present my international experience.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I have family members joining me and I need a plan that accounts for all of us — not just the primary applicant.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I know there are government grants and benefits I may be entitled to, but I don't know which ones apply to me, how to access them, or what documentation I need.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I'm planning to move to Alberta from another country or province and I want to prepare properly before I arrive — not figure it out after I land.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I want one person who understands both the system and what it feels like to navigate it — not a website, not a pamphlet, not a group information session.</p>
+          </div>
+        </div>
+        <div class="qualify-urgency">
+          <p><strong>If you said yes to five or more — a scoping call is the right next step.</strong> The first months in a new system are the ones that shape everything that follows. Some windows — government grants, credential recognition timelines, school registration deadlines — are time-sensitive in ways that aren't obvious until it's too late to act on them. A 30-minute call costs nothing. Missing a window costs much more.</p>
+          <a href="https://calendly.com/ssennogab24/30min" class="btn btn-white" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- §3 HOW THE ENGAGEMENT IS STRUCTURED -->
+    <section class="process-section" id="process">
+      <div class="container">
+        <div class="section-label"><span>How the engagement is structured</span></div>
+        <h2>A personalised plan, not a generic guide.</h2>
+        <p class="process-intro">Every engagement begins with understanding your specific situation — your family, your background, your immediate priorities, and the Alberta systems most relevant to where you are right now. The output is a plan built for you, not a printed resource package.</p>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-num">01</div>
+            <h3>Scoping call — free, 30 min</h3>
+            <p>We talk through where you are in the settlement process, what's most pressing, and what kind of support would actually help. Honest recommendation at the end — including a referral to an RCIC or immigration lawyer if that's what's needed.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">02</div>
+            <h3>Intake and assessment — 1 to 1.5 hrs</h3>
+            <p>A structured conversation covering your employment background, education, family situation, immediate priorities, and the specific aspects of the Alberta system most relevant to your circumstances. This shapes everything that follows.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">03</div>
+            <h3>Personalised navigation plan</h3>
+            <p>A written document covering the areas that matter most for your situation: employment pathways, credential recognition, community resources, financial systems, education access, and healthcare navigation. Specific to you — not a resource guide.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">04</div>
+            <h3>Follow-up calls</h3>
+            <p>Two or three follow-up calls (depending on package) to work through questions as they arise, adjust the plan as your situation develops, and connect you to specific resources as they become relevant.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §4 WHAT WE COVER -->
+    <section class="covers-section">
+      <div class="container">
+        <div class="section-label"><span>What we cover</span></div>
+        <h2>Six systems. One plan.</h2>
+        <div class="covers-grid">
+
+          <div class="cover-card">
+            <div class="cover-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <h3>Employment &amp; Credentials</h3>
+            <p>Understanding the Alberta job market, credential recognition pathways, regulated profession registration, internationally trained professional resources, and how to position your background for Canadian employers.</p>
+          </div>
+
+          <div class="cover-card">
+            <div class="cover-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <h3>Education &amp; Schools</h3>
+            <p>Alberta school system navigation — public vs. Catholic boards, French Immersion, English Language Learning, school registration requirements, documentation, and support resources for children of all ages.</p>
+          </div>
+
+          <div class="cover-card">
+            <div class="cover-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Healthcare Navigation</h3>
+            <p>Alberta Health Care Insurance Plan (AHCIP) registration and the three-month waiting period, bridge coverage options, finding a family doctor, understanding the walk-in clinic and emergency system, and prescription access.</p>
+          </div>
+
+          <div class="cover-card">
+            <div class="cover-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <h3>Financial Systems</h3>
+            <p>Newcomer banking programmes, secured credit card strategy for building Canadian credit history, TFSA and RRSP fundamentals, RESP registration and government grant access (CESG), tax filing obligations, and international money transfers.</p>
+          </div>
+
+          <div class="cover-card">
+            <div class="cover-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Housing &amp; Settlement</h3>
+            <p>Renting in Alberta without Canadian credit history, understanding the Residential Tenancies Act, your rights as a renter, finding housing through community networks, Edmonton community leagues, and the 211 Alberta referral system.</p>
+          </div>
+
+          <div class="cover-card">
+            <div class="cover-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            </div>
+            <h3>First Priorities</h3>
+            <p>The five non-negotiables that should happen as early as possible: SIN application, AHCIP registration, newcomer bank account, secured credit card, and Alberta driver's licence or ID. Sequence, timing, and what to bring to each.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- §5 YOUR INVESTMENT -->
+    <section class="packages-section" id="packages">
+      <div class="container">
+        <div class="section-label"><span>Your Investment</span></div>
+        <h2>Three packages. All prices CAD + GST.</h2>
+        <div class="packages-grid">
+
+          <div class="pkg-card">
+            <span class="pkg-badge">Entry point</span>
+            <h3>Orientation Session</h3>
+            <p class="pkg-for">First contact · trust builder · Alberta system overview</p>
+            <div class="pkg-price">$225</div>
+            <div class="pkg-gst">+ GST · 1.5 hours</div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-includes">
+              <li>Alberta system overview — employment, education, healthcare, financial, housing</li>
+              <li>Personalised resource map for your situation</li>
+              <li>Q&amp;A — your questions, answered directly</li>
+            </ul>
+          </div>
+
+          <div class="pkg-card featured">
+            <span class="pkg-badge">Primary offering</span>
+            <h3>Alberta Navigation</h3>
+            <p class="pkg-for">Individual · personalised plan + follow-up</p>
+            <div class="pkg-price">$600</div>
+            <div class="pkg-gst">+ GST · approx. 4 hours</div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-includes">
+              <li>Intake and assessment (1 hr)</li>
+              <li>Personalised navigation plan — written</li>
+              <li>Two follow-up calls as your situation develops</li>
+              <li>Resource package and referral connections</li>
+            </ul>
+          </div>
+
+          <div class="pkg-card">
+            <span class="pkg-badge">For families</span>
+            <h3>Family Navigation</h3>
+            <p class="pkg-for">Family unit · family-level plan + extended follow-up</p>
+            <div class="pkg-price">$900</div>
+            <div class="pkg-gst">+ GST · approx. 6 hours</div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-includes">
+              <li>Intake and assessment (1.5 hrs)</li>
+              <li>Family-level navigation plan — written</li>
+              <li>Three follow-up calls</li>
+              <li>Resource package and referral connections</li>
+              <li>Children's education pathway included</li>
+            </ul>
+          </div>
+
+        </div>
+        <p style="margin-top:16px; font-size:0.82rem; color:var(--muted);">All prices CAD. GST (757324769RC001) applies. Payment: 30% on signing, balance on delivery (under $800) or 30/40/30 (over $800). No work begins without initial payment received.</p>
+      </div>
+    </section>
+
+    <!-- §6 WORK IN PRACTICE -->
+    <section class="case-section" id="work">
+      <div class="container">
+        <div class="section-label"><span>The work in practice</span></div>
+        <h2>Two situations. One approach.</h2>
+        <div class="case-grid">
+
+          <article class="case-card">
+            <div class="case-tag">Alberta Navigation · Individual</div>
+            <h3>A Professional Arriving Alone</h3>
+            <p class="case-headline">Twelve years of experience. No Canadian professional footprint. Nowhere to start.</p>
+            <p>A professional arriving in Edmonton with substantial international experience but no Canadian credit history, no local professional network, and no clear picture of how her qualifications translated to the Alberta market. The engagement mapped her credential recognition pathway, sequenced the first-priority steps, connected her to the ERIEC mentorship programme, and built a transition plan from her arrival date through her first six months.</p>
+            <ul class="case-outcomes">
+              <li>SIN, AHCIP, and banking set up in week one</li>
+              <li>Credential recognition pathway confirmed and initiated</li>
+              <li>ERIEC mentorship match secured</li>
+              <li>Six-month action plan with specific deadlines in hand</li>
+            </ul>
+            <span class="case-pkg">Alberta Navigation · $600 + GST</span>
+            <span class="case-note">Composite scenario — reflects real engagement patterns</span>
+          </article>
+
+          <article class="case-card">
+            <div class="case-tag">Family Navigation · Couple with Children</div>
+            <h3>A Family Navigating Everything at Once</h3>
+            <p class="case-headline">Two adults. One child, and expecting another. Four systems to navigate simultaneously.</p>
+            <p>A couple arriving in Edmonton with one school-age child and a second on the way — a family financial situation that needed to be rebuilt from scratch in a new country while preparing for a newborn. Both adults had professional backgrounds that needed credential pathway mapping. The child's school placement needed to be confirmed. The RESP had never been set up, and maternity benefit eligibility needed clarification. The engagement produced a family-level plan covering all six systems, with a clear sequence and specific deadlines for each.</p>
+            <ul class="case-outcomes">
+              <li>Child enrolled with correct school placement confirmed</li>
+              <li>RESP opened and CESG registration initiated; maternity benefit eligibility mapped</li>
+              <li>Both credential pathways mapped and sequenced</li>
+              <li>Housing rights briefing and rental strategy delivered</li>
+            </ul>
+            <span class="case-pkg">Family Navigation · $900 + GST</span>
+            <span class="case-note">Composite scenario — reflects real engagement patterns</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FREE SERVICES NOTE -->
+    <section class="free-note">
+      <div class="container">
+        <div class="free-note-inner">
+          <div class="free-note-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <p><strong style="color:var(--near-black);">Free government settlement services exist in Alberta and are valuable.</strong> Olympia &amp; Associates is not a substitute for free services you are entitled to — and we will always tell you about them. What we offer that free services typically do not: personalised attention at depth, faster access to relevant resources, culturally informed context, and continuity of support through a single relationship. The value of this service is not that it replaces free services — it is that it complements them for families who want more than the standard orientation. If the free service is what you need, we will tell you that in the scoping call.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY — full width, icon sized to text, center-justified -->
+    <section class="privacy-note">
+      <div class="container">
+        <div class="privacy-inner" >
+          <div class="privacy-icon" >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <p>Settlement navigation engagements involve sensitive personal information — family composition, employment history, immigration status, financial circumstances, and documents. This information is used only to provide the agreed services, is never submitted to an AI tool, and is not shared with third parties. We are governed by PIPEDA (federal) and Alberta's PIPA. Immigration status and related personal information is handled with the highest level of care in this practice. Full details are set out in our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Service</a> — both written in plain language and available before you sign anything. The legal scope boundary described on this page is formalised in the Terms of Service (Section 3.3).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section class="footer-cta">
+      <div class="container">
+        <h2>Start with a conversation.</h2>
+        <p>30 minutes. Free. No commitment. We'll be direct about what you need and whether we're the right fit.</p>
+        <a href="https://calendly.com/ssennogab24/30min" class="btn" target="_blank" rel="noopener">Book my free 30-min scoping call →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="/index.html" class="wordmark">Olympia <em>&</em> Associates</a>
+          <p class="footer-tagline">Strategic Consulting<br>Tailored Accompaniment<br>Systems Navigation<br>Executable Plans</p>
+        </div>
+        <div>
+          <span class="footer-col-head">What We Offer</span>
+          <ul class="footer-links">
+            <li><a href="/services/professional-development.html">Professional Development</a></li>
+            <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
+            <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
+            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-col-head">Site</span>
+          <ul class="footer-links">
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/work.html">Case Studies</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/clients.html">Client Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-col-head">Get in touch</span>
+          <p><a href="https://calendly.com/ssennogab24/30min" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p>
+          <p>Email<br><a href="mailto:ssennogab24@gmail.com">ssennogab24@gmail.com</a></p>
+          <p style="margin-top:14px; font-size:0.75rem; color:rgba(255,255,255,0.28); line-height:1.5;">Website Artwork by<br>Keanna Suubi</p>
+        </div>
+      </div>
+      <div class="footer-fine">
+        <p class="fine-print" style="color:#ffffff;">Olympia &amp; Associates · Alberta trade name TN27173962 · GST: 757324769RC001</p>
+        <div class="footer-legal-links">
+          <a href="/terms.html">Terms of Service</a>
+          <a href="/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const navDrawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      navDrawer.setAttribute('aria-hidden', !open);
+      navDrawer.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    document.addEventListener('click', (e) => {
+      if (navDrawer.classList.contains('open') && !navDrawer.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open');
+        navDrawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navDrawer.classList.contains('open')) {
+        hamburger.classList.remove('open'); navDrawer.classList.remove('open'); document.body.style.overflow = '';
+      }
+    });
+    document.querySelectorAll('.qualify-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const check = item.querySelector('.qualify-check');
+        const active = check.classList.toggle('checked');
+        check.innerHTML = active ? '<svg viewBox="0 0 24 24" fill="none" stroke="#90660C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="20 6 9 17 4 12"/></svg>' : '';
+        check.style.background = active ? 'rgba(144,102,12,0.1)' : '';
+        check.style.borderColor = active ? '#90660C' : '';
+        item.querySelector('p').style.color = active ? 'var(--near-black)' : '';
+        item.style.background = active ? 'var(--bg-warm)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
