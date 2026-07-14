@@ -117,6 +117,9 @@
 
   .survey-section{padding:8px 0 90px; scroll-margin-top:80px;}
   .survey-shell{background:var(--paper-raise); border:1px solid var(--line-soft); border-radius:20px; box-shadow:var(--shadow-soft); overflow:hidden; margin-top:8px;}
+  .form-embed-shell{padding:0;}
+  .form-embed-shell iframe{display:block; width:100%; height:1050px; border:none;}
+  @media (max-width: 600px){ .form-embed-shell iframe{ height:1300px; } }
   .survey-head{padding:30px 36px 0;}
   .progress-track{height:6px; background:var(--line-soft); border-radius:999px; margin-top:20px; overflow:hidden;}
   .progress-fill{height:100%; background:linear-gradient(90deg, var(--gold-deep), var(--gold)); width:2%; border-radius:999px; transition:width .4s ease;}
@@ -289,25 +292,14 @@
 
 <section class="survey-section" id="survey">
   <div class="wrap">
-    <div class="lang-banner" id="langBanner">Cette page n'est traduite que partiellement pour l'instant (menu, en-tête, transitions). Le contenu détaillé et les questions du sondage restent en anglais — la traduction complète est prévue une fois les questions verrouillées.</div>
-    <div class="survey-shell">
-      <div class="survey-head">
-        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-        <div class="progress-caption">
-          <span id="progressLabel">Question 1 of 40</span>
-          <span id="progressPct">Getting started</span>
-        </div>
-      </div>
-      <form id="surveyForm">
-        <div class="survey-body" id="surveyBody"></div>
-        <div class="step-nav">
-          <button type="button" class="btn-ghost" id="backBtn" onclick="goBack()">← Back</button>
-          <div class="step-nav-right">
-            <button type="button" class="skip-link" id="skipBtn" onclick="goNext(true)">Skip this one</button>
-            <button type="button" class="btn btn-gold" id="nextBtn" onclick="goNext(false)">Continue</button>
-          </div>
-        </div>
-      </form>
+    <div class="lang-banner" id="langBanner">Le formulaire ci-dessous est actuellement en anglais uniquement. La traduction complète est prévue une fois les questions verrouillées.</div>
+    <div class="survey-shell form-embed-shell">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLScl0cQPhCqtsRtqRQ6VYjUfexAYX2jzLXveuQnYUpoIKgW67g/viewform?embedded=true"
+        title="OpenPath intake questionnaire"
+        loading="lazy">
+        Loading…
+      </iframe>
     </div>
   </div>
 </section>
@@ -323,350 +315,9 @@
 </footer>
 
 <script>
-/* =========================================================
-   OpenPath intake survey — v2
-   40-question bank, absolute numbering, 5pt scales, i18n shell
-   ========================================================= */
-
-const PROVINCES = ['Alberta','British Columbia','Saskatchewan','Manitoba','Ontario','Quebec','New Brunswick','Nova Scotia','Prince Edward Island','Newfoundland and Labrador','Yukon','Northwest Territories','Nunavut','Outside Canada'];
-
-const SCALE = {
-  usefulness:['Very useful','Somewhat useful','Neutral','Not very useful','Not useful at all'],
-  importance:['Very important','Somewhat important','Neutral','Not very important','Not important at all'],
-  comfort:['Very comfortable','Somewhat comfortable','Neutral','Somewhat uncomfortable','Very uncomfortable'],
-  likelihood:['Very likely','Somewhat likely','Not sure','Somewhat unlikely','Very unlikely'],
-  openness:['Very open to it','Somewhat open to it','Neutral','Somewhat hesitant','Very hesitant'],
-  confidence:['Very confident','Somewhat confident','Neutral','Somewhat skeptical','Very skeptical'],
-  reduction:['A lot','Somewhat','A little','Not much','Not at all']
-};
-
-const QUESTIONS = [
-  // ---- GATE + DEMOGRAPHICS (1-3, always shown) ----
-  { num:1, id:'type', section:'gate', type:'gate', text:'Which best describes you right now?',
-    options:[
-      {v:'worker', title:'I\u2019m looking for opportunities', sub:'Volunteer or entry-level work, for myself'},
-      {v:'parent', title:'I\u2019m a parent or guardian', sub:'Helping a teenager find one'},
-      {v:'employer', title:'I\u2019m looking to hire or host', sub:'A business, nonprofit, or civic program'},
-      {v:'curious', title:'Just curious', sub:'Not looking for either right now'}
-    ]},
-  { num:2, id:'age', section:'gate', type:'single', text:'What\u2019s your age bracket?', hint:'Helps us tell student and adult responses apart.',
-    options:['Under 18','18–24','25–34','35–44','45 and up','Prefer not to say']},
-  { num:3, id:'region', section:'gate', type:'single', text:'Where are you located?', hint:'All provinces and territories — your answers help us see where demand actually is.',
-    options:PROVINCES},
-
-  // ---- WORKER / PARENT PATH (4-20) ----
-  { num:4, id:'w_pain', section:'worker', type:'single', eyebrow:'Right now', text:'Which of these feels most true for you?',
-    options:['I don\u2019t have enough experience listed anywhere','I have real experience but no way to prove it','I don\u2019t know where to find volunteer or entry-level opportunities','I apply but rarely hear back','None of these really apply to me']},
-  { num:5, id:'w_search', section:'worker', type:'multi', text:'How do you currently look for these opportunities?', hint:'Pick all that apply.',
-    options:['Word of mouth, friends & family','Through a school or community organization','Indeed or general job boards','Facebook or other social media groups','Volunteer-listing sites','I don\u2019t have a regular way','Other']},
-  { num:6, id:'w_turned_down', section:'worker', type:'single', text:'Have you been turned down for a role you felt qualified for, without a clear reason?',
-    options:['Yes, often','Yes, occasionally','Rarely or never','Not sure / doesn\u2019t apply to me']},
-  { num:7, id:'w_barriers', section:'worker', type:'multi', text:'When you picture applying, what usually gets in your way?', hint:'Pick all that apply.',
-    options:['Not knowing what counts as "real" experience','No references yet','Paperwork or documentation questions','Not sure how to describe my skills','Opportunities are hard to find','Nothing really — it\u2019s usually fine for me']},
-  { num:8, id:'w_record_useful', section:'worker', type:'scale', scaleType:'usefulness', text:'If a service turned your volunteer or part-time work into an official record you could show any future employer, how useful would that be for you?'},
-  { num:9, id:'w_trust_feeling', section:'worker', type:'scale', scaleType:'confidence', text:'When you come across a volunteer or entry-level posting online, how confident do you feel that it\u2019s legitimate?'},
-  { num:10, id:'w_opportunity_type', section:'worker', type:'multi', text:'What kind of opportunities are you most interested in right now?', hint:'Pick all that apply.',
-    options:['Hands-on or trades work','Customer-facing roles','Admin or office work','Outdoor or physical roles','Caregiving or support roles','Creative or communications work','Not sure yet']},
-  { num:11, id:'w_motivation', section:'worker', type:'multi', text:'What would excite you most about a new opportunity?', hint:'Pick all that apply.',
-    options:['Learning something new','Meeting people in my community','Giving back','Building a track record for future jobs','Earning money','Flexible hours']},
-  { num:12, id:'w_ideal_timeline', section:'worker', type:'single', text:'How soon would you personally like to start something new?',
-    options:['Right away','Within the next month','A few months out','Just exploring for now']},
-  { num:13, id:'w_ai_comfort', section:'worker', type:'single', text:'Would you rather build your profile by talking or typing about your experience in your own words, or fill out a formal resume-style form?',
-    options:['Much prefer talking it through','Fine either way','Prefer a formal form','Not sure']},
-  { num:14, id:'w_badge_value', section:'worker', type:'single', text:'Would a visible "verified" badge — confirming your identity and right to work — make you more likely to get noticed?',
-    options:['Yes, definitely','Probably','Not sure','Doesn\u2019t matter much to me']},
-  { num:15, id:'w_prescreen', section:'worker', type:'scale', scaleType:'importance', text:'How important is it to you that an opportunity has already been screened for legitimacy — not a scam or unpaid-labor risk?'},
-  { num:16, id:'w_reference_comfort', section:'worker', type:'scale', scaleType:'comfort', text:'How comfortable are you asking a previous supervisor, teacher, or community leader for a reference?'},
-  { num:17, id:'w_share_comfort', section:'worker', type:'scale', scaleType:'comfort', optional:true, text:'How comfortable would you be with an employer seeing your full profile, including things you\u2019ve written about yourself?'},
-  { num:18, id:'w_profile_duration', section:'worker', type:'single', text:'Once you\u2019ve built your profile, how long would you personally want it to stay active and visible?',
-    options:['Only while I\u2019m actively looking','A few months after I stop looking','Indefinitely, as a long-term record','Not sure']},
-  { num:19, id:'w_hs_credit', section:'worker', type:'single', showIf:(a)=> a.age==='Under 18' || a.type==='parent',
-    text:'Would getting official course credit tracked automatically for a work-experience placement make this more appealing to you?',
-    options:['Yes, a lot','Somewhat','Not really','Not applicable to me']},
-  { num:20, id:'w_can_experience', section:'worker', type:'single', showIf:(a)=> a.type==='worker' && a.age!=='Under 18',
-    text:'Have you personally felt held back by not having "Canadian experience" on your record?',
-    options:['Yes, significantly','Somewhat','Not really','Prefer not to say']},
-
-  // ---- EMPLOYER PATH (21-35) ----
-  { num:21, id:'e_org_type', section:'employer', type:'single', eyebrow:'About your organization', text:'Which best describes your organization?',
-    options:['Small business','Nonprofit or charity','Larger company with a CSR or volunteer program','Municipal, civic, or government','School or school district','Other']},
-  { num:22, id:'e_challenge', section:'employer', type:'single', text:'What\u2019s the biggest challenge you face finding volunteers or entry-level hires today?',
-    options:['Too few applicants','Too many applicants who aren\u2019t a fit','No way to verify reliability or background','Screening takes too much of my time','Something else']},
-  { num:23, id:'e_methods', section:'employer', type:'multi', text:'How do you currently find and screen candidates for these roles?', hint:'Pick all that apply.',
-    options:['Indeed or general job boards','Word of mouth','Volunteer-listing sites','Social media','Referral from a partner agency','We don\u2019t have a consistent process']},
-  { num:24, id:'e_noshow', section:'employer', type:'single', text:'Have you had a volunteer or entry-level hire not show up, or drop out shortly after starting?',
-    options:['Often','Occasionally','Rarely','Never']},
-  { num:25, id:'e_opportunity_type', section:'employer', type:'multi', text:'What kind of roles do you most need to fill?', hint:'Pick all that apply.',
-    options:['One-time event help','Ongoing short shifts','Seasonal work','Long-term entry-level roles','Skilled or trade-specific roles']},
-  { num:26, id:'e_time', section:'employer', type:'single', text:'About how much time do you personally spend screening candidates for a single role?',
-    options:['Under 1 hour','1–3 hours','Half a day or more','I don\u2019t really track it']},
-  { num:27, id:'e_team_involvement', section:'employer', type:'single', optional:true, text:'Besides you, who else is usually involved in accepting a volunteer or hire?',
-    options:['Just me','A small team','An HR or admin department','A board or committee','Not sure']},
-  { num:28, id:'e_sentiment_trust', section:'employer', type:'scale', scaleType:'openness', text:'How open are you to candidates who don\u2019t have a traditional resume?'},
-  { num:29, id:'e_verified_benefit', section:'employer', type:'scale', scaleType:'reduction', text:'If candidates arrived with identity and work-eligibility already verified, how much would that cut your screening burden?'},
-  { num:30, id:'e_references', section:'employer', type:'single', text:'Would you personally value requesting references directly through a platform, instead of chasing them yourself?',
-    options:['Yes, definitely','Probably','Not sure','Not really']},
-  { num:31, id:'e_comparison', section:'employer', type:'scale', scaleType:'usefulness', text:'How useful would a side-by-side comparison of shortlisted candidates be for your process?'},
-  { num:32, id:'e_flexibility', section:'employer', type:'scale', scaleType:'importance', text:'How important is flexibility — like adjusting shifts or hours — for the roles you post?'},
-  { num:33, id:'e_own_verification', section:'employer', type:'single', text:'Would you be open to your own organization being verified too, so candidates can see your standing before applying?',
-    options:['Yes, that seems fair','Neutral either way','I\u2019d rather not be reviewed','Not sure']},
-  { num:34, id:'e_profile_duration', section:'employer', type:'single', text:'Once a candidate is verified, how long would you want that verification to stay valid before needing a refresh?',
-    options:['3 months','6 months','A year','Doesn\u2019t matter much to me']},
-  { num:35, id:'e_repeat_interest', section:'employer', type:'scale', scaleType:'likelihood', text:'If a candidate worked out well, how likely are you to want to hire from the same pool again?'},
-
-  // ---- COMMON CLOSE (36-40, always shown) ----
-  { num:36, id:'c_awareness', section:'common', type:'multi', eyebrow:'One more thing', text:'Which of these have you heard of or used before?', hint:'Pick all that apply.',
-    options:['WorkBC','WorkFirst Alberta / Thrive','IEC-BC (JobConnect / MentorConnect)','GoVolunteer.ca or Volunteer BC','Benevity','Jumpstart Refugee Talent','LinkedIn','None of these']},
-  { num:37, id:'c_switch', section:'common', type:'single', text:'What would make you personally try a new platform in this space, rather than sticking with what you use now?',
-    options:['Stronger trust and verification','Faster results','Something free that my current option isn\u2019t','A recommendation from someone I trust','Honestly, I probably wouldn\u2019t switch','Other']},
-  { num:38, id:'c_channel_pref', section:'common', type:'multi', text:'If OpenPath launches, how would you prefer to hear about it?', hint:'Pick all that apply.',
-    options:['Email','Social media','Through a partner organization','Word of mouth']},
-  { num:39, id:'c_likelihood', section:'common', type:'scale', scaleType:'likelihood', text:'Overall, how likely are you to try OpenPath when it launches?'},
-  { num:40, id:'c_open_feedback', section:'common', type:'text', optional:true, text:'Anything else you\u2019d want us to know before we build this?', hint:'Totally optional — one or two sentences is plenty.'}
-];
-
-function buildFlow(answers){
-  const gate = QUESTIONS.filter(q=>q.section==='gate');
-  let mid = [];
-  if(answers.type==='worker' || answers.type==='parent'){
-    mid = QUESTIONS.filter(q=>q.section==='worker').filter(q=> !q.showIf || q.showIf(answers));
-  } else if(answers.type==='employer'){
-    mid = QUESTIONS.filter(q=>q.section==='employer');
-  }
-  const common = QUESTIONS.filter(q=>q.section==='common');
-  return [...gate, ...mid, ...common, {id:'email_capture', type:'email'}, {id:'thanks', type:'thanks'}];
-}
-
-let answers = {};
-let flow = buildFlow(answers);
-let stepIndex = 0;
-const RESPONSE_ID = 'r_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2,9);
-
-const body = document.getElementById('surveyBody');
-const progressFill = document.getElementById('progressFill');
-const progressLabel = document.getElementById('progressLabel');
-const progressPct = document.getElementById('progressPct');
-const backBtn = document.getElementById('backBtn');
-const nextBtn = document.getElementById('nextBtn');
-const skipBtn = document.getElementById('skipBtn');
-
+/* ---- language toggle only — the quiz itself now lives in the embedded Google Form ---- */
 function scrollToSurvey(){ document.getElementById('survey').scrollIntoView({behavior:'smooth'}); }
 function scrollToHypothesis(){ document.getElementById('hypothesis').scrollIntoView({behavior:'smooth'}); }
-
-function currentQuestion(){ return flow[stepIndex]; }
-
-function render(){
-  const q = currentQuestion();
-  body.innerHTML = '';
-  body.appendChild(renderStep(q));
-
-  const totalCountable = flow.length - 1;
-  const pct = Math.min(100, Math.round((stepIndex/totalCountable)*100));
-  progressFill.style.width = pct + '%';
-  if(q.type==='thanks'){
-    progressLabel.textContent = LANG==='fr' ? 'Terminé' : 'Done';
-    progressPct.textContent = '100%';
-  } else if(q.type==='email'){
-    progressLabel.textContent = LANG==='fr' ? 'Presque fini' : 'Almost done';
-    progressPct.textContent = pct + '%';
-  } else {
-    progressLabel.textContent = (LANG==='fr' ? 'Question ' + q.num + ' sur 40' : 'Question ' + q.num + ' of 40');
-    progressPct.textContent = pct + '%';
-  }
-
-  backBtn.style.visibility = stepIndex===0 ? 'hidden' : 'visible';
-  const nav = document.querySelector('.step-nav');
-  if(q.type==='thanks'){
-    nav.style.display='none';
-  } else {
-    nav.style.display='flex';
-    skipBtn.style.display = (q.type==='email' || !q.optional) ? 'none' : 'inline-block';
-    nextBtn.textContent = q.type==='email' ? (LANG==='fr' ? 'Enregistrer mon courriel' : 'Save my email') : (isLastQuestion(q) ? (LANG==='fr'?'Voir les résultats':'See results') : (LANG==='fr'?'Continuer':'Continue'));
-    updateNextEnabled();
-  }
-}
-
-function isLastQuestion(q){
-  const idx = flow.indexOf(q);
-  return flow[idx+1] && flow[idx+1].type==='email';
-}
-
-function renderStep(q){
-  const div = document.createElement('div');
-  div.className = 'step active';
-
-  if(q.type==='thanks'){
-    div.innerHTML = `
-      <div class="thanks-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12.5L9.5 18L20 6" stroke="#3C6E5D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <h2>That's genuinely useful — thank you.</h2>
-      <div class="thanks-recap">
-        This is what we hope to learn from responses like yours:
-        <ul>
-          <li>Whether the two problems on this page actually match what people experience</li>
-          <li>Which parts of the idea matter most, so we build those first</li>
-          <li>Whether OpenPath is worth building here in Edmonton before anywhere else</li>
-        </ul>
-      </div>
-      <p class="lede">We'll be in touch if you left an email — otherwise, keep an eye out for us in Edmonton.</p>
-      <div class="contact-line">
-        Want to share something specific with us? Email Brian directly — <a href="mailto:hello@olympia-associates.ca">hello@olympia-associates.ca</a>
-      </div>
-    `;
-    return div;
-  }
-
-  if(q.type==='email'){
-    div.innerHTML = `
-      <span class="q-eyebrow">Optional</span>
-      <div class="q-text">Want to follow along, or get early access?</div>
-      <div class="q-hint">Totally optional, and kept separate from your answers above. No spam — just a heads-up when we launch.</div>
-      <label class="field-label" for="emailInput">Email address</label>
-      <div class="email-field">
-        <input type="email" id="emailInput" placeholder="you@example.com" autocomplete="email">
-      </div>
-    `;
-    return div;
-  }
-
-  if(q.type==='gate'){
-    div.innerHTML = `<div class="q-text">${q.text}</div><div class="gate-grid" id="optionsHost"></div>`;
-    const host = div.querySelector('#optionsHost');
-    q.options.forEach(opt=>{
-      const label = document.createElement('label');
-      label.className = 'gate-card' + (answers[q.id]===opt.v ? ' checked' : '');
-      const input = document.createElement('input');
-      input.type='radio'; input.name=q.id; input.value=opt.v; input.checked = answers[q.id]===opt.v;
-      input.style.position='absolute'; input.style.opacity='0';
-      label.appendChild(input);
-      const t = document.createElement('div'); t.className='g-title'; t.textContent=opt.title;
-      const s = document.createElement('div'); s.className='g-sub'; s.textContent=opt.sub;
-      label.appendChild(t); label.appendChild(s);
-      input.addEventListener('change', ()=>{
-        answers[q.id] = opt.v;
-        flow = buildFlow(answers);
-        host.querySelectorAll('.gate-card').forEach(c=>c.classList.remove('checked'));
-        label.classList.add('checked');
-        updateNextEnabled();
-      });
-      host.appendChild(label);
-    });
-    return div;
-  }
-
-  if(q.type==='text'){
-    div.innerHTML = `
-      <span class="q-eyebrow">${q.optional ? 'Optional' : ''}</span>
-      <div class="q-text">${q.text}</div>
-      ${q.hint ? `<div class="q-hint">${q.hint}</div>` : ''}
-      <textarea class="text-input" id="textInput" placeholder="Type here...">${answers[q.id]||''}</textarea>
-    `;
-    const ta = div.querySelector('#textInput');
-    ta.addEventListener('input', ()=>{ answers[q.id]=ta.value; updateNextEnabled(); });
-    return div;
-  }
-
-  const options = q.type==='scale' ? SCALE[q.scaleType] : q.options;
-  div.innerHTML = `
-    <span class="q-eyebrow">${q.eyebrow||''}</span>
-    <div class="q-text">${q.text}</div>
-    ${q.hint ? `<div class="q-hint">${q.hint}</div>` : ''}
-    <div class="${q.type==='scale' ? 'scale-row' : 'options'}" id="optionsHost"></div>
-  `;
-  const host = div.querySelector('#optionsHost');
-  const isMulti = q.type==='multi';
-  const inputType = isMulti ? 'checkbox' : 'radio';
-  const current = answers[q.id];
-
-  options.forEach(optText=>{
-    const checked = isMulti ? (Array.isArray(current) && current.includes(optText)) : (current===optText);
-    const label = document.createElement('label');
-    label.className = 'option' + (checked ? ' checked' : '');
-    const input = document.createElement('input');
-    input.type = inputType; input.name = q.id; input.value = optText; input.checked = checked;
-    label.appendChild(input);
-    const span = document.createElement('span'); span.className='opt-label'; span.textContent = optText;
-    label.appendChild(span);
-
-    // use 'change' (fires once per real state change) rather than 'click' on the
-    // wrapping label, which double-fires when the click target is the label text
-    // (the browser forwards a synthetic click to the input, bubbling back through
-    // the label a second time) — this was the cause of the multi-select freeze.
-    input.addEventListener('change', ()=>{
-      if(isMulti){
-        let arr = Array.isArray(answers[q.id]) ? answers[q.id].slice() : [];
-        if(input.checked){ if(!arr.includes(optText)) arr.push(optText); }
-        else { arr = arr.filter(x=>x!==optText); }
-        answers[q.id] = arr;
-        label.classList.toggle('checked', input.checked);
-      } else {
-        answers[q.id] = optText;
-        host.querySelectorAll('.option').forEach(c=>c.classList.remove('checked'));
-        label.classList.add('checked');
-      }
-      updateNextEnabled();
-    });
-    host.appendChild(label);
-  });
-
-  return div;
-}
-
-function updateNextEnabled(){
-  const q = currentQuestion();
-  if(q.type==='email' || q.type==='thanks'){ nextBtn.disabled=false; return; }
-  if(q.optional){ nextBtn.disabled=false; return; }
-  const val = answers[q.id];
-  const answered = Array.isArray(val) ? val.length>0 : (val!==undefined && val!==null && val!=='');
-  nextBtn.disabled = !answered;
-}
-
-function goBack(){
-  if(stepIndex>0){ stepIndex--; render(); }
-}
-
-function goNext(isSkip){
-  const q = currentQuestion();
-
-  if(q.type==='email'){
-    const val = document.getElementById('emailInput').value.trim();
-    if(val){ saveEmail(val); }
-    stepIndex++; render();
-    return;
-  }
-  if(q.type==='thanks') return;
-
-  if(!isSkip){
-    const val = answers[q.id];
-    const answered = Array.isArray(val) ? val.length>0 : (val!==undefined && val!==null && val!=='');
-    if(!answered && !q.optional) return;
-  } else {
-    delete answers[q.id];
-  }
-
-  flow = buildFlow(answers);
-  const wasLast = isLastQuestion(q);
-  stepIndex++;
-  if(wasLast){ saveResponse(); }
-  render();
-}
-
-function saveResponse(){
-  const payload = { id: RESPONSE_ID, submittedAt: new Date().toISOString(), answers: answers };
-  try{
-    if(window.storage && window.storage.set){
-      window.storage.set('response:' + RESPONSE_ID, JSON.stringify(payload), true).catch(()=>{});
-    }
-  }catch(e){ console.warn('Could not save response', e); }
-}
-function saveEmail(email){
-  try{
-    if(window.storage && window.storage.set){
-      window.storage.set('email:' + RESPONSE_ID, JSON.stringify({email, respondentId:RESPONSE_ID, ts:new Date().toISOString()}), true).catch(()=>{});
-    }
-  }catch(e){ console.warn('Could not save email', e); }
-}
 
 /* ---------------- i18n (structural copy only — see banner) ---------------- */
 let LANG = 'en';
@@ -696,10 +347,8 @@ function toggleLang(){
     if(T[LANG][key]){ el.textContent = T[LANG][key]; }
   });
   document.getElementById('langBanner').classList.toggle('show', LANG==='fr');
-  render();
 }
 
-render();
 </script>
 </body>
 </html>
