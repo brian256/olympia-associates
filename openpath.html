@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenPath — Turn your experience into a track record</title>
+<meta name="description" content="OpenPath is coming to Edmonton. Tell us what you need and get early access.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OpenPath — Turn your experience into a track record">
+<meta property="og:description" content="A short, anonymous 5-minute questionnaire — help shape a new way to turn volunteer and entry-level experience into something people can trust. Coming to Edmonton.">
+<meta property="og:url" content="https://olympia-associates.ca/openpath.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenPath — Turn your experience into a track record">
+<meta name="twitter:description" content="A short, anonymous 5-minute questionnaire — help shape a new way to turn volunteer and entry-level experience into something people can trust. Coming to Edmonton.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2A47; --ink-soft:#3A4A6B; --paper:#F2EEE3; --paper-raise:#FBF9F3;
+    --gold:#B8842E; --gold-deep:#9A6C22; --gold-pale:#EFDCB0;
+    --teal:#3C6E5D; --teal-pale:#DCE9E2;
+    --slate:#5B6472; --line:#DAD2C0; --line-soft:#E7E1D2; --white:#FFFFFF;
+    --font-display:'Fraunces', Georgia, serif;
+    --font-body:'Public Sans', system-ui, -apple-system, sans-serif;
+    --font-mono:'IBM Plex Mono', 'SFMono-Regular', monospace;
+    --radius:14px;
+    --shadow-soft: 0 1px 2px rgba(27,42,71,0.06), 0 8px 24px rgba(27,42,71,0.06);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; font-family:var(--font-body); background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased;}
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;} }
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+  .eyebrow{font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-deep); display:inline-flex; align-items:center; gap:8px;}
+  .eyebrow::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--gold); display:inline-block;}
+  h1,h2,h3{font-family:var(--font-display); color:var(--ink); margin:0; letter-spacing:-0.01em;}
+  h1{font-size:clamp(2rem, 4vw, 3.1rem); font-weight:600; line-height:1.1;}
+  h2{font-size:clamp(1.5rem, 2.6vw, 2rem); font-weight:600; line-height:1.18;}
+  h3{font-size:1.1rem; font-weight:600;}
+  p{line-height:1.65; color:var(--ink-soft); margin:0;}
+  .lede{font-size:1.1rem; line-height:1.62; color:var(--ink-soft); max-width:52ch;}
+  a{color:inherit;}
+
+  .nav{position:sticky; top:0; z-index:50; background:rgba(242,238,227,0.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--line-soft);}
+  .nav-inner{max-width:1080px; margin:0 auto; padding:16px 28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; row-gap:10px;}
+  .wordmark{font-family:var(--font-display); font-weight:600; font-size:1.15rem; display:flex; align-items:center; gap:9px; letter-spacing:-0.01em;}
+  .nav-right{display:flex; align-items:center; gap:12px;}
+  .lang-toggle{
+    font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.04em; background:transparent;
+    border:1px solid var(--line); color:var(--ink-soft); padding:7px 12px; border-radius:999px; cursor:pointer;
+  }
+  .lang-toggle:hover{border-color:var(--gold); color:var(--ink);}
+  .lang-toggle:focus-visible{outline:2px solid var(--gold-deep); outline-offset:2px;}
+  .nav-cta{font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.03em; background:var(--ink); color:var(--paper-raise); padding:9px 16px; border-radius:999px; border:none; cursor:pointer; transition:transform .15s ease, background .15s ease;}
+  .nav-cta:hover{background:var(--gold-deep); transform:translateY(-1px);}
+  .nav-cta:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+
+  .hero{padding:64px 0 52px; position:relative; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  .hero-greeting{font-family:var(--font-mono); font-size:0.85rem; color:var(--teal); margin:16px 0 6px; letter-spacing:0.02em;}
+  .hero h1{margin:0 0 16px;}
+  .hero h1 em{font-style:italic; color:var(--gold-deep);}
+  .consent-box{
+    margin-top:24px; background:var(--paper-raise); border:1px solid var(--line-soft); border-radius:12px;
+    padding:18px 20px; font-size:0.92rem; line-height:1.6; color:var(--ink-soft);
+  }
+  .consent-box strong{color:var(--ink);}
+  .hero-ctas{margin-top:26px;}
+  .btn{font-family:var(--font-body); font-weight:600; font-size:0.98rem; padding:14px 24px; border-radius:11px; border:1px solid transparent; cursor:pointer; display:inline-flex; align-items:center; gap:10px; transition:transform .15s ease, box-shadow .15s ease, background .15s ease; min-height:44px;}
+  .btn-primary{background:var(--ink); color:var(--paper-raise);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:var(--shadow-soft);}
+  .btn-secondary{background:transparent; color:var(--ink); border-color:var(--line);}
+  .btn-secondary:hover{border-color:var(--ink); transform:translateY(-2px);}
+  .btn-gold{background:var(--gold); color:var(--white);}
+  .btn-gold:hover{background:var(--gold-deep); transform:translateY(-2px); box-shadow:var(--shadow-soft);}
+  .btn:focus-visible{outline:2px solid var(--gold-deep); outline-offset:3px;}
+  .btn:disabled{opacity:0.4; cursor:not-allowed; transform:none !important; box-shadow:none !important;}
+  .btn-ghost{background:transparent; color:var(--slate); border:none; padding:14px 8px;}
+  .btn-ghost:hover{color:var(--ink);}
+  .hero-note{margin-top:14px; font-family:var(--font-mono); font-size:0.74rem; color:var(--slate); letter-spacing:0.02em;}
+
+  .path-panel{position:relative;}
+  .path-panel svg{width:100%; height:auto; display:block;}
+  .path-line{fill:none; stroke:var(--gold-pale); stroke-width:2.5; stroke-dasharray:6 8;}
+  .path-line-progress{fill:none; stroke:var(--gold); stroke-width:2.5; stroke-dasharray:520; stroke-dashoffset:520; animation:draw 2.6s ease-out 0.4s forwards;}
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .waypoint{ animation:pop 0.5s ease-out both; }
+  .waypoint circle.ring{fill:none; stroke:var(--gold); stroke-width:1.4; opacity:0.35;}
+  .waypoint circle.dot{fill:var(--paper-raise); stroke:var(--gold-deep); stroke-width:2;}
+  .waypoint text{font-family:var(--font-mono); font-size:11px; fill:var(--ink-soft); letter-spacing:0.02em;}
+  @keyframes pop{ from{opacity:0; transform:scale(0.6);} to{opacity:1; transform:scale(1);} }
+  .waypoint.wp1{animation-delay:0.5s; transform-origin:74px 214px;}
+  .waypoint.wp2{animation-delay:1.15s; transform-origin:186px 150px;}
+  .waypoint.wp3{animation-delay:1.8s; transform-origin:300px 178px;}
+  .waypoint.wp4{animation-delay:2.45s; transform-origin:404px 96px;}
+
+  .why{padding:60px 0; border-top:1px solid var(--line-soft);}
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:32px;}
+  .why-card{background:var(--paper-raise); border:1px solid var(--line-soft); border-radius:var(--radius); padding:26px; display:flex; flex-direction:column; gap:12px;}
+  .why-card.idea{background:linear-gradient(180deg, var(--paper-raise), #FBF3E3); border-color:var(--gold-pale);}
+  .why-card .tag{font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); background:var(--teal-pale); padding:4px 10px; border-radius:999px; align-self:flex-start;}
+  .why-card.idea .tag{color:var(--gold-deep); background:var(--gold-pale);}
+  .why-card ul{margin:4px 0 0; padding-left:18px; color:var(--ink-soft); line-height:1.65; font-size:0.94rem;}
+  .why-card li{margin-bottom:2px;}
+  .why-card p{font-size:0.94rem;}
+
+  .handoff{padding:8px 0 44px;}
+  .handoff-box{
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+    background:var(--ink); color:var(--paper-raise); border-radius:18px; padding:32px 36px;
+  }
+  .handoff-box p{color:#D9DEE9; max-width:52ch;}
+  .handoff-box h3{color:var(--paper-raise); font-size:1.3rem; margin-bottom:8px;}
+
+  .survey-section{padding:8px 0 90px; scroll-margin-top:80px;}
+  .survey-shell{background:var(--paper-raise); border:1px solid var(--line-soft); border-radius:20px; box-shadow:var(--shadow-soft); overflow:hidden; margin-top:8px;}
+  .survey-head{padding:30px 36px 0;}
+  .progress-track{height:6px; background:var(--line-soft); border-radius:999px; margin-top:20px; overflow:hidden;}
+  .progress-fill{height:100%; background:linear-gradient(90deg, var(--gold-deep), var(--gold)); width:2%; border-radius:999px; transition:width .4s ease;}
+  .progress-caption{display:flex; justify-content:space-between; margin-top:8px; font-family:var(--font-mono); font-size:0.72rem; color:var(--slate); letter-spacing:0.02em;}
+
+  .survey-body{padding:28px 36px 8px; min-height:300px;}
+  .step{display:none; animation:fadein .35s ease both;}
+  .step.active{display:block;}
+  @keyframes fadein{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+  .q-eyebrow{font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:10px; display:block;}
+  .q-text{font-family:var(--font-display); font-size:1.35rem; font-weight:600; line-height:1.32; margin-bottom:6px;}
+  .q-hint{font-size:0.9rem; color:var(--slate); margin-bottom:20px;}
+
+  .options{display:flex; flex-direction:column; gap:10px;}
+  .option{display:flex; align-items:center; gap:14px; border:1.5px solid var(--line); border-radius:12px; padding:14px 16px; cursor:pointer; transition:border-color .15s ease, background .15s ease; background:var(--white);}
+  .option:hover{border-color:var(--gold);}
+  .option input{accent-color:var(--gold-deep); width:18px; height:18px; flex-shrink:0;}
+  .option .opt-label{font-size:0.96rem; color:var(--ink); line-height:1.4;}
+  .option.checked{border-color:var(--gold-deep); background:#FBF3E3;}
+
+  .scale-row{display:flex; gap:8px; flex-wrap:wrap;}
+  .scale-row .option{flex:1 1 auto; justify-content:center; text-align:center; padding:14px 8px; min-width:100px; flex-direction:column; gap:6px;}
+  .scale-row .opt-label{font-size:0.82rem; line-height:1.3;}
+
+  textarea.text-input{width:100%; min-height:120px; padding:14px 16px; border-radius:12px; border:1.5px solid var(--line); font-family:var(--font-body); font-size:0.96rem; color:var(--ink); background:var(--white); resize:vertical;}
+  textarea.text-input:focus-visible{outline:2px solid var(--gold-deep); border-color:var(--gold-deep);}
+
+  .email-field{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;}
+  .email-field input[type=email]{flex:1 1 260px; padding:14px 16px; border-radius:11px; border:1.5px solid var(--line); font-family:var(--font-body); font-size:0.98rem; background:var(--white); color:var(--ink);}
+  .email-field input[type=email]:focus-visible{outline:2px solid var(--gold-deep); outline-offset:2px; border-color:var(--gold-deep);}
+  label.field-label{display:block; font-size:0.85rem; color:var(--slate); margin-bottom:8px; font-weight:600;}
+
+  .step-nav{display:flex; justify-content:space-between; align-items:center; padding:20px 36px 32px; border-top:1px solid var(--line-soft); margin-top:16px;}
+  .step-nav-right{display:flex; gap:12px; align-items:center;}
+  .skip-link{font-family:var(--font-mono); font-size:0.76rem; color:var(--slate); background:none; border:none; cursor:pointer; text-decoration:underline; text-underline-offset:3px;}
+  .skip-link:hover{color:var(--ink);}
+
+  .gate-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px;}
+  .gate-card{border:1.5px solid var(--line); border-radius:14px; padding:20px; cursor:pointer; background:var(--white); transition:border-color .15s ease, transform .15s ease; display:flex; flex-direction:column; gap:6px;}
+  .gate-card:hover{border-color:var(--gold); transform:translateY(-2px);}
+  .gate-card.checked{border-color:var(--gold-deep); background:#FBF3E3;}
+  .gate-card .g-title{font-family:var(--font-display); font-weight:600; font-size:1.02rem;}
+  .gate-card .g-sub{font-size:0.83rem; color:var(--slate); line-height:1.45;}
+
+  .lang-banner{
+    display:none; background:var(--gold-pale); color:#5C4213; font-size:0.82rem; padding:10px 16px;
+    border-radius:10px; margin-bottom:18px; font-family:var(--font-mono); line-height:1.5;
+  }
+  .lang-banner.show{display:block;}
+
+  .thanks-icon{width:52px; height:52px; border-radius:50%; background:var(--teal-pale); display:flex; align-items:center; justify-content:center; margin-bottom:18px;}
+  .thanks-recap{background:var(--paper); border:1px solid var(--line-soft); border-radius:12px; padding:20px 22px; margin:20px 0; font-size:0.92rem;}
+  .thanks-recap ul{margin:8px 0 0; padding-left:18px; color:var(--ink-soft); line-height:1.7;}
+  .contact-line{margin-top:22px; padding-top:18px; border-top:1px solid var(--line-soft); font-size:0.92rem; color:var(--ink-soft);}
+  .contact-line a{color:var(--gold-deep); font-weight:600; text-decoration:none;}
+  .contact-line a:hover{text-decoration:underline;}
+
+  footer{padding:36px 0 56px; border-top:1px solid var(--line-soft);}
+  .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+  .fine-print{font-family:var(--font-mono); font-size:0.74rem; color:var(--slate); letter-spacing:0.01em;}
+  .fine-print a{color:var(--gold-deep); text-decoration:none;}
+  .fine-print a:hover{text-decoration:underline;}
+
+  @media (max-width: 860px){
+    .hero-grid{grid-template-columns:1fr; gap:36px;}
+    .why-grid{grid-template-columns:1fr;}
+    .gate-grid{grid-template-columns:1fr;}
+    .survey-head, .survey-body, .step-nav{padding-left:20px; padding-right:20px;}
+    .scale-row{flex-direction:column;}
+    .handoff-box{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="wordmark">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M2 18 Q7 14 8 9 Q9 3 15 2" stroke="#B8842E" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <circle cx="2" cy="18" r="2.2" fill="#1B2A47"/>
+        <circle cx="15" cy="2" r="2.2" fill="#B8842E"/>
+      </svg>
+      OpenPath
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle" onclick="toggleLang()">FR</button>
+      <button class="nav-cta" id="navCta" onclick="scrollToSurvey()">Add your voice</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" data-i18n="heroEyebrow">Coming to Edmonton</span>
+      <div class="hero-greeting" data-i18n="heroGreeting">Hello — welcome to OpenPath.</div>
+      <h1 data-i18n="heroH1">We're building a way to turn volunteer and entry-level experience into <em>a track record people can trust.</em></h1>
+      <div class="consent-box" data-i18n="consentBox">
+        <strong>Why we're asking:</strong> before we build too much, we want to hear from people like you — whether you're looking for opportunities or trying to fill them. The questionnaire below is short, anonymous, and takes about five minutes. Nothing is tied to your name unless you choose to leave an email at the very end.
+      </div>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" onclick="scrollToHypothesis()" data-i18n="heroCta">See what we're testing</button>
+      </div>
+      <div class="hero-note" data-i18n="heroNoteSmall">~5 minutes · fully anonymous · shapes what we build first</div>
+    </div>
+    <div class="path-panel" aria-hidden="true">
+      <svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg">
+        <path class="path-line" d="M40 224 Q90 150 150 168 Q220 190 260 120 Q320 60 420 44"/>
+        <path class="path-line-progress" d="M40 224 Q90 150 150 168 Q220 190 260 120 Q320 60 420 44"/>
+        <g class="waypoint wp1"><circle class="ring" cx="40" cy="224" r="13"/><circle class="dot" cx="40" cy="224" r="6"/><text x="40" y="248" text-anchor="middle">BUILD</text></g>
+        <g class="waypoint wp2"><circle class="ring" cx="150" cy="168" r="13"/><circle class="dot" cx="150" cy="168" r="6"/><text x="150" y="146" text-anchor="middle">VERIFY</text></g>
+        <g class="waypoint wp3"><circle class="ring" cx="260" cy="120" r="13"/><circle class="dot" cx="260" cy="120" r="6"/><text x="260" y="144" text-anchor="middle">MATCH</text></g>
+        <g class="waypoint wp4"><circle class="ring" cx="420" cy="44" r="13"/><circle class="dot" cx="420" cy="44" r="6"/><text x="420" y="26" text-anchor="middle">HIRE</text></g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section class="why" id="hypothesis">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="hypEyebrow">Why we're building this</span>
+    <h2 style="margin-top:14px;" data-i18n="hypH2">Our hypothesis</h2>
+    <p class="lede" style="margin-top:10px;" data-i18n="hypLede">Two problems, one shared root cause — and an idea for closing the gap between them.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="tag" data-i18n="hypTag1">For people</span>
+        <h3 data-i18n="hypTitle1">Your work isn't showing up on paper</h3>
+        <p data-i18n="hypBody1">Newcomers, career changers, and students earning work-experience credit have real skills — but no simple, trusted place to show them.</p>
+        <ul data-i18n="hypList1">
+          <li>No "Canadian experience" to point to</li>
+          <li>References and volunteer hours scattered everywhere</li>
+          <li>Hard to tell which postings are legitimate</li>
+        </ul>
+      </div>
+      <div class="why-card">
+        <span class="tag" data-i18n="hypTag2">For organizations</span>
+        <h3 data-i18n="hypTitle2">Screening eats the time you don't have</h3>
+        <p data-i18n="hypBody2">Nonprofits, small businesses, and civic programs need reliable people for entry-level and volunteer roles — and lose hours filtering applicants who aren't a fit.</p>
+        <ul data-i18n="hypList2">
+          <li>Large, undifferentiated applicant pools</li>
+          <li>No-shows and unclear reliability signals</li>
+          <li>Spreadsheets and email standing in for a real process</li>
+        </ul>
+      </div>
+      <div class="why-card idea">
+        <span class="tag" data-i18n="hypTag3">Our idea</span>
+        <h3 data-i18n="hypTitle3">One shared, trusted place</h3>
+        <p data-i18n="hypBody3">OpenPath would let people build a verified record of their volunteer and entry-level experience, and let organizations find and trust the right people faster — starting here in Edmonton.</p>
+        <ul data-i18n="hypList3">
+          <li>Still just an idea — nothing is built yet</li>
+          <li>Your answers below decide what we build first</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="handoff">
+  <div class="wrap">
+    <div class="handoff-box">
+      <div>
+        <h3 data-i18n="handoffH3">Does either of those feel familiar?</h3>
+        <p data-i18n="handoffBody">If you've felt either side of this — looking for opportunities, or trying to fill them — we'd genuinely like to hear from you. Anonymous, about five minutes, and it directly shapes what gets built first.</p>
+      </div>
+      <button class="btn btn-gold" onclick="scrollToSurvey()" data-i18n="handoffCta">Add your voice</button>
+    </div>
+  </div>
+</section>
+
+<section class="survey-section" id="survey">
+  <div class="wrap">
+    <div class="lang-banner" id="langBanner">Cette page n'est traduite que partiellement pour l'instant (menu, en-tête, transitions). Le contenu détaillé et les questions du sondage restent en anglais — la traduction complète est prévue une fois les questions verrouillées.</div>
+    <div class="survey-shell">
+      <div class="survey-head">
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-caption">
+          <span id="progressLabel">Question 1 of 40</span>
+          <span id="progressPct">Getting started</span>
+        </div>
+      </div>
+      <form id="surveyForm">
+        <div class="survey-body" id="surveyBody"></div>
+        <div class="step-nav">
+          <button type="button" class="btn-ghost" id="backBtn" onclick="goBack()">← Back</button>
+          <div class="step-nav-right">
+            <button type="button" class="skip-link" id="skipBtn" onclick="goNext(true)">Skip this one</button>
+            <button type="button" class="btn btn-gold" id="nextBtn" onclick="goNext(false)">Continue</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="fine-print" data-i18n="footLeft">OpenPath · registered in Edmonton, Alberta · this page is an early-access preview</div>
+    <div class="fine-print"><span data-i18n="footRight">Want to share something specific?</span> <a href="mailto:hello@olympia-associates.ca">hello@olympia-associates.ca</a></div>
+  </div>
+  <div class="wrap" style="margin-top:10px;">
+    <div class="fine-print">An early-stage project from <a href="/">Olympia &amp; Associates</a>, Edmonton.</div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   OpenPath intake survey — v2
+   40-question bank, absolute numbering, 5pt scales, i18n shell
+   ========================================================= */
+
+const PROVINCES = ['Alberta','British Columbia','Saskatchewan','Manitoba','Ontario','Quebec','New Brunswick','Nova Scotia','Prince Edward Island','Newfoundland and Labrador','Yukon','Northwest Territories','Nunavut','Outside Canada'];
+
+const SCALE = {
+  usefulness:['Very useful','Somewhat useful','Neutral','Not very useful','Not useful at all'],
+  importance:['Very important','Somewhat important','Neutral','Not very important','Not important at all'],
+  comfort:['Very comfortable','Somewhat comfortable','Neutral','Somewhat uncomfortable','Very uncomfortable'],
+  likelihood:['Very likely','Somewhat likely','Not sure','Somewhat unlikely','Very unlikely'],
+  openness:['Very open to it','Somewhat open to it','Neutral','Somewhat hesitant','Very hesitant'],
+  confidence:['Very confident','Somewhat confident','Neutral','Somewhat skeptical','Very skeptical'],
+  reduction:['A lot','Somewhat','A little','Not much','Not at all']
+};
+
+const QUESTIONS = [
+  // ---- GATE + DEMOGRAPHICS (1-3, always shown) ----
+  { num:1, id:'type', section:'gate', type:'gate', text:'Which best describes you right now?',
+    options:[
+      {v:'worker', title:'I\u2019m looking for opportunities', sub:'Volunteer or entry-level work, for myself'},
+      {v:'parent', title:'I\u2019m a parent or guardian', sub:'Helping a teenager find one'},
+      {v:'employer', title:'I\u2019m looking to hire or host', sub:'A business, nonprofit, or civic program'},
+      {v:'curious', title:'Just curious', sub:'Not looking for either right now'}
+    ]},
+  { num:2, id:'age', section:'gate', type:'single', text:'What\u2019s your age bracket?', hint:'Helps us tell student and adult responses apart.',
+    options:['Under 18','18–24','25–34','35–44','45 and up','Prefer not to say']},
+  { num:3, id:'region', section:'gate', type:'single', text:'Where are you located?', hint:'All provinces and territories — your answers help us see where demand actually is.',
+    options:PROVINCES},
+
+  // ---- WORKER / PARENT PATH (4-20) ----
+  { num:4, id:'w_pain', section:'worker', type:'single', eyebrow:'Right now', text:'Which of these feels most true for you?',
+    options:['I don\u2019t have enough experience listed anywhere','I have real experience but no way to prove it','I don\u2019t know where to find volunteer or entry-level opportunities','I apply but rarely hear back','None of these really apply to me']},
+  { num:5, id:'w_search', section:'worker', type:'multi', text:'How do you currently look for these opportunities?', hint:'Pick all that apply.',
+    options:['Word of mouth, friends & family','Through a school or community organization','Indeed or general job boards','Facebook or other social media groups','Volunteer-listing sites','I don\u2019t have a regular way','Other']},
+  { num:6, id:'w_turned_down', section:'worker', type:'single', text:'Have you been turned down for a role you felt qualified for, without a clear reason?',
+    options:['Yes, often','Yes, occasionally','Rarely or never','Not sure / doesn\u2019t apply to me']},
+  { num:7, id:'w_barriers', section:'worker', type:'multi', text:'When you picture applying, what usually gets in your way?', hint:'Pick all that apply.',
+    options:['Not knowing what counts as "real" experience','No references yet','Paperwork or documentation questions','Not sure how to describe my skills','Opportunities are hard to find','Nothing really — it\u2019s usually fine for me']},
+  { num:8, id:'w_record_useful', section:'worker', type:'scale', scaleType:'usefulness', text:'If a service turned your volunteer or part-time work into an official record you could show any future employer, how useful would that be for you?'},
+  { num:9, id:'w_trust_feeling', section:'worker', type:'scale', scaleType:'confidence', text:'When you come across a volunteer or entry-level posting online, how confident do you feel that it\u2019s legitimate?'},
+  { num:10, id:'w_opportunity_type', section:'worker', type:'multi', text:'What kind of opportunities are you most interested in right now?', hint:'Pick all that apply.',
+    options:['Hands-on or trades work','Customer-facing roles','Admin or office work','Outdoor or physical roles','Caregiving or support roles','Creative or communications work','Not sure yet']},
+  { num:11, id:'w_motivation', section:'worker', type:'multi', text:'What would excite you most about a new opportunity?', hint:'Pick all that apply.',
+    options:['Learning something new','Meeting people in my community','Giving back','Building a track record for future jobs','Earning money','Flexible hours']},
+  { num:12, id:'w_ideal_timeline', section:'worker', type:'single', text:'How soon would you personally like to start something new?',
+    options:['Right away','Within the next month','A few months out','Just exploring for now']},
+  { num:13, id:'w_ai_comfort', section:'worker', type:'single', text:'Would you rather build your profile by talking or typing about your experience in your own words, or fill out a formal resume-style form?',
+    options:['Much prefer talking it through','Fine either way','Prefer a formal form','Not sure']},
+  { num:14, id:'w_badge_value', section:'worker', type:'single', text:'Would a visible "verified" badge — confirming your identity and right to work — make you more likely to get noticed?',
+    options:['Yes, definitely','Probably','Not sure','Doesn\u2019t matter much to me']},
+  { num:15, id:'w_prescreen', section:'worker', type:'scale', scaleType:'importance', text:'How important is it to you that an opportunity has already been screened for legitimacy — not a scam or unpaid-labor risk?'},
+  { num:16, id:'w_reference_comfort', section:'worker', type:'scale', scaleType:'comfort', text:'How comfortable are you asking a previous supervisor, teacher, or community leader for a reference?'},
+  { num:17, id:'w_share_comfort', section:'worker', type:'scale', scaleType:'comfort', optional:true, text:'How comfortable would you be with an employer seeing your full profile, including things you\u2019ve written about yourself?'},
+  { num:18, id:'w_profile_duration', section:'worker', type:'single', text:'Once you\u2019ve built your profile, how long would you personally want it to stay active and visible?',
+    options:['Only while I\u2019m actively looking','A few months after I stop looking','Indefinitely, as a long-term record','Not sure']},
+  { num:19, id:'w_hs_credit', section:'worker', type:'single', showIf:(a)=> a.age==='Under 18' || a.type==='parent',
+    text:'Would getting official course credit tracked automatically for a work-experience placement make this more appealing to you?',
+    options:['Yes, a lot','Somewhat','Not really','Not applicable to me']},
+  { num:20, id:'w_can_experience', section:'worker', type:'single', showIf:(a)=> a.type==='worker' && a.age!=='Under 18',
+    text:'Have you personally felt held back by not having "Canadian experience" on your record?',
+    options:['Yes, significantly','Somewhat','Not really','Prefer not to say']},
+
+  // ---- EMPLOYER PATH (21-35) ----
+  { num:21, id:'e_org_type', section:'employer', type:'single', eyebrow:'About your organization', text:'Which best describes your organization?',
+    options:['Small business','Nonprofit or charity','Larger company with a CSR or volunteer program','Municipal, civic, or government','School or school district','Other']},
+  { num:22, id:'e_challenge', section:'employer', type:'single', text:'What\u2019s the biggest challenge you face finding volunteers or entry-level hires today?',
+    options:['Too few applicants','Too many applicants who aren\u2019t a fit','No way to verify reliability or background','Screening takes too much of my time','Something else']},
+  { num:23, id:'e_methods', section:'employer', type:'multi', text:'How do you currently find and screen candidates for these roles?', hint:'Pick all that apply.',
+    options:['Indeed or general job boards','Word of mouth','Volunteer-listing sites','Social media','Referral from a partner agency','We don\u2019t have a consistent process']},
+  { num:24, id:'e_noshow', section:'employer', type:'single', text:'Have you had a volunteer or entry-level hire not show up, or drop out shortly after starting?',
+    options:['Often','Occasionally','Rarely','Never']},
+  { num:25, id:'e_opportunity_type', section:'employer', type:'multi', text:'What kind of roles do you most need to fill?', hint:'Pick all that apply.',
+    options:['One-time event help','Ongoing short shifts','Seasonal work','Long-term entry-level roles','Skilled or trade-specific roles']},
+  { num:26, id:'e_time', section:'employer', type:'single', text:'About how much time do you personally spend screening candidates for a single role?',
+    options:['Under 1 hour','1–3 hours','Half a day or more','I don\u2019t really track it']},
+  { num:27, id:'e_team_involvement', section:'employer', type:'single', optional:true, text:'Besides you, who else is usually involved in accepting a volunteer or hire?',
+    options:['Just me','A small team','An HR or admin department','A board or committee','Not sure']},
+  { num:28, id:'e_sentiment_trust', section:'employer', type:'scale', scaleType:'openness', text:'How open are you to candidates who don\u2019t have a traditional resume?'},
+  { num:29, id:'e_verified_benefit', section:'employer', type:'scale', scaleType:'reduction', text:'If candidates arrived with identity and work-eligibility already verified, how much would that cut your screening burden?'},
+  { num:30, id:'e_references', section:'employer', type:'single', text:'Would you personally value requesting references directly through a platform, instead of chasing them yourself?',
+    options:['Yes, definitely','Probably','Not sure','Not really']},
+  { num:31, id:'e_comparison', section:'employer', type:'scale', scaleType:'usefulness', text:'How useful would a side-by-side comparison of shortlisted candidates be for your process?'},
+  { num:32, id:'e_flexibility', section:'employer', type:'scale', scaleType:'importance', text:'How important is flexibility — like adjusting shifts or hours — for the roles you post?'},
+  { num:33, id:'e_own_verification', section:'employer', type:'single', text:'Would you be open to your own organization being verified too, so candidates can see your standing before applying?',
+    options:['Yes, that seems fair','Neutral either way','I\u2019d rather not be reviewed','Not sure']},
+  { num:34, id:'e_profile_duration', section:'employer', type:'single', text:'Once a candidate is verified, how long would you want that verification to stay valid before needing a refresh?',
+    options:['3 months','6 months','A year','Doesn\u2019t matter much to me']},
+  { num:35, id:'e_repeat_interest', section:'employer', type:'scale', scaleType:'likelihood', text:'If a candidate worked out well, how likely are you to want to hire from the same pool again?'},
+
+  // ---- COMMON CLOSE (36-40, always shown) ----
+  { num:36, id:'c_awareness', section:'common', type:'multi', eyebrow:'One more thing', text:'Which of these have you heard of or used before?', hint:'Pick all that apply.',
+    options:['WorkBC','WorkFirst Alberta / Thrive','IEC-BC (JobConnect / MentorConnect)','GoVolunteer.ca or Volunteer BC','Benevity','Jumpstart Refugee Talent','LinkedIn','None of these']},
+  { num:37, id:'c_switch', section:'common', type:'single', text:'What would make you personally try a new platform in this space, rather than sticking with what you use now?',
+    options:['Stronger trust and verification','Faster results','Something free that my current option isn\u2019t','A recommendation from someone I trust','Honestly, I probably wouldn\u2019t switch','Other']},
+  { num:38, id:'c_channel_pref', section:'common', type:'multi', text:'If OpenPath launches, how would you prefer to hear about it?', hint:'Pick all that apply.',
+    options:['Email','Social media','Through a partner organization','Word of mouth']},
+  { num:39, id:'c_likelihood', section:'common', type:'scale', scaleType:'likelihood', text:'Overall, how likely are you to try OpenPath when it launches?'},
+  { num:40, id:'c_open_feedback', section:'common', type:'text', optional:true, text:'Anything else you\u2019d want us to know before we build this?', hint:'Totally optional — one or two sentences is plenty.'}
+];
+
+function buildFlow(answers){
+  const gate = QUESTIONS.filter(q=>q.section==='gate');
+  let mid = [];
+  if(answers.type==='worker' || answers.type==='parent'){
+    mid = QUESTIONS.filter(q=>q.section==='worker').filter(q=> !q.showIf || q.showIf(answers));
+  } else if(answers.type==='employer'){
+    mid = QUESTIONS.filter(q=>q.section==='employer');
+  }
+  const common = QUESTIONS.filter(q=>q.section==='common');
+  return [...gate, ...mid, ...common, {id:'email_capture', type:'email'}, {id:'thanks', type:'thanks'}];
+}
+
+let answers = {};
+let flow = buildFlow(answers);
+let stepIndex = 0;
+const RESPONSE_ID = 'r_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2,9);
+
+const body = document.getElementById('surveyBody');
+const progressFill = document.getElementById('progressFill');
+const progressLabel = document.getElementById('progressLabel');
+const progressPct = document.getElementById('progressPct');
+const backBtn = document.getElementById('backBtn');
+const nextBtn = document.getElementById('nextBtn');
+const skipBtn = document.getElementById('skipBtn');
+
+function scrollToSurvey(){ document.getElementById('survey').scrollIntoView({behavior:'smooth'}); }
+function scrollToHypothesis(){ document.getElementById('hypothesis').scrollIntoView({behavior:'smooth'}); }
+
+function currentQuestion(){ return flow[stepIndex]; }
+
+function render(){
+  const q = currentQuestion();
+  body.innerHTML = '';
+  body.appendChild(renderStep(q));
+
+  const totalCountable = flow.length - 1;
+  const pct = Math.min(100, Math.round((stepIndex/totalCountable)*100));
+  progressFill.style.width = pct + '%';
+  if(q.type==='thanks'){
+    progressLabel.textContent = LANG==='fr' ? 'Terminé' : 'Done';
+    progressPct.textContent = '100%';
+  } else if(q.type==='email'){
+    progressLabel.textContent = LANG==='fr' ? 'Presque fini' : 'Almost done';
+    progressPct.textContent = pct + '%';
+  } else {
+    progressLabel.textContent = (LANG==='fr' ? 'Question ' + q.num + ' sur 40' : 'Question ' + q.num + ' of 40');
+    progressPct.textContent = pct + '%';
+  }
+
+  backBtn.style.visibility = stepIndex===0 ? 'hidden' : 'visible';
+  const nav = document.querySelector('.step-nav');
+  if(q.type==='thanks'){
+    nav.style.display='none';
+  } else {
+    nav.style.display='flex';
+    skipBtn.style.display = (q.type==='email' || !q.optional) ? 'none' : 'inline-block';
+    nextBtn.textContent = q.type==='email' ? (LANG==='fr' ? 'Enregistrer mon courriel' : 'Save my email') : (isLastQuestion(q) ? (LANG==='fr'?'Voir les résultats':'See results') : (LANG==='fr'?'Continuer':'Continue'));
+    updateNextEnabled();
+  }
+}
+
+function isLastQuestion(q){
+  const idx = flow.indexOf(q);
+  return flow[idx+1] && flow[idx+1].type==='email';
+}
+
+function renderStep(q){
+  const div = document.createElement('div');
+  div.className = 'step active';
+
+  if(q.type==='thanks'){
+    div.innerHTML = `
+      <div class="thanks-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12.5L9.5 18L20 6" stroke="#3C6E5D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2>That's genuinely useful — thank you.</h2>
+      <div class="thanks-recap">
+        This is what we hope to learn from responses like yours:
+        <ul>
+          <li>Whether the two problems on this page actually match what people experience</li>
+          <li>Which parts of the idea matter most, so we build those first</li>
+          <li>Whether OpenPath is worth building here in Edmonton before anywhere else</li>
+        </ul>
+      </div>
+      <p class="lede">We'll be in touch if you left an email — otherwise, keep an eye out for us in Edmonton.</p>
+      <div class="contact-line">
+        Want to share something specific with us? Email Brian directly — <a href="mailto:hello@olympia-associates.ca">hello@olympia-associates.ca</a>
+      </div>
+    `;
+    return div;
+  }
+
+  if(q.type==='email'){
+    div.innerHTML = `
+      <span class="q-eyebrow">Optional</span>
+      <div class="q-text">Want to follow along, or get early access?</div>
+      <div class="q-hint">Totally optional, and kept separate from your answers above. No spam — just a heads-up when we launch.</div>
+      <label class="field-label" for="emailInput">Email address</label>
+      <div class="email-field">
+        <input type="email" id="emailInput" placeholder="you@example.com" autocomplete="email">
+      </div>
+    `;
+    return div;
+  }
+
+  if(q.type==='gate'){
+    div.innerHTML = `<div class="q-text">${q.text}</div><div class="gate-grid" id="optionsHost"></div>`;
+    const host = div.querySelector('#optionsHost');
+    q.options.forEach(opt=>{
+      const label = document.createElement('label');
+      label.className = 'gate-card' + (answers[q.id]===opt.v ? ' checked' : '');
+      const input = document.createElement('input');
+      input.type='radio'; input.name=q.id; input.value=opt.v; input.checked = answers[q.id]===opt.v;
+      input.style.position='absolute'; input.style.opacity='0';
+      label.appendChild(input);
+      const t = document.createElement('div'); t.className='g-title'; t.textContent=opt.title;
+      const s = document.createElement('div'); s.className='g-sub'; s.textContent=opt.sub;
+      label.appendChild(t); label.appendChild(s);
+      input.addEventListener('change', ()=>{
+        answers[q.id] = opt.v;
+        flow = buildFlow(answers);
+        host.querySelectorAll('.gate-card').forEach(c=>c.classList.remove('checked'));
+        label.classList.add('checked');
+        updateNextEnabled();
+      });
+      host.appendChild(label);
+    });
+    return div;
+  }
+
+  if(q.type==='text'){
+    div.innerHTML = `
+      <span class="q-eyebrow">${q.optional ? 'Optional' : ''}</span>
+      <div class="q-text">${q.text}</div>
+      ${q.hint ? `<div class="q-hint">${q.hint}</div>` : ''}
+      <textarea class="text-input" id="textInput" placeholder="Type here...">${answers[q.id]||''}</textarea>
+    `;
+    const ta = div.querySelector('#textInput');
+    ta.addEventListener('input', ()=>{ answers[q.id]=ta.value; updateNextEnabled(); });
+    return div;
+  }
+
+  const options = q.type==='scale' ? SCALE[q.scaleType] : q.options;
+  div.innerHTML = `
+    <span class="q-eyebrow">${q.eyebrow||''}</span>
+    <div class="q-text">${q.text}</div>
+    ${q.hint ? `<div class="q-hint">${q.hint}</div>` : ''}
+    <div class="${q.type==='scale' ? 'scale-row' : 'options'}" id="optionsHost"></div>
+  `;
+  const host = div.querySelector('#optionsHost');
+  const isMulti = q.type==='multi';
+  const inputType = isMulti ? 'checkbox' : 'radio';
+  const current = answers[q.id];
+
+  options.forEach(optText=>{
+    const checked = isMulti ? (Array.isArray(current) && current.includes(optText)) : (current===optText);
+    const label = document.createElement('label');
+    label.className = 'option' + (checked ? ' checked' : '');
+    const input = document.createElement('input');
+    input.type = inputType; input.name = q.id; input.value = optText; input.checked = checked;
+    label.appendChild(input);
+    const span = document.createElement('span'); span.className='opt-label'; span.textContent = optText;
+    label.appendChild(span);
+
+    // use 'change' (fires once per real state change) rather than 'click' on the
+    // wrapping label, which double-fires when the click target is the label text
+    // (the browser forwards a synthetic click to the input, bubbling back through
+    // the label a second time) — this was the cause of the multi-select freeze.
+    input.addEventListener('change', ()=>{
+      if(isMulti){
+        let arr = Array.isArray(answers[q.id]) ? answers[q.id].slice() : [];
+        if(input.checked){ if(!arr.includes(optText)) arr.push(optText); }
+        else { arr = arr.filter(x=>x!==optText); }
+        answers[q.id] = arr;
+        label.classList.toggle('checked', input.checked);
+      } else {
+        answers[q.id] = optText;
+        host.querySelectorAll('.option').forEach(c=>c.classList.remove('checked'));
+        label.classList.add('checked');
+      }
+      updateNextEnabled();
+    });
+    host.appendChild(label);
+  });
+
+  return div;
+}
+
+function updateNextEnabled(){
+  const q = currentQuestion();
+  if(q.type==='email' || q.type==='thanks'){ nextBtn.disabled=false; return; }
+  if(q.optional){ nextBtn.disabled=false; return; }
+  const val = answers[q.id];
+  const answered = Array.isArray(val) ? val.length>0 : (val!==undefined && val!==null && val!=='');
+  nextBtn.disabled = !answered;
+}
+
+function goBack(){
+  if(stepIndex>0){ stepIndex--; render(); }
+}
+
+function goNext(isSkip){
+  const q = currentQuestion();
+
+  if(q.type==='email'){
+    const val = document.getElementById('emailInput').value.trim();
+    if(val){ saveEmail(val); }
+    stepIndex++; render();
+    return;
+  }
+  if(q.type==='thanks') return;
+
+  if(!isSkip){
+    const val = answers[q.id];
+    const answered = Array.isArray(val) ? val.length>0 : (val!==undefined && val!==null && val!=='');
+    if(!answered && !q.optional) return;
+  } else {
+    delete answers[q.id];
+  }
+
+  flow = buildFlow(answers);
+  const wasLast = isLastQuestion(q);
+  stepIndex++;
+  if(wasLast){ saveResponse(); }
+  render();
+}
+
+function saveResponse(){
+  const payload = { id: RESPONSE_ID, submittedAt: new Date().toISOString(), answers: answers };
+  try{
+    if(window.storage && window.storage.set){
+      window.storage.set('response:' + RESPONSE_ID, JSON.stringify(payload), true).catch(()=>{});
+    }
+  }catch(e){ console.warn('Could not save response', e); }
+}
+function saveEmail(email){
+  try{
+    if(window.storage && window.storage.set){
+      window.storage.set('email:' + RESPONSE_ID, JSON.stringify({email, respondentId:RESPONSE_ID, ts:new Date().toISOString()}), true).catch(()=>{});
+    }
+  }catch(e){ console.warn('Could not save email', e); }
+}
+
+/* ---------------- i18n (structural copy only — see banner) ---------------- */
+let LANG = 'en';
+const T = {
+  en:{
+    heroEyebrow:'Coming to Edmonton', heroGreeting:'Hello — welcome to OpenPath.',
+    heroCta:'See what we\u2019re testing', heroNoteSmall:'~5 minutes · fully anonymous · shapes what we build first',
+    hypEyebrow:'Why we\u2019re building this', hypH2:'Our hypothesis', hypLede:'Two problems, one shared root cause — and an idea for closing the gap between them.',
+    handoffH3:'Does either of those feel familiar?', handoffCta:'Add your voice',
+    footRight:'Want to share something specific?', navCta:'Add your voice', langBtn:'FR'
+  },
+  fr:{
+    heroEyebrow:'Bientôt à Edmonton', heroGreeting:'Bonjour — bienvenue chez OpenPath.',
+    heroCta:'Voir ce que nous testons', heroNoteSmall:'~5 minutes · entièrement anonyme · façonne ce que nous construisons en premier',
+    hypEyebrow:'Pourquoi nous construisons ceci', hypH2:'Notre hypothèse', hypLede:'Deux problèmes, une cause commune — et une idée pour combler l\u2019écart entre les deux.',
+    handoffH3:'Est-ce que l\u2019un de ces points vous semble familier?', handoffCta:'Partagez votre avis',
+    footRight:'Vous voulez nous dire quelque chose de précis?', navCta:'Partagez votre avis', langBtn:'EN'
+  }
+};
+
+function toggleLang(){
+  LANG = LANG==='en' ? 'fr' : 'en';
+  document.getElementById('langToggle').textContent = T[LANG].langBtn;
+  document.getElementById('navCta').textContent = T[LANG].navCta;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(T[LANG][key]){ el.textContent = T[LANG][key]; }
+  });
+  document.getElementById('langBanner').classList.toggle('show', LANG==='fr');
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
