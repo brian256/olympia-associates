@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>OpenPath — Turn your experience into a track record</title>
+<meta name="description" content="OpenPath is coming to Edmonton. Tell us what you need and get early access.">
+<meta property="og:title" content="OpenPath — Turn your experience into a track record">
+<meta property="og:description" content="A short, anonymous questionnaire — help shape a new way to turn volunteer and entry-level experience into something people can trust. Coming to Edmonton.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://olympia-associates.ca/openpath.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenPath — Turn your experience into a track record">
+<meta name="twitter:description" content="A short, anonymous questionnaire — help shape a new way to turn volunteer and entry-level experience into something people can trust. Coming to Edmonton.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B2A4A;
+    --navy-deep:#121D34;
+    --gold:#B08D57;
+    --gold-light:#D9BE8E;
+    --cream:#F5F3EE;
+    --cream-2:#EDEAE1;
+    --slate:#44546A;
+    --text:#20242E;
+    --text-soft:#5B6472;
+    --line:#DCD8CC;
+    --radius:14px;
+    --serif: "Source Serif 4", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; font-family:var(--sans); color:var(--text); background:var(--cream);
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:var(--sans); font-weight:600; font-size:12.5px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--gold);
+  }
+  h1,h2,h3{font-family:var(--serif); font-weight:600; margin:0; color:var(--navy);}
+  .on-dark h1, .on-dark h2, .on-dark h3, .on-dark .eyebrow{color:#fff;}
+  .on-dark .eyebrow{color:var(--gold-light);}
+  p{margin:0;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-weight:600;
+    font-size:15px; padding:13px 26px; border-radius:999px; text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease; cursor:pointer; border:1.5px solid transparent;
+  }
+  .btn:focus-visible{outline:3px solid var(--gold-light); outline-offset:3px;}
+  .btn-primary{background:var(--gold); color:var(--navy-deep);}
+  .btn-primary:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(176,141,87,.35);}
+  .btn-ghost{background:transparent; border-color:rgba(255,255,255,.4); color:#fff;}
+  .btn-ghost:hover{border-color:#fff;}
+  .btn-outline{background:transparent; border-color:var(--navy); color:var(--navy);}
+  .btn-outline:hover{background:var(--navy); color:#fff;}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    background:var(--navy-deep); padding:16px 0; border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav .wrap{display:flex; align-items:center; justify-content:space-between;}
+  .nav-brand{font-family:var(--serif); font-weight:700; font-size:19px; color:#fff; letter-spacing:.01em;}
+  .nav-right{display:flex; align-items:center; gap:18px;}
+  .nav-lang{color:rgba(255,255,255,.65); font-size:13px; font-weight:600;}
+
+  /* ---------- Hero ---------- */
+  .hero{background:linear-gradient(180deg,var(--navy-deep),var(--navy) 70%); padding:72px 0 84px; position:relative;}
+  .badge{
+    display:inline-block; background:rgba(217,190,142,.14); border:1px solid rgba(217,190,142,.4);
+    color:var(--gold-light); font-size:12.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+    padding:6px 14px; border-radius:999px; margin-bottom:22px;
+  }
+  .hero-greet{color:rgba(255,255,255,.7); font-size:15px; margin-bottom:10px;}
+  .hero h1{font-size:40px; line-height:1.2; max-width:760px; margin-bottom:20px;}
+  .hero h1 em{font-style:italic; color:var(--gold-light);}
+  .hero-sub{color:rgba(255,255,255,.78); font-size:17px; max-width:620px; margin-bottom:32px;}
+  .hero-cta-row{display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:36px;}
+  .hero-meta{color:rgba(255,255,255,.55); font-size:13.5px;}
+  .tagrow{display:flex; gap:10px; flex-wrap:wrap;}
+  .tag{
+    font-size:12px; font-weight:600; letter-spacing:.1em; color:rgba(255,255,255,.6);
+    border:1px solid rgba(255,255,255,.18); padding:6px 12px; border-radius:999px;
+  }
+
+  /* ---------- Section shell ---------- */
+  section{padding:76px 0;}
+  .section-head{max-width:640px; margin-bottom:44px;}
+  .section-head h2{font-size:30px; margin:10px 0 14px; line-height:1.25;}
+  .section-head p{color:var(--text-soft); font-size:16px;}
+
+  /* ---------- Hypothesis cards ---------- */
+  .hgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .hcard{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:28px 26px;
+  }
+  .hcard .kicker{font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--slate); margin-bottom:12px;}
+  .hcard h3{font-size:19px; line-height:1.35; margin-bottom:14px;}
+  .hcard ul{margin:0; padding-left:18px; color:var(--text-soft); font-size:14.5px;}
+  .hcard li{margin-bottom:7px;}
+  .hcard.idea{background:var(--navy); border-color:var(--navy);}
+  .hcard.idea .kicker{color:var(--gold-light);}
+  .hcard.idea h3, .hcard.idea{color:#fff;}
+  .hcard.idea ul{color:rgba(255,255,255,.75);}
+  .correction-note{
+    margin-top:26px; background:var(--cream-2); border-left:3px solid var(--gold);
+    padding:16px 20px; border-radius:0 10px 10px 0; font-size:14.5px; color:var(--text-soft);
+  }
+  .correction-note strong{color:var(--navy);}
+
+  /* ---------- Feature sneak-peek cards ---------- */
+  .features{background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .fgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .fcard{
+    border:1px solid var(--line); border-radius:var(--radius); padding:24px 22px; background:var(--cream);
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .fcard .fnum{font-family:var(--serif); font-size:13px; color:var(--gold); font-weight:600;}
+  .fcard h3{font-size:17px; line-height:1.35;}
+  .fcard p{font-size:14px; color:var(--text-soft);}
+  .fcard .status{
+    margin-top:auto; font-size:12px; font-weight:600; color:var(--slate);
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .fcard .status::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--gold); display:inline-block;}
+
+  /* ---------- Debrief ---------- */
+  .debrief{background:var(--cream-2);}
+  .debrief-inner{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center;}
+  .debrief-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:28px;
+  }
+  .debrief-card .opt{display:flex; gap:12px; padding:14px 0; border-bottom:1px solid var(--line);}
+  .debrief-card .opt:last-child{border-bottom:none;}
+  .debrief-card .opt .icon{
+    width:34px; height:34px; border-radius:9px; background:var(--cream-2); flex:none;
+    display:flex; align-items:center; justify-content:center; color:var(--navy); font-weight:700; font-size:13px;
+  }
+  .debrief-card .opt strong{display:block; font-size:14.5px; color:var(--navy);}
+  .debrief-card .opt span{font-size:13.5px; color:var(--text-soft);}
+
+  /* ---------- Questionnaire ---------- */
+  .quest{background:var(--navy-deep);}
+  .quest .section-head h2, .quest .section-head p{color:rgba(255,255,255,.85);}
+  .quest .section-head p{color:rgba(255,255,255,.65);}
+  .fr-note{font-size:13px; color:rgba(255,255,255,.45); margin-bottom:18px; max-width:640px;}
+  .form-embed{background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.35);}
+  .form-embed iframe{width:100%; height:1400px; border:0; display:block;}
+
+  /* ---------- Partner line ---------- */
+  .partner{padding:40px 0; border-top:1px solid var(--line);}
+  .partner .wrap{
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:22px 26px;
+  }
+  .partner p{font-size:14.5px; color:var(--text-soft); max-width:560px;}
+  .partner strong{color:var(--navy);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy-deep); color:rgba(255,255,255,.55); padding:36px 0; font-size:13.5px;}
+  footer .wrap{display:flex; flex-direction:column; gap:8px;}
+  footer a{color:var(--gold-light); text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+
+  @media (max-width: 860px){
+    .hgrid, .fgrid{grid-template-columns:1fr;}
+    .debrief-inner{grid-template-columns:1fr;}
+    .hero h1{font-size:30px;}
+    .section-head h2{font-size:24px;}
+    section{padding:52px 0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .btn{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="nav-brand">OpenPath</div>
+    <div class="nav-right">
+      <span class="nav-lang">FR</span>
+      <a class="btn btn-ghost" href="#questionnaire">Add your voice</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">Coming to Edmonton</span>
+    <p class="hero-greet">Hello — welcome to OpenPath.</p>
+    <h1>We're building a way to turn volunteer and entry-level experience into <em>a track record people can trust.</em></h1>
+    <p class="hero-sub">Since we last asked, real workers and employers told us what's actually true — and what wasn't the point. This round tests specific ideas, not just the concept, and gives you an early look at what we're building next.</p>
+    <div class="hero-cta-row">
+      <a class="btn btn-primary" href="#questionnaire">See what we're testing</a>
+      <span class="hero-meta">~5–8 minutes · fully anonymous · shapes what we build first</span>
+    </div>
+    <div class="tagrow">
+      <span class="tag">BUILD</span>
+      <span class="tag">VERIFY</span>
+      <span class="tag">MATCH</span>
+      <span class="tag">HIRE</span>
+    </div>
+  </div>
+</header>
+
+<section id="hypothesis">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why we're building this — revised</span>
+      <h2>Our hypothesis, now tested</h2>
+      <p>Two problems, one shared root cause. We asked people who live on both sides of it — here's what held up, and what we got wrong the first time.</p>
+    </div>
+    <div class="hgrid">
+      <div class="hcard">
+        <div class="kicker">For people</div>
+        <h3>It's not that opportunities don't exist. It's that nothing proves you're reliable.</h3>
+        <ul>
+          <li>"Canadian experience" came up unprompted from almost everyone we talked to</li>
+          <li>Being pre-screened as legitimate was the one thing that landed with everyone, every time</li>
+          <li>References and volunteer hours scattered across texts, memory, and old emails</li>
+        </ul>
+      </div>
+      <div class="hcard">
+        <div class="kicker">For organizations</div>
+        <h3>Screening eats the time you don't have — and still doesn't stop no-shows.</h3>
+        <ul>
+          <li>About half the organizations we talked to have no real screening process at all</li>
+          <li>The ones who screen hardest still see the most no-shows — more effort isn't the fix</li>
+          <li>Nobody's checking whether the organization posting is legitimate, either</li>
+        </ul>
+      </div>
+      <div class="hcard idea">
+        <div class="kicker">Our idea</div>
+        <h3>One shared, trusted place — built the way people actually said they'd use it.</h3>
+        <ul>
+          <li>A guided profile, not a chatbot interview — that idea tested flat, so we dropped it</li>
+          <li>Verification runs both ways: organizations get checked too, not just people</li>
+          <li>Starting here in Edmonton, with a direct line into the rest of Western Canada</li>
+        </ul>
+      </div>
+    </div>
+    <div class="correction-note">
+      <strong>What changed since last time:</strong> the biggest surprise wasn't a new idea — it was two old ones getting corrected. An AI-led chat intake sounded clever on paper; nobody asked for it. Verifying organizations sounded like a hard sell; every organization we asked said that seemed fair. We'd rather build what you actually want than what we assumed you would.
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">A peek at what's next</span>
+      <h2>Five things we're testing before we build them</h2>
+      <p>None of this is built yet. Pick one or two below that catch your eye in the questionnaire — your answers decide what we build first.</p>
+    </div>
+    <div class="fgrid">
+      <div class="fcard">
+        <span class="fnum">01</span>
+        <h3>Verified, both ways</h3>
+        <p>Not just people — organizations too. The one idea nobody pushed back on when we tested it.</p>
+        <span class="status">Not yet built</span>
+      </div>
+      <div class="fcard">
+        <span class="fnum">02</span>
+        <h3>See candidates side by side</h3>
+        <p>Skip the spreadsheet. The single most-requested feature from everyone we've talked to so far.</p>
+        <span class="status">Not yet built</span>
+      </div>
+      <div class="fcard">
+        <span class="fnum">03</span>
+        <h3>High-school credit, made portable</h3>
+        <p>For students already earning work-experience credit — hours convert into a school report and a record that outlasts graduation.</p>
+        <span class="status">Not yet built</span>
+      </div>
+      <div class="fcard">
+        <span class="fnum">04</span>
+        <h3>A little help in the first few weeks</h3>
+        <p>Light support during a placement's shakiest stretch — a checklist and a check-in, not a full program.</p>
+        <span class="status">Not yet built</span>
+      </div>
+      <div class="fcard">
+        <span class="fnum">05</span>
+        <h3>Take your record with you</h3>
+        <p>Download it, share it, keep it — even if you leave. Built to work with the agencies and programs you already use.</p>
+        <span class="status">Not yet built</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="debrief">
+  <div class="wrap debrief-inner">
+    <div>
+      <span class="eyebrow">Want to go deeper?</span>
+      <h2 style="font-size:26px; margin:10px 0 14px;">Join a short feature debrief</h2>
+      <p style="color:var(--text-soft); font-size:15.5px;">After the questionnaire, you can opt into a short session with the team to see these ideas in more depth and tell us what's missing. No separate signup — just say yes at the end, however works best for you.</p>
+    </div>
+    <div class="debrief-card">
+      <div class="opt">
+        <div class="icon">V</div>
+        <div>
+          <strong>Virtual</strong>
+          <span>A short video call — we'll just need an email to send the invite.</span>
+        </div>
+      </div>
+      <div class="opt">
+        <div class="icon">IP</div>
+        <div>
+          <strong>In person</strong>
+          <span>Meet the team in Edmonton — we'll ask for a name, email, and phone number to confirm.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quest" id="questionnaire">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Add your voice</span>
+      <h2>Does any of this feel familiar?</h2>
+      <p>If you've felt either side of this — looking for opportunities, or trying to fill them — or you play a part in helping someone else get there, we'd genuinely like to hear from you.</p>
+    </div>
+    <p class="fr-note">Le formulaire ci-dessous est actuellement en anglais uniquement. La traduction complète est prévue une fois les questions verrouillées.</p>
+    <div class="form-embed">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScl0cQPhCqtsRtqRQ6VYjUfexAYX2jzLXveuQnYUpoIKgW67g/viewform?embedded=true" title="OpenPath questionnaire">Loading…</iframe>
+    </div>
+  </div>
+</section>
+
+<div class="partner">
+  <div class="wrap">
+    <p><strong>Work at a partner organization,</strong> or exploring how OpenPath's data model might fit with yours? We'd rather talk directly than have you fill out the public questionnaire above.</p>
+    <a class="btn btn-outline" href="mailto:hello@olympia-associates.ca?subject=OpenPath%20—%20partner%20conversation">Reach out directly</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>OpenPath · registered in Edmonton, Alberta · this page is an early-access preview</p>
+    <p>Want to share something specific? <a href="mailto:hello@olympia-associates.ca">hello@olympia-associates.ca</a></p>
+    <p>An early-stage project from <a href="https://olympia-associates.ca/">Olympia &amp; Associates</a>, Edmonton.</p>
+  </div>
+</footer>
+
+</body>
+</html>
