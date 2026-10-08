@@ -374,6 +374,11 @@
     .footer-cta .btn:hover { background: var(--white); color: var(--near-black); border-color: var(--white); }
     @media (max-width: 1024px) { .avail-inner { grid-template-columns: 1fr; gap: 40px; } .packages-grid.three { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 768px) { .zones-grid, .models-grid { grid-template-columns: 1fr; } .packages-grid.three { grid-template-columns: 1fr; } .avail-right { padding: 28px 20px; } }
+    .waitlist-form .wl-msg { font-size: 0.85rem; line-height: 1.5; margin: 0; }
+    .waitlist-form .wl-msg:empty { display: none; }
+    .waitlist-form .wl-ok { color: var(--near-black); font-weight: 600; }
+    .waitlist-form .wl-err { color: #9b2c2c; }
+    .waitlist-form .btn-submit:disabled { opacity: 0.6; cursor: default; }
   </style>
 </head>
 <body>
@@ -848,7 +853,7 @@
           <div class="avail-right">
             <h3>Join the waitlist</h3>
             <p>Leave your details and we will be in touch within 48 hours with your estimated wait time and a first resource matched to your situation, where one fits.</p>
-            <form class="waitlist-form" action="mailto:brian@olympia-associates.ca" method="get" enctype="text/plain">
+            <form class="waitlist-form" data-stream="lbc" action="mailto:brian@olympia-associates.ca" method="get" enctype="text/plain">
               <input type="text" name="name" placeholder="Your name" required>
               <input type="email" name="email" placeholder="Email address" required>
               <select name="interest">
@@ -861,7 +866,9 @@
                 <option value="unsure">Not sure yet</option>
               </select>
               <input type="text" name="context" placeholder="One sentence: what's your situation? (optional)">
+              <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
               <button type="submit" class="btn-submit">Join the waitlist →</button>
+              <p class="wl-msg" role="status" aria-live="polite"></p>
             </form>
             <ul class="waitlist-benefits">
               <li>A first resource matched to your situation, where one fits</li>
@@ -973,5 +980,38 @@
       });
     });
   </script>
+<script>
+  // Waitlist sign-up: posts to the Olympia hub Worker. If the Worker can't be
+  // reached, the form falls back to its plain mailto action so no sign-up is lost.
+  (function () {
+    var ENDPOINT = "https://oa-internal-hub.brian-bc2.workers.dev/api/waitlist";
+    document.querySelectorAll("form.waitlist-form[data-stream]").forEach(function (f) {
+      f.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var btn = f.querySelector(".btn-submit");
+        var msg = f.querySelector(".wl-msg");
+        var label = btn.textContent;
+        var d = { stream: f.getAttribute("data-stream") };
+        new FormData(f).forEach(function (v, k) { d[k] = v; });
+        if (d.context) { d.note = d.context; delete d.context; }
+        btn.disabled = true; btn.textContent = "Sending…"; msg.className = "wl-msg"; msg.textContent = "";
+        fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) })
+          .then(function (r) { return r.json().then(function (j) { return { status: r.status, j: j }; }); })
+          .then(function (x) {
+            if (x.j && x.j.ok) {
+              f.reset();
+              msg.className = "wl-msg wl-ok";
+              msg.textContent = "You're on the waitlist. I'll be in touch by email.";
+              btn.textContent = "Joined ✓";
+            } else if (x.status >= 400 && x.status < 500 && x.j && x.j.error) {
+              msg.className = "wl-msg wl-err"; msg.textContent = x.j.error;
+              btn.disabled = false; btn.textContent = label;
+            } else { throw new Error("server"); }
+          })
+          .catch(function () { HTMLFormElement.prototype.submit.call(f); });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
