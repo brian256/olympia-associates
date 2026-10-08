@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Olympia & Associates — Strategic Consulting, Edmonton</title>
-  <meta name="description" content="Career consulting, professional development, business strategy, and settlement navigation. Four practice areas. One practice. Edmonton, Alberta.">
+  <meta name="description" content="Career consulting for high school students and their parents, including newcomer families settling in Alberta, plus leadership, business and Career Review consulting (résumé, LinkedIn, interviews) for founders, teams and professionals. Edmonton, Alberta.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -115,7 +115,9 @@
 
     /* ── §3 STREAM CARDS ── */
     .streams-section { background: var(--white); }
-    .streams-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--border); margin-top: 32px; }
+    .streams-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid var(--border); margin-top: 32px; }
+    .stream-cap { flex: 0 !important; margin-top: 16px; font-size: 0.8rem !important; font-weight: 600; letter-spacing: 0.02em; color: var(--gold) !important; }
+    .stream-lead { background: var(--bg-warm); }
     .stream-card { padding: 36px 28px; border-right: 1px solid var(--border); transition: background 0.2s ease; display: flex; flex-direction: column; }
     .stream-card:last-child { border-right: none; }
     .stream-card:hover { background: var(--bg-warm); }
@@ -204,10 +206,9 @@
       .portrait-frame { aspect-ratio: 16/9; max-height: 240px; width: 100%; }
       .practice-creds { gap: 24px; }
       .practice-cred { padding-right: 0; }
-      .streams-grid { grid-template-columns: 1fr 1fr; }
-      .stream-card:nth-child(2) { border-right: none; }
-      .stream-card:nth-child(3) { border-top: 1px solid var(--border); }
-      .stream-card:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+      .streams-grid { grid-template-columns: 1fr; }
+      .stream-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .stream-card:last-child { border-bottom: none; }
       .entry-inner { grid-template-columns: 1fr; gap: 28px; }
       .case-grid { grid-template-columns: 1fr; gap: 1px; }
       .testi-grid { grid-template-columns: 1fr; gap: 2px; }
@@ -249,10 +250,8 @@
         <li class="has-dropdown">
           <a href="#" aria-haspopup="true" aria-expanded="false">What We Offer</a>
           <ul class="dropdown">
-            <li><a href="/services/professional-development.html">Professional Development</a></li>
             <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
             <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
-            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
           </ul>
         </li>
         <li><a href="/contact.html">Reach Us</a></li>
@@ -266,9 +265,7 @@
     <nav class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
       <a href="/about.html">About Us — Our Story</a>
       <a href="/services/career-consulting.html">Career Consulting — High School</a>
-      <a href="/services/professional-development.html">Professional Development</a>
       <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
-      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
       <a href="/work.html">Case Studies</a>
       <a href="/contact.html">Reach Us</a>
 
@@ -285,9 +282,9 @@
       <div class="container">
         <div class="hero-inner">
           <div class="hero-text">
-            <span class="hero-tag">Edmonton, Alberta · est. 2024</span>
+            <span class="hero-tag">Edmonton, Alberta</span>
             <h1 id="hero-heading">You're navigating<br><em>real systems.</em><br>We help you build<br>a plan that works.</h1>
-            <p class="hero-sub">Career consulting. Professional development. Business strategy. Settlement navigation. Four practice areas. One house.</p>
+            <p class="hero-sub">Career consulting for high school students and their parents. Leadership, business and career-transition consulting for founders, teams and professionals. Two practices. One house.</p>
             <div class="hero-actions">
               <a href="https://calendly.com/ssennogab24/scopingcall" class="btn btn-primary" target="_blank" rel="noopener">Book a free 30-min call</a>
               <a href="#streams" class="hero-scroll">See our work ↓</a>
@@ -327,48 +324,30 @@
     <!-- §3 STREAM CARDS -->
     <section class="streams-section" id="streams" aria-labelledby="streams-heading">
       <div class="container">
-        <div class="section-label"><span>Four practice areas</span></div>
+        <div class="section-label"><span>Two practices</span></div>
         <h2 id="streams-heading">Find yourself in the work.</h2>
         <div class="streams-grid">
 
-          <article class="stream-card">
+          <article class="stream-card stream-lead">
             <div class="stream-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
             </div>
             <span class="stream-tag">For parents of students in Grades 9–12</span>
             <h3>Career Consulting — High School</h3>
-            <p>Your child is smart. The question is whether the plan matches the opportunity — before the windows close.</p>
+            <p>Your child is smart. The question is whether the plan matches the opportunity — before the windows close. A personal, structured process that ends with an ordered list of what to do, and by when. Newcomer families settling in Alberta are especially welcome.</p>
+            <p class="stream-cap">Limited to 3 new families a month. A waitlist is open.</p>
             <a href="/services/career-consulting.html" class="stream-more">Learn more</a>
-          </article>
-
-          <article class="stream-card">
-            <div class="stream-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            </div>
-            <span class="stream-tag">For landed professionals in transition</span>
-            <h3>Professional Development</h3>
-            <p>Your experience is real. The question is whether your résumé and LinkedIn say what they need to say to the right employers.</p>
-            <a href="/services/professional-development.html" class="stream-more">Learn more</a>
           </article>
 
           <article class="stream-card">
             <div class="stream-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
-            <span class="stream-tag">For founders, executives, and team leaders</span>
+            <span class="stream-tag">For founders, leaders and professionals in transition</span>
             <h3>Leadership &amp; Business Consulting</h3>
-            <p>You have the vision. The question is whether the structure beneath it will hold — and whether someone has pressure-tested the plan honestly.</p>
+            <p>You have the vision, or the experience. The question is whether the structure beneath it will hold — and whether someone has pressure-tested the plan honestly. Strategy and facilitation for organizations; Career Review (résumé, LinkedIn and interview preparation) for professionals making a move, including newcomer and internationally trained professionals.</p>
+            <p class="stream-cap">Limited to 2 new engagements a month. A waitlist is open.</p>
             <a href="/services/leadership-consulting.html" class="stream-more">Learn more</a>
-          </article>
-
-          <article class="stream-card">
-            <div class="stream-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-            </div>
-            <span class="stream-tag">For individuals and families settling in Alberta</span>
-            <h3>Newcomer &amp; Immigration</h3>
-            <p>You've arrived. The question is whether you know what to do first — before the windows that can't be recovered close quietly behind you.</p>
-            <a href="/services/newcomer-pathways.html" class="stream-more">Learn more</a>
           </article>
 
         </div>
@@ -384,29 +363,29 @@
 
 <article class="testi-card">
             <div class="testi-quote" aria-hidden="true">"</div>
-            <p>I did not just target the job. I volunteered with my team, in multiple sites. By the time I walked into that interview I wasn't nervous. I was ready. I had the role within weeks.</p>
+            <p>I didn't know there was a scholarship gated behind our immigration status. I didn't know the Edmonton option could save us $80,000. What I got was a list of things to do, in order, with deadlines.</p>
             <div class="testi-author">
-              <span class="testi-name">Fiona Kyomukama</span>
-              <span class="testi-role">Community Support Worker, Edmonton · Professional Development</span>
+              <span class="testi-name">Parent of a Grade 10 student</span>
+              <span class="testi-role">Edmonton · Career Consulting — High School</span>
+              <span class="testi-role" style="margin-top:6px;font-style:italic;">Name withheld to protect the privacy of a minor.</span>
             </div>
           </article>
 
           <article class="testi-card">
             <div class="testi-quote" aria-hidden="true">"</div>
-            <p>I didn't know there was a scholarship gated behind our immigration status. I didn't know the Edmonton option could save us $80,000. What I got was a list of things to do, in order, with deadlines.</p>
+            <p>I did not just target the job. I volunteered with my team, in multiple sites. By the time I walked into that interview I wasn't nervous. I was ready. I had the role within weeks.</p>
             <div class="testi-author">
-              <span class="testi-name">Parent of a Grade 10 student</span>
-              <span class="testi-role">Edmonton · Career Consulting — High School</span>
+              <span class="testi-name">Fiona Kyomukama</span>
+              <span class="testi-role">Community Support Worker, Edmonton · Career Review</span>
             </div>
           </article>
-
 
           <article class="testi-card">
             <div class="testi-quote" aria-hidden="true">"</div>
             <p>He helped me understand how my experience read here, what needed to change, and then built a whole campaign around it. I'm at NAIT now. That process got me here.</p>
             <div class="testi-author">
               <span class="testi-name">Barbara Esther Namuli</span>
-              <span class="testi-role">Operations & Project Management · Professional Development</span>
+              <span class="testi-role">Operations & Project Management · Career Review</span>
             </div>
           </article>
 
@@ -437,10 +416,8 @@
         <div>
           <span class="footer-col-head">What We Offer</span>
           <ul class="footer-links">
-            <li><a href="/services/professional-development.html">Professional Development</a></li>
             <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
             <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
-            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
           </ul>
         </div>
 
@@ -450,6 +427,7 @@
             <li><a href="/about.html">About Us</a></li>
             <li><a href="/work.html">Case Studies</a></li>
             <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/insights.html">Insights</a></li>
             <li><a href="/clients.html">Client Portal</a></li>
           </ul>
         </div>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leadership & Business Consulting | Olympia & Associates</title>
-  <meta name="description" content="Strategy sessions, business plans, facilitation, and executive coaching for founders, leaders, and organisations. Edmonton, Alberta. From $600 + GST.">
+  <title>Leadership &amp; Business Consulting | Résumé, LinkedIn &amp; Interview Prep | Olympia &amp; Associates</title>
+  <meta name="description" content="Leadership coaching, facilitation and talks, business strategy and project engagements, plus Career Review: résumé, LinkedIn and interview preparation for professionals in transition, including newcomer and internationally trained professionals. Edmonton, Alberta.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -232,7 +232,149 @@
     .artwork-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
     .artwork-frame:hover img { transform: scale(1.03); }
     .artwork-credit { margin-top: 10px; font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
-</style>
+/* §3 HOW THE ENGAGEMENT IS STRUCTURED */
+    .zones-section { padding: 72px 0; background: var(--near-black); }
+    .zones-section .section-label::before { background: var(--gold); }
+    .zones-section .section-label span { color: var(--gold-light); }
+    .zones-section h2 { color: var(--white); margin-bottom: 10px; }
+    .zones-intro { color: rgba(255,255,255,0.6); font-size: 1.0rem; max-width: 600px; margin-bottom: 36px; line-height: 1.7; }
+    .zones-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07); }
+    .zone-card { padding: 36px 32px; }
+    .zone-card.active-zone { background: var(--near-black); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid var(--gold); }
+    .zone-card.community-zone { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-top: 3px solid rgba(255,255,255,0.2); }
+    .zone-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; display: block; }
+    .zone-card.active-zone .zone-label { color: var(--gold-light); }
+    .zone-card.community-zone .zone-label { color: rgba(255,255,255,0.4); }
+    .zone-card h3 { font-size: 1.2rem; color: var(--white); margin-bottom: 14px; }
+    .zone-card p { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.65); margin-bottom: 12px; }
+    .zone-card p:last-of-type { margin-bottom: 0; }
+    .zone-details { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .zone-details li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.5; }
+    .zone-details li::before { content: '—'; color: var(--gold-light); flex-shrink: 0; }
+    .zone-card.community-zone .zone-details li::before { color: rgba(255,255,255,0.3); }
+    .zones-transition { margin-top: 24px; padding: 20px 24px; background: rgba(144,102,12,0.12); border: 1px solid rgba(144,102,12,0.25); border-left: 3px solid var(--gold); }
+    .zones-transition p { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.65; margin: 0; }
+    .zones-transition strong { color: var(--gold-light); }
+
+    /* §4 TWO MODELS + PROCESS */
+    .models-section { padding: 72px 0; background: var(--white); }
+    .models-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .model-card { background: var(--white); padding: 36px 32px; display: flex; flex-direction: column; }
+    .model-card.featured { background: var(--bg-warm); border-top: 3px solid var(--gold); }
+    .model-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: block; }
+    .model-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+    .model-desc { font-size: 0.9375rem; line-height: 1.7; color: var(--body-text); margin-bottom: 20px; }
+    .model-divider { height: 1px; background: var(--border); margin: 20px 0; }
+    .model-steps { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .model-steps li { display: flex; gap: 12px; align-items: flex-start; }
+    .step-dot { width: 22px; height: 22px; background: var(--bg-cool); border: 1.5px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.68rem; font-weight: 700; color: var(--gold); margin-top: 2px; }
+    .model-card.featured .step-dot { background: var(--white); }
+    .step-content h4 { font-size: 0.82rem; font-weight: 600; color: var(--near-black); text-transform: none; letter-spacing: 0; margin-bottom: 2px; }
+    .step-content p { font-size: 0.84rem; line-height: 1.55; color: var(--muted); margin: 0; }
+    .model-best { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--muted); font-style: italic; line-height: 1.5; }
+
+    /* §7 AVAILABILITY + WAITLIST */
+    .availability-section { padding: 72px 0; background: var(--gold); }
+    .avail-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .avail-stat { font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 6px; }
+    .avail-stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+    .avail-left h2 { color: var(--white); margin-top: 24px; margin-bottom: 16px; }
+    .avail-left p { color: rgba(255,255,255,0.85); margin-bottom: 14px; font-size: 1.0rem; }
+    .avail-right { background: var(--white); padding: 36px 32px; }
+    .avail-right h3 { font-size: 1.2rem; color: var(--near-black); margin-bottom: 8px; }
+    .avail-right > p { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; line-height: 1.65; }
+    .waitlist-form { display: flex; flex-direction: column; gap: 12px; }
+    .waitlist-form input, .waitlist-form select { padding: 13px 16px; font-family: var(--font-body); font-size: 0.9rem; border: 1.5px solid var(--border); background: var(--bg-warm); color: var(--near-black); border-radius: var(--radius); outline: none; transition: border-color 0.15s; }
+    .waitlist-form input:focus, .waitlist-form select:focus { border-color: var(--gold); background: var(--white); }
+    .waitlist-form input::placeholder { color: var(--muted); }
+    .waitlist-form select { color: var(--muted); }
+    .waitlist-form select option { color: var(--near-black); }
+    .btn-submit { background: var(--gold); color: var(--white); border: none; padding: 14px 24px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.18s; border-radius: var(--radius); }
+    .btn-submit:hover { background: var(--near-black); }
+    .waitlist-benefits { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .waitlist-benefits li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+    .waitlist-benefits li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+    
+    .case-dates { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--gold); display: block; margin-bottom: 2px; }
+    .case-dates-label { font-size: 0.75rem; color: var(--muted); display: block; margin-bottom: 16px; }
+    .pkg-model { font-size: 0.75rem; color: var(--muted); margin-bottom: 16px; line-height: 1.4; }
+    .pkg-card.featured .pkg-model { color: rgba(255,255,255,0.4); }
+
+    /* HALF BANNERS + IN-PAGE LINKS */
+    .half-banner { padding: 72px 0 40px; background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .half-banner .section-label { margin-bottom: 14px; }
+    .half-banner h2 { margin-bottom: 14px; max-width: 760px; }
+    .half-banner p { max-width: 720px; color: var(--muted); line-height: 1.75; margin-bottom: 18px; }
+    .half-links { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 6px; }
+    .half-links a { font-size: 0.85rem; font-weight: 600; color: var(--gold); }
+    .half-links a:hover { color: var(--near-black); }
+    .sub-banner { padding: 56px 0 8px; background: var(--white); }
+    .sub-banner h2 { max-width: 760px; margin-bottom: 12px; }
+    .sub-banner p { max-width: 720px; color: var(--muted); line-height: 1.75; }
+    .payment-line { margin-top: 16px; font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+    .packages-grid.three { grid-template-columns: repeat(3, 1fr); }
+    .case-grid.single { grid-template-columns: 1fr; }
+    .avail-inner > * { min-width: 0; }
+    .waitlist-form input, .waitlist-form select, .btn-submit { width: 100%; max-width: 100%; box-sizing: border-box; }
+    /* BUCKET ANCHORS: gold = Leadership, black = Business. Grey/white inside each. */
+    .half-banner { border-top: 0; }
+    .bucket-lead { background: var(--gold); }
+    .bucket-biz { background: var(--near-black); }
+    .bucket-lead .section-label::before, .bucket-biz .section-label::before { background: var(--white); }
+    .bucket-lead .section-label span { color: rgba(255,255,255,0.9); }
+    .bucket-biz .section-label span { color: var(--gold-light); }
+    .bucket-lead h2, .bucket-biz h2 { color: var(--white); }
+    .bucket-lead p { color: rgba(255,255,255,0.9); }
+    .bucket-biz p { color: rgba(255,255,255,0.65); }
+    .bucket-lead .half-links a { color: var(--white); text-decoration: underline; }
+    .bucket-biz .half-links a { color: var(--gold-light); }
+    .bucket-lead .half-links a:hover, .bucket-biz .half-links a:hover { color: var(--bg-cool); }
+    .tone-white { background: var(--white) !important; border-top: 0 !important; }
+    .tone-grey { background: var(--bg-cool) !important; border-top: 0 !important; }
+    .tone-white .type-card, .tone-white .model-card { background: var(--bg-warm); }
+    .tone-grey .type-card, .tone-grey .case-card { background: var(--white); }
+    .tone-grey .qualify-grid { background: var(--border); }
+    .tone-white .qualify-item { background: var(--bg-warm); }
+    .tone-white .types-grid, .tone-white .models-grid { background: var(--border); border: 1px solid var(--border); }
+    /* former dark sections become light inside the buckets */
+    .zones-section .section-label span, .process-section .section-label span { color: var(--gold); }
+    .zones-section h2, .process-section h2, .zone-card h3, .process-step h3 { color: var(--near-black); }
+    .zones-intro, .process-intro, .zone-card p, .zone-details li, .process-step p, .zones-transition p, .process-note p { color: var(--body-text); }
+    .zones-grid, .process-steps { background: var(--border); border: 1px solid var(--border); }
+    .zone-card.active-zone, .zone-card.community-zone, .process-step { background: var(--white); border: 0; }
+    .zone-card.active-zone { border-top: 3px solid var(--gold); }
+    .zone-card.community-zone { border-top: 3px solid var(--border); background: var(--bg-warm); }
+    .zone-card.active-zone .zone-label, .zone-card.community-zone .zone-label { color: var(--gold); }
+    .zone-details { border-top: 1px solid var(--border); }
+    .zone-details li::before, .zone-card.community-zone .zone-details li::before { color: var(--gold); }
+    .step-num { color: var(--border); }
+    .zones-transition, .process-note { background: var(--bg-warm); border: 1px solid var(--border); border-left: 3px solid var(--gold); }
+    .zones-transition strong, .process-note strong { color: var(--gold); }
+    .zones-transition .identity-note, .zones-transition .identity-note * { color: var(--body-text); }
+    .qualify-urgency { background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--gold); }
+    .qualify-urgency p { color: var(--body-text); }
+    .qualify-urgency strong { color: var(--gold); }
+    .case-card p.case-headline { flex: none; }
+    .zones-section .section-label::before, .process-section .section-label::before { background: var(--gold); }
+    /* shared band */
+    .shared-banner { padding: 56px 0 8px; background: var(--white); border-top: 4px solid var(--near-black); position: relative; }
+    .shared-banner::after { content: ''; position: absolute; left: 0; top: -4px; width: 50%; height: 4px; background: var(--gold); }
+    .shared-banner p { max-width: 720px; color: var(--muted); line-height: 1.75; }
+    .availability-section { background: var(--bg-warm) !important; border-top: 1px solid var(--border); }
+    .avail-stat { color: var(--gold); }
+    .avail-stat-label { color: var(--muted); }
+    .avail-left h2 { color: var(--near-black); }
+    .avail-left p { color: var(--body-text); }
+    .avail-right { border: 1px solid var(--border); }
+    .footer-cta { background: var(--near-black); }
+    .footer-cta h2 { color: var(--white); }
+    .footer-cta p { color: rgba(255,255,255,0.75); }
+    .footer-cta .btn { background: var(--gold); color: var(--white); border-color: var(--gold); }
+    .footer-cta .btn:hover { background: var(--white); color: var(--near-black); border-color: var(--white); }
+    @media (max-width: 1024px) { .avail-inner { grid-template-columns: 1fr; gap: 40px; } .packages-grid.three { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) { .zones-grid, .models-grid { grid-template-columns: 1fr; } .packages-grid.three { grid-template-columns: 1fr; } .avail-right { padding: 28px 20px; } }
+  </style>
 </head>
 <body>
 
@@ -252,9 +394,7 @@
           <a href="#" class="active" aria-haspopup="true">What We Offer</a>
           <ul class="dropdown">
             <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
-            <li><a href="/services/professional-development.html">Professional Development</a></li>
             <li><a href="/services/leadership-consulting.html" class="active">Leadership &amp; Business Consulting</a></li>
-            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
           </ul>
         </li>
         <li><a href="/contact.html">Reach Us</a></li>
@@ -268,9 +408,7 @@
     <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
       <a href="/about.html">About Us — Our Story</a>
       <a href="/services/career-consulting.html">Career Consulting — High School</a>
-      <a href="/services/professional-development.html">Professional Development</a>
       <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
-      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
       <a href="/work.html">Case Studies</a>
       <a href="/contact.html">Reach Us</a>
       <div class="drawer-cta">
@@ -281,17 +419,17 @@
 
   <main>
 
-    <!-- §1 HERO -->
     <section class="page-hero">
       <div class="container">
         <div class="page-hero-inner">
           <div class="page-hero-text">
 <span class="hero-tag">Leadership &amp; Business Consulting</span>
-        <h1>You have the vision.<br><em>The question is whether the structure<br>beneath it will hold.</em></h1>
-        <p class="lead" style="margin-top:16px;">Founders, executives, and team leaders come to Olympia &amp; Associates at a specific moment — when a major decision needs a thought partner, a plan needs pressure-testing, a team needs facilitation, or a business needs a strategy that can actually be executed. The accompaniment model is built for exactly those moments.</p>
+        <h1>You have the vision, or the experience. <em>The question is whether the structure beneath it will hold.</em></h1>
+        <p class="lead" style="margin-top:16px;">Leadership Consulting for people and teams at a turning point: coaching, facilitation and talks, and Career Review for professionals making a move, including newcomer and internationally trained professionals. Business Consulting for founders and organisations that need a plan pressure-tested, a strategy built, or a positioning that holds. One practice, one consultant, accompanied from the first call to the handoff.</p>
         <div class="hero-cta-row">
           <a href="https://calendly.com/ssennogab24/scopingcall" class="btn btn-primary" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
-          <a href="#qualify" class="hero-scroll">Is this for you? ↓</a>
+          <a href="#leadership" class="hero-scroll">Leadership Consulting ↓</a>
+          <a href="#business" class="hero-scroll">Business Consulting ↓</a>
         </div>          </div>
         <div class="page-hero-artwork" aria-hidden="true">
           <div class="artwork-frame">
@@ -301,12 +439,184 @@
         </div>
         </div>
       </div>
+    </section>
 
-    <!-- §2 IS THIS FOR YOU -->
-    <section class="qualify-section" id="qualify">
+    <!-- LEADERSHIP CONSULTING -->
+    <section class="half-banner bucket-lead" id="leadership">
+      <div class="container">
+        <div class="section-label"><span>Leadership Consulting</span></div>
+        <h2>For people and teams at a turning point.</h2>
+        <p>Leadership work is about people: a career that is not landing, a first-time manager without a framework, a team that needs a facilitator, a community that wants substantive content. Four ways to work together, all scoped to the moment.</p>
+        <div class="half-links">
+          <a href="#career-review">Career Review ↓</a>
+          <a href="#success-stories">Success stories ↓</a>
+          <a href="#business">Business Consulting →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="types-section tone-white" id="leadership-types">
+      <div class="container">
+        <div class="types-grid" style="margin-top:0;">
+
+          <div class="type-card">
+            <span class="type-tag">Career Review</span>
+            <h3>Your experience, rebuilt so Canadian employers can read it.</h3>
+            <p>A complete rebuild of your professional presence: a master résumé, a rebuilt LinkedIn profile, two job-prep coaching calls and an application strategy session, with interview preparation built in. For professionals in transition, newcomer and internationally trained professionals, and anyone whose experience is not landing with the right employers.</p>
+            <p class="type-good-for">Good for: a job search that is not converting, a move into a new industry or role, and building a professional presence for the Canadian market. <a href="#career-review" style="color:var(--gold);font-weight:600;">How Career Review works →</a></p>
+          </div>
+
+          <div class="type-card">
+            <span class="type-tag">Application Positioning Session</span>
+            <h3>One role, one focused hour.</h3>
+            <p>Review one specific job posting against your résumé and LinkedIn profile, identify the strongest positioning angle, and leave with concrete edits to make before you apply. No full rebuild required.</p>
+            <p class="type-good-for">Good for: a single high-value application, or a first step before deciding on a full Career Review.</p>
+          </div>
+
+          <div class="type-card">
+            <span class="type-tag">Leadership Coaching</span>
+            <h3>Structured coaching for leaders at a specific moment in their development.</h3>
+            <p>First-time managers navigating people dynamics for the first time. Experienced executives facing an organisational challenge that defies their existing frameworks. Business owners who have grown past the point where instinct alone is sufficient. The coaching model is simple: sit with the thinking, surface the frameworks, help the person move.</p>
+            <p>Coaching engagements are structured — not open-ended conversations. They begin with a diagnostic, follow a structured arc, and end with a clear picture of what changed and what comes next.</p>
+            <p class="type-good-for">Good for: first-time leaders, executives navigating complex decisions, business owners who need a structured thinking partner.</p>
+          </div>
+
+        
+          <div class="type-card">
+            <span class="type-tag">Facilitation &amp; Talks</span>
+            <h3>Content-rich sessions for teams, communities, and conference audiences.</h3>
+            <p>Eight-plus years of facilitation practice across Uganda and Canada — management workshops, leadership talks, team dynamics sessions, parenting and family leadership, PreMarital preparation, and professional clarity. The facilitation catalogue is broad. The standard is the same across every context: substantive content, practical framing, and a room that leaves with something real.</p>
+            <p>Facilitation is not a keynote that delivers content to an audience. It is a session that uses content to move an audience — from a problem to a framing, from a framing to a decision, from a decision to a next step.</p>
+            <p class="type-good-for">Good for: planning retreats, leadership workshops, faith community sessions, team development, conference talks, and professional association events.</p>
+          </div>
+
+          
+
+        </div>
+      </div>
+    </section>
+<section class="qualify-section tone-grey" id="career-review">
+      <div class="container">
+        <div class="section-label"><span>Career Review</span></div>
+        <h2>Is Career Review for you?</h2>
+        <p class="qualify-intro">Read through these statements honestly. Each one describes a situation that is easy to overlook and expensive to discover late.</p>
+        <div class="qualify-grid">
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I've been sending applications and not hearing back — or getting interviews but not converting them to offers.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>My résumé was built for a different market — it reads like it was written for employers in my home country, not in Canada.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>My LinkedIn profile hasn't been updated in over a year and doesn't reflect where I'm going — only where I've been.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I have strong international credentials, but I feel like Canadian employers are discounting them without really seeing what I've done.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I'm changing industries or roles and I don't know how to position my existing experience for a target I haven't held before.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I've been told my experience is strong — but nobody has helped me translate it into language the right employers will immediately recognise.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I don't have a targeted employer list — I'm applying broadly and hoping something lands, rather than running a real campaign.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I'm a newcomer professional who has been in Canada less than two years and I'm still learning how this job market works.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I've had the same job search routine for months — and the results haven't changed.</p>
+          </div>
+          <div class="qualify-item">
+            <div class="qualify-check"></div>
+            <p>I want to invest in a structured, professional approach — not keep doing what isn't working and expecting a different result.</p>
+          </div>
+        </div>
+        <!-- Full-width urgency block -->
+        <div class="qualify-urgency">
+          <p><strong>If you said yes to six or more — your job search needs a professional rebuild, not more applications.</strong> Every month spent with the wrong tools is a month of opportunities that went to someone whose résumé told the story better than yours. A scoping call is free. Rebuilding your approach after another six months of silence is not.</p>
+          <a href="https://calendly.com/ssennogab24/scopingcall" class="btn btn-white" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+        </div>
+      </div>
+    </section><section class="models-section tone-white">
+      <div class="container">
+        <div class="section-label"><span>Our model</span></div>
+        <h2>How Career Review is built.</h2>
+        <div class="models-grid" style="grid-template-columns: 1fr;">
+
+          <div class="model-card featured">
+            <span class="model-label">Done With You</span>
+            <h3>We build the strategy together and run the campaign collaboratively.</h3>
+            <p class="model-desc">We map your career preferences first — sector, org size, location, salary floor, role type. Then we build the assets together, target the employers, tailor each application, and adapt in real time. You're in it, not waiting on it. This model works across every client situation: a new market, a career change, internationally trained credentials, or a straightforward pivot. The accompaniment model means the thinking happens with you — not for you.</p>
+            <div class="model-divider"></div>
+            <ul class="model-steps">
+              <li>
+                <div class="step-dot">1</div>
+                <div class="step-content">
+                  <h4>Scoping call — free, 30 min</h4>
+                  <p>We discuss your situation, your target, and what a campaign for you would look like. Honest recommendation at the end.</p>
+                </div>
+              </li>
+              <li>
+                <div class="step-dot">2</div>
+                <div class="step-content">
+                  <h4>Intake session — 1 hr</h4>
+                  <p>Full work history, career preferences, target roles, and key achievements. Everything gathered in one focused session. This shapes every decision that follows.</p>
+                </div>
+              </li>
+              <li>
+                <div class="step-dot">3</div>
+                <div class="step-content">
+                  <h4>Build phase</h4>
+                  <p>Master résumé and LinkedIn built together, with rationale at each step. Multiple versions for different role types if needed. One revision round included.</p>
+                </div>
+              </li>
+              <li>
+                <div class="step-dot">4</div>
+                <div class="step-content">
+                  <h4>Active campaign</h4>
+                  <p>Target employer identification, application tailoring, post-interview follow-up. Run with you — not handed to you.</p>
+                </div>
+              </li>
+              <li>
+                <div class="step-dot">5</div>
+                <div class="step-content">
+                  <h4>Handoff or transition</h4>
+                  <p>If the role hasn't landed by engagement end, you move into the Olympia Community — an ongoing resource network for professionals still in search.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- BUSINESS CONSULTING -->
+    <section class="half-banner bucket-biz" id="business">
+      <div class="container">
+        <div class="section-label"><span>Business Consulting</span></div>
+        <h2>For founders and organisations that need the structure to hold.</h2>
+        <p>Business work is about plans: a strategy that needs pressure-testing, a business plan for a bank or investor, a positioning that does not match what you actually do, an organisation at an inflection point. Scoped to what the situation requires, time-bounded, and explained as it is built.</p>
+        <div class="half-links">
+          <a href="#success-stories">Success stories ↓</a>
+          <a href="#leadership">← Leadership Consulting</a>
+        </div>
+      </div>
+    </section>
+<section class="qualify-section tone-white" id="business-fit">
       <div class="container">
         <div class="section-label"><span>Self-assessment</span></div>
-        <h2>Is this service for your organisation or team?</h2>
+        <h2>Is Business Consulting for your organisation?</h2>
         <p class="qualify-intro">These statements describe the situations that typically bring leaders to a scoping call. Read them honestly — the more you recognise, the more urgent the conversation.</p>
         <div class="qualify-grid">
           <div class="qualify-item">
@@ -356,9 +666,41 @@
         </div>
       </div>
     </section>
+    <section class="types-section tone-grey" id="business-types">
+      <div class="container">
+        <div class="section-label"><span>What we do</span></div>
+        <h2>Two ways to engage. Both scoped to the moment.</h2>
+        <div class="types-grid">
+          <div class="type-card">
+            <span class="type-tag">Strategy Session</span>
+            <h3>A focused half-day on a specific problem or opportunity.</h3>
+            <p>Preparation, a structured session, and a written output. Best for leaders who have a specific decision to make, a challenge to reframe, or a direction to pressure-test — and who need a structured conversation with someone who has done this before, not a sounding board.</p>
+            <p>The session is not a presentation. It is a working session — with frameworks applied to your actual situation, real-time analysis, and a written output that captures the thinking and the next steps.</p>
+            <p class="type-good-for">Good for: a specific strategic decision, a challenge that needs reframing, or a plan that needs testing before commitment.</p>
+          </div>
 
-    <!-- §3 HOW THE ENGAGEMENT IS STRUCTURED -->
-    <section class="process-section" id="process">
+          
+          <div class="type-card">
+            <span class="type-tag">Project Engagement</span>
+            <h3>A scoped engagement with defined deliverables and a clear end point.</h3>
+            <p>For situations that require more than a half-day — a competitive analysis, a positioning framework, a full business plan, a digital presence build, a governance document. The engagement is scoped after the scoping call, structured around specific deliverables, and delivered with the rationale explained at every step.</p>
+            <p>This is the format used for the Janzen Family Care and Haven Icecream engagements. It is what the accompaniment model was built for.</p>
+            <p class="type-good-for">Good for: business plans, competitive research, positioning, digital presence strategy, governance frameworks, strategic documents.</p>
+          </div>
+
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- ACROSS BOTH PRACTICES -->
+    <section class="shared-banner" id="both">
+      <div class="container">
+        <div class="section-label"><span>Across both practices</span></div>
+        <p>However you start, in Leadership or in Business, the engagement is built the same way: a defined scope, one accountable name, and a plain account of what happens when the work ends.</p>
+      </div>
+    </section>
+<section class="process-section tone-white" id="process">
       <div class="container">
         <div class="section-label"><span>How the engagement is structured</span></div>
         <h2>What working together looks like.</h2>
@@ -389,144 +731,76 @@
           <p><strong>What this is not:</strong> fractional executive work, open-ended advisory, or consulting that produces documents nobody reads. Every engagement is scoped, time-bounded, and sized to what the situation actually requires — not to demonstrate how much work was done.</p>
         </div>
       </div>
-    </section>
-
-    <!-- §4 ENGAGEMENT TYPES -->
-    <section class="types-section" id="types">
+    </section><section class="zones-section tone-grey" id="structure">
       <div class="container">
-        <div class="section-label"><span>What we do</span></div>
-        <h2>Four ways to engage. All scoped to the moment.</h2>
-        <div class="types-grid">
-
-          <div class="type-card">
-            <span class="type-tag">Strategy Session</span>
-            <h3>A focused half-day on a specific problem or opportunity.</h3>
-            <p>Preparation, a structured session, and a written output. Best for leaders who have a specific decision to make, a challenge to reframe, or a direction to pressure-test — and who need a structured conversation with someone who has done this before, not a sounding board.</p>
-            <p>The session is not a presentation. It is a working session — with frameworks applied to your actual situation, real-time analysis, and a written output that captures the thinking and the next steps.</p>
-            <div class="type-price">from $600 <span>+ GST · half-day (~4 hrs)</span></div>
-            <p class="type-good-for">Good for: a specific strategic decision, a challenge that needs reframing, or a plan that needs testing before commitment.</p>
+        <div class="section-label"><span>How the engagement is structured</span></div>
+        <h2>Two zones. You start in one and move to the other.</h2>
+        <p class="zones-intro">Outcomes don't always arrive on a schedule, but a consulting engagement cannot run indefinitely, for your sake as much as ours. This is how every engagement, in either practice, is structured, and how we stay useful after the contracted work ends.</p>
+        <div class="zones-grid">
+          <div class="zone-card active-zone">
+            <span class="zone-label">Zone 1 — Active Engagement</span>
+            <h3>The contracted work. Defined scope. Full attention.</h3>
+            <p>This is the paid engagement: a Career Review, a coaching series, a facilitation, a strategy session or a project. It runs for the scope and timeline in your contract. During this phase you have direct access to Brian Ssennoga and real-time adaptation as the work develops.</p>
+            <p>The active engagement ends when the scope is complete, not when the outcome arrives. For Career Review clients, most land during or shortly after this phase. Some do not, and that is handled honestly.</p>
+            <ul class="zone-details">
+              <li>Deliverables built to the agreed scope</li>
+              <li>Application tailoring and employer targeting (Career Review)</li>
+              <li>Direct consultant access throughout</li>
+              <li>Coaching calls and interview preparation where in scope</li>
+            </ul>
           </div>
-
-          <div class="type-card">
-            <span class="type-tag">Project Engagement</span>
-            <h3>A scoped engagement with defined deliverables and a clear end point.</h3>
-            <p>For situations that require more than a half-day — a competitive analysis, a positioning framework, a full business plan, a digital presence build, a governance document. The engagement is scoped after the scoping call, structured around specific deliverables, and delivered with the rationale explained at every step.</p>
-            <p>This is the format used for the Janzen Family Care and Haven Icecream engagements. It is what the accompaniment model was built for.</p>
-            <div class="type-price">from $1,200 <span>+ GST · minimum 8 hrs · scoped per project</span></div>
-            <p class="type-good-for">Good for: business plans, competitive research, positioning, digital presence strategy, governance frameworks, strategic documents.</p>
+          <div class="zone-card community-zone">
+            <span class="zone-label">Zone 2 — Olympia Community</span>
+            <h3>Post-engagement support for Career Review. Light-touch. Ongoing.</h3>
+            <p>When the active engagement concludes, Career Review clients who haven't yet landed transition into the Olympia Community — a WhatsApp-based professional group where job opportunities, resources, and market intelligence are shared on an ongoing basis.</p>
+            <p>This is not a paid service. It is a community of professionals who have gone through the same process. Job leads get shared. Referrals happen. The relationship continues — just in a different mode.</p>
+            <ul class="zone-details">
+              <li>WhatsApp-based — low friction, high relevance</li>
+              <li>Curated job opportunities shared as they surface</li>
+              <li>Peer connections with professionals in similar transitions</li>
+              <li>Occasional group resources and workshops</li>
+              <li>No time limit — stay as long as it's useful</li>
+            </ul>
           </div>
-
-          <div class="type-card">
-            <span class="type-tag">Facilitation &amp; Talks</span>
-            <h3>Content-rich sessions for teams, communities, and conference audiences.</h3>
-            <p>Eight-plus years of facilitation practice across Uganda and Canada — management workshops, leadership talks, team dynamics sessions, parenting and family leadership, PreMarital preparation, and professional clarity. The facilitation catalogue is broad. The standard is the same across every context: substantive content, practical framing, and a room that leaves with something real.</p>
-            <p>Facilitation is not a keynote that delivers content to an audience. It is a session that uses content to move an audience — from a problem to a framing, from a framing to a decision, from a decision to a next step.</p>
-            <div class="type-price">from $750 <span>+ GST · half-day; full day from $1,500; keynote quoted per event</span></div>
-            <p class="type-good-for">Good for: planning retreats, leadership workshops, faith community sessions, team development, conference talks, and professional association events.</p>
-          </div>
-
-          <div class="type-card">
-            <span class="type-tag">Leadership Coaching</span>
-            <h3>Structured coaching for leaders at a specific moment in their development.</h3>
-            <p>First-time managers navigating people dynamics for the first time. Experienced executives facing an organisational challenge that defies their existing frameworks. Business owners who have grown past the point where instinct alone is sufficient. The coaching model is simple: sit with the thinking, surface the frameworks, help the person move.</p>
-            <p>Coaching engagements are structured — not open-ended conversations. They begin with a diagnostic, follow a structured arc, and end with a clear picture of what changed and what comes next.</p>
-            <div class="type-price">from $150 <span>+ GST / hr · typically structured as 4–8 session series</span></div>
-            <p class="type-good-for">Good for: first-time leaders, executives navigating complex decisions, business owners who need a structured thinking partner.</p>
-          </div>
-
+        </div>
+        <div class="zones-transition">
+          <p><strong>Why this structure exists:</strong> rather than extending the engagement indefinitely at full consulting rate — which creates a bad dynamic for both parties — the Community Zone keeps the relationship alive and useful without misrepresenting what a consulting engagement can promise. We cannot guarantee a job or a business outcome. We can guarantee the work, the tools, and continued connection after the contracted work is done.</p>
+      <p class="identity-note"> Every engagement runs under one name: Brian Ssennoga, Olympia &amp; Associates, Alberta trade name TN27173962. One person, one signature, one accountable name on everything you receive — check it against anything sent to you. 
+</p>
         </div>
       </div>
-    </section>
-
-    <!-- §5 YOUR INVESTMENT -->
-    <section class="packages-section" id="packages">
+    </section><section class="case-section tone-white" id="success-stories">
       <div class="container">
-        <div class="section-label"><span>Your Investment</span></div>
-        <h2>Four engagement types. All prices CAD + GST.</h2>
-        <div class="packages-grid">
-
-          <div class="pkg-card">
-            <span class="pkg-badge">Half-day</span>
-            <h3>Strategy Session</h3>
-            <p class="pkg-sub">Focused problem or opportunity · prep + session + written output</p>
-            <div class="pkg-price">$600</div>
-            <div class="pkg-gst">+ GST · ~4 hours</div>
-            <div class="pkg-divider"></div>
-            <ul class="pkg-includes">
-              <li>Pre-session preparation and briefing</li>
-              <li>Half-day structured session</li>
-              <li>Written output with decisions and next steps</li>
-            </ul>
-          </div>
-
-          <div class="pkg-card">
-            <span class="pkg-badge">Full day</span>
-            <h3>Day Rate</h3>
-            <p class="pkg-sub">On-site or virtual · facilitation, workshops, planning</p>
-            <div class="pkg-price">$1,200</div>
-            <div class="pkg-gst">+ GST · ~8 hours</div>
-            <div class="pkg-divider"></div>
-            <ul class="pkg-includes">
-              <li>Preparation and agenda design</li>
-              <li>Full-day delivery</li>
-              <li>Session summary and follow-up notes</li>
-            </ul>
-          </div>
-
-          <div class="pkg-card featured">
-            <span class="pkg-badge">Primary offering</span>
-            <h3>Project Engagement</h3>
-            <p class="pkg-sub">Scoped per project · minimum 8 hrs</p>
-            <div class="pkg-price">from $1,200</div>
-            <div class="pkg-gst">+ GST · scoped and quoted after scoping call</div>
-            <div class="pkg-divider"></div>
-            <ul class="pkg-includes">
-              <li>Research, analysis, and framework development</li>
-              <li>Strategy documents, plans, and briefs</li>
-              <li>Business plans and financial models</li>
-              <li>Digital presence strategy and builds</li>
-              <li>Governance documents and implementation briefs</li>
-            </ul>
-          </div>
-
-          <div class="pkg-card">
-            <span class="pkg-badge">Facilitation</span>
-            <h3>Talk or Facilitation</h3>
-            <p class="pkg-sub">Community, corporate, or conference</p>
-            <div class="pkg-price">from $750</div>
-            <div class="pkg-gst">+ GST · half-day; full day from $1,500</div>
-            <div class="pkg-divider"></div>
-            <ul class="pkg-includes">
-              <li>Topic brief and preparation</li>
-              <li>Session design and delivery</li>
-              <li>Keynote: quoted per event</li>
-            </ul>
-          </div>
-
-        </div>
-        <p style="margin-top:16px; font-size:0.82rem; color:var(--muted);">All prices CAD. GST (757324769RC001) applies. Project Engagements: 30/40/30 payment split. Strategy Sessions and shorter engagements: 30% on signing, balance on delivery. No work begins without initial payment received.</p>
-      </div>
-    </section>
-
-    <!-- §6 WORK IN PRACTICE -->
-    <section class="case-section" id="work">
-      <div class="container">
-        <div class="section-label"><span>The work in practice</span></div>
-        <h2>Two engagements. Two very different situations.</h2>
+        <div class="section-label"><span>Success stories</span></div>
+        <h2>Real clients. Real outcomes.</h2>
         <div class="case-grid">
 
           <article class="case-card">
-            <div class="case-tag">Project Engagement · Digital Presence &amp; Positioning</div>
-            <h3>Janzen Family Care</h3>
-            <p class="case-headline">From solo practice to positioned service.</p>
-            <p>Candice Janzen had a family navigation service that worked — and a digital presence that didn't reflect how distinctive it actually was. The engagement ran four phases: competitive analysis across three comparator organisations, positioning gap matrix and page blueprints, a full multi-page HTML website build, and an AI Implementation Brief governing AI use within the practice. Every decision was explained in plain language as it was made.</p>
-            <span class="case-stat">4</span>
-            <span class="case-stat-label">phases from blank canvas to launched practice</span>
+            <div class="case-tag">Career Review (formerly Career Launch Bundle)</div>
+            <h3>Maureen Mutesasira</h3>
+            <p class="case-headline">Fifteen years of HR leadership. Rebuilt for the Canadian market.</p>
+            <p>Fifteen years of HR across talent acquisition, OD, compensation design, and labour relations. The challenge wasn't qualifications — it was professional presence. LinkedIn rebuilt from scratch with eight headline options and three bio versions. Government of Alberta and post-secondary sector as primary targets, employer-level contact mapping, and post-interview follow-up templates.</p>
+            <span class="case-dates">Started December · Hired May</span>
+            <span class="case-dates-label">Edmonton</span>
             <div class="case-quote">
-              <p>"The site finally looks and reads like what I've actually built."</p>
-              <cite>— Candice Janzen, Founder, Janzen Family Care, Edmonton <span style="font-size:0.7rem;">(confirmation pending)</span></cite>
+              <p>"I had built fifteen years of real HR experience — I just needed a way to present it so Canadian employers could immediately see my value. Brian rebuilt my professional presence from the ground up: the LinkedIn headlines, the bios, the application strategy, even the follow-up after interviews. Within a short period, I secured a role that aligned with my experience and career goals. My advice to anyone going through this process: follow Brian's guidance and trust his process — success doesn't happen by accident. It happens because the groundwork was laid properly."</p>
+              <cite>— Maureen Mutesasira, Edmonton</cite>
             </div>
-            <span class="case-pkg">Project Engagement · from $1,200 + GST</span>
+            <span class="case-pkg">Career Review</span>
+          </article>
+
+          <article class="case-card">
+            <div class="case-tag">Career Review (formerly Career Launch Bundle)</div>
+            <h3>Fiona Kyomukama</h3>
+            <p class="case-headline">Nineteen years of service. Prepared to speak to every bit of it.</p>
+            <p>Nineteen years at Watoto Child Care Ministries — 200+ children supported, trauma-informed care, crisis intervention, team management across four countries. The interview was the gap. Full interview preparation across ten competency areas, with STAR-format responses built from her actual history. Faith-based community support roles require candidates who can speak fluently about their philosophy of care — the preparation made sure the interview reflected her depth.</p>
+            <span class="case-dates">Started May · Hired August</span>
+            <span class="case-dates-label">Community Support Worker, Edmonton</span>
+            <div class="case-quote" style="margin-top: auto;">
+              <p>"I did not just target the job. I volunteered with my team, in multiple sites. By the time I walked into that interview I wasn't nervous. I was ready. I had the role within weeks."</p>
+              <cite>— Fiona Kyomukama, Community Support Worker, Edmonton</cite>
+            </div>
+            <span class="case-pkg">Career Review</span>
           </article>
 
           <article class="case-card">
@@ -540,33 +814,83 @@
               <p>"The content was substantive and immediately applicable — not the kind of session you forget before you leave the room."</p>
               <cite>— Session participant, Edmonton, March 2026</cite>
             </div>
-            <span class="case-pkg">Facilitation · from $750 + GST per session</span>
+            <span class="case-pkg">Facilitation</span>
           </article>
-
+          <article class="case-card">
+            <div class="case-tag">Project Engagement · Digital Presence &amp; Positioning</div>
+            <h3>Janzen Family Care</h3>
+            <p class="case-headline">From solo practice to positioned service.</p>
+            <p>Candice Janzen had a family navigation service that worked — and a digital presence that didn't reflect how distinctive it actually was. The engagement ran four phases: competitive analysis across three comparator organisations, positioning gap matrix and page blueprints, a full multi-page HTML website build, and an AI Implementation Brief governing AI use within the practice. Every decision was explained in plain language as it was made.</p>
+            <span class="case-stat">4</span>
+            <span class="case-stat-label">phases from blank canvas to launched practice</span>
+            <div class="case-quote">
+              <p>"The site finally looks and reads like what I've actually built."</p>
+              <cite>— Candice Janzen, Founder, Janzen Family Care, Edmonton <span style="font-size:0.7rem;">(confirmation pending)</span></cite>
+            </div>
+            <span class="case-pkg">Project Engagement</span>
+          </article>
         </div>
         <div style="margin-top:20px; text-align:right;">
-          <a href="/work.html" class="btn-link">See all case studies</a>
+          <a href="/work.html" class="btn-link">Read all case studies, including Barbara and Lynn</a>
+        </div>
+      </div>
+    </section>
+    <section class="availability-section" id="waitlist">
+      <div class="container">
+        <div class="avail-inner">
+          <div class="avail-left">
+            <div class="avail-stat">2</div>
+            <p class="avail-stat-label">new engagements per month</p>
+            <h2>The limit is there because the work demands it.</h2>
+            <p>Every engagement works directly with Brian Ssennoga. Career Review in particular requires active, ongoing attention: reviewing applications, adapting messaging, preparing for interviews. Strategy and project work needs the same focus.</p>
+            <p>Two new engagements per month is that ceiling. When spots are full, you join the waitlist and hear back within 48 hours with your estimated wait time.</p>
+          </div>
+          <div class="avail-right">
+            <h3>Join the waitlist</h3>
+            <p>Leave your details and we will be in touch within 48 hours with your estimated wait time and a first resource matched to your situation, where one fits.</p>
+            <form class="waitlist-form" action="mailto:brian@olympia-associates.ca" method="get" enctype="text/plain">
+              <input type="text" name="name" placeholder="Your name" required>
+              <input type="email" name="email" placeholder="Email address" required>
+              <select name="interest">
+                <option value="" disabled selected>What would you like to talk about?</option>
+                <option value="career-review">Career Review: résumé, LinkedIn and interviews</option>
+                <option value="positioning">Application Positioning Session</option>
+                <option value="coaching">Coaching</option>
+                <option value="facilitation">A talk or facilitation</option>
+                <option value="business">Strategy Session or Project Engagement</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+              <input type="text" name="context" placeholder="One sentence: what's your situation? (optional)">
+              <button type="submit" class="btn-submit">Join the waitlist →</button>
+            </form>
+            <ul class="waitlist-benefits">
+              <li>A first resource matched to your situation, where one fits</li>
+              <li>Access to the Olympia Community while you wait (Career Review)</li>
+              <li>Direct notification when a spot opens</li>
+              <li>No obligation — leave at any time</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PRIVACY — full width, icon sized to text, center-justified -->
     <section class="privacy-note">
       <div class="container">
         <div class="privacy-inner" >
           <div class="privacy-icon" >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <p>Leadership and business consulting engagements involve sensitive organisational information — strategy, personnel context, financial circumstances, and operational detail. This information is handled under strict confidentiality, used only to perform the agreed services, never submitted to an AI tool, and not shared with third parties. We are governed by PIPEDA (federal) and Alberta's PIPA. For organisational clients, we welcome legal review of our <a href="/terms.html">Terms of Service</a> before signing. Full privacy commitments are set out in our <a href="/privacy.html">Privacy Policy</a> — both documents are written in plain language and available before you sign anything.</p>
+          <div>
+          <p>Career Review involves your personal information at depth: full work history, salary expectations, career goals, and personal circumstances. Business and leadership engagements involve sensitive organisational information: strategy, personnel context, financial circumstances, and operational detail. All of it is handled in confidence, used only to perform the agreed services, never submitted to an AI tool, and not shared with third parties. We are governed by PIPEDA (federal) and Alberta's PIPA. Organisational clients are welcome to have our <a href="/terms.html">Terms of Service</a> reviewed before signing; full commitments are in our <a href="/privacy.html">Privacy Policy</a>.</p>
+          <p class="payment-line" style="margin-top:12px;">Pricing is shared on your scoping call and in writing before you commit. All prices CAD. GST (757324769RC001) applies to all billable work. Payment: under $800 — 30% on signing, 70% on delivery; $800 to $1,500 — 30% on signing, 40% at midpoint, 30% on delivery; over $1,500 and retainers — 30% on signing, then bi-weekly installments. No work begins without initial payment received.</p>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- FOOTER CTA -->
-    <section class="footer-cta">
+<section class="footer-cta">
       <div class="container">
         <h2>Start with a conversation.</h2>
-        <p>30 minutes. Free. No commitment. We'll be direct about whether there's a fit.</p>
+        <p>30 minutes. Free. No commitment. We'll tell you honestly whether there's a fit, and whether a spot is open.</p>
         <a href="https://calendly.com/ssennogab24/scopingcall" class="btn" target="_blank" rel="noopener">Book my free 30-min scoping call →</a>
       </div>
     </section>
@@ -583,10 +907,8 @@
         <div>
           <span class="footer-col-head">What We Offer</span>
           <ul class="footer-links">
-            <li><a href="/services/professional-development.html">Professional Development</a></li>
             <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
             <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
-            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
           </ul>
         </div>
         <div>
@@ -595,6 +917,7 @@
             <li><a href="/about.html">About Us</a></li>
             <li><a href="/work.html">Case Studies</a></li>
             <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/insights.html">Insights</a></li>
             <li><a href="/clients.html">Client Portal</a></li>
           </ul>
         </div>

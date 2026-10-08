@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Career Consulting — High School | Olympia & Associates</title>
-  <meta name="description" content="Pathway planning for students in Grades 9–12. NOC/TEER analysis, scholarship calendars, academic roadmaps. Edmonton, Alberta. From $750 + GST.">
+  <title>High School Career Consulting, Edmonton | Pathway Planning for Grades 9–12 | Olympia & Associates</title>
+  <meta name="description" content="Career and pathway planning for students in Grades 9–12 and their families, including newcomer families settling in Alberta. NOC/TEER analysis, course selection, scholarship timelines, post-secondary cost comparison. Edmonton, Alberta; delivered remotely across Canada.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -249,6 +249,25 @@
     .artwork-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
     .artwork-frame:hover img { transform: scale(1.03); }
     .artwork-credit { margin-top: 10px; font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
+
+    /* Shared closing blocks, consistent with the Leadership & Business page */
+    .availability-section { background: var(--bg-cool); border-top: 1px solid var(--border); }
+    .avail-stat { color: var(--gold); }
+    .avail-stat-label { color: var(--muted); }
+    .avail-left h2 { color: var(--near-black) !important; }
+    .avail-left p { color: var(--body-text); }
+    .avail-right { border: 1px solid var(--border); }
+    .payment-line { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+    .footer-cta { background: var(--near-black); border-top: 0; }
+    .footer-cta h2 { color: var(--white); }
+    .footer-cta p { color: rgba(255,255,255,0.75); }
+    .footer-cta .btn { background: var(--gold); border-color: var(--gold); color: var(--white); }
+    .footer-cta .btn:hover { background: var(--white); border-color: var(--white); color: var(--near-black); }
+    .waitlist-form input, .waitlist-form select, .btn-submit { width: 100%; max-width: 100%; box-sizing: border-box; }
+    .avail-inner > * { min-width: 0; }
+    .case-inner { grid-template-columns: 1fr; }
+    .package-card.featured .package-grade, .package-card.featured .package-gst { color: rgba(255,255,255,0.7); }
+    .package-card.featured .package-note { color: rgba(255,255,255,0.65); border-top-color: rgba(255,255,255,0.15); }
 </style>
 </head>
 <body>
@@ -269,9 +288,7 @@
           <a href="#" class="active" aria-haspopup="true">What We Offer</a>
           <ul class="dropdown">
             <li><a href="/services/career-consulting.html" class="active">Career Consulting — High School</a></li>
-            <li><a href="/services/professional-development.html">Professional Development</a></li>
             <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
-            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
           </ul>
         </li>
         <li><a href="/contact.html">Reach Us</a></li>
@@ -285,9 +302,7 @@
     <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
       <a href="/about.html">About Us — Our Story</a>
       <a href="/services/career-consulting.html">Career Consulting — High School</a>
-      <a href="/services/professional-development.html">Professional Development</a>
       <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
-      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
       <a href="/work.html">Case Studies</a>
       <a href="/contact.html">Reach Us</a>
       <div class="drawer-cta">
@@ -318,6 +333,7 @@
         </div>
         </div>
       </div>
+    </section>
 
     <!-- §2 WHO THIS IS FOR -->
     <section class="who-section">
@@ -328,7 +344,7 @@
           <div class="who-col">
             <p>The parent typically reaches out first. The student is the one who does the work. Both are part of the process.</p>
             <p>At Olympia &amp; Associates, the student is the primary client — the person whose future is being planned. The parent is a partner in that planning — the person who carries the financial and logistical responsibility for making it happen. Both perspectives matter. Neither is ignored.</p>
-            <p>The parent signs the agreement and makes the payment. The student attends the sessions. The pathway report and all deliverables belong to the family. Geographic scope is national — grounded in Alberta but the post-secondary analysis covers institutions across Canada.</p>
+            <p>The parent signs the agreement and makes the payment. The student attends the sessions. The Exploration Guide, Career Action Plan and all other deliverables belong to the family. Delivery is remote and national — grounded in Alberta, with post-secondary analysis that covers institutions across Canada and particular attention to newcomer families settling in Alberta.</p>
           </div>
           <div class="who-col">
             <h4 style="margin-bottom:16px;">Irreversible windows most families miss</h4>
@@ -343,7 +359,7 @@
               </li>
               <li>
                 <span class="win-label">Immigration status dependencies</span>
-                <p>For newcomer families, government education grants — including the CESG attached to most RESPs — are gated behind immigration milestones. A SIN, an RCIC consultation, and registered beneficiary status can unlock grants already waiting to be claimed.</p>
+                <p>For newcomer families, government education grants — including the CESG attached to most RESPs — are gated behind immigration milestones. A SIN, an RCIC consultation, and registered beneficiary status can unlock grants already waiting to be claimed. We note your family's status because it changes scholarship and grant eligibility; questions about eligibility, applications or appeals belong to a licensed immigration consultant (RCIC) or lawyer, and we will point you to one.</p>
               </li>
             </ul>
           </div>
@@ -376,7 +392,7 @@
           </div>
           <div class="qualify-item">
             <div class="qualify-check"></div>
-            <p>We're a newcomer family and I'm not sure how our immigration status affects our education options, government grants, or RESP contributions.</p>
+            <p>We're a newcomer family settling in Alberta and I'm not sure how our status affects scholarships, government grants and RESP contributions, or how our child's foreign credits and schooling will be recognised.</p>
           </div>
           <div class="qualify-item">
             <div class="qualify-check"></div>
@@ -426,13 +442,13 @@
           </div>
           <div class="process-step">
             <div class="step-num">03</div>
-            <h3>NOC/TEER mapping &amp; research</h3>
-            <p>Student interests mapped against National Occupational Classification codes and TEER levels — identifying credential pathways, institution options, cost comparisons, and the financial aid landscape specific to this student's situation and family context.</p>
+            <h3>NOC/TEER mapping &amp; Exploration Guide</h3>
+            <p>Student interests mapped against National Occupational Classification codes and TEER levels. You receive an Exploration Guide of five possible futures and a Delivery Deck: credential pathways, institution options, cost comparisons, and the financial aid landscape specific to this student and family.</p>
           </div>
           <div class="process-step">
             <div class="step-num">04</div>
-            <h3>Pathway report &amp; coaching</h3>
-            <p>A written plan delivered to the family: academic roadmap, scholarship targets with deadlines, community arc, and a prioritised action list. Pathways package includes two coaching calls with the student and a parent briefing session.</p>
+            <h3>Decision gate &amp; Career Action Plan</h3>
+            <p>The student chooses which futures to pursue. From that decision we build the Career Action Plan: academic roadmap, scholarship targets with deadlines, community arc, a prioritised action list, an Action Plan Deck and a Calendar Handout. Pathways includes two coaching calls and a parent briefing.</p>
           </div>
         </div>
       </div>
@@ -441,22 +457,22 @@
     <!-- §5 INVESTMENT -->
     <section class="packages-section" id="packages">
       <div class="container">
-        <div class="section-label"><span>Your Investment</span></div>
-        <h2>Two packages. One add-on. All prices CAD + GST.</h2>
+        <div class="section-label"><span>What is included</span></div>
+        <h2>Two packages. One add-on. Matched to your student's grade.</h2>
         <div class="packages-grid">
 
           <div class="package-card">
             <span class="package-badge">Foundations</span>
             <h3>Foundations</h3>
             <p class="package-grade">Best for Grade 9–10 · Maximum runway, widest scholarship windows</p>
-            <div class="package-price">$750</div>
-            <div class="package-gst">+ GST · approx. 5 hours</div>
+            <div class="package-gst" style="margin-bottom:4px;">approx. 5 hours</div>
             <div class="package-divider"></div>
             <ul class="package-includes">
               <li>Discovery session (1.5 hrs)</li>
               <li>NOC/TEER pathway mapping</li>
-              <li>Written pathway report</li>
+              <li>Exploration Guide (five futures) + Delivery Deck</li>
               <li>Follow-up call (1 hr)</li>
+              <li>Career Action Plan, for Grade 9–10 students in the pipeline</li>
             </ul>
             <p class="package-note">The earlier the engagement, the more we can build. Grade 9–10 families have the most course selection flexibility and the widest scholarship windows still open.</p>
           </div>
@@ -465,37 +481,35 @@
             <span class="package-badge">Primary offering</span>
             <h3>Pathways</h3>
             <p class="package-grade">Best for Grade 11–12 · Post-secondary decisions imminent</p>
-            <div class="package-price">$1,500</div>
-            <div class="package-gst">+ GST · approx. 10 hours</div>
+            <div class="package-gst" style="margin-bottom:4px;">approx. 10 hours</div>
             <div class="package-divider"></div>
             <ul class="package-includes">
               <li>Discovery session (1.5 hrs)</li>
               <li>Deep NOC/TEER analysis</li>
-              <li>Written pathway report + institution shortlist</li>
+              <li>Exploration Guide + Delivery Deck + institution shortlist</li>
               <li>Two coaching calls (2 hrs)</li>
               <li>Parent briefing session (1 hr)</li>
+              <li>After the decision gate: Career Action Plan, Action Plan Deck and Calendar Handout</li>
             </ul>
-            <p class="package-note">The primary offering for families where post-secondary applications are imminent and decisions are real. Specific, urgent, and worth every dollar.</p>
+            <p class="package-note">The primary offering for families where post-secondary applications are imminent and decisions are real. Specific, urgent, and built to be acted on.</p>
           </div>
 
           <div class="package-card">
             <span class="package-badge">Add-on</span>
             <h3>Family Navigation</h3>
             <p class="package-grade">Applies to either package · For families who want full alignment</p>
-            <div class="package-price">$300</div>
-            <div class="package-gst">+ GST · approx. 2 hours</div>
+            <div class="package-gst" style="margin-bottom:4px;">approx. 2 hours</div>
             <div class="package-divider"></div>
             <ul class="package-includes">
               <li>Parent briefing session</li>
               <li>Written family summary</li>
               <li>Q&amp;A call</li>
-              <li>Add a sibling — $150 + GST</li>
+              <li>Add a sibling to the family plan</li>
             </ul>
             <p class="package-note">For families where parents want a dedicated session on financial planning, timelines, and how to actively support the student's direction — not just receive the report.</p>
           </div>
 
         </div>
-        <p style="margin-top:16px; font-size:0.82rem; color:var(--muted);">All prices CAD. GST (757324769RC001) applies to all billable work. Payment: 30% on signing, balance on delivery (under $800) or 30/40/30 (over $800). No work begins without initial payment received.</p>
       </div>
     </section>
 
@@ -519,7 +533,7 @@
               <p>"I didn't know there was a scholarship gated behind our immigration status. I didn't know the Edmonton option could save us $80,000. What I got was a list of things to do, in order, with deadlines."</p>
               <cite>— Parent of a Grade 10 student, Edmonton</cite>
             </div>
-            <span class="case-pkg">$1,050 + GST · Foundations + Family Navigation add-on</span>
+            <span class="case-pkg">Foundations + Family Navigation add-on</span>
           </article>
 
         </div>
@@ -544,14 +558,14 @@
           <div class="avail-right">
             <h3>Join the waitlist</h3>
             <p>Leave your details below. You'll hear back within 48 hours with your estimated wait time and your first free resource.</p>
-            <form class="waitlist-form" action="mailto:hello@olympia-associates.ca" method="get" enctype="text/plain">
+            <form class="waitlist-form" action="mailto:brian@olympia-associates.ca" method="get" enctype="text/plain">
               <input type="text" name="name" placeholder="Parent name" required>
               <input type="email" name="email" placeholder="Email address" required>
               <input type="text" name="grade" placeholder="Student's current grade (e.g. Grade 10)">
               <button type="submit" class="btn-submit">Join the waitlist →</button>
             </form>
             <ul class="waitlist-benefits">
-              <li>Free practical resource on your student's grade stage — delivered immediately</li>
+              <li>A free practical resource matched to your student's grade stage</li>
               <li>Early access to workshops and group sessions as they open</li>
               <li>Direct updates when a spot becomes available</li>
               <li>No obligation — leave the waitlist at any time</li>
@@ -586,7 +600,10 @@
           <div class="privacy-icon" >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
+          <div>
           <p>Your student is a minor. Their academic record, interests, and any personal information shared during the engagement are handled with heightened care — used only to perform the agreed services, never submitted to an AI tool, and not shared with third parties. We are governed by PIPEDA (federal) and Alberta's PIPA. Full details in our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Service</a>.</p>
+          <p class="payment-line" style="margin-top:12px;">Pricing is shared on your scoping call and in writing before you commit. All prices CAD. GST (757324769RC001) applies to all billable work. Payment: under $800 — 30% on signing, 70% on delivery; $800 to $1,500 — 30% on signing, 40% at midpoint, 30% on delivery; over $1,500 — 30% on signing, then bi-weekly installments. No work begins without initial payment received.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -612,10 +629,8 @@
         <div>
           <span class="footer-col-head">What We Offer</span>
           <ul class="footer-links">
-            <li><a href="/services/professional-development.html">Professional Development</a></li>
             <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
             <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
-            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
           </ul>
         </div>
         <div>
@@ -624,6 +639,7 @@
             <li><a href="/about.html">About Us</a></li>
             <li><a href="/work.html">Case Studies</a></li>
             <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/insights.html">Insights</a></li>
             <li><a href="/clients.html">Client Portal</a></li>
           </ul>
         </div>

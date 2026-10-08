@@ -175,6 +175,21 @@
     .artwork-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
     .artwork-frame:hover img { transform: scale(1.03); }
     .artwork-credit { margin-top: 10px; font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
+
+    /* PAYMENT */
+    .payment-section { padding: 72px 0; background: var(--white); border-top: 1px solid var(--border); }
+    .payment-intro { max-width: 720px; margin-top: 10px; color: var(--muted); line-height: 1.75; }
+    .pay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 32px; }
+    .pay-card { background: var(--bg-warm); padding: 32px 28px; border-top: 3px solid var(--gold); }
+    .pay-band { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
+    .pay-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .pay-card p { font-size: 0.9rem; line-height: 1.65; color: var(--body-text); }
+    .payment-note { margin-top: 20px; font-size: 0.85rem; line-height: 1.7; color: var(--muted); max-width: 760px; }
+    .payment-note a { color: var(--gold); font-weight: 600; }
+    .boundary-firmwide { margin-top: 24px; padding: 20px 24px; background: var(--bg-warm); border: 1px solid var(--border); border-left: 3px solid var(--gold); }
+    .boundary-firmwide .caution-label { display: block; margin-bottom: 6px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+    .boundary-firmwide p { font-size: 0.9rem; line-height: 1.7; color: var(--body-text); }
+    @media (max-width: 900px) { .pay-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -194,10 +209,8 @@
         <li class="has-dropdown">
           <a href="#" aria-haspopup="true">What We Offer</a>
           <ul class="dropdown">
-            <li><a href="/services/professional-development.html">Professional Development</a></li>
             <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
             <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
-            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
           </ul>
         </li>
         <li><a href="/contact.html">Reach Us</a></li>
@@ -211,9 +224,7 @@
     <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
       <a href="/about.html">About Us — Our Story</a>
       <a href="/services/career-consulting.html">Career Consulting — High School</a>
-      <a href="/services/professional-development.html">Professional Development</a>
       <a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a>
-      <a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a>
       <a href="/work.html">Case Studies</a>
       <a href="/contact.html">Reach Us</a>
 
@@ -241,6 +252,7 @@
         </div>
         </div>
       </div>
+    </section>
 
     <!-- PROCESS STEPS -->
     <section class="process-section">
@@ -261,7 +273,7 @@
           <div class="process-step">
             <div class="step-num">03</div>
             <h3>Contract and initial payment</h3>
-            <p>Work begins when the contract is signed and the initial payment is received. This applies to every engagement, every stream, every client. It protects your time and ours.</p>
+            <p>Work begins when the contract is signed and the initial payment is received. This applies to every engagement, in both practices, for every client. It protects your time and ours.</p>
           </div>
           <div class="process-step">
             <div class="step-num">04</div>
@@ -304,7 +316,7 @@
               <li>Any written assessment of your situation</li>
               <li>Research, analysis, or mapping of any kind</li>
               <li>Strategy documents, plans, frameworks, or briefs</li>
-              <li>Résumés, LinkedIn profiles, pathway reports</li>
+              <li>Résumés, LinkedIn profiles, Exploration Guides and Career Action Plans</li>
               <li>Website builds, facilitation preparation</li>
               <li>Any email that contains substantive analysis</li>
             </ul>
@@ -313,6 +325,33 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- HOW PAYMENT WORKS -->
+    <section class="payment-section" id="payment">
+      <div class="container">
+        <div class="section-label"><span>Payment</span></div>
+        <h2>How payment works.</h2>
+        <p class="payment-intro">Pricing is shared on your scoping call and set out in writing in your proposal before you commit. The payment schedule depends on the size of the engagement, and it is the same in both practices. All amounts are in Canadian dollars; GST (757324769RC001) applies to all billable work.</p>
+        <div class="pay-grid">
+          <div class="pay-card">
+            <span class="pay-band">Under $800</span>
+            <h3>Two payments</h3>
+            <p><strong>30%</strong> on signing, <strong>70%</strong> on delivery.</p>
+          </div>
+          <div class="pay-card">
+            <span class="pay-band">$800 to $1,500</span>
+            <h3>Three payments</h3>
+            <p><strong>30%</strong> on signing, <strong>40%</strong> at the midpoint, <strong>30%</strong> on delivery.</p>
+          </div>
+          <div class="pay-card">
+            <span class="pay-band">Over $1,500, and retainers</span>
+            <h3>Paid in step with the work</h3>
+            <p><strong>30%</strong> on signing, then bi-weekly installments aligned to Canadian pay cycles.</p>
+          </div>
+        </div>
+        <p class="payment-note">Work begins only once the initial payment has arrived. Invoices come from Olympia &amp; Associates through accounts@olympia-associates.ca. The binding terms are in section 5 of our <a href="/terms.html">Terms of Service</a>.</p>
       </div>
     </section>
 
@@ -358,37 +397,27 @@
     <!-- STREAM LINKS -->
     <section class="streams-section">
       <div class="container">
-        <div class="section-label"><span>Stream-specific process</span></div>
-        <h2>Each practice area has its own engagement detail.</h2>
+        <div class="section-label"><span>Practice-specific process</span></div>
+        <h2>Each practice has its own engagement detail.</h2>
         <div class="streams-list">
           <a href="/services/career-consulting.html" class="stream-link-card">
             <div>
               <h3>Career Consulting — High School</h3>
-              <p>For families with students in Grades 9–12. The engagement begins with a discovery session and moves through NOC/TEER pathway mapping, a written pathway report covering academic roadmap, scholarship calendar, and institution shortlist, and coaching calls for both the student and the parent. The earlier the engagement, the wider the windows — and the lower the cost. Grade 9–10 families access the Foundations package ($750 + GST). Grade 11–12 families access the Pathways package ($1,500 + GST), with an optional Family Navigation add-on ($300 + GST).</p>
-            </div>
-            <span class="stream-arrow">→</span>
-          </a>
-          <a href="/services/professional-development.html" class="stream-link-card">
-            <div>
-              <h3>Professional Development</h3>
-              <p>Two models, one standard. Done For You: we build your résumé, LinkedIn profile, and positioning assets and deliver them in final form — best for clients who know their target and need professional-grade tools to pursue it. Done With You: we build the strategy together, run the campaign collaboratively, and adapt in real time — best for clients navigating a new market, a career change, or internationally trained credentials. The primary entry point is the Career Launch Bundle ($950 + GST), which includes both résumé and LinkedIn plus two coaching calls and an application strategy session.</p>
+              <p>For families with students in Grades 9–12, including newcomer families settling in Alberta. The engagement begins with a discovery session and moves through NOC/TEER pathway mapping to an Exploration Guide of five possible futures and a Delivery Deck. After the student chooses a direction at the decision gate, we build the Career Action Plan: academic roadmap, scholarship calendar with deadlines, an Action Plan Deck and a Calendar Handout. Coaching calls and a parent briefing keep the whole family aligned. The earlier the engagement, the wider the windows. Foundations suits Grades 9–10; Pathways suits Grades 11–12; Family Navigation can be added to either.</p>
             </div>
             <span class="stream-arrow">→</span>
           </a>
           <a href="/services/leadership-consulting.html" class="stream-link-card">
             <div>
               <h3>Leadership &amp; Business Consulting</h3>
-              <p>For founders, executives, and team leaders at a specific moment — a major decision, a strategic pivot, a business plan that needs to hold up to scrutiny, a team that needs facilitation, or an organisation preparing to make a significant move. Engagements are scoped per situation and run from a half-day Strategy Session ($600 + GST) through full Project Engagements (from $1,200 + GST). Facilitation and talks are available from $750 + GST. Every engagement is accompanied — built with you, not delivered to you.</p>
+              <p>Two halves, one standard. Leadership Consulting is for people at a turning point: Career Review (résumé, LinkedIn and interview preparation for professionals in transition, including newcomer and internationally trained professionals), Application Positioning Sessions, coaching, and facilitation and talks. Career Review can be done for you, where we build your assets in final form, or done with you, where we build the strategy and run the campaign together. Business Consulting is for founders and organisations at a specific moment: a Strategy Session for a focused problem, or a Project Engagement for a business plan, positioning or governance document that has to hold up to scrutiny. Every engagement is accompanied: built with you, not delivered to you.</p>
             </div>
             <span class="stream-arrow">→</span>
           </a>
-          <a href="/services/newcomer-pathways.html" class="stream-link-card">
-            <div>
-              <h3>Newcomer &amp; Immigration Pathways</h3>
-              <p>For individuals and families settling in Alberta who need more than a generic orientation. The engagement begins with a structured intake and assessment, moves through a personalised navigation plan covering employment, credential recognition, community access, financial systems, and education, and includes follow-up calls as your situation develops. One important boundary: this is navigation and preparation support — not legal immigration advice. For questions about immigration status, applications, or permits, we will refer you to a licensed RCIC or immigration lawyer. Primary package: Alberta Navigation ($600 + GST). Family Navigation: $900 + GST.</p>
-            </div>
-            <span class="stream-arrow">→</span>
-          </a>
+        </div>
+        <div class="boundary-firmwide">
+          <span class="caution-label">One boundary across the firm</span>
+          <p>Olympia &amp; Associates offers navigation and preparation, never legal immigration advice. Where a family's or client's immigration status affects their options, we note it and plan around it. Questions about eligibility, applications, permits or appeals belong to a licensed immigration consultant (RCIC) or immigration lawyer, and we will point you to one.</p>
         </div>
         <p style="margin-top:20px; font-size:0.9rem; line-height:1.7; color:var(--muted);">
           Everything on this page — the engagement process, the boundary, and all four principles — is formalised in our <a href="/terms.html" style="color:var(--gold); font-weight:600;">Terms of Service</a> and our <a href="/privacy.html" style="color:var(--gold); font-weight:600;">Privacy Policy</a>. We encourage you to read both before signing. They are written in plain language. If anything raises a question, ask before you sign — that is exactly what the scoping call is for.
@@ -417,10 +446,8 @@
         <div>
           <span class="footer-col-head">What We Offer</span>
           <ul class="footer-links">
-            <li><a href="/services/professional-development.html">Professional Development</a></li>
             <li><a href="/services/career-consulting.html">Career Consulting — High School</a></li>
             <li><a href="/services/leadership-consulting.html">Leadership &amp; Business Consulting</a></li>
-            <li><a href="/services/newcomer-pathways.html">Newcomer &amp; Immigration Pathways</a></li>
           </ul>
         </div>
         <div>
@@ -429,6 +456,7 @@
             <li><a href="/about.html">About Us</a></li>
             <li><a href="/work.html">Case Studies</a></li>
             <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/insights.html">Insights</a></li>
             <li><a href="/clients.html">Client Portal</a></li>
           </ul>
         </div>
