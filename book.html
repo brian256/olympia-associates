@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a call | Olympia &amp; Associates</title>
+  <meta name="robots" content="noindex, nofollow">
+  <!--
+    SINGLE SOURCE OF TRUTH for the booking link.
+    Every "Book a call" button on the site points to /book.html.
+    To change the Calendly URL, edit BOOKING_URL below and the two fallback
+    URLs (meta refresh and the visible link). Nothing else on the site changes.
+  -->
+  <meta http-equiv="refresh" content="0; url=https://calendly.com/ssennogab24/30min">
+  <style>
+    :root { --gold:#90660C; --near-black:#1A1A1A; --bg-warm:#F7F4ED; --muted:#6b6b6b; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px 16px; background:var(--bg-warm); color:var(--near-black); font-family:Georgia,'Times New Roman',serif; text-align:center; }
+    main { max-width:440px; }
+    .brand { font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin:0 0 18px; }
+    h1 { font-size:1.5rem; margin:0 0 12px; font-weight:600; }
+    p { margin:0 0 20px; line-height:1.6; color:var(--muted); }
+    a.btn { display:inline-block; background:var(--gold); color:#fff; text-decoration:none; padding:13px 26px; font-size:0.95rem; border-radius:2px; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="brand">Olympia &amp; Associates</p>
+    <h1>Opening the booking calendar&hellip;</h1>
+    <p>If nothing happens in a moment, use the button below.</p>
+    <a class="btn" id="go" href="https://calendly.com/ssennogab24/30min">Book a call &rarr;</a>
+  </main>
+  <script>
+    var BOOKING_URL = "https://calendly.com/ssennogab24/30min";
+    window.location.replace(BOOKING_URL);
+  </script>
+</body>
+</html>
