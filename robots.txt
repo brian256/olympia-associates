@@ -3,5 +3,6 @@ Allow: /
 Disallow: /openpath.html
 Disallow: /openpath2.html
 Disallow: /clients.html
+Disallow: /book.html
 
 Sitemap: https://olympia-associates.ca/sitemap.xml
