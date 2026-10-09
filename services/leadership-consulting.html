@@ -374,11 +374,6 @@
     .footer-cta .btn:hover { background: var(--white); color: var(--near-black); border-color: var(--white); }
     @media (max-width: 1024px) { .avail-inner { grid-template-columns: 1fr; gap: 40px; } .packages-grid.three { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 768px) { .zones-grid, .models-grid { grid-template-columns: 1fr; } .packages-grid.three { grid-template-columns: 1fr; } .avail-right { padding: 28px 20px; } }
-    .waitlist-form .wl-msg { font-size: 0.85rem; line-height: 1.5; margin: 0; }
-    .waitlist-form .wl-msg:empty { display: none; }
-    .waitlist-form .wl-ok { color: var(--near-black); font-weight: 600; }
-    .waitlist-form .wl-err { color: #9b2c2c; }
-    .waitlist-form .btn-submit:disabled { opacity: 0.6; cursor: default; }
   </style>
 </head>
 <body>
@@ -405,7 +400,7 @@
         <li><a href="/contact.html">Reach Us</a></li>
             
       </ul>
-      <a href="https://calendly.com/ssennogab24/scopingcall" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+      <a href="/book.html" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
       <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -417,7 +412,7 @@
       <a href="/work.html">Case Studies</a>
       <a href="/contact.html">Reach Us</a>
       <div class="drawer-cta">
-        <a href="https://calendly.com/ssennogab24/scopingcall" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a>
+        <a href="/book.html" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">Book my free 30-min scoping call</a>
       </div>
     </nav>
   </header>
@@ -432,7 +427,7 @@
         <h1>You have the vision, or the experience. <em>The question is whether the structure beneath it will hold.</em></h1>
         <p class="lead" style="margin-top:16px;">Leadership Consulting for people and teams at a turning point: coaching, facilitation and talks, and Career Review for professionals making a move, including newcomer and internationally trained professionals. Business Consulting for founders and organisations that need a plan pressure-tested, a strategy built, or a positioning that holds. One practice, one consultant, accompanied from the first call to the handoff.</p>
         <div class="hero-cta-row">
-          <a href="https://calendly.com/ssennogab24/scopingcall" class="btn btn-primary" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+          <a href="/book.html" class="btn btn-primary" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
           <a href="#leadership" class="hero-scroll">Leadership Consulting ↓</a>
           <a href="#business" class="hero-scroll">Business Consulting ↓</a>
         </div>          </div>
@@ -550,7 +545,7 @@
         <!-- Full-width urgency block -->
         <div class="qualify-urgency">
           <p><strong>If you said yes to six or more — your job search needs a professional rebuild, not more applications.</strong> Every month spent with the wrong tools is a month of opportunities that went to someone whose résumé told the story better than yours. A scoping call is free. Rebuilding your approach after another six months of silence is not.</p>
-          <a href="https://calendly.com/ssennogab24/scopingcall" class="btn btn-white" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+          <a href="/book.html" class="btn btn-white" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
         </div>
       </div>
     </section><section class="models-section tone-white">
@@ -667,7 +662,7 @@
         </div>
         <div class="qualify-urgency">
           <p><strong>If six or more of these landed — the scoping call is the right next step.</strong> Strategy problems compound quietly. Every month a plan goes untested, a positioning gap goes unaddressed, or a team dynamic goes unresolved, the cost grows. A 30-minute scoping call is free. Commissioning a strategy retreat after a year of drift is not.</p>
-          <a href="https://calendly.com/ssennogab24/scopingcall" class="btn btn-white" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
+          <a href="/book.html" class="btn btn-white" target="_blank" rel="noopener">Book my free 30-min scoping call</a>
         </div>
       </div>
     </section>
@@ -853,23 +848,10 @@
           <div class="avail-right">
             <h3>Join the waitlist</h3>
             <p>Leave your details and we will be in touch within 48 hours with your estimated wait time and a first resource matched to your situation, where one fits.</p>
-            <form class="waitlist-form" data-stream="lbc" action="mailto:brian@olympia-associates.ca" method="get" enctype="text/plain">
-              <input type="text" name="name" placeholder="Your name" required>
-              <input type="email" name="email" placeholder="Email address" required>
-              <select name="interest">
-                <option value="" disabled selected>What would you like to talk about?</option>
-                <option value="career-review">Career Review: résumé, LinkedIn and interviews</option>
-                <option value="positioning">Application Positioning Session</option>
-                <option value="coaching">Coaching</option>
-                <option value="facilitation">A talk or facilitation</option>
-                <option value="business">Strategy Session or Project Engagement</option>
-                <option value="unsure">Not sure yet</option>
-              </select>
-              <input type="text" name="context" placeholder="One sentence: what's your situation? (optional)">
-              <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
-              <button type="submit" class="btn-submit">Join the waitlist →</button>
-              <p class="wl-msg" role="status" aria-live="polite"></p>
-            </form>
+            <div class="waitlist-form">
+              <button type="button" class="btn-submit" data-oa-form="waitlist-lbc">Join the waitlist →</button>
+              <noscript><p style="font-size:0.85rem;color:var(--muted);margin:0;">This needs JavaScript. To join, email <a href="mailto:hello@olympia-associates.ca">hello@olympia-associates.ca</a>.</p></noscript>
+            </div>
             <ul class="waitlist-benefits">
               <li>A first resource matched to your situation, where one fits</li>
               <li>Access to the Olympia Community while you wait (Career Review)</li>
@@ -898,7 +880,7 @@
       <div class="container">
         <h2>Start with a conversation.</h2>
         <p>30 minutes. Free. No commitment. We'll tell you honestly whether there's a fit, and whether a spot is open.</p>
-        <a href="https://calendly.com/ssennogab24/scopingcall" class="btn" target="_blank" rel="noopener">Book my free 30-min scoping call →</a>
+        <a href="/book.html" class="btn" target="_blank" rel="noopener">Book my free 30-min scoping call →</a>
       </div>
     </section>
 
@@ -930,7 +912,7 @@
         </div>
         <div class="footer-contact">
           <span class="footer-col-head">Get in touch</span>
-          <p><a href="https://calendly.com/ssennogab24/scopingcall" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p>
+          <p><a href="/book.html" target="_blank" rel="noopener">Book my free 30-min scoping call →</a></p>
           <p>Email<br><a href="mailto:hello@olympia-associates.ca">hello@olympia-associates.ca</a></p>
           <p style="margin-top:14px; font-size:0.75rem; color:rgba(255,255,255,0.28); line-height:1.5;">Website Artwork by<br>Keanna Suubi</p>
         </div>
@@ -980,38 +962,6 @@
       });
     });
   </script>
-<script>
-  // Waitlist sign-up: posts to the Olympia hub Worker. If the Worker can't be
-  // reached, the form falls back to its plain mailto action so no sign-up is lost.
-  (function () {
-    var ENDPOINT = "https://oa-internal-hub.brian-bc2.workers.dev/api/waitlist";
-    document.querySelectorAll("form.waitlist-form[data-stream]").forEach(function (f) {
-      f.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var btn = f.querySelector(".btn-submit");
-        var msg = f.querySelector(".wl-msg");
-        var label = btn.textContent;
-        var d = { stream: f.getAttribute("data-stream") };
-        new FormData(f).forEach(function (v, k) { d[k] = v; });
-        if (d.context) { d.note = d.context; delete d.context; }
-        btn.disabled = true; btn.textContent = "Sending…"; msg.className = "wl-msg"; msg.textContent = "";
-        fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) })
-          .then(function (r) { return r.json().then(function (j) { return { status: r.status, j: j }; }); })
-          .then(function (x) {
-            if (x.j && x.j.ok) {
-              f.reset();
-              msg.className = "wl-msg wl-ok";
-              msg.textContent = "You're on the waitlist. I'll be in touch by email.";
-              btn.textContent = "Joined ✓";
-            } else if (x.status >= 400 && x.status < 500 && x.j && x.j.error) {
-              msg.className = "wl-msg wl-err"; msg.textContent = x.j.error;
-              btn.disabled = false; btn.textContent = label;
-            } else { throw new Error("server"); }
-          })
-          .catch(function () { HTMLFormElement.prototype.submit.call(f); });
-      });
-    });
-  })();
-</script>
+<script src="/assets/js/forms.js" defer></script>
 </body>
 </html>
