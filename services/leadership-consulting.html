@@ -374,6 +374,14 @@
     .footer-cta .btn:hover { background: var(--white); color: var(--near-black); border-color: var(--white); }
     @media (max-width: 1024px) { .avail-inner { grid-template-columns: 1fr; gap: 40px; } .packages-grid.three { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 768px) { .zones-grid, .models-grid { grid-template-columns: 1fr; } .packages-grid.three { grid-template-columns: 1fr; } .avail-right { padding: 28px 20px; } }
+  
+    /* Mobile hero fix: must come after the base .page-hero-inner rule above */
+    @media (max-width: 768px) {
+      .qualify-urgency { padding: 24px 20px; gap: 20px; }
+      .qualify-urgency p { min-width: 0; flex-basis: 100%; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .page-hero-artwork { display: none; }
+    }
   </style>
 </head>
 <body>

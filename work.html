@@ -190,7 +190,15 @@
     .artwork-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
     .artwork-frame:hover img { transform: scale(1.03); }
     .artwork-credit { margin-top: 10px; font-size: 0.68rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
-</style>
+
+    /* Mobile hero fix: must come after the base .page-hero-inner rule above */
+    @media (max-width: 768px) {
+      .case-card { min-width: 0; }
+      .case-card * { overflow-wrap: anywhere; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .page-hero-artwork { display: none; }
+    }
+  </style>
 </head>
 <body>
 

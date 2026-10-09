@@ -190,7 +190,13 @@
     .boundary-firmwide .caution-label { display: block; margin-bottom: 6px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
     .boundary-firmwide p { font-size: 0.9rem; line-height: 1.7; color: var(--body-text); }
     @media (max-width: 900px) { .pay-grid { grid-template-columns: 1fr; } }
-</style>
+
+    /* Mobile hero fix: must come after the base .page-hero-inner rule above */
+    @media (max-width: 768px) {
+      .page-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .page-hero-artwork { display: none; }
+    }
+  </style>
 </head>
 <body>
 

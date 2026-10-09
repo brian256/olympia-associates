@@ -268,6 +268,15 @@
     .case-inner { grid-template-columns: 1fr; }
     .package-card.featured .package-grade, .package-card.featured .package-gst { color: rgba(255,255,255,0.7); }
     .package-card.featured .package-note { color: rgba(255,255,255,0.65); border-top-color: rgba(255,255,255,0.15); }
+  
+    /* Mobile hero fix: must come after the base .page-hero-inner rule above */
+    @media (max-width: 768px) {
+      .qualify-urgency { padding: 24px 20px; gap: 20px; }
+      .qualify-urgency p { min-width: 0; flex-basis: 100%; }
+      [style*='border-top:3px solid var(--gold)'] { min-width: 0; padding: 28px 20px !important; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .page-hero-artwork { display: none; }
+    }
   </style>
 </head>
 <body>
